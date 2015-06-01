@@ -1,7 +1,7 @@
 #!/bin/sh
 function build_test_header {
     base="$1"
-    sed "testLisp/t_template.h" -e "s/%NAME%/$base/"
+    sed -e "s/%NAME%/$base/" "testLisp/t_template.h" 
 }
 
 function build_test_source {

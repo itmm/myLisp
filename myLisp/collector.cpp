@@ -33,7 +33,11 @@ void Collector::collect() {
     
     std::vector<Pair *> remaining;
     for (auto i = _managed.begin(); i != _managed.end(); ++i) {
-        if (seen.find(*i) != seen.end()) { remaining.push_back(*i); }
+        if (seen.find(*i) != seen.end()) {
+            remaining.push_back(*i);
+        } else {
+            delete *i; *i = nullptr;
+        }
     }
     _managed = remaining;
     

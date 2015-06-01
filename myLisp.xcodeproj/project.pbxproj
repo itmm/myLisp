@@ -31,6 +31,10 @@
 		705895711B1C9CF90035ED69 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895701B1C9CF90035ED69 /* main.cpp */; };
 		705895761B1C9E8A0035ED69 /* fractional.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895661B18C27B0035ED69 /* fractional.cpp */; };
 		705895791B1C9E990035ED69 /* t_fractional.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895771B1C9E990035ED69 /* t_fractional.cpp */; };
+		705895861B1CB8180035ED69 /* t_number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895841B1CB8180035ED69 /* t_number.cpp */; };
+		705895871B1CB84E0035ED69 /* element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895531B186A3E0035ED69 /* element.cpp */; };
+		705895881B1CB8530035ED69 /* number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895631B18BFCE0035ED69 /* number.cpp */; };
+		7058958B1B1CB8AE0035ED69 /* t_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895891B1CB8AE0035ED69 /* t_helper.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,10 @@
 		7058957A1B1CA0690035ED69 /* t_template.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = t_template.h; sourceTree = "<group>"; };
 		7058957B1B1CA07E0035ED69 /* t_template.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = t_template.cpp; sourceTree = "<group>"; };
 		7058957C1B1CA11C0035ED69 /* update_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_tests.sh; sourceTree = "<group>"; };
+		705895841B1CB8180035ED69 /* t_number.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_number.cpp; sourceTree = "<group>"; };
+		705895851B1CB8180035ED69 /* t_number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_number.h; sourceTree = "<group>"; };
+		705895891B1CB8AE0035ED69 /* t_helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_helper.cpp; sourceTree = "<group>"; };
+		7058958A1B1CB8AE0035ED69 /* t_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_helper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,11 +156,15 @@
 		7058956F1B1C9CF90035ED69 /* testLisp */ = {
 			isa = PBXGroup;
 			children = (
+				705895841B1CB8180035ED69 /* t_number.cpp */,
+				705895851B1CB8180035ED69 /* t_number.h */,
 				705895701B1C9CF90035ED69 /* main.cpp */,
 				705895771B1C9E990035ED69 /* t_fractional.cpp */,
 				705895781B1C9E990035ED69 /* t_fractional.h */,
 				7058957A1B1CA0690035ED69 /* t_template.h */,
 				7058957B1B1CA07E0035ED69 /* t_template.cpp */,
+				705895891B1CB8AE0035ED69 /* t_helper.cpp */,
+				7058958A1B1CB8AE0035ED69 /* t_helper.h */,
 			);
 			path = testLisp;
 			sourceTree = "<group>";
@@ -270,7 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7058958B1B1CB8AE0035ED69 /* t_helper.cpp in Sources */,
 				705895761B1C9E8A0035ED69 /* fractional.cpp in Sources */,
+				705895861B1CB8180035ED69 /* t_number.cpp in Sources */,
+				705895881B1CB8530035ED69 /* number.cpp in Sources */,
+				705895871B1CB84E0035ED69 /* element.cpp in Sources */,
 				705895791B1C9E990035ED69 /* t_fractional.cpp in Sources */,
 				705895711B1C9CF90035ED69 /* main.cpp in Sources */,
 			);

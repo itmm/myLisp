@@ -17,4 +17,10 @@
             Fractional _value;
     };
 
+    /*TESTS:
+     *
+     *  Number(42).value() == 42
+     *
+     */
+
 #endif

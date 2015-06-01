@@ -6,7 +6,7 @@
 
     class Number: public Element {
         public:
-            Number(const Fractional value): _value(value) {}
+            Number(const Fractional &value): _value(value) {}
         
             virtual Number *as_number();
             virtual void to_stream(std::ostream &output);

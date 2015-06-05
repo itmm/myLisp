@@ -43,7 +43,7 @@ end
 def update_tests(base, header, source, t_header, t_source) 
 	puts "testing " + header
 	tests = [grep_tests(header), grep_tests(source)].flatten(1)
-	if tests.size()
+	if tests.size() > 0
 		write_tests base, t_header, t_source, tests
 	end
 end

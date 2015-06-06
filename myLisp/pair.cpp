@@ -22,12 +22,12 @@ Pair::~Pair() {
 
 Pair *Pair::as_pair() { return this; }
 
-void Pair::to_stream(std::ostream &stream) {
+void Pair::to_stream(std::ostream &stream) const {
     if (this == _null) {
         stream << "()";
     } else {
         stream << "(";
-        Pair *cur = this;
+        const Pair *cur = this;
         while (cur && cur != _null) {
             if (cur != this) { stream << " "; }
             if (cur->car()) { stream << *cur->car(); }

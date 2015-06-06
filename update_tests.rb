@@ -25,6 +25,8 @@ def grep_tests(file, base)
 			in_tests = true
 		elsif /\*\// =~ line
 			in_tests = false
+        elsif in_tests && /^\s*\*>/ =~ line
+            tests << line.gsub(/^\s*\*>\s*/, "")
 		elsif in_tests
 			test = line.gsub(/^\s*\*\s*/, "").gsub(/\n/, '')
 			if test != ""

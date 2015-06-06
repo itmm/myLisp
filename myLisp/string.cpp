@@ -1,7 +1,7 @@
 #include "string.h"
 
-String *String::to_string() { return this; }
+String *String::as_string() { return this; }
 
-void String::to_stream(std::ostream &stream) {
+void String::to_stream(std::ostream &stream) const {
     stream << "\"" << _str << "\"";
 }

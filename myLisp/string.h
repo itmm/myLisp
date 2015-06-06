@@ -11,11 +11,23 @@
         
             const std::string &str() { return _str; }
         
-            virtual String *to_string();
-            virtual void to_stream(std::ostream &stream);
+            virtual String *as_string();
+            virtual void to_stream(std::ostream &stream) const;
     
         private:
             std::string _str;
     };
 
+    /*TESTS:
+     *
+     *  String("8").as_number() == nullptr
+     *  String("(1 2)").as_pair() == nullptr
+     *  String("9").as_string() != nullptr
+     *  String("pv").as_string()->str() == "pv"
+     * 
+     *  String("abc").str() == "abc"
+     *  (OUT << String("x y")) == "\"x y\""
+     *  (OUT << String("")) == "\"\""
+     */
+     
 #endif

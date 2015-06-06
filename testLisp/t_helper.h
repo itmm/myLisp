@@ -1,6 +1,7 @@
 #ifndef t_helper_h
 #define t_helper_h
 
+    #include <iostream>
     #include <sstream>
 
     class OutSink {
@@ -18,7 +19,11 @@
             }
         
             bool operator==(const char *expected) const {
-                return _out.str() == expected;
+                if (_out.str() != expected) {
+                    std::cout << "\"" << _out.str() << "\" != \"" << expected << "\"\n";
+                    return false;
+                }
+                return true;
             }
     };
 

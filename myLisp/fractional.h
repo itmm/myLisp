@@ -23,11 +23,27 @@
             bool _isNegative;
     };
 
+    /*TESTS:
+     *
+     *  -Fractional(2, 3) == Fractional(2, 3, true)
+     *  -Fractional(2, 1, true) == 2
+     */
     inline Fractional operator-(const Fractional &num) {
         return Fractional(num.numerator(), num.denomerator(), !num.isNegative());
     }
 
+    /*TESTS:
+     *
+     *  gcd(2, 6) == 2
+     *  gcd(6, 2) == 2
+     *  gcd(1, 1) == 1
+     *  gcd(8, 8) == 8
+     *  gcd(0, 3) == 0
+     *  gcd(3, 0) == 0
+     *  gcd(0, 0) == 0
+     */
     inline BigInt gcd(BigInt a, BigInt b) {
+        if (!a || ! b) { return 0; }
         while (b) {
             BigInt r = a % b;
             a = b;
@@ -51,6 +67,16 @@
 
     Fractional operator-(const Fractional &a, const Fractional &b);
 
+    /*TESTS:
+     *
+     *  Fractional(5, 2) + 3 == Fractional(11, 2)
+     *  -Fractional(3) + 7 == 4
+     *  -Fractional(3) + -Fractional(3) == -Fractional(6)
+     *  3 + -Fractional(7) == -Fractional(4)
+     *  Fractional(2, 3) + 0 == Fractional(2, 3)
+     *  Fractional(1, 3) + Fractional(5, 3) == 2
+     *  Fractional(1, 2) + Fractional(3, 5) == Fractional(11, 10)
+     */
     inline Fractional operator+(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
            return a - (-b);
@@ -59,6 +85,11 @@
         return Fractional(a.numerator() * b.denomerator() + b.numerator() * a.denomerator(), a.denomerator() * b.denomerator(), a.isNegative());
     }
 
+    /*TESTS:
+     *  Fractional(5) - 3 == 2
+     *  Fractional(8, 3) - Fractional(2, 3) == 2
+     *  Fractional(1, 3) - Fractional(4, 3) == -Fractional(1)
+     */
     inline Fractional operator-(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
             return a + (-b);
@@ -71,6 +102,13 @@
         return Fractional(a.numerator() * b.denomerator() - b.numerator() * a.denomerator(), a.denomerator() * b.denomerator(), a.isNegative());
     }
 
+    /*TESTS:
+     *
+     *  Fractional(2, 3) * Fractional(5, 7) == Fractional(10, 21)
+     *  Fractional(3) * Fractional(2, 3) == 2
+     *  3 * Fractional::infinity() == Fractional::infinity()
+     *  6 * Fractional::notANumber() == Fractional::notANumber()
+     */
     inline Fractional operator*(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.numerator(), a.denomerator() * b.denomerator(), a.isNegative() != b.isNegative());
     }
@@ -80,6 +118,9 @@
      *  Fractional(6) / 3 == 2
      *  1 / Fractional(2) == Fractional(1, 2)
      *  -Fractional(3) / 6 == -Fractional(1, 2)
+     *  Fractional(1) / 0 == Fractional::infinity()
+     *  -Fractional(1) / 0 == Fractional::minusInfinity()
+     *  Fractional(0) / 0 == Fractional::notANumber()
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.denomerator(), a.denomerator() * b.numerator(), a.isNegative() != b.isNegative());

@@ -16,14 +16,14 @@
             virtual Pair *as_pair();
             virtual String *as_string();
         
-            virtual void to_stream(std::ostream &stream) = 0;
+            virtual void to_stream(std::ostream &stream) const = 0;
         
         private:
             Element(const Element &);
             Element &operator=(const Element &);
     };
 
-    inline std::ostream &operator<<(std::ostream &output, Element &elm) {
+    inline std::ostream &operator<<(std::ostream &output, const Element &elm) {
         elm.to_stream(output);
         return output;
     }

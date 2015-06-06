@@ -3,6 +3,7 @@
 
     #include <iostream>
 
+    class Dictionary;
     class Number;
     class Pair;
     class String;
@@ -13,6 +14,7 @@
             virtual ~Element();
             virtual void free();
         
+            virtual Dictionary *as_dictionary();
             virtual Number *as_number();
             virtual Pair *as_pair();
             virtual String *as_string();

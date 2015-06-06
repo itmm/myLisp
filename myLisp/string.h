@@ -20,6 +20,7 @@
 
     /*TESTS:
      *
+     *  String("[]").as_dictionary() == nullptr
      *  String("8").as_number() == nullptr
      *  String("(1 2)").as_pair() == nullptr
      *  String("9").as_string() != nullptr

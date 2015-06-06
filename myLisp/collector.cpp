@@ -1,9 +1,17 @@
 #include "collector.h"
 
-#include <iostream>
-#include <set>
+#include <cassert>
 
+#include "dictionary.h"
 #include "pair.h"
+
+Collector::~Collector() {
+    while (_initial_bondages.size()) {
+        release_initial_bondage(_initial_bondages.front());
+    }
+    collect();
+    assert(_managed.size() == 0);
+}
 
 Pair *Collector::new_pair(Element *car, Element *cdr) {
     Pair *pair = new Pair(car, cdr);
@@ -12,9 +20,22 @@ Pair *Collector::new_pair(Element *car, Element *cdr) {
     return pair;
 }
 
+Dictionary *Collector::new_dictionary(Dictionary *parent) {
+    Dictionary *dict = new Dictionary(parent);
+    _initial_bondages.push_back(dict);
+    _managed.push_back(dict);
+    return dict;
+}
+
+void Collector::may_push_back(std::vector<Element *> &col, std::set<Element *> seen, Element *elm) {
+    if (elm && elm != Pair::null() && (elm->as_pair() || elm->as_dictionary())) {
+        if (seen.find(elm) == seen.end()) {
+            col.push_back(elm);
+        }
+    }
+}
+
 void Collector::collect() {
-    std::cout << "before collect: " << _managed.size() << " (roots == " << _roots.size() << ")\n";
-    
     std::set<Element *> seen;
     std::vector<Element *> toVisit = _roots;
     toVisit.insert(toVisit.end(), _initial_bondages.begin(), _initial_bondages.end());
@@ -27,13 +48,13 @@ void Collector::collect() {
         
         Pair *cur_pair = cur->as_pair();
         if (cur_pair && cur_pair != Pair::null()) {
-            Pair *car = cur_pair->car() ? cur_pair->car()->as_pair() : nullptr;
-            car = car != Pair::null() ? car : nullptr;
-            Pair *cdr = cur_pair->cdr() ? cur_pair->cdr()->as_pair() : nullptr;
-            cdr = cdr != Pair::null() ? cdr : nullptr;
-            
-            if (car && seen.find(car) == seen.end()) { toVisit.push_back(car); }
-            if (cdr && seen.find(cdr) == seen.end()) { toVisit.push_back(cdr); }
+            may_push_back(toVisit, seen, cur_pair->car());
+            may_push_back(toVisit, seen, cur_pair->cdr());
+        }
+        
+        Dictionary *cur_dict = cur->as_dictionary();
+        if (cur_dict) {
+            may_push_back(toVisit, seen, cur_dict->parent());
         }
     }
     
@@ -42,6 +63,9 @@ void Collector::collect() {
         if (seen.find(*i) == seen.end()) {
             Pair *p = (**i).as_pair();
             if (p) { p->free_childs(); }
+            
+            Dictionary *d = (**i).as_dictionary();
+            if (d) { d->free_childs(); }
         }
     }
     for (auto i = _managed.begin(); i != _managed.end(); ++i) {
@@ -52,6 +76,4 @@ void Collector::collect() {
         }
     }
     _managed = remaining;
-    
-    std::cout << "after collect: " << _managed.size() << "\n";
 }

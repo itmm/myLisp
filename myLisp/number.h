@@ -19,6 +19,7 @@
 
     /*TESTS:
      *
+     *  Number(0).as_dictionary() == nullptr
      *  Number(1).as_number() != nullptr
      *  Number(2).as_pair() == nullptr
      *  Number(3).as_string() == nullptr

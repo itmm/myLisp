@@ -41,6 +41,7 @@
      *
      *> #include "String.h"
      *
+     *  Pair::null()->as_dictionary() == nullptr
      *  Pair::null()->as_pair() != nullptr
      *  Pair::null()->as_number() == nullptr
      *  Pair::null()->as_string() == nullptr
@@ -48,8 +49,6 @@
      *
      *  Pair::null()->car() == Pair::null()
      *  Pair::null()->cdr() == Pair::null()
-     *
-     *> // TODO: Collection
      *
      *  (OUT << *CONS(new String("a"), CONS(new String("b"), Pair::null()))) == "(\"a\" \"b\")"
      *  (OUT << *Pair::null()) == "()"

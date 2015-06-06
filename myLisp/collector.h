@@ -3,24 +3,32 @@
 
     #include <algorithm>
     #include <vector>
+    #include <set>
 
     #include "pair.h"
 
+    class Dictionary;
     class Element;
 
     class Collector {
         public:
             Collector() {}
-        
+            ~Collector();
+            
             Pair *new_pair(Element *car, Element *cdr);
+            Dictionary *new_dictionary(Dictionary *parent = nullptr);
+        
             bool release_initial_bondage(Element *elm);
             bool make_root(Element *root);
             bool release_root(Element *root);
+
             void collect();
         
         private:
             Collector(const Collector &);
             Collector &operator=(const Collector &);
+
+            void may_push_back(std::vector<Element *> &col, std::set<Element *> seen, Element *elm);
         
             std::vector<Element *> _managed;
             std::vector<Element *> _initial_bondages;

@@ -4,4 +4,5 @@ testLisp/t_pair.cpp
 testLisp/t_string.cpp
 testLisp/t_parser.cpp
 testLisp/t_collector.cpp
+testLisp/t_dictionary.cpp
 

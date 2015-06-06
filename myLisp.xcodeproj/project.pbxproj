@@ -18,7 +18,6 @@
 		24D82F701B237A7D00A8A86C /* t_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F6F1B237A7D00A8A86C /* t_collector.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		24D82F741B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
-		24D82F761B23850900A8A86C /* t_dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F751B23850900A8A86C /* t_dictionary.cpp */; };
 		24D82F771B23850900A8A86C /* t_dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F751B23850900A8A86C /* t_dictionary.cpp */; };
 		7058954A1B1869200035ED69 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895491B1869200035ED69 /* main.cpp */; };
 		705895521B18697C0035ED69 /* pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895501B18697C0035ED69 /* pair.cpp */; };
@@ -272,7 +271,6 @@
 				705895621B18BA5D0035ED69 /* string.cpp in Sources */,
 				705895681B18C27B0035ED69 /* fractional.cpp in Sources */,
 				24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */,
-				24D82F761B23850900A8A86C /* t_dictionary.cpp in Sources */,
 				705895521B18697C0035ED69 /* pair.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

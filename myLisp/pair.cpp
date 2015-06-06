@@ -20,6 +20,10 @@ Pair::~Pair() {
     if (_cdr && !_cdr->as_pair()) { delete _cdr; } _cdr = nullptr;
 }
 
+void Pair::free() {
+    // free by garbage collector
+}
+
 Pair *Pair::as_pair() { return this; }
 
 void Pair::to_stream(std::ostream &stream) const {

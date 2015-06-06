@@ -27,6 +27,7 @@
      *
      *  -Fractional(2, 3) == Fractional(2, 3, true)
      *  -Fractional(2, 1, true) == 2
+     *
      */
     inline Fractional operator-(const Fractional &num) {
         return Fractional(num.numerator(), num.denomerator(), !num.isNegative());
@@ -41,6 +42,7 @@
      *  gcd(0, 3) == 0
      *  gcd(3, 0) == 0
      *  gcd(0, 0) == 0
+     *
      */
     inline BigInt gcd(BigInt a, BigInt b) {
         if (!a || ! b) { return 0; }
@@ -76,6 +78,7 @@
      *  Fractional(2, 3) + 0 == Fractional(2, 3)
      *  Fractional(1, 3) + Fractional(5, 3) == 2
      *  Fractional(1, 2) + Fractional(3, 5) == Fractional(11, 10)
+     *
      */
     inline Fractional operator+(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
@@ -86,9 +89,11 @@
     }
 
     /*TESTS:
+     *
      *  Fractional(5) - 3 == 2
      *  Fractional(8, 3) - Fractional(2, 3) == 2
      *  Fractional(1, 3) - Fractional(4, 3) == -Fractional(1)
+     *
      */
     inline Fractional operator-(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
@@ -108,6 +113,7 @@
      *  Fractional(3) * Fractional(2, 3) == 2
      *  3 * Fractional::infinity() == Fractional::infinity()
      *  6 * Fractional::notANumber() == Fractional::notANumber()
+     *
      */
     inline Fractional operator*(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.numerator(), a.denomerator() * b.denomerator(), a.isNegative() != b.isNegative());
@@ -121,6 +127,7 @@
      *  Fractional(1) / 0 == Fractional::infinity()
      *  -Fractional(1) / 0 == Fractional::minusInfinity()
      *  Fractional(0) / 0 == Fractional::notANumber()
+     *
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.denomerator(), a.denomerator() * b.numerator(), a.isNegative() != b.isNegative());
@@ -128,8 +135,8 @@
 
     /*TESTS:
      *
-     *  (Fractional(3) == Fractional(3)) == true
-     *  (Fractional(3) == Fractional(4)) == false
+     *  (Fractional(3) == 3) == true
+     *  (Fractional(3) == 4) == false
      *  (Fractional(3) == -Fractional(3)) == false
      *  (Fractional(0) == -Fractional(0)) == true
      *

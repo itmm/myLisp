@@ -11,6 +11,7 @@
         public:
             Element() {}
             virtual ~Element();
+            virtual void free();
         
             virtual Number *as_number();
             virtual Pair *as_pair();

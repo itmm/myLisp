@@ -28,6 +28,7 @@
      *  String("abc").str() == "abc"
      *  (OUT << String("x y")) == "\"x y\""
      *  (OUT << String("")) == "\"\""
+     *
      */
      
 #endif

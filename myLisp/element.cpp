@@ -1,6 +1,7 @@
 #include "element.h"
 
 Element::~Element() {}
+void Element::free() { delete this; }
 
 Number *Element::as_number() { return nullptr; }
 Pair *Element::as_pair() { return nullptr; }

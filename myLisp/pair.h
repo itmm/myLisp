@@ -5,8 +5,8 @@
     
     class Pair: public Element {
         public:
-            Pair(Element *car, Element *cdr): _car(car), _cdr(cdr) {}
             virtual ~Pair();
+            virtual void free();
         
             Element *car() const { return _car; }
             Element *cdr() const { return _cdr; }
@@ -17,6 +17,10 @@
             virtual void to_stream(std::ostream &stream) const;
 
         private:
+            Pair(Element *car, Element *cdr): _car(car), _cdr(cdr) {}
+
+            friend class Collector;
+            
             Element *_car;
             Element *_cdr;
         
@@ -43,9 +47,11 @@
      *  Pair::null()->car() == Pair::null()
      *  Pair::null()->cdr() == Pair::null()
      *
-     *  (OUT << Pair(new String("a"), new Pair(new String("b"), Pair::null()))) == "(\"a\" \"b\")"
+     *> // TODO: Collection
+     *
+     *  (OUT << *CONS(new String("a"), CONS(new String("b"), Pair::null()))) == "(\"a\" \"b\")"
      *  (OUT << *Pair::null()) == "()"
-     *  (OUT << Pair(new String("a"), new String("b"))) == "(\"a\" . \"b\")"
+     *  (OUT << *CONS(new String("a"), new String("b"))) == "(\"a\" . \"b\")"
      *
      */
 

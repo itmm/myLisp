@@ -11,6 +11,10 @@
 		24D82F641B23500100A8A86C /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895601B18BA5D0035ED69 /* string.cpp */; };
 		24D82F661B2351A000A8A86C /* t_pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F651B2351A000A8A86C /* t_pair.cpp */; };
 		24D82F671B2351B000A8A86C /* pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895501B18697C0035ED69 /* pair.cpp */; };
+		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
+		24D82F6B1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
+		24D82F6D1B23623100A8A86C /* t_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F6C1B23623100A8A86C /* t_parser.cpp */; };
+		24D82F6E1B236D9A00A8A86C /* collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895561B186D380035ED69 /* collector.cpp */; };
 		7058954A1B1869200035ED69 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895491B1869200035ED69 /* main.cpp */; };
 		705895521B18697C0035ED69 /* pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895501B18697C0035ED69 /* pair.cpp */; };
 		705895551B186A3E0035ED69 /* element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895531B186A3E0035ED69 /* element.cpp */; };
@@ -52,6 +56,9 @@
 		24D82F601B233FFE00A8A86C /* t_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_test.h; sourceTree = "<group>"; };
 		24D82F621B234FDC00A8A86C /* t_string.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_string.cpp; sourceTree = "<group>"; };
 		24D82F651B2351A000A8A86C /* t_pair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_pair.cpp; sourceTree = "<group>"; };
+		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
+		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		24D82F6C1B23623100A8A86C /* t_parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_parser.cpp; sourceTree = "<group>"; };
 		705895461B1869200035ED69 /* myLisp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = myLisp; sourceTree = BUILT_PRODUCTS_DIR; };
 		705895491B1869200035ED69 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		705895501B18697C0035ED69 /* pair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pair.cpp; sourceTree = "<group>"; };
@@ -127,6 +134,8 @@
 				705895641B18BFCE0035ED69 /* number.h */,
 				705895661B18C27B0035ED69 /* fractional.cpp */,
 				705895671B18C27B0035ED69 /* fractional.h */,
+				24D82F681B2360AA00A8A86C /* parser.cpp */,
+				24D82F691B2360AA00A8A86C /* parser.h */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 		7058956F1B1C9CF90035ED69 /* testLisp */ = {
 			isa = PBXGroup;
 			children = (
+				24D82F6C1B23623100A8A86C /* t_parser.cpp */,
 				24D82F651B2351A000A8A86C /* t_pair.cpp */,
 				24D82F621B234FDC00A8A86C /* t_string.cpp */,
 				705895841B1CB8180035ED69 /* t_number.cpp */,
@@ -241,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */,
 				7058954A1B1869200035ED69 /* main.cpp in Sources */,
 				705895581B186D380035ED69 /* collector.cpp in Sources */,
 				705895651B18BFCE0035ED69 /* number.cpp in Sources */,
@@ -256,9 +267,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				705895761B1C9E8A0035ED69 /* fractional.cpp in Sources */,
+				24D82F6D1B23623100A8A86C /* t_parser.cpp in Sources */,
+				24D82F6E1B236D9A00A8A86C /* collector.cpp in Sources */,
 				705895861B1CB8180035ED69 /* t_number.cpp in Sources */,
 				24D82F661B2351A000A8A86C /* t_pair.cpp in Sources */,
 				24D82F671B2351B000A8A86C /* pair.cpp in Sources */,
+				24D82F6B1B2360AA00A8A86C /* parser.cpp in Sources */,
 				24D82F641B23500100A8A86C /* string.cpp in Sources */,
 				705895881B1CB8530035ED69 /* number.cpp in Sources */,
 				705895871B1CB84E0035ED69 /* element.cpp in Sources */,

@@ -1,4 +1,5 @@
 testLisp/t_fractional.cpp
-testLisp/t_fractional.h
 testLisp/t_number.cpp
-testLisp/t_number.h
+testLisp/t_pair.cpp
+testLisp/t_string.cpp
+

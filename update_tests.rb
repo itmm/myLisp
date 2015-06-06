@@ -1,11 +1,10 @@
 #!/usr/bin/ruby
 
-$header_template = "testLisp/t_template.h"
 $source_template = "testLisp/t_template.cpp"
 
-def expand_template(template, out, base, tests)
-	File.open(out, 'w') do |f|
-		File.open(template).each do |line|
+def write_tests(base, t_source, tests)
+	File.open(t_source, 'w') do |f|
+		File.open($source_template).each do |line|
 			if /%TESTS%/ =~ line
 				tests.each do |test|
 					f.write(test + "\n")
@@ -17,14 +16,10 @@ def expand_template(template, out, base, tests)
 	end
 end
 
-def write_tests(base, t_header, t_source, tests)
-	expand_template($header_template, t_header, base, tests)
-	expand_template($source_template, t_source, base, tests)
-end
-
-def grep_tests(file)
+def grep_tests(file, base)
 	tests = []
 	in_tests = false
+    cnt = 1
 	File.open(file).each do |line|
 		if /\/\*TESTS:/ =~ line
 			in_tests = true
@@ -33,24 +28,37 @@ def grep_tests(file)
 		elsif in_tests
 			test = line.gsub(/^\s*\*\s*/, "").gsub(/\n/, '')
 			if test != ""
-				tests << "assert(#{test});"
+                test = "assert(#{test});"
+                if /OUT/ =~ test
+                    test = "OutSink OUT; #{test}"
+                end
+				tests << "static void test_#{cnt}() { #{test}; }"
+                cnt += 1;
 			end
-		end	
+		end
 	end
+    if cnt > 1
+        tests << "class TestInit#{base} { public: TestInit#{base}(); };"
+        tests << "static TestInit#{base} testInit#{base};"
+        tests << "TestInit#{base}::TestInit#{base}() {";
+        for i in (1 .. (cnt-1)) do
+            tests << "  all_tests().push_back(test_#{i});"
+        end
+        tests << "};"
+    end
 	return tests
 end
 
-def update_tests(base, header, source, t_header, t_source) 
+def update_tests(base, header, source, t_source)
 	puts "testing " + header
-	tests = [grep_tests(header), grep_tests(source)].flatten(1)
+	tests = [grep_tests(header, "#{base}Header"), grep_tests(source, "#{base}Source")].flatten(1)
 	if tests.size() > 0
-		write_tests base, t_header, t_source, tests
+		write_tests base, t_source, tests
 	end
 end
 
 last_static_change = [
 	File.mtime("update_tests.rb"),
-	File.mtime($header_template),
 	File.mtime($source_template)
 ].max()
 Dir.foreach("myLisp") { |f|
@@ -61,21 +69,18 @@ Dir.foreach("myLisp") { |f|
 
 		last_change = [File.mtime(header), File.mtime(source), last_static_change].max()
 
-		t_header = "testLisp/t_#{base}.h"
 		t_source = "testLisp/t_#{base}.cpp"
 		
 		needs_update = false
-		if !File.exists?(t_header)
-			needs_update = true
-		elsif !File.exists?(t_source)
+		if !File.exists?(t_source)
 			needs_update = true
 		else
-			last_update = [File.mtime(t_header), File.mtime(t_source)].min()
+			last_update = File.mtime(t_source)
 			needs_update = last_update < last_change
 		end
 		
 		if needs_update
-			update_tests base, header, source, t_header, t_source
+			update_tests base, header, source, t_source
 		end
 	end	
 }

@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		7058957D1B1CA18D0035ED69 /* update_tests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 7058957E1B1CA18D0035ED69 /* Build configuration list for PBXAggregateTarget "update_tests" */;
-			buildPhases = (
-				705895811B1CA1930035ED69 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = update_tests;
-			productName = update_tests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		7058954A1B1869200035ED69 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895491B1869200035ED69 /* main.cpp */; };
 		705895521B18697C0035ED69 /* pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895501B18697C0035ED69 /* pair.cpp */; };
@@ -34,18 +20,7 @@
 		705895861B1CB8180035ED69 /* t_number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895841B1CB8180035ED69 /* t_number.cpp */; };
 		705895871B1CB84E0035ED69 /* element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895531B186A3E0035ED69 /* element.cpp */; };
 		705895881B1CB8530035ED69 /* number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895631B18BFCE0035ED69 /* number.cpp */; };
-		7058958B1B1CB8AE0035ED69 /* t_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895891B1CB8AE0035ED69 /* t_helper.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		705895821B1CAEFD0035ED69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7058953E1B1869200035ED69 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7058957D1B1CA18D0035ED69;
-			remoteInfo = update_tests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		705895441B1869200035ED69 /* CopyFiles */ = {
@@ -69,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
+		24D82F601B233FFE00A8A86C /* t_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_test.h; sourceTree = "<group>"; };
 		705895461B1869200035ED69 /* myLisp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = myLisp; sourceTree = BUILT_PRODUCTS_DIR; };
 		705895491B1869200035ED69 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		705895501B18697C0035ED69 /* pair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pair.cpp; sourceTree = "<group>"; };
@@ -86,13 +63,8 @@
 		7058956E1B1C9CF90035ED69 /* testLisp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testLisp; sourceTree = BUILT_PRODUCTS_DIR; };
 		705895701B1C9CF90035ED69 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		705895771B1C9E990035ED69 /* t_fractional.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_fractional.cpp; sourceTree = "<group>"; };
-		705895781B1C9E990035ED69 /* t_fractional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_fractional.h; sourceTree = "<group>"; };
-		7058957A1B1CA0690035ED69 /* t_template.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = t_template.h; sourceTree = "<group>"; };
 		7058957B1B1CA07E0035ED69 /* t_template.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = t_template.cpp; sourceTree = "<group>"; };
-		7058957C1B1CA11C0035ED69 /* update_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_tests.sh; sourceTree = "<group>"; };
 		705895841B1CB8180035ED69 /* t_number.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_number.cpp; sourceTree = "<group>"; };
-		705895851B1CB8180035ED69 /* t_number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_number.h; sourceTree = "<group>"; };
-		705895891B1CB8AE0035ED69 /* t_helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_helper.cpp; sourceTree = "<group>"; };
 		7058958A1B1CB8AE0035ED69 /* t_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_helper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +89,7 @@
 		7058953D1B1869200035ED69 = {
 			isa = PBXGroup;
 			children = (
-				7058957C1B1CA11C0035ED69 /* update_tests.sh */,
+				24D82F5D1B22D81700A8A86C /* update_tests.rb */,
 				705895481B1869200035ED69 /* myLisp */,
 				7058956F1B1C9CF90035ED69 /* testLisp */,
 				705895471B1869200035ED69 /* Products */,
@@ -157,14 +129,11 @@
 			isa = PBXGroup;
 			children = (
 				705895841B1CB8180035ED69 /* t_number.cpp */,
-				705895851B1CB8180035ED69 /* t_number.h */,
 				705895701B1C9CF90035ED69 /* main.cpp */,
 				705895771B1C9E990035ED69 /* t_fractional.cpp */,
-				705895781B1C9E990035ED69 /* t_fractional.h */,
-				7058957A1B1CA0690035ED69 /* t_template.h */,
 				7058957B1B1CA07E0035ED69 /* t_template.cpp */,
-				705895891B1CB8AE0035ED69 /* t_helper.cpp */,
 				7058958A1B1CB8AE0035ED69 /* t_helper.h */,
+				24D82F601B233FFE00A8A86C /* t_test.h */,
 			);
 			path = testLisp;
 			sourceTree = "<group>";
@@ -193,6 +162,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 705895721B1C9CF90035ED69 /* Build configuration list for PBXNativeTarget "testLisp" */;
 			buildPhases = (
+				24D82F5E1B22D84000A8A86C /* ShellScript */,
 				7058956A1B1C9CF90035ED69 /* Sources */,
 				7058956B1B1C9CF90035ED69 /* Frameworks */,
 				7058956C1B1C9CF90035ED69 /* CopyFiles */,
@@ -200,7 +170,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				705895831B1CAEFD0035ED69 /* PBXTargetDependency */,
 			);
 			name = testLisp;
 			productName = testLisp;
@@ -222,9 +191,6 @@
 					7058956D1B1C9CF90035ED69 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
-					7058957D1B1CA18D0035ED69 = {
-						CreatedOnToolsVersion = 6.3.2;
-					};
 				};
 			};
 			buildConfigurationList = 705895411B1869200035ED69 /* Build configuration list for PBXProject "myLisp" */;
@@ -241,13 +207,12 @@
 			targets = (
 				705895451B1869200035ED69 /* myLisp */,
 				7058956D1B1C9CF90035ED69 /* testLisp */,
-				7058957D1B1CA18D0035ED69 /* update_tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		705895811B1CA1930035ED69 /* ShellScript */ = {
+		24D82F5E1B22D84000A8A86C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,7 +223,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo $PWD\n./update_tests.sh";
+			shellScript = ./update_tests.rb;
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -282,7 +247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7058958B1B1CB8AE0035ED69 /* t_helper.cpp in Sources */,
 				705895761B1C9E8A0035ED69 /* fractional.cpp in Sources */,
 				705895861B1CB8180035ED69 /* t_number.cpp in Sources */,
 				705895881B1CB8530035ED69 /* number.cpp in Sources */,
@@ -294,21 +258,13 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		705895831B1CAEFD0035ED69 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7058957D1B1CA18D0035ED69 /* update_tests */;
-			targetProxy = 705895821B1CAEFD0035ED69 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		7058954B1B1869200035ED69 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -349,8 +305,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -397,6 +353,10 @@
 		705895731B1C9CF90035ED69 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -408,20 +368,10 @@
 		705895741B1C9CF90035ED69 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		7058957F1B1CA18D0035ED69 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		705895801B1CA18D0035ED69 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -445,6 +395,7 @@
 				7058954F1B1869200035ED69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		705895721B1C9CF90035ED69 /* Build configuration list for PBXNativeTarget "testLisp" */ = {
 			isa = XCConfigurationList;
@@ -453,14 +404,7 @@
 				705895741B1C9CF90035ED69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		7058957E1B1CA18D0035ED69 /* Build configuration list for PBXAggregateTarget "update_tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7058957F1B1CA18D0035ED69 /* Debug */,
-				705895801B1CA18D0035ED69 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

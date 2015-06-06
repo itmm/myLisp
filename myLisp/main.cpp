@@ -9,8 +9,9 @@ int main(int argc, const char * argv[]) {
     Pair *a = collector.new_pair(Pair::null(), Pair::null());
     Pair *b = collector.new_pair(Pair::null(), a);
     Pair *c = collector.new_pair(new String("abc"), b);
-    collector.release_root(b);
-    collector.release_root(a);
+    collector.release_initial_bondage(b);
+    collector.release_initial_bondage(a);
+    collector.make_root(c);
     collector.collect();
     
     // insert code here...

@@ -64,12 +64,18 @@ Pair *Parser::parsePair(int &ch, std::istream &rest) {
     if (ch == '.') {
         ch = rest.get();
         Element *cdr = parseElement(ch, rest);
-        if (!cdr) { car->free(); return nullptr; }
-        return _collector->new_pair(car, cdr);
+        if (!cdr) { _collector->release_initial_bondage(car); car->free(); return nullptr; }
+        Pair *result = _collector->new_pair(car, cdr);
+        _collector->release_initial_bondage(car);
+        _collector->release_initial_bondage(cdr);
+        return result;
     } else {
         Pair *cdr = parsePair(ch, rest);
-        if (!cdr) { car->free(); return nullptr; }
-        return _collector->new_pair(car, cdr);
+        if (!cdr) { _collector->release_initial_bondage(car); car->free(); return nullptr; }
+        Pair *result = _collector->new_pair(car, cdr);
+        _collector->release_initial_bondage(car);
+        _collector->release_initial_bondage(cdr);
+        return result;
     }
 }
 

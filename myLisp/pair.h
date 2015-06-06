@@ -8,6 +8,8 @@
             virtual ~Pair();
             virtual void free();
         
+            void free_childs();
+        
             Element *car() const { return _car; }
             Element *cdr() const { return _cdr; }
             

@@ -12,12 +12,13 @@ Pair::_SetupNull::_SetupNull() {
     _null->_cdr = _null;
 }
 
-Pair::~Pair() {
+void Pair::free_childs() {
+    if (_car) { _car->free(); _car = nullptr; }
+    if (_cdr) { _cdr->free(); _cdr = nullptr; }
+}
 
-    // pairs are freed by the collector
-    
-    if (_car && !_car->as_pair()) { delete _car; } _car = nullptr;
-    if (_cdr && !_cdr->as_pair()) { delete _cdr; } _cdr = nullptr;
+Pair::~Pair() {
+    free_childs();
 }
 
 void Pair::free() {

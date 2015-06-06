@@ -17,6 +17,7 @@
             
             Pair *new_pair(Element *car, Element *cdr);
             Dictionary *new_dictionary(Dictionary *parent = nullptr);
+            Dictionary *root_dictionary();
         
             bool release_initial_bondage(Element *elm);
             bool make_root(Element *root);
@@ -64,10 +65,14 @@
 
     /*TESTS:
      *
+     *> #include "Dictionary.h"
+     *> #include "Number.h"
+     *
      *  Collector().release_initial_bondage(nullptr) == false
      *  Collector().make_root(nullptr) == false
      *  Collector().release_root(nullptr) == false
      *
+     *  Collector().root_dictionary()->get("Infinity")->as_number()->value() == Fractional::infinity()
      */
 
 #endif

@@ -54,6 +54,12 @@
         return a;
     }
 
+    /*TESTS:
+     *
+     *  Fractional(8, 4) == 2
+     *  Fractional(3, 2, true) == -Fractional(3, 2)
+     *
+     */
     inline Fractional::Fractional(const BigInt &numerator, const BigInt &denomerator, bool isNegative) {
         if (!denomerator) {
             _denomerator = 0;
@@ -197,7 +203,7 @@
      *  (OUT << Fractional(2, 3, true)) == "-2/3"
      *  (OUT << Fractional(0, 2, true)) == "0"
      *  (OUT << Fractional::infinity()) == "Infinity"
-     *  (OUT << Fractional::minusInfinity()) == "-Infinity"
+     *  (OUT << Fractional::minusInfinity()) == "(- Infinity)"
      *  (OUT << Fractional::notANumber()) == "NotANumber"
      *
      */

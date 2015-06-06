@@ -3,6 +3,7 @@
 #include <cassert>
 
 #include "dictionary.h"
+#include "number.h"
 #include "pair.h"
 
 Collector::~Collector() {
@@ -24,6 +25,13 @@ Dictionary *Collector::new_dictionary(Dictionary *parent) {
     Dictionary *dict = new Dictionary(parent);
     _initial_bondages.push_back(dict);
     _managed.push_back(dict);
+    return dict;
+}
+
+Dictionary *Collector::root_dictionary() {
+    Dictionary *dict = new_dictionary();
+    dict->put("Infinity", new Number(Fractional::infinity()));
+    dict->put("NotANumber", new Number(Fractional::notANumber()));
     return dict;
 }
 

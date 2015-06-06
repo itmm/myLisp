@@ -47,7 +47,7 @@ String *Parser::parseString(int &ch, std::istream &rest) {
 }
 
 void Parser::eatSpace(int &ch, std::istream &rest) {
-    while (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r') {
+    while (isspace(ch)) {
         ch = rest.get();
     }
 }
@@ -79,6 +79,15 @@ Pair *Parser::parsePair(int &ch, std::istream &rest) {
     }
 }
 
+Element *Parser::parseIdentifier(int &ch, std::istream &rest) {
+    std::ostringstream buffer;
+    while (ch != EOF && !isspace(ch)) {
+        buffer << (char) ch;
+        ch = rest.get();
+    }
+    return _context->get(buffer.str());
+}
+
 Element *Parser::parseElement(int &ch, std::istream &rest) {
     eatSpace(ch, rest);
     switch (ch) {
@@ -92,6 +101,8 @@ Element *Parser::parseElement(int &ch, std::istream &rest) {
         case '(':
             ch = rest.get();
             return parsePair(ch, rest);
+        default:
+            return parseIdentifier(ch, rest);
     }
     return nullptr;
 }

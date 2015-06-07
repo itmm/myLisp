@@ -1,7 +1,7 @@
 #include "fractional.h"
 
 std::ostream &operator<<(std::ostream &output, const Fractional &value) {
-    if (!value.denomerator()) {
+    if (!value.denominator()) {
         if (value.isNegative()) {
             output << "(- ";
         }
@@ -18,7 +18,7 @@ std::ostream &operator<<(std::ostream &output, const Fractional &value) {
             output << "-";
         }
         output << value.numerator();
-        const auto &denomerator = value.denomerator();
+        const auto &denomerator = value.denominator();
         if (denomerator != 1) {
             output << "/" << denomerator;
         }

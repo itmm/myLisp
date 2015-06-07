@@ -12,4 +12,5 @@ int main(int argc, char **argv) {
         (**i)();
     }
     std::cout << "run " << all_tests().size() << " tests\n";
+	return EXIT_SUCCESS;
 }

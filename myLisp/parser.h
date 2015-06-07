@@ -21,8 +21,8 @@
             Element *parse(const std::string &source);
         
         private:
-            Parser(const Parser &);
-            Parser &operator=(const Parser &);
+            Parser(const Parser &) = delete;
+            Parser &operator=(const Parser &) = delete;
         
             Collector *_collector;
             bool _localCollector;
@@ -30,12 +30,12 @@
             Dictionary *_context;
             bool _localContext;
             
-            void eatSpace(int &ch, std::istream &rest);
-            Element *parseElement(int &ch, std::istream &rest);
-            Number *parseNumber(int &ch, std::istream &rest);
-            Pair *parsePair(int &ch, std::istream &rest);
-            String *parseString(int &ch, std::istream &rest);
-            Element *parseIdentifier(int &ch, std::istream &rest);
+            void eatSpace(std::istream::int_type &ch, std::istream &rest);
+            Element *parseElement(std::istream::int_type &ch, std::istream &rest);
+            Number *parseNumber(std::istream::int_type &ch, std::istream &rest);
+            Pair *parsePair(std::istream::int_type &ch, std::istream &rest);
+            String *parseString(std::istream::int_type &ch, std::istream &rest);
+            Element *parseIdentifier(std::istream::int_type &ch, std::istream &rest);
     };
 
     inline Parser::Parser():

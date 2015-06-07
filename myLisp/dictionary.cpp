@@ -1,12 +1,12 @@
 #include "dictionary.h"
 
 Dictionary::~Dictionary() {
-    free_childs();
+	free_children();
 }
 
 void Dictionary::free() {}
         
-void Dictionary::free_childs() {
+void Dictionary::free_children() {
     if (_parent) {
         _parent->free();
         _parent = nullptr;

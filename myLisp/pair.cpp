@@ -1,6 +1,8 @@
 #include "pair.h"
 
 Pair *Pair::_null = nullptr;
+
+
 Pair::_SetupNull Pair::_setup;
 
 Pair::_SetupNull::_SetupNull() {
@@ -12,13 +14,13 @@ Pair::_SetupNull::_SetupNull() {
     _null->_cdr = _null;
 }
 
-void Pair::free_childs() {
+void Pair::free_children() {
     if (_car) { _car->free(); _car = nullptr; }
     if (_cdr) { _cdr->free(); _cdr = nullptr; }
 }
 
 Pair::~Pair() {
-    free_childs();
+	free_children();
 }
 
 void Pair::free() {
@@ -32,7 +34,7 @@ void Pair::to_stream(std::ostream &stream) const {
         stream << "()";
     } else {
         stream << "(";
-        const Pair *cur = this;
+        Pair *cur = const_cast<Pair *>(this);
         while (cur && cur != _null) {
             if (cur != this) { stream << " "; }
             if (cur->car()) { stream << *cur->car(); }
@@ -40,7 +42,7 @@ void Pair::to_stream(std::ostream &stream) const {
                 stream << " . " << *cur->cdr();
                 break;
             }
-            cur = cur->cdr() ? cur->cdr()->as_pair() : nullptr;
+            cur = cur->cdr() ? cur->cdr()->as_pair() : static_cast<Pair *>(nullptr);
         }
         stream << ")";
     }

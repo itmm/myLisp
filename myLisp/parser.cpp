@@ -1,15 +1,13 @@
 #include "parser.h"
 
-#include <cctype>
 #include <sstream>
 
 #include "number.h"
-#include "pair.h"
 #include "string.h"
 
-Number *Parser::parseNumber(int &ch, std::istream &rest) {
+Number *Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
     BigInt numerator = 0;
-    BigInt denomerator;
+    BigInt denominator;
     bool negative = false;
     
     if (ch == '-') {
@@ -17,25 +15,25 @@ Number *Parser::parseNumber(int &ch, std::istream &rest) {
         ch = rest.get();
     }
     
-    while (isnumber(ch)) {
+    while (isnumber(static_cast<int>(ch))) {
         numerator = numerator * 10 + (ch - '0');
         ch = rest.get();
     }
     if (ch == '/') {
-        denomerator = 0;
+        denominator = 0;
         ch = rest.get();
-        while (isnumber(ch)) {
-            denomerator = denomerator * 10 + (ch - '0');
+        while (isnumber(static_cast<int>(ch))) {
+            denominator = denominator * 10 + (ch - '0');
             ch = rest.get();
         }
     } else {
-        denomerator = 1;
+        denominator = 1;
     }
     
-    return new Number(Fractional(numerator, denomerator, negative));
+    return new Number(Fractional(numerator, denominator, negative));
 }
 
-String *Parser::parseString(int &ch, std::istream &rest) {
+String *Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
     ch = rest.get();
     std::ostringstream buffer;
     while (ch != EOF && ch != '"') {
@@ -46,13 +44,13 @@ String *Parser::parseString(int &ch, std::istream &rest) {
     return new String(buffer.str());
 }
 
-void Parser::eatSpace(int &ch, std::istream &rest) {
-    while (isspace(ch)) {
+void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
+    while (isspace(static_cast<int>(ch))) {
         ch = rest.get();
     }
 }
 
-Pair *Parser::parsePair(int &ch, std::istream &rest) {
+Pair *Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
     if (ch == ')') {
         ch = rest.get();
         return Pair::null();
@@ -64,34 +62,34 @@ Pair *Parser::parsePair(int &ch, std::istream &rest) {
     if (ch == '.') {
         ch = rest.get();
         Element *cdr = parseElement(ch, rest);
-        if (!cdr) { _collector->release_initial_bondage(car); car->free(); return nullptr; }
+        if (!cdr) { _collector->release_initial_lock(car); car->free(); return nullptr; }
         Pair *result = _collector->new_pair(car, cdr);
-        _collector->release_initial_bondage(car);
-        _collector->release_initial_bondage(cdr);
+		_collector->release_initial_lock(car);
+		_collector->release_initial_lock(cdr);
         return result;
     } else {
         Pair *cdr = parsePair(ch, rest);
-        if (!cdr) { _collector->release_initial_bondage(car); car->free(); return nullptr; }
+        if (!cdr) { _collector->release_initial_lock(car); car->free(); return nullptr; }
         Pair *result = _collector->new_pair(car, cdr);
-        _collector->release_initial_bondage(car);
-        _collector->release_initial_bondage(cdr);
+		_collector->release_initial_lock(car);
+		_collector->release_initial_lock(cdr);
         return result;
     }
 }
 
-Element *Parser::parseIdentifier(int &ch, std::istream &rest) {
+Element *Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
     std::ostringstream buffer;
-    while (ch != EOF && !isspace(ch)) {
+    while (ch != EOF && !isspace(static_cast<int>(ch))) {
         buffer << (char) ch;
         ch = rest.get();
     }
     return _context->get(buffer.str());
 }
 
-Element *Parser::parseElement(int &ch, std::istream &rest) {
+Element *Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
     eatSpace(ch, rest);
     switch (ch) {
-        case EOF: break;
+        case static_cast<std::istream::int_type>(EOF): break;
         case '-':
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
@@ -108,7 +106,7 @@ Element *Parser::parseElement(int &ch, std::istream &rest) {
 }
 
 Element *Parser::parse(std::istream &source) {
-    int ch = source.get();
+	std::istream::int_type ch = source.get();
     Element *result = parseElement(ch, source);
     return result;
 }

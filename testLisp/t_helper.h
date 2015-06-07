@@ -7,8 +7,8 @@
     class OutSink {
         private:
             std::ostringstream _out;
-            OutSink(const OutSink &);
-            OutSink &operator=(const OutSink &);
+            OutSink(const OutSink &) = delete;
+            OutSink &operator=(const OutSink &) = delete;
         
         public:
             OutSink() {}

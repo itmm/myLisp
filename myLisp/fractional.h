@@ -7,14 +7,14 @@
 
     class Fractional {
         public:
-            Fractional(const BigInt &numerator, const BigInt &denomerator = 1, bool isNegative = false);
+            Fractional(const BigInt &numerator, const BigInt &denominator = 1, bool isNegative = false);
         
             static Fractional infinity() { return Fractional(1, 0); }
             static Fractional minusInfinity() { return Fractional(1, 0, true); }
             static Fractional notANumber() { return Fractional(0, 0); }
         
             const BigInt &numerator() const { return _numerator; }
-            const BigInt &denomerator() const { return _denomerator; }
+            const BigInt denominator() const { return _denomerator; }
             bool isNegative() const { return _isNegative; }
         
         private:
@@ -23,6 +23,15 @@
             bool _isNegative;
     };
 
+	/*TESTS:
+	 *
+	 *	Fractional(2, 3).numerator() == 2
+	 *	Fractional(2, 3).denominator() == 3
+	 *	(-Fractional(3)).numerator() == 3
+	 *	Fractional::infinity().denominator() == 0
+	 *
+	 */
+
     /*TESTS:
      *
      *  -Fractional(2, 3) == Fractional(2, 3, true)
@@ -30,7 +39,7 @@
      *
      */
     inline Fractional operator-(const Fractional &num) {
-        return Fractional(num.numerator(), num.denomerator(), !num.isNegative());
+        return Fractional(num.numerator(), num.denominator(), !num.isNegative());
     }
 
     /*TESTS:
@@ -60,15 +69,15 @@
      *  Fractional(3, 2, true) == -Fractional(3, 2)
      *
      */
-    inline Fractional::Fractional(const BigInt &numerator, const BigInt &denomerator, bool isNegative) {
-        if (!denomerator) {
+    inline Fractional::Fractional(const BigInt &numerator, const BigInt &denominator, bool isNegative) {
+        if (!denominator) {
             _denomerator = 0;
             _numerator = numerator ? 1 : 0;
             _isNegative = numerator ? isNegative : false;
         } else {
-            BigInt g = gcd(numerator, denomerator);
+            BigInt g = gcd(numerator, denominator);
             _numerator =  g ? numerator/g : 0;
-            _denomerator = _numerator ? denomerator/g : 1;
+            _denomerator = _numerator ? denominator /g : 1;
             _isNegative = _numerator ? isNegative : false;
         }
     }
@@ -91,7 +100,8 @@
            return a - (-b);
         }
         
-        return Fractional(a.numerator() * b.denomerator() + b.numerator() * a.denomerator(), a.denomerator() * b.denomerator(), a.isNegative());
+        return Fractional(a.numerator() * b.denominator() + b.numerator() * a.denominator(), a.denominator() *
+			b.denominator(), a.isNegative());
     }
 
     /*TESTS:
@@ -106,11 +116,12 @@
             return a + (-b);
         }
         
-        if (a.numerator() * b.denomerator() < b.numerator() * a.denomerator()) {
+        if (a.numerator() * b.denominator() < b.numerator() * a.denominator()) {
             return -(b - a);
         }
         
-        return Fractional(a.numerator() * b.denomerator() - b.numerator() * a.denomerator(), a.denomerator() * b.denomerator(), a.isNegative());
+        return Fractional(a.numerator() * b.denominator() - b.numerator() * a.denominator(), a.denominator() *
+			b.denominator(), a.isNegative());
     }
 
     /*TESTS:
@@ -122,7 +133,7 @@
      *
      */
     inline Fractional operator*(const Fractional &a, const Fractional &b) {
-        return Fractional(a.numerator() * b.numerator(), a.denomerator() * b.denomerator(), a.isNegative() != b.isNegative());
+        return Fractional(a.numerator() * b.numerator(), a.denominator() * b.denominator(), a.isNegative() != b.isNegative());
     }
 
     /*TESTS:
@@ -136,7 +147,7 @@
      *
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
-        return Fractional(a.numerator() * b.denomerator(), a.denomerator() * b.numerator(), a.isNegative() != b.isNegative());
+        return Fractional(a.numerator() * b.denominator(), a.denominator() * b.numerator(), a.isNegative() != b.isNegative());
     }
 
     /*TESTS:
@@ -151,7 +162,7 @@
      *
      */
     inline bool operator==(const Fractional &a, const Fractional &b) {
-        return a.isNegative() == b.isNegative() && a.numerator() == b.numerator() && a.denomerator() == b.denomerator();
+        return a.isNegative() == b.isNegative() && a.numerator() == b.numerator() && a.denominator() == b.denominator();
     }
 
     /*TESTS:
@@ -183,7 +194,7 @@
     inline bool operator<(const Fractional &a, const Fractional &b) {
         if (a.isNegative()) {
             if (b.isNegative()) {
-                return a.numerator() * b.denomerator() > b.numerator() * a.denomerator();
+                return a.numerator() * b.denominator() > b.numerator() * a.denominator();
             } else {
                 return true;
             }
@@ -191,7 +202,7 @@
             if (b.isNegative()) {
                 return false;
             } else {
-                return a.numerator() * b.denomerator() < b.numerator() * a.denomerator();
+                return a.numerator() * b.denominator() < b.numerator() * a.denominator();
             }
         }
     }

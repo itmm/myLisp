@@ -8,7 +8,7 @@
             virtual ~Pair();
             virtual void free();
         
-            void free_childs();
+            void free_children();
         
             Element *car() const { return _car; }
             Element *cdr() const { return _cdr; }
@@ -41,6 +41,7 @@
      *
      *> #include "String.h"
      *
+     *  Pair::null()->as_function() == nullptr
      *  Pair::null()->as_dictionary() == nullptr
      *  Pair::null()->as_pair() != nullptr
      *  Pair::null()->as_number() == nullptr

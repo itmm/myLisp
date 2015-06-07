@@ -4,11 +4,10 @@
 
 #include "dictionary.h"
 #include "number.h"
-#include "pair.h"
 
 Collector::~Collector() {
-    while (_initial_bondages.size()) {
-        release_initial_bondage(_initial_bondages.front());
+    while (_initial_locks.size()) {
+		release_initial_lock(_initial_locks.front());
     }
     collect();
     assert(_managed.size() == 0);
@@ -16,14 +15,14 @@ Collector::~Collector() {
 
 Pair *Collector::new_pair(Element *car, Element *cdr) {
     Pair *pair = new Pair(car, cdr);
-    _initial_bondages.push_back(pair);
+    _initial_locks.push_back(pair);
     _managed.push_back(pair);
     return pair;
 }
 
 Dictionary *Collector::new_dictionary(Dictionary *parent) {
     Dictionary *dict = new Dictionary(parent);
-    _initial_bondages.push_back(dict);
+    _initial_locks.push_back(dict);
     _managed.push_back(dict);
     return dict;
 }
@@ -46,7 +45,7 @@ void Collector::may_push_back(std::vector<Element *> &col, std::set<Element *> s
 void Collector::collect() {
     std::set<Element *> seen;
     std::vector<Element *> toVisit = _roots;
-    toVisit.insert(toVisit.end(), _initial_bondages.begin(), _initial_bondages.end());
+    toVisit.insert(toVisit.end(), _initial_locks.begin(), _initial_locks.end());
     
     while (toVisit.size()) {
         Element *cur = toVisit.back(); toVisit.pop_back();
@@ -70,10 +69,10 @@ void Collector::collect() {
     for (auto i = _managed.begin(); i != _managed.end(); ++i) {
         if (seen.find(*i) == seen.end()) {
             Pair *p = (**i).as_pair();
-            if (p) { p->free_childs(); }
+            if (p) { p->free_children(); }
             
             Dictionary *d = (**i).as_dictionary();
-            if (d) { d->free_childs(); }
+            if (d) { d->free_children(); }
         }
     }
     for (auto i = _managed.begin(); i != _managed.end(); ++i) {

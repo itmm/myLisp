@@ -3,6 +3,7 @@
 
     #include <iostream>
 
+    class Function;
     class Dictionary;
     class Number;
     class Pair;
@@ -15,6 +16,7 @@
             virtual void free();
         
             virtual Dictionary *as_dictionary();
+            virtual Function *as_function();
             virtual Number *as_number();
             virtual Pair *as_pair();
             virtual String *as_string();
@@ -22,8 +24,8 @@
             virtual void to_stream(std::ostream &stream) const = 0;
         
         private:
-            Element(const Element &);
-            Element &operator=(const Element &);
+            Element(const Element &) = delete;
+            Element &operator=(const Element &) = delete;
     };
 
     inline std::ostream &operator<<(std::ostream &output, const Element &elm) {

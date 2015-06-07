@@ -11,7 +11,7 @@
             virtual ~Dictionary();
             virtual void free();
         
-            void free_childs();
+            void free_children();
         
             Dictionary *parent() { return _parent; }
         
@@ -33,6 +33,12 @@
     /*TESTS:
      *
      *> #include "collector.h"
+     *
+     *  Collector().new_dictionary()->as_function() == nullptr
+     *  Collector().new_dictionary()->as_dictionary() != nullptr
+     *  Collector().new_dictionary()->as_number() == nullptr
+     *  Collector().new_dictionary()->as_pair() == nullptr
+     *  Collector().new_dictionary()->as_string() == nullptr
      *
      *  Collector().new_dictionary()->parent() == nullptr
      *  Collector().new_dictionary()->get("ab") == nullptr

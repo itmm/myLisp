@@ -19,27 +19,27 @@
             Dictionary *new_dictionary(Dictionary *parent = nullptr);
             Dictionary *root_dictionary();
         
-            bool release_initial_bondage(Element *elm);
+            bool release_initial_lock(Element *elm);
             bool make_root(Element *root);
             bool release_root(Element *root);
 
             void collect();
         
         private:
-            Collector(const Collector &);
-            Collector &operator=(const Collector &);
+            Collector(const Collector &) = delete;
+            Collector &operator=(const Collector &) = delete;
 
             void may_push_back(std::vector<Element *> &col, std::set<Element *> seen, Element *elm);
         
             std::vector<Element *> _managed;
-            std::vector<Element *> _initial_bondages;
+            std::vector<Element *> _initial_locks;
             std::vector<Element *> _roots;
     };
 
-    inline bool Collector::release_initial_bondage(Element *elm) {
-        auto i = std::find(_initial_bondages.begin(), _initial_bondages.end(), elm);
-        if (i != _initial_bondages.end()) {
-            _initial_bondages.erase(i);
+    inline bool Collector::release_initial_lock(Element *elm) {
+        auto i = std::find(_initial_locks.begin(), _initial_locks.end(), elm);
+        if (i != _initial_locks.end()) {
+            _initial_locks.erase(i);
             return true;
         }
         return false;
@@ -48,7 +48,7 @@
     inline bool Collector::make_root(Element *root) {
         if (root && root->as_pair()) {
             _roots.push_back(root);
-            release_initial_bondage(root);
+			release_initial_lock(root);
             return true;
         }
         return false;
@@ -65,10 +65,10 @@
 
     /*TESTS:
      *
-     *> #include "Dictionary.h"
-     *> #include "Number.h"
+     *> #include "dictionary.h"
+     *> #include "number.h"
      *
-     *  Collector().release_initial_bondage(nullptr) == false
+     *  Collector().release_initial_lock(nullptr) == false
      *  Collector().make_root(nullptr) == false
      *  Collector().release_root(nullptr) == false
      *

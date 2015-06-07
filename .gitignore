@@ -5,4 +5,5 @@ testLisp/t_string.cpp
 testLisp/t_parser.cpp
 testLisp/t_collector.cpp
 testLisp/t_dictionary.cpp
-
+testLisp/t_function.cpp
+testLisp/t_fnplus.cpp

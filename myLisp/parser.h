@@ -15,6 +15,7 @@
     class Parser {
         public:
             Parser();
+			Parser(Collector *collector);
             ~Parser();
             
             Element *parse(std::istream &source);
@@ -45,7 +46,14 @@
         _collector->make_root(_context);
     }
 
-    inline Parser::~Parser() {
+	inline Parser::Parser(Collector *collector):
+		_collector(collector), _localCollector(false),
+		_context(_collector->root_dictionary()), _localContext(true)
+	{
+		_collector->make_root(_context);
+	}
+
+	inline Parser::~Parser() {
         if (_localContext) { _collector->release_root(_context); _context = nullptr; }
         if (_localCollector) { delete _collector; }
     }

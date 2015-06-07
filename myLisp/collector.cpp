@@ -4,6 +4,7 @@
 
 #include "dictionary.h"
 #include "number.h"
+#include "fnplus.h"
 
 Collector::~Collector() {
     while (_initial_locks.size()) {
@@ -31,6 +32,8 @@ Dictionary *Collector::root_dictionary() {
     Dictionary *dict = new_dictionary();
     dict->put("Infinity", new Number(Fractional::infinity()));
     dict->put("NotANumber", new Number(Fractional::notANumber()));
+	dict->put("+", new FunctionPlus());
+
     return dict;
 }
 

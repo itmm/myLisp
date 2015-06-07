@@ -14,12 +14,12 @@
             static Fractional notANumber() { return Fractional(0, 0); }
         
             const BigInt &numerator() const { return _numerator; }
-            const BigInt denominator() const { return _denomerator; }
+            const BigInt denominator() const { return _denominator; }
             bool isNegative() const { return _isNegative; }
         
         private:
             BigInt _numerator;
-            BigInt _denomerator;
+            BigInt _denominator;
             bool _isNegative;
     };
 
@@ -71,13 +71,13 @@
      */
     inline Fractional::Fractional(const BigInt &numerator, const BigInt &denominator, bool isNegative) {
         if (!denominator) {
-            _denomerator = 0;
+            _denominator = 0;
             _numerator = numerator ? 1 : 0;
             _isNegative = numerator ? isNegative : false;
         } else {
             BigInt g = gcd(numerator, denominator);
             _numerator =  g ? numerator/g : 0;
-            _denomerator = _numerator ? denominator /g : 1;
+            _denominator = _numerator ? denominator /g : 1;
             _isNegative = _numerator ? isNegative : false;
         }
     }

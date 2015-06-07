@@ -44,9 +44,10 @@ def grep_tests(file, base)
 		end
 	end
     if cnt > 1
-        tests << "class TestInit#{base} { public: TestInit#{base}(); };"
-        tests << "static TestInit#{base} testInit#{base};"
-        tests << "TestInit#{base}::TestInit#{base}() {";
+        bigBase = base[0].capitalize + base[1..-1]
+        tests << "class TestInit#{bigBase} { public: TestInit#{bigBase}(); };"
+        tests << "static TestInit#{bigBase} testInit#{bigBase};"
+        tests << "TestInit#{bigBase}::TestInit#{bigBase}() {";
         for i in (1 .. (cnt-1)) do
             tests << "  all_tests().push_back(test_#{i});"
         end

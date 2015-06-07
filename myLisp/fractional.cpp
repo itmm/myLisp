@@ -18,9 +18,9 @@ std::ostream &operator<<(std::ostream &output, const Fractional &value) {
             output << "-";
         }
         output << value.numerator();
-        const auto &denomerator = value.denominator();
-        if (denomerator != 1) {
-            output << "/" << denomerator;
+        const auto &denominator = value.denominator();
+        if (denominator != 1) {
+            output << "/" << denominator;
         }
     }
     return output;

@@ -3,23 +3,35 @@
 
 	#include "collector.h"
 	#include "dictionary.h"
+#include "creator.h"
+#include "root_factory.h"
 
-	class State {
+class State {
 		public:
-			State(): _collector(new Collector()) {}
-			~State() {
-				delete _collector;
-			}
+			State(): _creator(new Creator()), _local_creator(true), _root(RootFactory(_creator).root()) {}
+			State(Creator *creator, Ptr root): _creator(creator), _local_creator(false), _root(root) {}
+			State(State &parent);
+			~State() { _root = Ptr(); if (_local_creator) delete _creator; }
 
-			Collector &collector() { return *_collector; }
-			Dictionary *root() { return _root; }
+			Creator *creator() { return _creator; }
+			Collector *collector() { return _creator->collector(); }
+			Ptr root() { return _root; }
+
+			Ptr eval(Ptr expression);
 
 		private:
-			Collector *_collector;
-			Dictionary *_root;
+			Creator *_creator;
+			bool _local_creator;
 
-			State(const State &) = delete;
+			Ptr _root;
+
 			State &operator=(const State &) = delete;
 	};
+
+	inline State::State(State &parent):
+		_creator(parent.creator()), _local_creator(false),
+		_root(_creator->new_dictionary(Element::as_dictionary(parent.root())))
+	{
+	}
 
 #endif

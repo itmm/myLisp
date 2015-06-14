@@ -50,6 +50,9 @@ def grep_tests(file, base)
                     test = test.gsub(/EVAL/, "parser.eval")
                     test = "Parser parser; #{test}"
                 end
+                if /STATE/ =~ test
+                    test = "State STATE; #{test}"
+                end
 				tests << "static void test_#{cnt}() { #{test} }"
                 cnt += 1;
 			end

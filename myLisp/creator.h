@@ -19,8 +19,6 @@ class Dictionary;
 			Ptr new_pair(Element *car, Element *cdr);
 			Ptr new_string(const std::string &value);
 
-			Ptr eval(Ptr expression);
-
 		private:
 			Creator(const Creator &) = delete;
 			Creator &operator=(const Creator &) = delete;

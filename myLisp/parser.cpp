@@ -4,6 +4,7 @@
 
 #include "number.h"
 #include "string.h"
+#include "state.h"
 
 Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
     BigInt numerator = 0;
@@ -30,7 +31,7 @@ Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
         denominator = 1;
     }
     
-    return _creator->new_number(Fractional(numerator, denominator, negative));
+    return _state->creator()->new_number(Fractional(numerator, denominator, negative));
 }
 
 Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
@@ -41,7 +42,7 @@ Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
         ch = rest.get();
     }
     if (ch == '"') { ch = rest.get(); }
-    return _creator->new_string(buffer.str());
+    return _state->creator()->new_string(buffer.str());
 }
 
 void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
@@ -53,21 +54,21 @@ void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
 Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
     if (ch == ')') {
         ch = rest.get();
-        return Ptr(Pair::null(), _creator->collector());
+        return Ptr(Pair::null(), _state->collector());
     }
     Ptr car = parseElement(ch, rest);
-    if (!car) { return Ptr(nullptr, _creator->collector()); }
+    if (!car) { return Ptr(nullptr, _state->collector()); }
 
     eatSpace(ch, rest);
     if (ch == '.') {
         ch = rest.get();
         Ptr cdr = parseElement(ch, rest);
-        if (!cdr) { return Ptr(nullptr, _creator->collector()); }
-        return _creator->new_pair(car, cdr);
+        if (!cdr) { return Ptr(nullptr, _state->collector()); }
+        return _state->creator()->new_pair(car, cdr);
     } else {
         Ptr cdr = parsePair(ch, rest);
-        if (!cdr) { return Ptr(nullptr, _creator->collector()); }
-        return _creator->new_pair(car, cdr);
+        if (!cdr) { return Ptr(nullptr, _state->collector()); }
+        return _state->creator()->new_pair(car, cdr);
     }
 }
 
@@ -77,7 +78,7 @@ Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
         buffer << (char) ch;
         ch = rest.get();
     }
-    return Ptr(_context->as_dictionary()->get(buffer.str()), _creator->collector());
+    return Ptr(_state->root()->as_dictionary()->get(buffer.str()), _state->collector());
 }
 
 Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
@@ -96,7 +97,7 @@ Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
         default:
             return parseIdentifier(ch, rest);
     }
-    return Ptr(nullptr, _creator->collector());
+    return Ptr(nullptr, _state->collector());
 }
 
 Ptr Parser::parse(std::istream &source) {
@@ -110,7 +111,7 @@ Ptr Parser::parse(const std::string &source) {
 }
 
 Ptr Parser::eval(std::istream &source) {
-	return _creator->eval(parse(source));
+	return _state->eval(parse(source));
 }
 
 Ptr Parser::eval(const std::string &source) {

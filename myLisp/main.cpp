@@ -7,11 +7,12 @@ int main(int argc, const char * argv[]) {
 
     std::cout << "This is myLisp" << std::endl << std::endl;
 
-    Parser parser;
+	State state;
+    Parser parser(&state);
     for (;;) {
         Ptr in = parser.parse(std::cin);
         if (!in) { std::cout << "[# parse error #]" << std:: endl; break; }
-		Ptr result = parser.creator()->eval(in);
+		Ptr result = state.eval(in);
 		std::cout << result << std::endl;
     }
     

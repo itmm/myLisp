@@ -3,14 +3,15 @@
 
 	#include "element.h"
 	#include "creator.h"
+#include "state.h"
 
-	class Function: public Element {
+class Function: public Element {
 		public:
 			virtual Function *as_function() override;
 			virtual void to_stream(std::ostream &stream) const override;
 
-			virtual Ptr apply(Ptr arguments, Creator *creator);
-			Ptr eval_arguments(Ptr arguments, Creator *creator);
+			virtual Ptr apply(Ptr arguments, State &state);
+			Ptr eval_arguments(Ptr arguments, State &state);
 	};
 
 	/*TESTS:
@@ -20,7 +21,7 @@
 	 *	Function().as_number() == nullptr
 	 *	Function().as_pair() == nullptr
 	 *	Function().as_string() == nullptr
-	 *	Function().apply(Ptr(), nullptr) == Ptr()
+	 *	Function().apply(Ptr(), STATE) == Ptr()
 	 *
 	 */
 

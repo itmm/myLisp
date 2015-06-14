@@ -33,14 +33,3 @@ Ptr Creator::new_string(const std::string &value) {
 	_collector->add_to_collector(result);
 	return Ptr(result, _collector);
 }
-
-Ptr Creator::eval(Ptr expression) {
-	Pair *pair = Element::as_pair(expression);
-	if (pair && pair != Pair::null()) {
-		Function *fn = Element::as_function(pair->car());
-		if (fn) {
-			return fn->apply(expression, this);
-		}
-	}
-	return expression;
-}

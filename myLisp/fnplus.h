@@ -5,7 +5,7 @@
 
 	class FunctionPlus: public Function {
 		public:
-			virtual Ptr apply(Ptr arguments, Creator *creator) override;
+			virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
 	/*TESTS:

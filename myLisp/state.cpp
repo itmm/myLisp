@@ -1,6 +1,14 @@
-//
-// Created by Timm on 11.06.15.
-// Copyright (c) 2015 Timm Knape Softwaretechnik (http://www.kna-st.de). All rights reserved.
-//
-
 #include "state.h"
+
+#include "function.h"
+
+Ptr State::eval(Ptr expression) {
+	Pair *pair = Element::as_pair(expression);
+	if (pair && pair != Pair::null()) {
+		Function *fn = Element::as_function(pair->car());
+		if (fn) {
+			return fn->apply(expression, *this);
+		}
+	}
+	return expression;
+}

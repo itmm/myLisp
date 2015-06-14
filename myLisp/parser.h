@@ -9,14 +9,15 @@
     #include "element.h"
 	#include "ptr.h"
 	#include "root_factory.h"
+#include "state.h"
 
-    class Parser {
+class Parser {
         public:
             Parser();
-			Parser(Creator *creator);
+			Parser(State *state);
             ~Parser();
 
-			Creator *creator() { return _creator; }
+			Creator *creator() { return _state->creator(); }
 
             Ptr parse(std::istream &source);
             Ptr parse(const std::string &source);
@@ -28,11 +29,9 @@
             Parser(const Parser &) = delete;
             Parser &operator=(const Parser &) = delete;
         
-            Creator *_creator;
-            bool _local_creator;
+            State *_state;
+            bool _local_state;
         
-            Ptr _context;
-
             void eatSpace(std::istream::int_type &ch, std::istream &rest);
             Ptr parseElement(std::istream::int_type &ch, std::istream &rest);
             Ptr parseNumber(std::istream::int_type &ch, std::istream &rest);
@@ -42,19 +41,16 @@
     };
 
     inline Parser::Parser():
-        _creator(new Creator()), _local_creator(true),
-        _context(RootFactory(_creator).root(), _creator->collector())
+        _state(new State()), _local_state(true)
     {}
 
-	inline Parser::Parser(Creator *creator):
-		_creator(creator), _local_creator(false),
-		_context(RootFactory(_creator).root(), _creator->collector())
+	inline Parser::Parser(State *state):
+		_state(state), _local_state(false)
 	{
 	}
 
 	inline Parser::~Parser() {
-		_context = Ptr(nullptr, _creator->collector());
-        if (_local_creator) { delete _creator; _creator = nullptr; }
+        if (_local_state) { delete _state; }
     }
 
     /*TESTS:

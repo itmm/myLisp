@@ -8,6 +8,7 @@
     #include "dictionary.h"
     #include "element.h"
 	#include "ptr.h"
+	#include "root_factory.h"
 
     class Parser {
         public:
@@ -40,12 +41,12 @@
 
     inline Parser::Parser():
         _creator(new Creator()), _local_creator(true),
-        _context(_creator->collector()->root_dictionary(), _creator->collector())
+        _context(RootFactory(_creator).root(), _creator->collector())
     {}
 
 	inline Parser::Parser(Creator *creator):
 		_creator(creator), _local_creator(false),
-		_context(_creator->collector()->root_dictionary(), _creator->collector())
+		_context(RootFactory(_creator).root(), _creator->collector())
 	{
 	}
 

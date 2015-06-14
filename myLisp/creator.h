@@ -3,6 +3,8 @@
 
 	#include "ptr.h"
 
+	class Dictionary;
+
 	class Creator {
 		public:
 			Creator(): _collector(new Collector()), _local_collector(true) {}
@@ -12,6 +14,7 @@
 			Collector *collector() { return _collector; }
 
 			Ptr new_pair(Element *car, Element *cdr);
+			Ptr new_dictionary(Dictionary *parent = nullptr);
 
 		private:
 			Creator(const Creator &) = delete;

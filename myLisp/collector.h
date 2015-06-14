@@ -16,9 +16,7 @@
             ~Collector();
 
 			void add_to_collector(Element *elm);
-            Dictionary *new_dictionary(Dictionary *parent = nullptr);
-            Dictionary *root_dictionary();
-        
+
             bool remove_initial_lock(Element *elm);
             bool add_root(Element *root);
             bool remove_root(Element *root);
@@ -73,8 +71,6 @@
      *  Collector().remove_initial_lock(nullptr) == false
      *  Collector().add_root(nullptr) == false
      *  Collector().remove_root(nullptr) == false
-     *
-     *  Collector().root_dictionary()->get("Infinity")->as_number()->value() == Fractional::infinity()
      */
 
 #endif

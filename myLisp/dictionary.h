@@ -24,7 +24,7 @@
         private:
             Dictionary(Dictionary *parent): _parent(parent) {}
         
-            friend class Collector;
+            friend class Creator;
         
             Dictionary *_parent;
             std::map<std::string, Element *> _map;
@@ -32,16 +32,16 @@
 
     /*TESTS:
      *
-     *> #include "collector.h"
+     *> #include "creator.h"
      *
-     *  Collector().new_dictionary()->as_function() == nullptr
-     *  Collector().new_dictionary()->as_dictionary() != nullptr
-     *  Collector().new_dictionary()->as_number() == nullptr
-     *  Collector().new_dictionary()->as_pair() == nullptr
-     *  Collector().new_dictionary()->as_string() == nullptr
+     *  Creator().new_dictionary()->as_function() == nullptr
+     *  Creator().new_dictionary()->as_dictionary() != nullptr
+     *  Creator().new_dictionary()->as_number() == nullptr
+     *  Creator().new_dictionary()->as_pair() == nullptr
+     *  Creator().new_dictionary()->as_string() == nullptr
      *
-     *  Collector().new_dictionary()->parent() == nullptr
-     *  Collector().new_dictionary()->get("ab") == nullptr
+     *  Creator().new_dictionary()->as_dictionary()->parent() == nullptr
+     *  Creator().new_dictionary()->as_dictionary()->get("ab") == nullptr
      *
      */
 

@@ -35,7 +35,6 @@ class Ptr {
 
 inline Ptr::Ptr(Element *value, Collector *collector): _value(value), _collector(collector) {
 	_collector->add_root(_value);
-	_collector->remove_initial_lock(_value);
 }
 
 inline Ptr::Ptr(const Ptr &other): _value(other._value), _collector(other._collector) {

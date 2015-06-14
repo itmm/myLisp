@@ -22,22 +22,6 @@ void Collector::add_to_collector(Element *elm) {
 	}
 }
 
-Dictionary *Collector::new_dictionary(Dictionary *parent) {
-    Dictionary *dict = new Dictionary(parent);
-    _initial_locks.push_back(dict);
-    _managed.push_back(dict);
-    return dict;
-}
-
-Dictionary *Collector::root_dictionary() {
-    Dictionary *dict = new_dictionary();
-    dict->put("Infinity", new Number(Fractional::infinity()));
-    dict->put("NotANumber", new Number(Fractional::notANumber()));
-	dict->put("+", new FunctionPlus());
-
-    return dict;
-}
-
 void Collector::may_push_back(std::vector<Element *> &col, std::set<Element *> seen, Element *elm) {
     if (elm && elm != Pair::null()) {
         if (seen.find(elm) == seen.end()) {

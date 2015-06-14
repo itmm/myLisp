@@ -74,6 +74,7 @@
      *  (OUT << Parser().parse("(2 3 4)")) == "(2 3 4)"
      *  (OUT << Parser().parse("(2 (3 4) ((5)))")) == "(2 (3 4) ((5)))"
      *  (OUT << Parser().parse("(2 . 3)")) == "(2 . 3)"
+     *  (OUT << Parser().parse("(+)")) == "([#FUNCTION#])"
      *
      *  Parser().parse("Infinity")->as_number()->value() == Fractional::infinity()
      *  Parser().parse("abc") == nullptr

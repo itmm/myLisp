@@ -9,6 +9,8 @@ Ptr FunctionPlus::apply(Ptr arguments, Creator *creator) {
 
 	Fractional sum = 0;
 
+	arguments = eval_arguments(arguments, creator);
+
 	Pair *cur = arguments->as_pair()->cdr()->as_pair();
 	for (; cur && cur != Pair::null(); cur = cur->cdr()->as_pair()) {
 		Number *n = cur->car()->as_number();

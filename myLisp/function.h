@@ -10,6 +10,7 @@
 			virtual void to_stream(std::ostream &stream) const override;
 
 			virtual Ptr apply(Ptr arguments, Creator *creator);
+			Ptr eval_arguments(Ptr arguments, Creator *creator);
 	};
 
 	/*TESTS:

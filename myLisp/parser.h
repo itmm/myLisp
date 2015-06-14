@@ -17,7 +17,6 @@
             ~Parser();
 
 			Creator *creator() { return _creator; }
-			Collector *collector() { return _creator->collector(); }
 
             Ptr parse(std::istream &source);
             Ptr parse(const std::string &source);

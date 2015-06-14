@@ -2,13 +2,14 @@
 	#define function_h
 
 	#include "element.h"
+	#include "creator.h"
 
 	class Function: public Element {
 		public:
 			virtual Function *as_function() override;
 			virtual void to_stream(std::ostream &stream) const override;
 
-			virtual Element *apply(Element *arguments);
+			virtual Ptr apply(Ptr arguments, Creator *creator);
 	};
 
 	/*TESTS:
@@ -18,8 +19,7 @@
 	 *	Function().as_number() == nullptr
 	 *	Function().as_pair() == nullptr
 	 *	Function().as_string() == nullptr
-	 *
-	 * 	Function().apply(nullptr) == nullptr
+	 *	Function().apply(Ptr(), nullptr) == Ptr()
 	 *
 	 */
 

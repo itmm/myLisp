@@ -2,23 +2,24 @@
 
 #include <cassert>
 
+#include "creator.h"
 #include "dictionary.h"
 #include "number.h"
 #include "fnplus.h"
 
 Collector::~Collector() {
     while (_initial_locks.size()) {
-		release_initial_lock(_initial_locks.front());
+		remove_initial_lock(_initial_locks.front());
     }
     collect();
     assert(_managed.size() == 0);
 }
 
-Pair *Collector::new_pair(Element *car, Element *cdr) {
-    Pair *pair = new Pair(car, cdr);
-    _initial_locks.push_back(pair);
-    _managed.push_back(pair);
-    return pair;
+void Collector::add_to_collector(Element *elm) {
+	if (elm) {
+		_initial_locks.push_back(elm);
+		_managed.push_back(elm);
+	}
 }
 
 Dictionary *Collector::new_dictionary(Dictionary *parent) {
@@ -38,7 +39,7 @@ Dictionary *Collector::root_dictionary() {
 }
 
 void Collector::may_push_back(std::vector<Element *> &col, std::set<Element *> seen, Element *elm) {
-    if (elm && elm != Pair::null() && (elm->as_pair() || elm->as_dictionary())) {
+    if (elm && elm != Pair::null()) {
         if (seen.find(elm) == seen.end()) {
             col.push_back(elm);
         }
@@ -52,7 +53,6 @@ void Collector::collect() {
     
     while (toVisit.size()) {
         Element *cur = toVisit.back(); toVisit.pop_back();
-        if (!cur->as_pair()) { continue; }
         if (seen.find(cur) != seen.end()) { continue; }
         seen.insert(cur);
         

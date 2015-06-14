@@ -8,6 +8,6 @@ void Function::to_stream(std::ostream &stream) const {
 	stream << "[#FUNCTION#]";
 }
 
-Element* Function::apply(Element *arguments) {
+Ptr Function::apply(Ptr arguments, Creator *) {
 	return arguments;
 }

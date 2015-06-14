@@ -4,58 +4,54 @@
     #include <iostream>
     #include <string>
 
-    #include "collector.h"
+    #include "creator.h"
     #include "dictionary.h"
     #include "element.h"
-
-    class Number;
-    class Pair;
-    class String;
+	#include "ptr.h"
 
     class Parser {
         public:
             Parser();
-			Parser(Collector *collector);
+			Parser(Creator *creator);
             ~Parser();
-            
-            Element *parse(std::istream &source);
-            Element *parse(const std::string &source);
+
+			Creator *creator() { return _creator; }
+			Collector *collector() { return _creator->collector(); }
+
+            Ptr parse(std::istream &source);
+            Ptr parse(const std::string &source);
         
         private:
             Parser(const Parser &) = delete;
             Parser &operator=(const Parser &) = delete;
         
-            Collector *_collector;
-            bool _localCollector;
+            Creator *_creator;
+            bool _local_creator;
         
-            Dictionary *_context;
-            bool _localContext;
-            
+            Ptr _context;
+
             void eatSpace(std::istream::int_type &ch, std::istream &rest);
-            Element *parseElement(std::istream::int_type &ch, std::istream &rest);
-            Number *parseNumber(std::istream::int_type &ch, std::istream &rest);
-            Pair *parsePair(std::istream::int_type &ch, std::istream &rest);
-            String *parseString(std::istream::int_type &ch, std::istream &rest);
-            Element *parseIdentifier(std::istream::int_type &ch, std::istream &rest);
+            Ptr parseElement(std::istream::int_type &ch, std::istream &rest);
+            Ptr parseNumber(std::istream::int_type &ch, std::istream &rest);
+            Ptr parsePair(std::istream::int_type &ch, std::istream &rest);
+            Ptr parseString(std::istream::int_type &ch, std::istream &rest);
+            Ptr parseIdentifier(std::istream::int_type &ch, std::istream &rest);
     };
 
     inline Parser::Parser():
-        _collector(new Collector()), _localCollector(true),
-        _context(_collector->root_dictionary()), _localContext(true)
-    {
-        _collector->make_root(_context);
-    }
+        _creator(new Creator()), _local_creator(true),
+        _context(_creator->collector()->root_dictionary(), _creator->collector())
+    {}
 
-	inline Parser::Parser(Collector *collector):
-		_collector(collector), _localCollector(false),
-		_context(_collector->root_dictionary()), _localContext(true)
+	inline Parser::Parser(Creator *creator):
+		_creator(creator), _local_creator(false),
+		_context(_creator->collector()->root_dictionary(), _creator->collector())
 	{
-		_collector->make_root(_context);
 	}
 
 	inline Parser::~Parser() {
-        if (_localContext) { _collector->release_root(_context); _context = nullptr; }
-        if (_localCollector) { delete _collector; }
+		_context = Ptr(nullptr, _creator->collector());
+        if (_local_creator) { delete _creator; _creator = nullptr; }
     }
 
     /*TESTS:

@@ -9,16 +9,19 @@ int main(int argc, const char * argv[]) {
 
     Parser parser;
     for (;;) {
-        Element *in = parser.parse(std::cin);
+        Ptr in = parser.parse(std::cin);
         if (!in) { break; }
-        Element *out;
-		Element *head = in && in->as_pair() ? in->as_pair()->car() : static_cast<Element *>(nullptr);
+		Element *head = (in && in->as_pair()) ? in->as_pair()->car() : static_cast<Element *>(nullptr);
 		if (head && head->as_function()) {
-			out = head->as_function()->apply(in);
+			Ptr result = head->as_function()->apply(in, parser.creator());
+			if (result) {
+				std::cout << *result << std::endl;
+			} else {
+				std::cout << "[# ERROR: can't evaluate " << *in << " #]" << std::endl;
+			}
 		} else {
-			out = in;
+			std::cout << *in << std::endl;
 		}
-        std::cout << *out << std::endl;
     }
     
     return 0;

@@ -7,3 +7,4 @@ testLisp/t_collector.cpp
 testLisp/t_dictionary.cpp
 testLisp/t_function.cpp
 testLisp/t_fnplus.cpp
+testLisp/t_creator.cpp

@@ -5,7 +5,7 @@
 
 	class FunctionPlus: public Function {
 		public:
-			virtual Element *apply(Element *arguments) override;
+			virtual Ptr apply(Ptr arguments, Creator *creator) override;
 	};
 
 	/*TESTS:
@@ -14,12 +14,12 @@
 	 *>	#include "number.h"
 	 *
 	 *> static Fractional evalPlus(const std::string &source) {
-	 *>		Collector collector;
+	 *>		Creator creator;
 	 *>		FunctionPlus *function = new FunctionPlus();
-	 *>		Parser parser(&collector);
-	 *>		Element *rest = parser.parse(source);
-	 *>		Pair *arguments = collector.new_pair(function, rest);
-	 *>		Number *result = function->apply(arguments)->as_number();
+	 *>		Parser parser(&creator);
+	 *>		Ptr rest = parser.parse(source);
+	 *>		Ptr arguments = creator.new_pair(function, rest);
+	 *>		Number *result = function->apply(arguments, &creator)->as_number();
 	 *> 	return result->value();
 	 *> }
 	 *

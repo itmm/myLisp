@@ -5,7 +5,7 @@
 #include "number.h"
 #include "string.h"
 
-Number *Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
     BigInt numerator = 0;
     BigInt denominator;
     bool negative = false;
@@ -30,10 +30,10 @@ Number *Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
         denominator = 1;
     }
     
-    return new Number(Fractional(numerator, denominator, negative));
+    return Ptr(new Number(Fractional(numerator, denominator, negative)), _creator->collector());
 }
 
-String *Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
     ch = rest.get();
     std::ostringstream buffer;
     while (ch != EOF && ch != '"') {
@@ -41,7 +41,7 @@ String *Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
         ch = rest.get();
     }
     if (ch == '"') { ch = rest.get(); }
-    return new String(buffer.str());
+    return Ptr(new String(buffer.str()), _creator->collector());
 }
 
 void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
@@ -50,43 +50,37 @@ void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
     }
 }
 
-Pair *Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
     if (ch == ')') {
         ch = rest.get();
-        return Pair::null();
+        return Ptr(Pair::null(), _creator->collector());
     }
-    Element *car = parseElement(ch, rest);
-    if (!car) { return nullptr; }
+    Ptr car = parseElement(ch, rest);
+    if (!car) { return Ptr(nullptr, _creator->collector()); }
 
     eatSpace(ch, rest);
     if (ch == '.') {
         ch = rest.get();
-        Element *cdr = parseElement(ch, rest);
-        if (!cdr) { _collector->release_initial_lock(car); car->free(); return nullptr; }
-        Pair *result = _collector->new_pair(car, cdr);
-		_collector->release_initial_lock(car);
-		_collector->release_initial_lock(cdr);
-        return result;
+        Ptr cdr = parseElement(ch, rest);
+        if (!cdr) { return Ptr(nullptr, _creator->collector()); }
+        return _creator->new_pair(car, cdr);
     } else {
-        Pair *cdr = parsePair(ch, rest);
-        if (!cdr) { _collector->release_initial_lock(car); car->free(); return nullptr; }
-        Pair *result = _collector->new_pair(car, cdr);
-		_collector->release_initial_lock(car);
-		_collector->release_initial_lock(cdr);
-        return result;
+        Ptr cdr = parsePair(ch, rest);
+        if (!cdr) { return Ptr(nullptr, _creator->collector()); }
+        return _creator->new_pair(car, cdr);
     }
 }
 
-Element *Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
     std::ostringstream buffer;
     while (ch != EOF && !isspace(static_cast<int>(ch))) {
         buffer << (char) ch;
         ch = rest.get();
     }
-    return _context->get(buffer.str());
+    return Ptr(_context->as_dictionary()->get(buffer.str()), _creator->collector());
 }
 
-Element *Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
     eatSpace(ch, rest);
     switch (ch) {
         case static_cast<std::istream::int_type>(EOF): break;
@@ -102,16 +96,15 @@ Element *Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
         default:
             return parseIdentifier(ch, rest);
     }
-    return nullptr;
+    return Ptr(nullptr, _creator->collector());
 }
 
-Element *Parser::parse(std::istream &source) {
+Ptr Parser::parse(std::istream &source) {
 	std::istream::int_type ch = source.get();
-    Element *result = parseElement(ch, source);
-    return result;
+    return parseElement(ch, source);
 }
 
-Element *Parser::parse(const std::string &source) {
+Ptr Parser::parse(const std::string &source) {
     std::istringstream in(source);
     return parse(in);
 }

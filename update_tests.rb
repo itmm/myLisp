@@ -35,8 +35,8 @@ def grep_tests(file, base)
                     test = "OutSink OUT; #{test}"
                 end
                 if /CONS/ =~ test
-                    test = test.gsub(/CONS/, "collector.new_pair");
-                    test = "Collector collector; #{test}";
+                    test = test.gsub(/CONS/, "creator.new_pair");
+                    test = "Creator creator; #{test}";
                 end
 				tests << "static void test_#{cnt}() { #{test}; }"
                 cnt += 1;

@@ -21,7 +21,7 @@
         private:
             Pair(Element *car, Element *cdr): _car(car), _cdr(cdr) {}
 
-            friend class Collector;
+            friend class Creator;
             
             Element *_car;
             Element *_cdr;

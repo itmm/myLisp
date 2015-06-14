@@ -20,17 +20,7 @@ Ptr Function::eval_arguments(Ptr arguments, Creator *creator) {
 	Ptr old_cdr = Ptr(pair->cdr(), creator->collector());
 	Ptr old_car = Ptr(pair->car(), creator->collector());
 	Ptr new_cdr = eval_arguments(old_cdr, creator);
-	Ptr new_car = old_car;
-	Pair *car_pair = old_car->as_pair();
-	if (car_pair) {
-		Element *car_car = car_pair->car();
-		if (car_car) {
-			Function *car_car_fn = car_car->as_function();
-			if (car_car_fn) {
-				new_car = car_car_fn->apply(old_car, creator);
-			}
-		}
-	}
+	Ptr new_car = creator->eval(old_car);
 	if (new_car != old_car || new_cdr != old_cdr) {
 		return creator->new_pair(new_car, new_cdr);
 	} else {

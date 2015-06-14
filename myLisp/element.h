@@ -19,8 +19,14 @@
             virtual Number *as_number();
             virtual Pair *as_pair();
             virtual String *as_string();
-        
-            virtual void to_stream(std::ostream &stream) const = 0;
+
+			static Dictionary *as_dictionary(Element *elm);
+			static Function *as_function(Element *elm);
+			static Number *as_number(Element *elm);
+			static Pair *as_pair(Element *elm);
+			static String *as_string(Element *elm);
+
+			virtual void to_stream(std::ostream &stream) const = 0;
         
         private:
             Element(const Element &) = delete;

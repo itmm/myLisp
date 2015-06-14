@@ -11,23 +11,8 @@ int main(int argc, const char * argv[]) {
     for (;;) {
         Ptr in = parser.parse(std::cin);
         if (!in) { std::cout << "[# parse error #]" << std:: endl; break; }
-		Pair *pair = in->as_pair();
-		Element *head = pair ? pair->car() : static_cast<Element *>(nullptr);
-		if (head) {
-			Function *fn = head->as_function();
-			if (fn) {
-				Ptr result = fn->apply(in, parser.creator());
-				if (result) {
-					std::cout << result << std::endl;
-				} else {
-					std::cout << "[# ERROR: can't evaluate " << in << " #]" << std::endl;
-				}
-			} else {
-				std::cout << "[# no function application: " << in << " #]" << std::endl;
-			}
-		} else {
-			std::cout << "[# no list: " << in << " #]" << std::endl;
-		}
+		Ptr result = parser.creator()->eval(in);
+		std::cout << result << std::endl;
     }
     
     return 0;

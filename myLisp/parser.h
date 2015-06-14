@@ -20,7 +20,10 @@
 
             Ptr parse(std::istream &source);
             Ptr parse(const std::string &source);
-        
+
+        	Ptr eval(std::istream &source);
+			Ptr eval(const std::string &source);
+
         private:
             Parser(const Parser &) = delete;
             Parser &operator=(const Parser &) = delete;

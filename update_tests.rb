@@ -46,6 +46,10 @@ def grep_tests(file, base)
                     test = test.gsub(/STRING\((.*?)\)/, "creator.new_string(\\1)->as_string()")
                     test = "Creator creator; #{test}"
                 end
+                if /EVAL/ =~ test
+                    test = test.gsub(/EVAL/, "parser.eval")
+                    test = "Parser parser; #{test}"
+                end
 				tests << "static void test_#{cnt}() { #{test} }"
                 cnt += 1;
 			end

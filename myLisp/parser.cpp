@@ -108,3 +108,13 @@ Ptr Parser::parse(const std::string &source) {
     std::istringstream in(source);
     return parse(in);
 }
+
+Ptr Parser::eval(std::istream &source) {
+	return _creator->eval(parse(source));
+}
+
+Ptr Parser::eval(const std::string &source) {
+	std::istringstream in(source);
+	return eval(in);
+}
+

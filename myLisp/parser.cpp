@@ -73,7 +73,7 @@ Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
 
 Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
     std::ostringstream buffer;
-    while (ch != EOF && !isspace(static_cast<int>(ch))) {
+    while (ch != EOF && !isspace(static_cast<int>(ch)) && ch != ')') {
         buffer << (char) ch;
         ch = rest.get();
     }

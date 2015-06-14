@@ -15,12 +15,12 @@ int main(int argc, const char * argv[]) {
 		if (head && head->as_function()) {
 			Ptr result = head->as_function()->apply(in, parser.creator());
 			if (result) {
-				std::cout << *result << std::endl;
+				std::cout << result << std::endl;
 			} else {
-				std::cout << "[# ERROR: can't evaluate " << *in << " #]" << std::endl;
+				std::cout << "[# ERROR: can't evaluate " << in << " #]" << std::endl;
 			}
 		} else {
-			std::cout << *in << std::endl;
+			std::cout << in << std::endl;
 		}
     }
     

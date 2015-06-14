@@ -8,6 +8,7 @@
  */
 
 #include <cassert>
+#include <iostream>
 
 #include "collector.h"
 
@@ -59,6 +60,10 @@ inline bool operator==(const Ptr &a, const Ptr &b) {
 
 inline bool operator!=(const Ptr &a, const Ptr &b) {
 	return !(a == b);
+}
+
+inline std::ostream &operator<<(std::ostream &out, const Ptr &ptr) {
+	return out << &*ptr;
 }
 
 #endif

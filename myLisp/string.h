@@ -31,8 +31,8 @@
      *  STRING("pv")->as_string()->str() == "pv"
      * 
      *  STRING("abc")->str() == "abc"
-     *  (OUT << *STRING("x y")) == "\"x y\""
-     *  (OUT << *STRING("")) == "\"\""
+     *  (OUT << STRING("x y")) == "\"x y\""
+     *  (OUT << STRING("")) == "\"\""
      *
      */
      

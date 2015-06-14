@@ -33,7 +33,7 @@
      *
      *>	static Fractional minusTwoThirds = -Fractional(2, 3);
      *
-     *  (OUT << *(NUMBER(minusTwoThirds))) == "-2/3"
+     *  (OUT << NUMBER(minusTwoThirds)) == "-2/3"
      *
      */
 

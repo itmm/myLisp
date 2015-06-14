@@ -24,9 +24,9 @@ void Pair::to_stream(std::ostream &stream) const {
         Pair *cur = const_cast<Pair *>(this);
         while (cur && cur != _null) {
             if (cur != this) { stream << " "; }
-            if (cur->car()) { stream << *cur->car(); }
+            if (cur->car()) { stream << cur->car(); }
             if (cur->cdr() && !cur->cdr()->as_pair()) {
-                stream << " . " << *cur->cdr();
+                stream << " . " << cur->cdr();
                 break;
             }
             cur = cur->cdr() ? cur->cdr()->as_pair() : static_cast<Pair *>(nullptr);

@@ -27,9 +27,13 @@
             Element &operator=(const Element &) = delete;
     };
 
-    inline std::ostream &operator<<(std::ostream &output, const Element &elm) {
-        elm.to_stream(output);
-        return output;
-    }
+	inline std::ostream &operator<<(std::ostream &out, const Element *elm) {
+		if (elm) {
+			elm->to_stream(out);
+		} else {
+			out << "[# NULL #]";
+		}
+		return out;
+	}
 
 #endif

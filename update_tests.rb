@@ -35,10 +35,18 @@ def grep_tests(file, base)
                     test = "OutSink OUT; #{test}"
                 end
                 if /CONS/ =~ test
-                    test = test.gsub(/CONS/, "creator.new_pair");
-                    test = "Creator creator; #{test}";
+                    test = test.gsub(/CONS/, "creator.new_pair")
+                    test = "Creator creator; #{test}"
                 end
-				tests << "static void test_#{cnt}() { #{test}; }"
+                if /NUMBER/ =~ test
+                    test = test.gsub(/NUMBER\((.*?)\)/, "creator.new_number(\\1)->as_number()")
+                    test = "Creator creator; #{test}"
+                end
+                if /STRING/ =~ test
+                    test = test.gsub(/STRING\((.*?)\)/, "creator.new_string(\\1)->as_string()")
+                    test = "Creator creator; #{test}"
+                end
+				tests << "static void test_#{cnt}() { #{test} }"
                 cnt += 1;
 			end
 		end

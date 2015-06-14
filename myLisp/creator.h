@@ -2,8 +2,9 @@
 #define creator_h
 
 	#include "ptr.h"
+#include "fractional.h"
 
-	class Dictionary;
+class Dictionary;
 
 	class Creator {
 		public:
@@ -13,8 +14,10 @@
 
 			Collector *collector() { return _collector; }
 
-			Ptr new_pair(Element *car, Element *cdr);
 			Ptr new_dictionary(Dictionary *parent = nullptr);
+			Ptr new_number(const Fractional &value);
+			Ptr new_pair(Element *car, Element *cdr);
+			Ptr new_string(const std::string &value);
 
 		private:
 			Creator(const Creator &) = delete;

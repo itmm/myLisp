@@ -1,7 +1,6 @@
 #include "element.h"
 
 Element::~Element() {}
-void Element::free() { delete this; }
 
 Function *Element::as_function() { return nullptr; }
 Dictionary *Element::as_dictionary() { return nullptr; }

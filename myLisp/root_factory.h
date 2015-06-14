@@ -25,6 +25,8 @@
  *> #include "number.h"
  *
  *	RootFactory().root()->as_dictionary()->get("Infinity")->as_number()->value() == Fractional::infinity()
+ *	RootFactory().root()->as_dictionary()->get("NotANumber") != nullptr
+ *	RootFactory().root()->as_dictionary()->get("+") != nullptr
  *
  */
 #endif

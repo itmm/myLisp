@@ -16,7 +16,7 @@ Ptr FunctionPlus::apply(Ptr arguments, Creator *creator) {
 		sum = sum + n->value();
 	}
 	if (cur == Pair::null()) {
-		return Ptr(new Number(sum), creator->collector());
+		return creator->new_number(sum);
 	} else {
 		return Ptr();
 	}

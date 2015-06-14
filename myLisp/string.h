@@ -7,29 +7,32 @@
 
     class String: public Element {
         public:
-            String(const std::string &str): _str(str) {}
-        
+
             const std::string &str() { return _str; }
         
             virtual String *as_string();
             virtual void to_stream(std::ostream &stream) const;
-    
+
+			friend class Creator;
+
         private:
+			String(const std::string &str): _str(str) {}
+
             std::string _str;
     };
 
     /*TESTS:
      *
-     *  String("()").as_function() == nullptr
-     *  String("[]").as_dictionary() == nullptr
-     *  String("8").as_number() == nullptr
-     *  String("(1 2)").as_pair() == nullptr
-     *  String("9").as_string() != nullptr
-     *  String("pv").as_string()->str() == "pv"
+     *  STRING("**")->as_function() == nullptr
+     *  STRING("[]")->as_dictionary() == nullptr
+     *  STRING("8")->as_number() == nullptr
+     *  STRING("1 2")->as_pair() == nullptr
+     *  STRING("9")->as_string() != nullptr
+     *  STRING("pv")->as_string()->str() == "pv"
      * 
-     *  String("abc").str() == "abc"
-     *  (OUT << String("x y")) == "\"x y\""
-     *  (OUT << String("")) == "\"\""
+     *  STRING("abc")->str() == "abc"
+     *  (OUT << *STRING("x y")) == "\"x y\""
+     *  (OUT << *STRING("")) == "\"\""
      *
      */
      

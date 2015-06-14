@@ -1,18 +1,5 @@
 #include "dictionary.h"
 
-Dictionary::~Dictionary() {
-	free_children();
-}
-
-void Dictionary::free() {}
-        
-void Dictionary::free_children() {
-    if (_parent) {
-        _parent->free();
-        _parent = nullptr;
-    }
-}
-
 Dictionary *Dictionary::as_dictionary() {
     return this;
 }

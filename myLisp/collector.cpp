@@ -54,15 +54,6 @@ void Collector::collect() {
     
     std::vector<Element *> remaining;
     for (auto i = _managed.begin(); i != _managed.end(); ++i) {
-        if (seen.find(*i) == seen.end()) {
-            Pair *p = (**i).as_pair();
-            if (p) { p->free_children(); }
-            
-            Dictionary *d = (**i).as_dictionary();
-            if (d) { d->free_children(); }
-        }
-    }
-    for (auto i = _managed.begin(); i != _managed.end(); ++i) {
         if (seen.find(*i) != seen.end()) {
             remaining.push_back(*i);
         } else {

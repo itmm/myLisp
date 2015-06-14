@@ -30,7 +30,7 @@ Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
         denominator = 1;
     }
     
-    return Ptr(new Number(Fractional(numerator, denominator, negative)), _creator->collector());
+    return _creator->new_number(Fractional(numerator, denominator, negative));
 }
 
 Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
@@ -41,7 +41,7 @@ Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
         ch = rest.get();
     }
     if (ch == '"') { ch = rest.get(); }
-    return Ptr(new String(buffer.str()), _creator->collector());
+    return _creator->new_string(buffer.str());
 }
 
 void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {

@@ -14,19 +14,6 @@ Pair::_SetupNull::_SetupNull() {
     _null->_cdr = _null;
 }
 
-void Pair::free_children() {
-    if (_car) { _car->free(); _car = nullptr; }
-    if (_cdr) { _cdr->free(); _cdr = nullptr; }
-}
-
-Pair::~Pair() {
-	free_children();
-}
-
-void Pair::free() {
-    // free by garbage collector
-}
-
 Pair *Pair::as_pair() { return this; }
 
 void Pair::to_stream(std::ostream &stream) const {

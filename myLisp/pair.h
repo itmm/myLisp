@@ -5,11 +5,6 @@
     
     class Pair: public Element {
         public:
-            virtual ~Pair();
-            virtual void free();
-        
-            void free_children();
-        
             Element *car() const { return _car; }
             Element *cdr() const { return _cdr; }
             
@@ -51,9 +46,9 @@
      *  Pair::null()->car() == Pair::null()
      *  Pair::null()->cdr() == Pair::null()
      *
-     *  (OUT << *CONS(new String("a"), CONS(new String("b"), Pair::null()))) == "(\"a\" \"b\")"
+     *  (OUT << *CONS(creator.new_string("a"), CONS(creator.new_string("b"), Pair::null()))) == "(\"a\" \"b\")"
      *  (OUT << *Pair::null()) == "()"
-     *  (OUT << *CONS(new String("a"), new String("b"))) == "(\"a\" . \"b\")"
+     *  (OUT << *CONS(creator.new_string("a"), creator.new_string("b"))) == "(\"a\" . \"b\")"
      *
      */
 

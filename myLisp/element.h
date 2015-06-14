@@ -13,8 +13,7 @@
         public:
             Element() {}
             virtual ~Element();
-            virtual void free();
-        
+
             virtual Dictionary *as_dictionary();
             virtual Function *as_function();
             virtual Number *as_number();

@@ -8,11 +8,6 @@
 
     class Dictionary: public Element {
         public:
-            virtual ~Dictionary();
-            virtual void free();
-        
-            void free_children();
-        
             Dictionary *parent() { return _parent; }
         
             Element *get(const std::string &key);

@@ -1,7 +1,5 @@
 #include "fnplus.h"
 
-#include "pair.h"
-#include "fractional.h"
 #include "number.h"
 
 Ptr FunctionPlus::apply(Ptr arguments, State &state) {
@@ -11,7 +9,6 @@ Ptr FunctionPlus::apply(Ptr arguments, State &state) {
 	if (!head) { return Ptr(); }
 
 	Fractional sum = 0;
-
 
 	Pair *cur = Element::as_pair(head->cdr());
 	for (; cur && cur != Pair::null(); cur = Element::as_pair(cur->cdr())) {

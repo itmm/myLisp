@@ -9,3 +9,4 @@ testLisp/t_function.cpp
 testLisp/t_fnplus.cpp
 testLisp/t_creator.cpp
 testLisp/t_root_factory.cpp
+testLisp/t_fnminus.cpp

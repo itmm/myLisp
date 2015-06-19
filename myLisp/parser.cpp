@@ -6,16 +6,10 @@
 #include "string.h"
 #include "state.h"
 
-Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest, bool negative) {
     BigInt numerator = 0;
     BigInt denominator;
-    bool negative = false;
-    
-    if (ch == '-') {
-        negative = true;
-        ch = rest.get();
-    }
-    
+
     while (isnumber(static_cast<int>(ch))) {
         numerator = numerator * 10 + (ch - '0');
         ch = rest.get();
@@ -72,8 +66,9 @@ Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
     }
 }
 
-Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseIdentifier(std::istream::int_type first, std::istream::int_type &ch, std::istream &rest) {
     std::ostringstream buffer;
+    buffer << (char) first;
     while (ch != EOF && !isspace(static_cast<int>(ch)) && ch != ')') {
         buffer << (char) ch;
         ch = rest.get();
@@ -86,16 +81,24 @@ Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
     switch (ch) {
         case static_cast<std::istream::int_type>(EOF): break;
         case '-':
+            ch = rest.get();
+            if (!isdigit(static_cast<int>(ch))) {
+                return parseIdentifier('-', ch, rest);
+            } else {
+                return parseNumber(ch, rest, true);
+            }
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
-            return parseNumber(ch, rest);
+            return parseNumber(ch, rest, false);
         case '"':
             return parseString(ch, rest);
         case '(':
             ch = rest.get();
             return parsePair(ch, rest);
         default:
-            return parseIdentifier(ch, rest);
+            std::istream::int_type first = ch;
+            ch = rest.get();
+            return parseIdentifier(first, ch, rest);
     }
     return Ptr(nullptr, _state->collector());
 }

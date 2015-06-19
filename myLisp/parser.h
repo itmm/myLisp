@@ -34,10 +34,10 @@
         
             void eatSpace(std::istream::int_type &ch, std::istream &rest);
             Ptr parseElement(std::istream::int_type &ch, std::istream &rest);
-            Ptr parseNumber(std::istream::int_type &ch, std::istream &rest);
+            Ptr parseNumber(std::istream::int_type &ch, std::istream &rest, bool negative);
             Ptr parsePair(std::istream::int_type &ch, std::istream &rest);
             Ptr parseString(std::istream::int_type &ch, std::istream &rest);
-            Ptr parseIdentifier(std::istream::int_type &ch, std::istream &rest);
+            Ptr parseIdentifier(std::istream::int_type first, std::istream::int_type &ch, std::istream &rest);
     };
 
     inline Parser::Parser():

@@ -9,9 +9,9 @@
     #include "element.h"
 	#include "ptr.h"
 	#include "root_factory.h"
-#include "state.h"
+    #include "state.h"
 
-class Parser {
+    class Parser {
         public:
             Parser();
 			Parser(State *state);
@@ -69,13 +69,16 @@ class Parser {
      *  Parser().parse("\n\"abc\"")->as_string()->str() == "abc"
      *
      *  Parser().parse("()") == Pair::null()
-     *  (OUT << Parser().parse("(2 3 4)")) == "(2 3 4)"
-     *  (OUT << Parser().parse("(2 (3 4) ((5)))")) == "(2 (3 4) ((5)))"
-     *  (OUT << Parser().parse("(2 . 3)")) == "(2 . 3)"
-     *  (OUT << Parser().parse("(+)")) == "([#FUNCTION#])"
      *
      *  Parser().parse("Infinity")->as_number()->value() == Fractional::infinity()
      *  Parser().parse("abc") == nullptr
+     *
+     *+ OutSink os;
+     *
+     *  (os << Parser().parse("(2 3 4)")) == "(2 3 4)"
+     *  (os << Parser().parse("(2 (3 4) ((5)))")) == "(2 (3 4) ((5)))"
+     *  (os << Parser().parse("(2 . 3)")) == "(2 . 3)"
+     *  (os << Parser().parse("(+)")) == "([#FUNCTION#])"
      *
      */
 

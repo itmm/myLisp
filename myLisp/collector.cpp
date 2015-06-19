@@ -4,8 +4,6 @@
 
 #include "creator.h"
 #include "dictionary.h"
-#include "number.h"
-#include "fnplus.h"
 
 Collector::~Collector() {
     while (_initial_locks.size()) {

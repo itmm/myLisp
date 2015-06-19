@@ -22,18 +22,22 @@
 
     /*TESTS:
      *
-     *  NUMBER(5)->as_function() == nullptr
-     *  NUMBER(0)->as_dictionary() == nullptr
-     *  NUMBER(1)->as_number() != nullptr
-     *  NUMBER(2)->as_pair() == nullptr
-     *  NUMBER(3)->as_string() == nullptr
-     *  NUMBER(4)->as_number()->value() == 4
+     *+ Creator c;
      *
-     *  NUMBER(42)->value() == 42
+     *  c.new_number(5)->as_function() == nullptr
+     *  c.new_number(0)->as_dictionary() == nullptr
+     *  c.new_number(1)->as_number() != nullptr
+     *  c.new_number(2)->as_pair() == nullptr
+     *  c.new_number(3)->as_string() == nullptr
+     *  c.new_number(4)->as_number()->value() == 4
+     *
+     *  c.new_number(42)->as_number()->value() == 42
      *
      *>	static Fractional minusTwoThirds = -Fractional(2, 3);
      *
-     *  (OUT << NUMBER(minusTwoThirds)) == "-2/3"
+     *+ OutSink os;
+     *
+     *  (os << c.new_number(minusTwoThirds)) == "-2/3"
      *
      */
 

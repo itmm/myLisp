@@ -21,8 +21,15 @@ class Function: public Element {
 	 *	Function().as_number() == nullptr
 	 *	Function().as_pair() == nullptr
 	 *	Function().as_string() == nullptr
-	 *	Function().apply(Ptr(), STATE) == Ptr()
 	 *
 	 */
+
+    /*TESTS:
+     *
+     *+ State s;
+     *
+     *	Function().apply(Ptr(), s) == Ptr()
+     *
+     */
 
 #endif

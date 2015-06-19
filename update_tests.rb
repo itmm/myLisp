@@ -19,41 +19,23 @@ end
 def grep_tests(file, base)
 	tests = []
 	in_tests = false
+	preset = ""
     cnt = 1
 	File.open(file).each do |line|
 		if /\/\*TESTS:/ =~ line
 			in_tests = true
+			preset = ""
 		elsif /\*\// =~ line
 			in_tests = false
         elsif in_tests && /^\s*\*>/ =~ line
             tests << line.gsub(/^\s*\*>\s*/, "")
+        elsif in_tests && /^\s*\*\+/ =~ line
+            preset += line.gsub(/^\s*\*\+\s*/, "")
 		elsif in_tests
 			test = line.gsub(/^\s*\*\s*/, "").gsub(/\n/, '')
 			if test != ""
                 test = "assert(#{test});"
-                if /OUT/ =~ test
-                    test = "OutSink OUT; #{test}"
-                end
-                if /CONS/ =~ test
-                    test = test.gsub(/CONS/, "creator.new_pair")
-                    test = "Creator creator; #{test}"
-                end
-                if /NUMBER/ =~ test
-                    test = test.gsub(/NUMBER\((.*?)\)/, "creator.new_number(\\1)->as_number()")
-                    test = "Creator creator; #{test}"
-                end
-                if /STRING/ =~ test
-                    test = test.gsub(/STRING\((.*?)\)/, "creator.new_string(\\1)->as_string()")
-                    test = "Creator creator; #{test}"
-                end
-                if /EVAL/ =~ test
-                    test = test.gsub(/EVAL/, "parser.eval")
-                    test = "Parser parser; #{test}"
-                end
-                if /STATE/ =~ test
-                    test = "State STATE; #{test}"
-                end
-				tests << "static void test_#{cnt}() { #{test} }"
+				tests << "static void test_#{cnt}() { #{preset} #{test} }"
                 cnt += 1;
 			end
 		end

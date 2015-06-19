@@ -46,9 +46,12 @@
      *  Pair::null()->car() == Pair::null()
      *  Pair::null()->cdr() == Pair::null()
      *
-     *  (OUT << CONS(creator.new_string("a"), CONS(creator.new_string("b"), Pair::null()))) == "(\"a\" \"b\")"
-     *  (OUT << Pair::null()) == "()"
-     *  (OUT << CONS(creator.new_string("a"), creator.new_string("b"))) == "(\"a\" . \"b\")"
+     *+ Creator c;
+     *+ OutSink os;
+     *
+     *  (os << c.new_pair(c.new_string("a"), c.new_pair(c.new_string("b"), Pair::null()))) == "(\"a\" \"b\")"
+     *  (os << Pair::null()) == "()"
+     *  (os << c.new_pair(c.new_string("a"), c.new_string("b"))) == "(\"a\" . \"b\")"
      *
      */
 

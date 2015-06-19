@@ -12,10 +12,12 @@
 	 *
 	 *>	#include "number.h"
 	 *
-	 *	EVAL("(+)")->as_number()->value() == 0
-	 *	EVAL("(+ 2 3 4)")->as_number()->value() == 9
-	 *	EVAL("(+ 7)")->as_number()->value() == 7
-	 *	EVAL("(+ -3 5/2)")->as_number()->value() == -Fractional(1, 2)
+	 *+ Parser p;
+	 *
+	 *	p.eval("(+)")->as_number()->value() == 0
+	 *	p.eval("(+ 2 3 4)")->as_number()->value() == 9
+	 *	p.eval("(+ 7)")->as_number()->value() == 7
+	 *	p.eval("(+ -3 5/2)")->as_number()->value() == -Fractional(1, 2)
 	 *
 	 */
 

@@ -29,8 +29,10 @@ class Dictionary;
 
 	/*TESTS:
 	 *
-	 *	CONS(Pair::null(), Pair::null()) != Ptr()
-	 *	CONS(Pair::null(), Pair::null()) != Ptr(Pair::null(), creator.collector())
+	 *+ Creator c;
+	 *
+	 *	c.new_pair(Pair::null(), Pair::null()) != Ptr()
+	 *	c.new_pair(Pair::null(), Pair::null()) != Ptr(Pair::null(), c.collector())
 	 *
 	 */
 

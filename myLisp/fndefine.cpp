@@ -7,9 +7,6 @@ Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	Pair *head = Element::as_pair(arguments);
 	if (!head) { return Ptr(); }
 
-	Fractional sum = 0;
-
-
 	Pair *cur = Element::as_pair(head->cdr());
 	if (!cur) { return Ptr(); }
 

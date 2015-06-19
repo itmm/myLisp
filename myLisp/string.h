@@ -23,16 +23,21 @@
 
     /*TESTS:
      *
-     *  STRING("**")->as_function() == nullptr
-     *  STRING("[]")->as_dictionary() == nullptr
-     *  STRING("8")->as_number() == nullptr
-     *  STRING("1 2")->as_pair() == nullptr
-     *  STRING("9")->as_string() != nullptr
-     *  STRING("pv")->as_string()->str() == "pv"
+     *+ Creator c;
+     *
+     *  c.new_string("**")->as_function() == nullptr
+     *  c.new_string("[]")->as_dictionary() == nullptr
+     *  c.new_string("8")->as_number() == nullptr
+     *  c.new_string("1 2")->as_pair() == nullptr
+     *  c.new_string("9")->as_string() != nullptr
+     *  c.new_string("pv")->as_string()->str() == "pv"
      * 
-     *  STRING("abc")->str() == "abc"
-     *  (OUT << STRING("x y")) == "\"x y\""
-     *  (OUT << STRING("")) == "\"\""
+     *  c.new_string("abc")->as_string()->str() == "abc"
+     *
+     *+ OutSink os;
+     *
+     *  (os << c.new_string("x y")) == "\"x y\""
+     *  (os << c.new_string("")) == "\"\""
      *
      */
      

@@ -209,13 +209,15 @@
 
     /*TESTS:
      *
-     *  (OUT << Fractional(42)) == "42"
-     *  (OUT << Fractional(2, 3)) == "2/3"
-     *  (OUT << Fractional(2, 3, true)) == "-2/3"
-     *  (OUT << Fractional(0, 2, true)) == "0"
-     *  (OUT << Fractional::infinity()) == "Infinity"
-     *  (OUT << Fractional::minusInfinity()) == "(- Infinity)"
-     *  (OUT << Fractional::notANumber()) == "NotANumber"
+     *+ OutSink os;
+     *
+     *  (os << Fractional(42)) == "42"
+     *  (os << Fractional(2, 3)) == "2/3"
+     *  (os << Fractional(2, 3, true)) == "-2/3"
+     *  (os << Fractional(0, 2, true)) == "0"
+     *  (os << Fractional::infinity()) == "Infinity"
+     *  (os << Fractional::minusInfinity()) == "(- Infinity)"
+     *  (os << Fractional::notANumber()) == "NotANumber"
      *
      */
     std::ostream &operator<<(std::ostream &output, const Fractional &value);

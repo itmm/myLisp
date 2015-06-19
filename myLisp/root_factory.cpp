@@ -11,5 +11,4 @@ Ptr RootFactory::root() {
 	dict->put("+", new FunctionPlus());
 	dict->put("def", new FunctionDefine());
 	return Ptr(dict, _creator->collector());
-
 }

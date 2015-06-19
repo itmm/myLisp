@@ -52,6 +52,7 @@
 		705895881B1CB8530035ED69 /* number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895631B18BFCE0035ED69 /* number.cpp */; };
 		90A2CA18D513CD35E6C0E45F /* t_fnminus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2C7341DAD11A75255B23E /* t_fnminus.cpp */; };
 		90A2CA6ABB975696E973589C /* fnminus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2C3B5F0B91C4AEAC4992E /* fnminus.cpp */; };
+		90A2CD5937A81ADBC641F3E5 /* t_fndefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2C2DA8D3C273382221C4C /* t_fndefine.cpp */; };
 		90A2CF24F05180FDA24B6AC4 /* fnminus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2C3B5F0B91C4AEAC4992E /* fnminus.cpp */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		7058957B1B1CA07E0035ED69 /* t_template.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = t_template.cpp; sourceTree = "<group>"; };
 		705895841B1CB8180035ED69 /* t_number.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_number.cpp; sourceTree = "<group>"; };
 		7058958A1B1CB8AE0035ED69 /* t_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_helper.h; sourceTree = "<group>"; };
+		90A2C2DA8D3C273382221C4C /* t_fndefine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_fndefine.cpp; sourceTree = "<group>"; };
 		90A2C3B5F0B91C4AEAC4992E /* fnminus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnminus.cpp; sourceTree = "<group>"; };
 		90A2C7341DAD11A75255B23E /* t_fnminus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_fnminus.cpp; sourceTree = "<group>"; };
 		90A2C94FA87E6F4F2A6DA489 /* fnminus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnminus.h; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				3652DB0D4482A6F66AF0754B /* t_creator.cpp */,
 				3652D363A44991A6E250F8F5 /* t_root_factory.cpp */,
 				90A2C7341DAD11A75255B23E /* t_fnminus.cpp */,
+				90A2C2DA8D3C273382221C4C /* t_fndefine.cpp */,
 			);
 			path = testLisp;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				3652DE5CF3BEC0F907595503 /* fndefine.cpp in Sources */,
 				90A2CA6ABB975696E973589C /* fnminus.cpp in Sources */,
 				90A2CA18D513CD35E6C0E45F /* t_fnminus.cpp in Sources */,
+				90A2CD5937A81ADBC641F3E5 /* t_fndefine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

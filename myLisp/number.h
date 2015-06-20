@@ -14,11 +14,14 @@
 
 			friend class Creator;
 
-        private:
+        protected:
 			Number(const Fractional &value): _value(value) {}
 
+		private:
             Fractional _value;
-    };
+	public:
+		virtual bool is_true() const override;
+	};
 
     /*TESTS:
      *

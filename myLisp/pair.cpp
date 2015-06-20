@@ -14,6 +14,11 @@ Pair::_SetupNull::_SetupNull() {
     _null->_cdr = _null;
 }
 
+
+bool Pair::is_true() const {
+	return this != null();
+}
+
 Pair *Pair::as_pair() { return this; }
 
 void Pair::to_stream(std::ostream &stream) const {

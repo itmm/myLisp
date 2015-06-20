@@ -13,6 +13,8 @@
             virtual Pair *as_pair();
             virtual void to_stream(std::ostream &stream) const;
 
+			virtual bool is_true() const override;
+
         private:
             Pair(Element *car, Element *cdr): _car(car), _cdr(cdr) {}
 
@@ -30,7 +32,7 @@
         
             static Pair *_null;
             static _SetupNull _setup;
-    };
+	};
 
     /*TESTS:
      *

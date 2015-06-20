@@ -9,8 +9,10 @@
         public:
 
             const std::string &str() { return _str; }
-        
-            virtual String *as_string();
+
+			virtual bool is_true() const override;
+
+			virtual String *as_string();
             virtual void to_stream(std::ostream &stream) const;
 
 			friend class Creator;
@@ -19,7 +21,7 @@
 			String(const std::string &str): _str(str) {}
 
             std::string _str;
-    };
+	};
 
     /*TESTS:
      *

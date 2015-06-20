@@ -1,12 +1,18 @@
 #include "element.h"
+#include "dictionary.h"
 
 Element::~Element() {}
 
+bool Element::is_true() const { return false; }
 Dictionary *Element::as_dictionary() { return nullptr; }
 Function *Element::as_function() { return nullptr; }
 Number *Element::as_number() { return nullptr; }
 Pair *Element::as_pair() { return nullptr; }
 String *Element::as_string() { return nullptr; }
+
+bool Element::is_true(Element *elm) {
+	return elm ? elm->is_true() : false;
+}
 
 Dictionary *Element::as_dictionary(Element *elm) {
 	return elm ? elm->as_dictionary() : static_cast<Dictionary *>(nullptr);

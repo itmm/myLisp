@@ -11,6 +11,14 @@ int main(int argc, char **argv) {
     for (auto i = all_tests().begin(); i != all_tests().end(); ++i) {
         (**i)();
     }
+
+	std::cout << "\n\n";
+	std::cout << " ####  ##  ##\n";
+	std::cout << "##  ## ## ##\n";
+	std::cout << "##  ## ####\n";
+	std::cout << "##  ## ## ##\n";
+	std::cout << " ####  ##  ##\n\n";
     std::cout << "run " << all_tests().size() << " tests\n";
+
 	return EXIT_SUCCESS;
 }

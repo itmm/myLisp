@@ -18,6 +18,9 @@ Ptr FunctionMinus::apply(Ptr arguments, State &state) {
     Fractional sum = n->value();
 
     cur = Element::as_pair(cur->cdr());
+	if (cur == Pair::null()) {
+		return state.creator()->new_number(-sum);
+	}
     for (; cur && cur != Pair::null(); cur = Element::as_pair(cur->cdr())) {
         n = Element::as_number(cur->car());
         if (!n) { return Ptr(); }

@@ -90,6 +90,7 @@
 		24D82F721B2380AC00A8A86C /* dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary.h; sourceTree = "<group>"; };
 		24D82F751B23850900A8A86C /* t_dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_dictionary.cpp; sourceTree = "<group>"; };
 		3652D0FAA138CD1D5707DD09 /* state.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = state.cpp; sourceTree = "<group>"; };
+		3652D19CEB36D5334D3D94C9 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		3652D263F5D663BFC40DD02D /* fndefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fndefine.h; sourceTree = "<group>"; };
 		3652D2D8A38CAC410F92CB4A /* function.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = function.cpp; sourceTree = "<group>"; };
 		3652D2FDC29674E566B9A885 /* root_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = root_factory.cpp; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 				705895481B1869200035ED69 /* myLisp */,
 				7058956F1B1C9CF90035ED69 /* testLisp */,
 				705895471B1869200035ED69 /* Products */,
+				3652D19CEB36D5334D3D94C9 /* TODO.txt */,
 			);
 			sourceTree = "<group>";
 		};

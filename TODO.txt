@@ -1,0 +1,13 @@
+(fn) for lambda definition
+(if)
+(let)
+(defn) combines (def) and (fn)
+unlimited int for bigint
+booleans
+(*)
+(/)
+comments in Lisp code
+string concatenation
+output
+input
+substrings

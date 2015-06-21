@@ -1,4 +1,7 @@
 (fn) for lambda definition
+(cons)
+(quote)
+'
 (cond)
 (let)
 (defn) combines (def) and (fn) (define defn (fn (name, args, block) (define name (fn args block))))

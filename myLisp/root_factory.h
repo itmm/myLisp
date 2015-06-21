@@ -24,12 +24,17 @@
  *>	#include "dictionary.h"
  *> #include "number.h"
  *
- *	RootFactory().root()->as_dictionary()->get("Infinity")->as_number()->value() == Fractional::infinity()
- *	RootFactory().root()->as_dictionary()->get("NotANumber") != nullptr
- *	RootFactory().root()->as_dictionary()->get("+") != nullptr
- *	RootFactory().root()->as_dictionary()->get("def") != nullptr
- *	RootFactory().root()->as_dictionary()->get("true") != nullptr
- *	RootFactory().root()->as_dictionary()->get("false") != nullptr
+ *> #define GET(key) RootFactory().root()->as_dictionary()->get(key)
+ *> #define GET_NM(key) GET(key)->as_number()
+ *> #define GET_FN(key) GET(key)->as_function()
+ *
+ *	GET_NM("Infinity")->value() == Fractional::infinity()
+ *	GET_NM("NotANumber") != nullptr
+ *	GET_FN("+") != nullptr
+ *	GET_FN("def") != nullptr
+ *	GET_NM("true") != nullptr
+ *	GET_NM("false") != nullptr
+ *	GET_FN("list") != nullptr
  *
  */
 

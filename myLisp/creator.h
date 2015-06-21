@@ -16,6 +16,7 @@ class Dictionary;
 
 			Ptr new_dictionary(Dictionary *parent = nullptr);
 			Ptr new_number(const Fractional &value);
+			Ptr new_identifier(const std::string &value);
 			Ptr new_pair(Element *car, Element *cdr);
 			Ptr new_string(const std::string &value);
 
@@ -30,6 +31,8 @@ class Dictionary;
 	/*TESTS:
 	 *
 	 *+ Creator c;
+	 *
+	 *	c.new_identifier("abc") != Ptr()
 	 *
 	 *	c.new_pair(Pair::null(), Pair::null()) != Ptr()
 	 *	c.new_pair(Pair::null(), Pair::null()) != Ptr(Pair::null(), c.collector())

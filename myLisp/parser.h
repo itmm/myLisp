@@ -70,15 +70,15 @@
      *
      *  Parser().parse("()") == Pair::null()
      *
-     *  Parser().parse("Infinity")->as_number()->value() == Fractional::infinity()
-     *  Parser().parse("abc") == nullptr
+     *  Parser().eval("Infinity")->as_number()->value() == Fractional::infinity()
+     *  Parser().parse("abc")->as_identifier() != nullptr
      *
      *+ OutSink os;
      *
      *  (os << Parser().parse("(2 3 4)")) == "(2 3 4)"
      *  (os << Parser().parse("(2 (3 4) ((5)))")) == "(2 (3 4) ((5)))"
      *  (os << Parser().parse("(2 . 3)")) == "(2 . 3)"
-     *  (os << Parser().parse("(+)")) == "([#FUNCTION#])"
+     *  (os << Parser().parse("(+)")) == "(+)"
      *
      */
 

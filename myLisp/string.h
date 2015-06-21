@@ -8,7 +8,7 @@
     class String: public Element {
         public:
 
-            const std::string &str() { return _str; }
+            const std::string &str() const { return _str; }
 
 			virtual bool is_true() const override;
 
@@ -17,9 +17,10 @@
 
 			friend class Creator;
 
-        private:
+		protected:
 			String(const std::string &str): _str(str) {}
 
+		private:
             std::string _str;
 	};
 
@@ -27,8 +28,13 @@
      *
      *+ Creator c;
      *
+     *	c.new_string("")->is_true() == false
+     *	c.new_string(" ")->is_true() == true
+     *	c.new_string("0")->is_true() == true
+     *
      *  c.new_string("**")->as_function() == nullptr
      *  c.new_string("[]")->as_dictionary() == nullptr
+     *  c.new_string("abc")->as_identifier() == nullptr
      *  c.new_string("8")->as_number() == nullptr
      *  c.new_string("1 2")->as_pair() == nullptr
      *  c.new_string("9")->as_string() != nullptr

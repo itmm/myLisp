@@ -73,7 +73,7 @@ Ptr Parser::parseIdentifier(std::istream::int_type first, std::istream::int_type
         buffer << (char) ch;
         ch = rest.get();
     }
-    return Ptr(_state->root()->as_dictionary()->get(buffer.str()), _state->collector());
+	return _state->creator()->new_identifier(buffer.str());
 }
 
 Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {

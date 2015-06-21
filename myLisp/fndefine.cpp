@@ -1,21 +1,21 @@
 #include "fndefine.h"
-#include "string.h"
+#include "identifier.h"
 
 Ptr FunctionDefine::apply(Ptr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
-
 	Pair *head = Element::as_pair(arguments);
 	if (!head) { return Ptr(); }
 
 	Pair *cur = Element::as_pair(head->cdr());
 	if (!cur) { return Ptr(); }
 
-	String *name = Element::as_string(cur->car());
+	Identifier *name = Element::as_identifier(cur->car());
 	if (!name) { return Ptr(); }
 
 	cur = Element::as_pair(cur->cdr());
 	if (!cur) { return Ptr(); }
-	Element *value = cur->car();
+
+	Ptr value = Ptr(cur->car(), state.collector());
+	value = state.eval(value);
 	if (!value) { return Ptr(); }
 
 	state.root()->as_dictionary()->put(name->str(), value);

@@ -18,6 +18,7 @@ class Function: public Element {
 	 *
 	 *	Function().as_dictionary() == nullptr
 	 *	Function().as_function() != nullptr
+	 *	Function().as_identifier() == nullptr
 	 *	Function().as_number() == nullptr
 	 *	Function().as_pair() == nullptr
 	 *	Function().as_string() == nullptr

@@ -28,14 +28,9 @@
  *	RootFactory().root()->as_dictionary()->get("NotANumber") != nullptr
  *	RootFactory().root()->as_dictionary()->get("+") != nullptr
  *	RootFactory().root()->as_dictionary()->get("def") != nullptr
- *
- *	RootFactory().root()->as_dictionary()->get("true")->is_true() == true
- *	RootFactory().root()->as_dictionary()->get("false")->is_true() == false
- *
- *+ OutSink os;
- *
- *	(os << RootFactory().root()->as_dictionary()->get("true")) == "true"
- *	(os << RootFactory().root()->as_dictionary()->get("false")) == "false"
+ *	RootFactory().root()->as_dictionary()->get("true") != nullptr
+ *	RootFactory().root()->as_dictionary()->get("false") != nullptr
  *
  */
+
 #endif

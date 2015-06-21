@@ -27,8 +27,13 @@
      *
      *+ Creator c;
      *
+     *	c.new_number(0)->is_true() == false
+     *	c.new_number(1)->is_true() == true
+     *	c.new_number(-Fractional(2, 3))->is_true() == true
+     *
      *  c.new_number(5)->as_function() == nullptr
      *  c.new_number(0)->as_dictionary() == nullptr
+     *	c.new_number(8)->as_identifier() == nullptr
      *  c.new_number(1)->as_number() != nullptr
      *  c.new_number(2)->as_pair() == nullptr
      *  c.new_number(3)->as_string() == nullptr

@@ -38,8 +38,11 @@
      *
      *> #include "String.h"
      *
+     *	Pair::null()->is_true() == false
+     *
      *  Pair::null()->as_function() == nullptr
      *  Pair::null()->as_dictionary() == nullptr
+     *  Pair::null()->as_identifier() == nullptr
      *  Pair::null()->as_pair() != nullptr
      *  Pair::null()->as_number() == nullptr
      *  Pair::null()->as_string() == nullptr
@@ -49,6 +52,9 @@
      *  Pair::null()->cdr() == Pair::null()
      *
      *+ Creator c;
+     *
+     *	c.new_pair(Pair::null(), Pair::null())->is_true() == true
+     *
      *+ OutSink os;
      *
      *  (os << c.new_pair(c.new_string("a"), c.new_pair(c.new_string("b"), Pair::null()))) == "(\"a\" \"b\")"

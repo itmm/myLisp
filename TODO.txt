@@ -4,7 +4,7 @@
 '
 (cond)
 (let)
-(defn) combines (def) and (fn) (define defn (fn (name, args, block) (define name (fn args block))))
+(defn) combines (def) and (fn) (define defn (fn (name args block) (define name (fn args block))))
 unlimited int for bigint
 (and)
 (or)
@@ -16,7 +16,7 @@ unlimited int for bigint
 (>)
 (>=)
 (><)
-(if) (defn if (cnd, block, else) (cond (cnd block) (true else)))
+(if) (defn if (cnd block else) (cond (cnd block) (true else)))
 (*)
 (/)
 comments in Lisp code ;;

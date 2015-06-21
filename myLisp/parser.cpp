@@ -77,30 +77,49 @@ Ptr Parser::parseIdentifier(std::istream::int_type first, std::istream::int_type
 }
 
 Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
-    eatSpace(ch, rest);
-    switch (ch) {
-        case static_cast<std::istream::int_type>(EOF): break;
-        case '-':
-            ch = rest.get();
-            if (!isdigit(static_cast<int>(ch))) {
-                return parseIdentifier('-', ch, rest);
-            } else {
-                return parseNumber(ch, rest, true);
-            }
-        case '0': case '1': case '2': case '3': case '4':
-        case '5': case '6': case '7': case '8': case '9':
-            return parseNumber(ch, rest, false);
-        case '"':
-            return parseString(ch, rest);
-        case '(':
-            ch = rest.get();
-            return parsePair(ch, rest);
-        default:
-            std::istream::int_type first = ch;
-            ch = rest.get();
-            return parseIdentifier(first, ch, rest);
-    }
-    return Ptr(nullptr, _state->collector());
+	for (;;) {
+		eatSpace(ch, rest);
+		switch (ch) {
+			case static_cast<std::istream::int_type>(EOF): return Ptr();
+			case ';':
+				ch = rest.get();
+				if (ch == ';') {
+					while (ch != EOF && ch != '\n' && ch != '\r') {
+						ch = rest.get();
+					}
+					break; // read next token
+				} else {
+					return parseIdentifier(';', ch, rest);
+				}
+			case '-':
+				ch = rest.get();
+				if (!isdigit(static_cast<int>(ch))) {
+					return parseIdentifier('-', ch, rest);
+				} else {
+					return parseNumber(ch, rest, true);
+				}
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				return parseNumber(ch, rest, false);
+			case '"':
+				return parseString(ch, rest);
+			case '(':
+				ch = rest.get();
+				return parsePair(ch, rest);
+			default:
+				std::istream::int_type first = ch;
+				ch = rest.get();
+				return parseIdentifier(first, ch, rest);
+		}
+	}
 }
 
 Ptr Parser::parse(std::istream &source) {

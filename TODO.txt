@@ -19,7 +19,6 @@ unlimited int for bigint
 (if) (defn if (cnd block else) (cond (cnd block) (true else)))
 (*)
 (/)
-comments in Lisp code ;;
 string concatenation
 output
 input

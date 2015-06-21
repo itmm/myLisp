@@ -9,7 +9,7 @@ Ptr State::eval(Ptr expression) {
 		expression = Ptr(_root->as_dictionary()->get(expression), collector());
 	}
 	Pair *pair = Element::as_pair(expression);
-	if (pair && pair != Pair::null()) {
+	if (pair) {
 		Element *car = pair->car();
 		if (Element::as_identifier(car)) {
 			car = Ptr(_root->as_dictionary()->get(car), collector());

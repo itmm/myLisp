@@ -5,7 +5,7 @@ std::ostream &operator<<(std::ostream &out, Ptr ptr) {
 	if (ptr) {
 		ptr->to_stream(out);
 	} else {
-		out << "[#NULL#]";
+		out << "()";
 	}
 	return out;
 }

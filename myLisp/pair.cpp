@@ -1,17 +1,17 @@
 #include "pair.h"
 
-Pair *Pair::_null = nullptr;
+Element *Pair::car(Element *cur) {
+	if (!cur) { return nullptr; }
+	Pair *pair = Element::as_pair(cur);
+	if (!pair) { return nullptr; }
+	return pair->car();
+}
 
-
-Pair::_SetupNull Pair::_setup;
-
-Pair::_SetupNull::_SetupNull() {
-
-    // setup null is tricky, because it points to itself
-    
-    _null = new Pair(nullptr, nullptr);
-    _null->_car = _null;
-    _null->_cdr = _null;
+Element *Pair::cdr(Element *cur) {
+	if (!cur) { return nullptr; }
+	Pair *pair = Element::as_pair(cur);
+	if (!pair) { return nullptr; }
+	return pair->cdr();
 }
 
 void Pair::add_to_visit(Collector::Visitor &visitor) {
@@ -20,26 +20,22 @@ void Pair::add_to_visit(Collector::Visitor &visitor) {
 }
 
 bool Pair::is_true() const {
-	return this != null();
+	return true;
 }
 
 Pair *Pair::as_pair() { return this; }
 
 void Pair::to_stream(std::ostream &stream) const {
-    if (this == _null) {
-        stream << "()";
-    } else {
-        stream << "(";
-        Pair *cur = const_cast<Pair *>(this);
-        while (cur && cur != _null) {
-            if (cur != this) { stream << " "; }
-            if (cur->car()) { stream << cur->car(); }
-            if (cur->cdr() && !cur->cdr()->as_pair()) {
-                stream << " . " << cur->cdr();
-                break;
-            }
-            cur = cur->cdr() ? cur->cdr()->as_pair() : static_cast<Pair *>(nullptr);
-        }
-        stream << ")";
-    }
+	stream << "(";
+	Pair *cur = const_cast<Pair *>(this);
+	while (cur) {
+		if (cur != this) { stream << " "; }
+		stream << cur->car();
+		if (cur->cdr() && !cur->cdr()->as_pair()) {
+			stream << " . " << cur->cdr();
+			break;
+		}
+		cur = Element::as_pair(cur->cdr());
+	}
+	stream << ")";
 }

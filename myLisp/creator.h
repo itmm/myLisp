@@ -37,8 +37,7 @@ class Dictionary;
 	 *
 	 *	c.new_identifier("abc") != Ptr()
 	 *
-	 *	c.new_pair(Pair::null(), Pair::null()) != Ptr()
-	 *	c.new_pair(Pair::null(), Pair::null()) != Ptr(Pair::null(), c.collector())
+	 *	c.new_pair(nullptr, nullptr) != Ptr()
 	 *
 	 */
 

@@ -7,8 +7,9 @@
         public:
             Element *car() const { return _car; }
             Element *cdr() const { return _cdr; }
-            
-            static Pair *null() { return _null; }
+
+			static Element *car(Element *cur);
+			static Element *cdr(Element *cur);
 
 			virtual void add_to_visit(Collector::Visitor &visitor) override;
 
@@ -40,27 +41,26 @@
      *
      *> #include "String.h"
      *
-     *	Pair::null()->is_true() == false
-     *
-     *  Pair::null()->as_function() == nullptr
-     *  Pair::null()->as_dictionary() == nullptr
-     *  Pair::null()->as_identifier() == nullptr
-     *  Pair::null()->as_pair() != nullptr
-     *  Pair::null()->as_number() == nullptr
-     *  Pair::null()->as_string() == nullptr
-     *  Pair::null()->as_pair() == Pair::null()
-     *
-     *  Pair::null()->car() == Pair::null()
-     *  Pair::null()->cdr() == Pair::null()
+     *> #define PAIR() c.new_pair(nullptr, nullptr)
      *
      *+ Creator c;
      *
-     *	c.new_pair(Pair::null(), Pair::null())->is_true() == true
+     *	PAIR()->is_true() == true
+     *
+     *  PAIR()->as_function() == nullptr
+     *  PAIR()->as_dictionary() == nullptr
+     *  PAIR()->as_identifier() == nullptr
+     *  PAIR()->as_pair() != nullptr
+     *  PAIR()->as_number() == nullptr
+     *  PAIR()->as_string() == nullptr
+     *
+     *  PAIR()->as_pair()->car() == nullptr
+     *  PAIR()->as_pair()->cdr() == nullptr
      *
      *+ OutSink os;
      *
-     *  (os << c.new_pair(c.new_string("a"), c.new_pair(c.new_string("b"), Pair::null()))) == "(\"a\" \"b\")"
-     *  (os << Pair::null()) == "()"
+     *  (os << c.new_pair(c.new_string("a"), c.new_pair(c.new_string("b"), nullptr))) == "(\"a\" \"b\")"
+     *  (os << static_cast<Pair *>(nullptr)) == "()"
      *  (os << c.new_pair(c.new_string("a"), c.new_string("b"))) == "(\"a\" . \"b\")"
      *
      */

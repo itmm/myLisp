@@ -48,20 +48,17 @@ void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
 Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
     if (ch == ')') {
         ch = rest.get();
-        return Ptr(Pair::null(), _state->collector());
+        return Ptr();
     }
     Ptr car = parseElement(ch, rest);
-    if (!car) { return Ptr(nullptr, _state->collector()); }
 
     eatSpace(ch, rest);
     if (ch == '.') {
         ch = rest.get();
         Ptr cdr = parseElement(ch, rest);
-        if (!cdr) { return Ptr(nullptr, _state->collector()); }
         return _state->creator()->new_pair(car, cdr);
     } else {
         Ptr cdr = parsePair(ch, rest);
-        if (!cdr) { return Ptr(nullptr, _state->collector()); }
         return _state->creator()->new_pair(car, cdr);
     }
 }

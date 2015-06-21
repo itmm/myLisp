@@ -26,13 +26,13 @@ Collector::Visitor::Visitor(std::vector<Element *> &to_visit, std::set<Element *
 }
 
 void Collector::Visitor::add_to_visit(Element *elm) {
-	if (elm && elm != Pair::null() && _seen.find(elm) == _seen.end()) {
+	if (elm && _seen.find(elm) == _seen.end()) {
 		_to_visit.push_back(elm);
 	}
 }
 
 bool Collector::add_root(Element *root) {
-	if (root && root != Pair::null()) {
+	if (root) {
 		_roots.push_back(root);
 		remove_initial_lock(root);
 		return true;

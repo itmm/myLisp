@@ -16,7 +16,7 @@ Ptr Function::apply(Ptr arguments, State &state) {
 
 Ptr Function::eval_arguments(Ptr arguments, State &state) {
 	Pair *pair = Element::as_pair(arguments);
-	if (!pair || pair == Pair::null()) {
+	if (!pair) {
 		return arguments;
 	}
 

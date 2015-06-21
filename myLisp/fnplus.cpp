@@ -12,14 +12,10 @@ Ptr FunctionPlus::apply(Ptr arguments, State &state) {
 	Fractional sum = 0;
 
 	Pair *cur = Element::as_pair(head->cdr());
-	for (; cur && cur != Pair::null(); cur = Element::as_pair(cur->cdr())) {
+	for (; cur ; cur = Element::as_pair(cur->cdr())) {
 		Number *n = Element::as_number(cur->car());
 		if (!n) { return Ptr(); }
 		sum = sum + n->value();
 	}
-	if (cur == Pair::null()) {
-		return state.creator()->new_number(sum);
-	} else {
-		return Ptr();
-	}
+	return state.creator()->new_number(sum);
 }

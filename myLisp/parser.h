@@ -68,7 +68,7 @@
      *
      *  Parser().parse("\n\"abc\"")->as_string()->str() == "abc"
      *
-     *  Parser().parse("()") == Pair::null()
+     *  Parser().parse("()") == nullptr
      *
      *  Parser().eval("Infinity")->as_number()->value() == Fractional::infinity()
      *  Parser().parse("abc")->as_identifier() != nullptr

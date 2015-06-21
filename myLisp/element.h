@@ -45,7 +45,7 @@
 		if (elm) {
 			elm->to_stream(out);
 		} else {
-			out << "[# NULL #]";
+			out << "()";
 		}
 		return out;
 	}

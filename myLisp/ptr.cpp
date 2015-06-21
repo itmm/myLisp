@@ -2,7 +2,11 @@
 #include "element.h"
 
 std::ostream &operator<<(std::ostream &out, Ptr ptr) {
-	ptr->to_stream(out);
+	if (ptr) {
+		ptr->to_stream(out);
+	} else {
+		out << "[#NULL#]";
+	}
 	return out;
 }
 

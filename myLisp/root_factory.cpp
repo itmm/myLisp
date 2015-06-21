@@ -7,6 +7,7 @@
 #include "bool.h"
 #include "fnlist.h"
 #include "fnlambda.h"
+#include "fneval.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -19,5 +20,6 @@ Ptr RootFactory::root() {
 	dict->put("false", _creator->new_element(new Bool(0)));
 	dict->put("list", _creator->new_element(new FunctionList()));
 	dict->put("fn", _creator->new_element(new FunctionLambda()));
+	dict->put("eval", _creator->new_element(new FunctionEval()));
 	return Ptr(dict, _creator->collector());
 }

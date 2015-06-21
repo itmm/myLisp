@@ -9,7 +9,9 @@ void FunctionDynamic::add_to_visit(Collector::Visitor &visitor) {
 }
 
 Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
+	if (!_macro) {
+		arguments = eval_arguments(arguments, state);
+	}
 	Dictionary *context = state.creator()->new_dictionary(state.root()->as_dictionary())->as_dictionary();
 	Pair *cur_key = _args;
 	Pair *cur_value = Element::as_pair(arguments);
@@ -23,7 +25,9 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 		context->put(cur_key->car()->as_identifier()->str(), cur_value->car());
 	}
 
-	State sub_state(state.creator(), Ptr(context, state.collector()));
+	Ptr new_root(context, state.collector());
+	Ptr new_inserter(_macro ? state.inserter()->as_dictionary() : context, state.collector());
+	State sub_state(state.creator(), new_root, new_inserter);
 	Ptr body = Ptr(_body, sub_state.collector());
 	return sub_state.eval(body);
 }

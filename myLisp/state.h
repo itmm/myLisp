@@ -8,14 +8,16 @@
 
 class State {
 		public:
-			State(): _creator(new Creator()), _local_creator(true), _root(RootFactory(_creator).root()) {}
-			State(Creator *creator, Ptr root): _creator(creator), _local_creator(false), _root(root) {}
+			State(): _creator(new Creator()), _local_creator(true), _root(RootFactory(_creator).root()), _inserter(_root) {}
+			State(Creator *creator, Ptr root): _creator(creator), _local_creator(false), _root(root), _inserter(_root) {}
+	State(Creator *creator, Ptr root, Ptr inserter): _creator(creator), _local_creator(false), _root(root), _inserter(inserter) {}
 			State(State &parent);
-			~State() { _root = Ptr(); if (_local_creator) delete _creator; }
+			~State() { _root = Ptr(); _inserter = Ptr(); if (_local_creator) delete _creator; }
 
 			Creator *creator() { return _creator; }
 			Collector *collector() { return _creator->collector(); }
 			Ptr root() { return _root; }
+			Ptr inserter() { return _inserter; }
 
 			Ptr eval(Ptr expression);
 
@@ -24,6 +26,7 @@ class State {
 			bool _local_creator;
 
 			Ptr _root;
+			Ptr _inserter;
 
 			State &operator=(const State &) = delete;
 	};

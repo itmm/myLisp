@@ -6,13 +6,13 @@
 
 Ptr State::eval(Ptr expression) {
 	if (Element::as_identifier(expression)) {
-		expression = Ptr(_root->as_dictionary()->get(expression->as_identifier()->str()), collector());
+		expression = Ptr(_root->as_dictionary()->get(expression), collector());
 	}
 	Pair *pair = Element::as_pair(expression);
 	if (pair && pair != Pair::null()) {
 		Element *car = pair->car();
 		if (Element::as_identifier(car)) {
-			car = Ptr(_root->as_dictionary()->get(car->as_identifier()->str()), collector());
+			car = Ptr(_root->as_dictionary()->get(car), collector());
 		}
 		Function *fn = Element::as_function(car);
 		if (fn) {

@@ -1,10 +1,8 @@
-garbage collection für Funktionen
 (cons)
 (quote)
 '
 (cond)
 (let)
-(defn) combines (def) and (fn) (define defn (fn (name args block) (define name (fn args block))))
 unlimited int for bigint
 (and)
 (or)

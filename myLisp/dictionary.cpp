@@ -1,5 +1,7 @@
 #include "dictionary.h"
 
+#include "identifier.h"
+
 
 void Dictionary::add_to_visit(Collector::Visitor &visitor) {
 	visitor.add_to_visit(_parent);
@@ -25,6 +27,14 @@ Element *Dictionary::get(const std::string &key) {
     } else {
         return nullptr;
     }
+}
+
+Element *Dictionary::get(Element *key) {
+	if (Element::as_identifier(key)) {
+		Element *result = get(key->as_identifier()->str());
+		if (result) { return result; }
+	}
+	return key;
 }
 
 Dictionary *Dictionary::put(const std::string &key, Element *value) {

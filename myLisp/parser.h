@@ -73,6 +73,10 @@
      *  Parser().eval("Infinity")->as_number()->value() == Fractional::infinity()
      *  Parser().parse("abc")->as_identifier() != nullptr
      *
+     *	Parser().parse(";; some comments\n12")->as_number()->value() == 12
+     *	Parser().parse(";;; 12\r13")->as_number()->value() == 13
+     *	Parser().parse(";;") == nullptr
+     *
      *+ OutSink os;
      *
      *  (os << Parser().parse("(2 3 4)")) == "(2 3 4)"

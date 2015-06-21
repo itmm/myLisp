@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-#include "number.h"
+#include "pair.h"
 #include "string.h"
 #include "state.h"
 
@@ -129,7 +129,8 @@ Ptr Parser::parse(std::istream &source) {
 
 Ptr Parser::parse(const std::string &source) {
     std::istringstream in(source);
-    return parse(in);
+    Ptr result = parse(in);
+	return result;
 }
 
 Ptr Parser::eval(std::istream &source) {

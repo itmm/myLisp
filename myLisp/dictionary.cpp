@@ -1,5 +1,13 @@
 #include "dictionary.h"
 
+
+void Dictionary::add_to_visit(Collector::Visitor &visitor) {
+	visitor.add_to_visit(_parent);
+	for (auto i = _map.begin(); i != _map.end(); ++i) {
+		visitor.add_to_visit(i->second);
+	}
+}
+
 Dictionary *Dictionary::as_dictionary() {
     return this;
 }

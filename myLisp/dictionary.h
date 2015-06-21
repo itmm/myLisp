@@ -7,7 +7,9 @@
     #include <string>
 
     class Dictionary: public Element {
-        public:
+		public:
+			virtual void add_to_visit(Collector::Visitor &visitor) override;
+
             Dictionary *parent() { return _parent; }
         
             Element *get(const std::string &key);
@@ -23,7 +25,7 @@
         
             Dictionary *_parent;
             std::map<std::string, Element *> _map;
-    };
+	};
 
     /*TESTS:
      *

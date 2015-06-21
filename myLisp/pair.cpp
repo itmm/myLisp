@@ -14,6 +14,10 @@ Pair::_SetupNull::_SetupNull() {
     _null->_cdr = _null;
 }
 
+void Pair::add_to_visit(Collector::Visitor &visitor) {
+	visitor.add_to_visit(_car);
+	visitor.add_to_visit(_cdr);
+}
 
 bool Pair::is_true() const {
 	return this != null();

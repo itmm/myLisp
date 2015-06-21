@@ -62,8 +62,6 @@ inline bool operator!=(const Ptr &a, const Ptr &b) {
 	return !(a == b);
 }
 
-inline std::ostream &operator<<(std::ostream &out, const Ptr &ptr) {
-	return out << &*ptr;
-}
+std::ostream &operator<<(std::ostream &out, Ptr ptr);
 
 #endif

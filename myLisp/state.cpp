@@ -2,6 +2,7 @@
 
 #include "function.h"
 #include "identifier.h"
+#include "pair.h"
 
 Ptr State::eval(Ptr expression) {
 	if (Element::as_identifier(expression)) {

@@ -1,5 +1,7 @@
 #include "fndefine.h"
+
 #include "identifier.h"
+#include "pair.h"
 
 Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	Pair *head = Element::as_pair(arguments);

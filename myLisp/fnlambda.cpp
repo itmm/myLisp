@@ -1,6 +1,8 @@
 #include "fnlambda.h"
 #include "fndynamic.h"
 
+#include "pair.h"
+
 Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	Pair *head = Element::as_pair(arguments);
 	if (!head) { return Ptr(); }

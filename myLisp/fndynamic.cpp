@@ -1,5 +1,12 @@
 #include "fndynamic.h"
+
 #include "identifier.h"
+#include "pair.h"
+
+void FunctionDynamic::add_to_visit(Collector::Visitor &visitor) {
+	visitor.add_to_visit(_args);
+	visitor.add_to_visit(_body);
+}
 
 Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);

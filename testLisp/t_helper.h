@@ -3,6 +3,7 @@
 
     #include <iostream>
     #include <sstream>
+	#include "ptr.h"
 
     class OutSink {
         private:
@@ -12,7 +13,7 @@
         
         public:
             OutSink() {}
-        
+
             template<class T> OutSink &operator<<(const T &value) {
                 _out << value;
                 return *this;

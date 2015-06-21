@@ -14,6 +14,7 @@ class Dictionary;
 
 			Collector *collector() { return _collector; }
 
+			Ptr new_element(Element *element);
 			Ptr new_dictionary(Dictionary *parent = nullptr);
 			Ptr new_number(const Fractional &value);
 			Ptr new_identifier(const std::string &value);
@@ -29,6 +30,8 @@ class Dictionary;
 	};
 
 	/*TESTS:
+	 *
+	 *> #include "pair.h"
 	 *
 	 *+ Creator c;
 	 *

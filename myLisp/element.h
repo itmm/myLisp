@@ -2,8 +2,9 @@
 #define element_h
 
     #include <iostream>
+	#include "collector.h"
 
-    class Function;
+	class Function;
     class Dictionary;
 	class Identifier;
     class Number;
@@ -14,6 +15,8 @@
         public:
             Element() {}
             virtual ~Element();
+
+			virtual void add_to_visit(Collector::Visitor &visitor);
 
 			virtual bool is_true() const;
             virtual Dictionary *as_dictionary();

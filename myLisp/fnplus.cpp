@@ -1,6 +1,7 @@
 #include "fnplus.h"
 
 #include "number.h"
+#include "pair.h"
 
 Ptr FunctionPlus::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);

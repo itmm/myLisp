@@ -1,5 +1,7 @@
 #include "fnminus.h"
+
 #include "number.h"
+#include "pair.h"
 
 Ptr FunctionMinus::apply(Ptr arguments, State &state) {
     arguments = eval_arguments(arguments, state);

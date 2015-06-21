@@ -1,5 +1,7 @@
 #include "function.h"
 
+#include "Pair.h"
+
 Function *Function::as_function() {
 	return this;
 }

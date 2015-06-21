@@ -1,6 +1,8 @@
 #include "element.h"
 #include "dictionary.h"
 
+void Element::add_to_visit(Collector::Visitor &visitor) {}
+
 Element::~Element() {}
 
 bool Element::is_true() const { return false; }

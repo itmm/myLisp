@@ -8,33 +8,29 @@
 #include "dictionary.h"
 #include "identifier.h"
 #include "number.h"
+#include "pair.h"
+
+
+Ptr Creator::new_element(Element *element) {
+	return Ptr(_collector->add_to_collector(element), _collector);
+}
 
 Ptr Creator::new_dictionary(Dictionary *parent) {
-	Element *result = new Dictionary(parent);
-	_collector->add_to_collector(result);
-	return Ptr(result, _collector);
+	return new_element(new Dictionary(parent));
 }
 
 Ptr Creator::new_number(const Fractional &value) {
-	Element *result = new Number(value);
-	_collector->add_to_collector(result);
-	return Ptr(result, _collector);
+	return new_element(new Number(value));
 }
 
 Ptr Creator::new_identifier(const std::string &value) {
-	Element *result = new Identifier(value);
-	_collector->add_to_collector(result);
-	return Ptr(result, _collector);
+	return new_element(new Identifier(value));
 }
 
 Ptr Creator::new_pair(Element *car, Element *cdr) {
-	Element *result = new Pair(car, cdr);
-	_collector->add_to_collector(result);
-	return Ptr(result, _collector);
+	return new_element(new Pair(car, cdr));
 }
 
 Ptr Creator::new_string(const std::string &value) {
-	Element *result = new String(value);
-	_collector->add_to_collector(result);
-	return Ptr(result, _collector);
+	return new_element(new String(value));
 }

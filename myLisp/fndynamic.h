@@ -11,6 +11,8 @@
 		private:
 			Pair *_args;
 			Element *_body;
+	public:
+		virtual void add_to_visit(Collector::Visitor &visitor) override;
 	};
 
 

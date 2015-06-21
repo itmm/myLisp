@@ -19,5 +19,5 @@ Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	Element *real_body = body->car();
 	if (!real_body) { return Ptr(); }
 
-	return Ptr(new FunctionDynamic(real_args, real_body), state.collector());
+	return state.creator()->new_element(new FunctionDynamic(real_args, real_body));
 }

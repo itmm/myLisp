@@ -1,4 +1,4 @@
-(fn) for lambda definition
+garbage collection für Funktionen
 (cons)
 (quote)
 '

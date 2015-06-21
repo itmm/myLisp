@@ -35,6 +35,7 @@
  *	GET_NM("true") != nullptr
  *	GET_NM("false") != nullptr
  *	GET_FN("list") != nullptr
+ *	GET_FN("fn") != nullptr
  *
  */
 

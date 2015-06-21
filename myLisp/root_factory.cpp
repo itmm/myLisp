@@ -6,6 +6,7 @@
 #include "fnminus.h"
 #include "bool.h"
 #include "fnlist.h"
+#include "fnlambda.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -17,5 +18,6 @@ Ptr RootFactory::root() {
 	dict->put("true", new Bool(1));
 	dict->put("false", new Bool(0));
 	dict->put("list", new FunctionList());
+	dict->put("fn", new FunctionLambda());
 	return Ptr(dict, _creator->collector());
 }

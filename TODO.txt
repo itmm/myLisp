@@ -1,8 +1,8 @@
+(cond)
 (quote)
 '
 (cdr)
 dynamic parameters
-(cond)
 (let)
 unlimited int for bigint
 (and)
@@ -15,7 +15,6 @@ unlimited int for bigint
 (>)
 (>=)
 (><)
-(if) (defn if (cnd block else) (cond (cnd block) (true else)))
 (*)
 (/)
 string concatenation

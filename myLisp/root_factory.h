@@ -38,6 +38,8 @@
  *	GET_FN("fn") != nullptr
  *	GET_FN("eval") != nullptr
  *	GET_FN("car") != nullptr
+ *	GET_FN("cond") != nullptr
+ *	GET_FN("cdr") != nullptr
  *
  */
 

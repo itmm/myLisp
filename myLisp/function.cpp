@@ -17,7 +17,7 @@ Ptr Function::apply(Ptr arguments, State &state) {
 Ptr Function::eval_arguments(Ptr arguments, State &state) {
 	Pair *pair = Element::as_pair(arguments);
 	if (!pair) {
-		return arguments;
+		return arguments ? state.eval(arguments) : arguments;
 	}
 
 	Ptr old_cdr = Ptr(pair->cdr(), state.collector());

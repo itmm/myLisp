@@ -31,15 +31,14 @@ Element *Dictionary::get(const std::string &key) {
 
 Element *Dictionary::get(Element *key) {
 	if (Element::as_identifier(key)) {
-		Element *result = get(key->as_identifier()->str());
-		if (result) { return result; }
+		auto k = key->as_identifier()->str();
+		Element *result = get(k);
+		if (result || _map.find(k) != _map.end()) { return result; }
 	}
 	return key;
 }
 
 Dictionary *Dictionary::put(const std::string &key, Element *value) {
-    if (value) {
-        _map[key] = value;
-    }
+	_map[key] = value;
     return this;
 }

@@ -1,7 +1,5 @@
-(cond)
 (quote)
 '
-(cdr)
 dynamic parameters
 (let)
 unlimited int for bigint
@@ -9,7 +7,6 @@ unlimited int for bigint
 (or)
 (not)
 (xor)
-(=)
 (<)
 (<=)
 (>)

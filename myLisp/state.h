@@ -20,6 +20,9 @@ class State {
 			Ptr inserter() { return _inserter; }
 
 			Ptr eval(Ptr expression);
+			Ptr trueNumber() { return Ptr(_root->as_dictionary()->get("true"), collector()); }
+			Ptr falseNumber() { return Ptr(_root->as_dictionary()->get("false"), collector()); }
+			Ptr boolNumber(bool value) { return value ? trueNumber() : falseNumber(); }
 
 		private:
 			Creator *_creator;

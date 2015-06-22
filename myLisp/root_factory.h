@@ -40,6 +40,7 @@
  *	GET_FN("car") != nullptr
  *	GET_FN("cond") != nullptr
  *	GET_FN("cdr") != nullptr
+ *	GET_FN("=") != nullptr
  *
  */
 

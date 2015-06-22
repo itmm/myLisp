@@ -31,7 +31,7 @@ def grep_tests(file, base)
             tests << line.gsub(/^\s*\*>\s*/, "")
         elsif in_tests && /^\s*\*\+/ =~ line
             preset += line.gsub(/^\s*\*\+\s*/, "")
-		elsif in_tests
+		elsif in_tests && /^\s*\*\s/ =~ line
 			test = line.gsub(/^\s*\*\s*/, "").gsub(/\n/, '')
 			if test != ""
                 test = "assert(#{test});"

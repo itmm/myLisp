@@ -11,6 +11,7 @@
 #include "fncar.h"
 #include "fncond.h"
 #include "fncdr.h"
+#include "fnequal.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -27,5 +28,6 @@ Ptr RootFactory::root() {
 	dict->put("car", _creator->new_element(new FunctionCar()));
 	dict->put("cond", _creator->new_element(new FunctionCond()));
 	dict->put("cdr", _creator->new_element(new FunctionCdr()));
+	dict->put("=", _creator->new_element(new FunctionEqual()));
 	return Ptr(dict, _creator->collector());
 }

@@ -37,6 +37,7 @@
  *	GET_FN("list") != nullptr
  *	GET_FN("fn") != nullptr
  *	GET_FN("eval") != nullptr
+ *	GET_FN("car") != nullptr
  *
  */
 

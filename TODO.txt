@@ -1,5 +1,7 @@
 (quote)
 '
+(cdr)
+dynamic parameters
 (cond)
 (let)
 unlimited int for bigint

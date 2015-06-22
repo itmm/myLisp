@@ -13,3 +13,4 @@ testLisp/t_fnminus.cpp
 testLisp/t_fndefine.cpp
 testLisp/t_bool.cpp
 testLisp/t_fnlist.cpp
+testLisp/t_fncar.cpp

@@ -8,6 +8,7 @@
 #include "fnlist.h"
 #include "fnlambda.h"
 #include "fneval.h"
+#include "fncar.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -21,5 +22,6 @@ Ptr RootFactory::root() {
 	dict->put("list", _creator->new_element(new FunctionList()));
 	dict->put("fn", _creator->new_element(new FunctionLambda()));
 	dict->put("eval", _creator->new_element(new FunctionEval()));
+	dict->put("car", _creator->new_element(new FunctionCar()));
 	return Ptr(dict, _creator->collector());
 }

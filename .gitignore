@@ -17,3 +17,4 @@ testLisp/t_fncar.cpp
 testLisp/t_fncdr.cpp
 testLisp/t_fncond.cpp
 testLisp/t_fnequal.cpp
+testLisp/t_fnquote.cpp

@@ -12,6 +12,7 @@
 #include "fncond.h"
 #include "fncdr.h"
 #include "fnequal.h"
+#include "fnquote.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -29,5 +30,6 @@ Ptr RootFactory::root() {
 	dict->put("cond", _creator->new_element(new FunctionCond()));
 	dict->put("cdr", _creator->new_element(new FunctionCdr()));
 	dict->put("=", _creator->new_element(new FunctionEqual()));
+	dict->put("quote", _creator->new_element(new FunctionQuote()));
 	return Ptr(dict, _creator->collector());
 }

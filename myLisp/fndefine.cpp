@@ -17,11 +17,13 @@ Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	if (!name) { return Ptr(); }
 
 	cur = Element::as_pair(cur->cdr());
+
 	if (!cur) { return Ptr(); }
 
 	Ptr value = Ptr(cur->car(), state.collector());
 	value = state.eval(value);
-	if (!value) { return Ptr(); }
+
+	//std::cerr << name << " -> " << value << std::endl;
 
 	state.inserter()->as_dictionary()->put(name->str(), value);
 

@@ -22,8 +22,8 @@ Ptr Function::eval_arguments(Ptr arguments, State &state) {
 
 	Ptr old_cdr = Ptr(pair->cdr(), state.collector());
 	Ptr old_car = Ptr(pair->car(), state.collector());
-	Ptr new_cdr = eval_arguments(old_cdr, state);
 	Ptr new_car = state.eval(old_car);
+	Ptr new_cdr = eval_arguments(old_cdr, state);
 	if (new_car != old_car || new_cdr != old_cdr) {
 		return state.creator()->new_pair(new_car, new_cdr);
 	} else {

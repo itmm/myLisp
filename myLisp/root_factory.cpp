@@ -13,6 +13,7 @@
 #include "fncdr.h"
 #include "fnequal.h"
 #include "fnquote.h"
+#include "fnimport.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -31,5 +32,6 @@ Ptr RootFactory::root() {
 	dict->put("cdr", _creator->new_element(new FunctionCdr()));
 	dict->put("=", _creator->new_element(new FunctionEqual()));
 	dict->put("quote", _creator->new_element(new FunctionQuote()));
+	dict->put("import", _creator->new_element(new FunctionImport()));
 	return Ptr(dict, _creator->collector());
 }

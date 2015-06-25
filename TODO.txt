@@ -1,4 +1,5 @@
-(quote)
+turing maschine
+methode nicht in arguments
 '
 dynamic parameters
 (let)

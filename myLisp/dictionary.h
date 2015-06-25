@@ -15,7 +15,7 @@
             Element *get(const std::string &key);
 			Element *get(Element *key);
             Dictionary *put(const std::string &key, Element *value);
-        
+
             virtual Dictionary *as_dictionary();
             virtual void to_stream(std::ostream &stream) const;
         

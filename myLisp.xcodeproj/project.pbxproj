@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24A612961B36C90C00A2CB04 /* system.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D57C6E43E83D06D786FD /* system.lsp */; };
+		24A612971B3C842400A2CB04 /* turing.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D043BE23F9D1844A2CDC /* turing.lsp */; };
 		24D82F631B234FDC00A8A86C /* t_string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F621B234FDC00A8A86C /* t_string.cpp */; };
 		24D82F641B23500100A8A86C /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895601B18BA5D0035ED69 /* string.cpp */; };
 		24D82F661B2351A000A8A86C /* t_pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F651B2351A000A8A86C /* t_pair.cpp */; };
@@ -32,6 +33,7 @@
 		3652D32B0E9298A26E7D3F60 /* root_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D2FDC29674E566B9A885 /* root_factory.cpp */; };
 		3652D33F609DD44A9703ECCE /* creator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DD16F5C5A639334AAA77 /* creator.cpp */; };
 		3652D383FFA154FAA8148CDF /* t_fnlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D5A7BB274F2DA453E935 /* t_fnlist.cpp */; };
+		3652D3F53DA96A9A258E6A56 /* fnimport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D3F1C4DBF7D85E1DF212 /* fnimport.cpp */; };
 		3652D43C67835998918CD6F3 /* t_fncond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D9CEA6B011C6D598E9E8 /* t_fncond.cpp */; };
 		3652D43E2B7D4D1DCCAE8ECF /* fndynamic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D5A62AC5A943C3284252 /* fndynamic.cpp */; };
 		3652D4664338D11210720DBA /* creator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DD16F5C5A639334AAA77 /* creator.cpp */; };
@@ -63,6 +65,7 @@
 		3652DCD945DB8B8CE00E494B /* fnlambda.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D4F8BCDB94A2C085A989 /* fnlambda.cpp */; };
 		3652DD983E6A7C7CFB8F0C07 /* fncond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D855CE00CBAD0ED7D726 /* fncond.cpp */; };
 		3652DE5CF3BEC0F907595503 /* fndefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6530404676AA201C718 /* fndefine.cpp */; };
+		3652DEC2D523519E2510A196 /* fnimport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D3F1C4DBF7D85E1DF212 /* fnimport.cpp */; };
 		3652DF1ED6F31C4C40CBC848 /* t_fncdr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D099BE3959794DA3185A /* t_fncdr.cpp */; };
 		3652DF8A5F7009FCC9AB1706 /* t_bool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D1B66A533EB2B0453950 /* t_bool.cpp */; };
 		3652DF9F1C5399E5656FA330 /* ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DDD455DF176AF2F7282C /* ptr.cpp */; };
@@ -93,6 +96,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				24A612971B3C842400A2CB04 /* turing.lsp in CopyFiles */,
 				24A612961B36C90C00A2CB04 /* system.lsp in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +124,7 @@
 		24D82F711B2380AC00A8A86C /* dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dictionary.cpp; sourceTree = "<group>"; };
 		24D82F721B2380AC00A8A86C /* dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dictionary.h; sourceTree = "<group>"; };
 		24D82F751B23850900A8A86C /* t_dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_dictionary.cpp; sourceTree = "<group>"; };
+		3652D043BE23F9D1844A2CDC /* turing.lsp */ = {isa = PBXFileReference; lastKnownFileType = file.lsp; path = turing.lsp; sourceTree = "<group>"; };
 		3652D05C5147BEDA132AC853 /* fncdr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fncdr.h; sourceTree = "<group>"; };
 		3652D08ABEF53212E245755A /* fnlambda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnlambda.h; sourceTree = "<group>"; };
 		3652D099BE3959794DA3185A /* t_fncdr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_fncdr.cpp; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 		3652D19CEB36D5334D3D94C9 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		3652D1B66A533EB2B0453950 /* t_bool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_bool.cpp; sourceTree = "<group>"; };
 		3652D263F5D663BFC40DD02D /* fndefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fndefine.h; sourceTree = "<group>"; };
+		3652D26923E9C50B8690BC2B /* fnimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnimport.h; sourceTree = "<group>"; };
 		3652D2C91B8992A3B3B40BC8 /* identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = identifier.h; sourceTree = "<group>"; };
 		3652D2D8A38CAC410F92CB4A /* function.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = function.cpp; sourceTree = "<group>"; };
 		3652D2FDC29674E566B9A885 /* root_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = root_factory.cpp; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		3652D36D323308242DCF6057 /* identifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = identifier.cpp; sourceTree = "<group>"; };
 		3652D375BF1ABD0090EA679C /* fnquote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnquote.h; sourceTree = "<group>"; };
 		3652D3E9463DE1941690F22A /* fneval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fneval.cpp; sourceTree = "<group>"; };
+		3652D3F1C4DBF7D85E1DF212 /* fnimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnimport.cpp; sourceTree = "<group>"; };
 		3652D4507D93EF742DF218FF /* fnquote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnquote.cpp; sourceTree = "<group>"; };
 		3652D46C15DBE1C7FE1BE5BA /* fndynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fndynamic.h; sourceTree = "<group>"; };
 		3652D471C3B513BC7C869626 /* t_fnquote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_fnquote.cpp; sourceTree = "<group>"; };
@@ -292,6 +299,9 @@
 				3652D8544FF74D073C03FADB /* fnequal.h */,
 				3652D4507D93EF742DF218FF /* fnquote.cpp */,
 				3652D375BF1ABD0090EA679C /* fnquote.h */,
+				3652D3F1C4DBF7D85E1DF212 /* fnimport.cpp */,
+				3652D26923E9C50B8690BC2B /* fnimport.h */,
+				3652D043BE23F9D1844A2CDC /* turing.lsp */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -450,6 +460,7 @@
 				3652D2D0B93472BC01F5F85A /* fncond.cpp in Sources */,
 				3652D77A1B29117193D775F9 /* fnequal.cpp in Sources */,
 				3652D4999E241DFDDC19C225 /* fnquote.cpp in Sources */,
+				3652D3F53DA96A9A258E6A56 /* fnimport.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +516,7 @@
 				3652D92751CA0D8FA4273B68 /* t_fnequal.cpp in Sources */,
 				3652DB03364FD79F8A20DDF7 /* fnquote.cpp in Sources */,
 				3652D130223376DB32393D30 /* t_fnquote.cpp in Sources */,
+				3652DEC2D523519E2510A196 /* fnimport.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

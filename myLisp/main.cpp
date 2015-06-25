@@ -11,7 +11,7 @@ int main(int argc, const char * argv[]) {
 	State state;
     Parser parser(&state);
 
-	std::cout << "(import system.lst ..";
+	std::cout << std::endl << "(import \"system.lsp\")" << std::endl;
 	{
 		std::ifstream system("system.lsp");
 		for (; ;
@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 			state.eval(in);
 		}
 	}
-	std::cout << " done)" << std::endl << std::endl;
+	std::cout << "true" << std::endl << std::endl;
 
 	for (;;) {
         Ptr in = parser.parse(std::cin);

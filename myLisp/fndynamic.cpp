@@ -17,9 +17,6 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 	Pair *cur_value = Element::as_pair(arguments);
 	if (!cur_key || !cur_value) { return Ptr(); }
 
-	cur_value = Element::as_pair(cur_value->cdr());
-	if (!cur_value) { return  Ptr(); }
-
 	for (; cur_key; cur_key = Element::as_pair(cur_key->cdr()), cur_value = Element::as_pair(Pair::cdr(cur_value))) {
 		context->put(cur_key->car()->as_identifier()->str(), cur_value->car());
 	}

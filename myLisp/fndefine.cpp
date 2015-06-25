@@ -4,10 +4,7 @@
 #include "pair.h"
 
 Ptr FunctionDefine::apply(Ptr arguments, State &state) {
-	Pair *head = Element::as_pair(arguments);
-	if (!head) { return Ptr(); }
-
-	Pair *cur = Element::as_pair(head->cdr());
+	Pair *cur = Element::as_pair(arguments);
 	if (!cur) { return Ptr(); }
 
 	Identifier *name;

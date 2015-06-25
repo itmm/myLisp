@@ -2,7 +2,7 @@
 #include "pair.h"
 
 Ptr FunctionCond::apply(Ptr arguments, State &state) {
-	Pair *cur = Element::as_pair(Pair::cdr(arguments));
+	Pair *cur = Element::as_pair(arguments);
 	for (;;) {
 		Element *cond = Pair::car(cur);
 		cur = Element::as_pair(Pair::cdr(cur));

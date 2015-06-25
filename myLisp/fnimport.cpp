@@ -8,7 +8,7 @@
 Ptr FunctionImport::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
 	Parser parser(&state);
-	for (Element *cur = Pair::cdr(arguments); cur; cur = Pair::cdr(cur)) {
+	for (Element *cur = Element::as_pair(arguments); cur; cur = Pair::cdr(cur)) {
 		String *path = Pair::car(cur)->as_string();
 		if (!path) { return Ptr(); }
 		std::ifstream in(path->str().c_str());

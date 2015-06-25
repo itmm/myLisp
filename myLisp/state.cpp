@@ -16,7 +16,7 @@ Ptr State::eval(Ptr expression) {
 		}
 		Function *fn = Element::as_function(car);
 		if (fn) {
-			return fn->apply(expression, *this);
+			return fn->apply(Ptr(pair->cdr(), collector()), *this);
 		}
 	}
 	return expression;

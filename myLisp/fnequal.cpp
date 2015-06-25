@@ -4,7 +4,7 @@
 
 Ptr FunctionEqual::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
-	Pair *cur = Element::as_pair(Pair::cdr(arguments));
+	Pair *cur = Element::as_pair(arguments);
 	if (!cur) { return state.falseNumber(); }
 
 	Number *ref = Element::as_number(Pair::car(cur));

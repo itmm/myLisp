@@ -6,12 +6,9 @@
 Ptr FunctionPlus::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
 
-	Pair *head = Element::as_pair(arguments);
-	if (!head) { return Ptr(); }
-
 	Fractional sum = 0;
 
-	Pair *cur = Element::as_pair(head->cdr());
+	Pair *cur = Element::as_pair(arguments);
 	for (; cur ; cur = Element::as_pair(cur->cdr())) {
 		Number *n = Element::as_number(cur->car());
 		if (!n) { return Ptr(); }

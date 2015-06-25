@@ -5,10 +5,7 @@
 #include "pair.h"
 
 Ptr FunctionLambda::apply(Ptr arguments, State &state) {
-	Pair *head = Element::as_pair(arguments);
-	if (!head) { return Ptr(); }
-
-	Pair *args = Element::as_pair(head->cdr());
+	Pair *args = Element::as_pair(arguments);
 	if (!args) { return Ptr(); }
 
 	bool isMacro = false;

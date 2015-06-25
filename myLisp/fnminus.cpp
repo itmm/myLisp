@@ -6,14 +6,8 @@
 Ptr FunctionMinus::apply(Ptr arguments, State &state) {
     arguments = eval_arguments(arguments, state);
 
-    Pair *head = Element::as_pair(arguments);
-    if (!head) { return Ptr(); }
-
-	if (!head->cdr()) {
-		return state.creator()->new_number(-Fractional(1));
-	}
-    Pair *cur = Element::as_pair(head->cdr());
-    if (!cur) { return Ptr(); }
+    Pair *cur = Element::as_pair(arguments);
+    if (!cur) { return state.creator()->new_number(-Fractional(1)); }
 
     Number *n = Element::as_number(cur->car());
     if (!n) { return Ptr(); }

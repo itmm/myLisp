@@ -4,8 +4,5 @@
 
 Ptr FunctionList::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
-	Pair *head = Element::as_pair(arguments);
-
-	if (!head) { return Ptr(); }
-	return Ptr(head->cdr(), state.collector());
+	return Ptr(arguments, state.collector());
 }

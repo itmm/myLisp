@@ -11,10 +11,15 @@
 			virtual void add_to_visit(Collector::Visitor &visitor) override;
 
             Dictionary *parent() { return _parent; }
-        
-            Element *get(const std::string &key);
-			Element *get(Element *key);
+
+        	bool contains(const std::string &key) const;
+            Element *get(const std::string &key) const;
+			Element *get(Element *key) const;
             Dictionary *put(const std::string &key, Element *value);
+
+			virtual bool is_true() const override;
+			virtual bool is_equal(Element *other) const override;
+			bool is_subset_of(const Dictionary *other) const;
 
             virtual Dictionary *as_dictionary();
             virtual void to_stream(std::ostream &stream) const;

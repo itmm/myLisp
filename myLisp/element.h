@@ -19,6 +19,8 @@
 			virtual void add_to_visit(Collector::Visitor &visitor);
 
 			virtual bool is_true() const;
+			virtual bool is_equal(Element *other) const;
+
             virtual Dictionary *as_dictionary();
             virtual Function *as_function();
 			virtual Identifier *as_identifier();
@@ -27,6 +29,8 @@
             virtual String *as_string();
 
 			static bool is_true(Element *elm);
+			static bool is_equal(Element *a, Element *b);
+
 			static Dictionary *as_dictionary(Element *elm);
 			static Function *as_function(Element *elm);
 			static Identifier *as_identifier(Element *elm);
@@ -40,6 +44,12 @@
             Element(const Element &) = delete;
             Element &operator=(const Element &) = delete;
     };
+
+	inline bool Element::is_equal(Element *a, Element *b) {
+		if (a == b) { return true; }
+		if (!a || !b) { return false; }
+		return a->is_equal(b);
+	}
 
 	inline std::ostream &operator<<(std::ostream &out, const Element *elm) {
 		if (elm) {

@@ -17,6 +17,10 @@ bool Element::is_true(Element *elm) {
 	return elm ? elm->is_true() : false;
 }
 
+bool Element::is_equal(Element *other) const {
+	return this == other;
+}
+
 Dictionary *Element::as_dictionary(Element *elm) {
 	return elm ? elm->as_dictionary() : static_cast<Dictionary *>(nullptr);
 }

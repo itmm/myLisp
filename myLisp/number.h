@@ -12,15 +12,16 @@
         
             const Fractional &value() const { return _value; }
 
-			friend class Creator;
+			virtual bool is_true() const override;
+			virtual bool is_equal(Element *other) const override;
 
         protected:
+			friend class Creator;
+
 			Number(const Fractional &value): _value(value) {}
 
 		private:
             Fractional _value;
-	public:
-		virtual bool is_true() const override;
 	};
 
     /*TESTS:

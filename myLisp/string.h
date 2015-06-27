@@ -11,6 +11,7 @@
             const std::string &str() const { return _str; }
 
 			virtual bool is_true() const override;
+			virtual bool is_equal(Element *other) const override;
 
 			virtual String *as_string();
             virtual void to_stream(std::ostream &stream) const;

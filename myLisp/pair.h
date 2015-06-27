@@ -26,15 +26,8 @@
             Element *_car;
             Element *_cdr;
         
-            class _SetupNull {
-                public:
-                    _SetupNull();
-            };
-        
-            friend class _SetupNull;
-        
-            static Pair *_null;
-            static _SetupNull _setup;
+	public:
+		virtual bool is_equal(Element *other) const override;
 	};
 
     /*TESTS:

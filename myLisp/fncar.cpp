@@ -12,5 +12,5 @@ Ptr FunctionCar::apply(Ptr arguments, State &state) {
 	if (!value) { return Ptr(); }
 	Pair *pair = value->as_pair();
 	if (!pair) { return state.creator()->new_error("car's argument must be a pair"); }
-	return Ptr(Pair::car(Pair::car(arguments)), state.collector());
+	return Ptr(pair->car(), state.collector());
 }

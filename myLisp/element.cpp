@@ -7,6 +7,7 @@ Element::~Element() {}
 
 bool Element::is_true() const { return false; }
 Dictionary *Element::as_dictionary() { return nullptr; }
+Error *Element::as_error() { return nullptr; }
 Function *Element::as_function() { return nullptr; }
 Identifier *Element::as_identifier() { return nullptr; }
 Number *Element::as_number() { return nullptr; }
@@ -23,6 +24,10 @@ bool Element::is_equal(Element *other) const {
 
 Dictionary *Element::as_dictionary(Element *elm) {
 	return elm ? elm->as_dictionary() : static_cast<Dictionary *>(nullptr);
+}
+
+Error *Element::as_error(Element *elm) {
+	return elm ? elm->as_error() : static_cast<Error *>(nullptr);
 }
 
 Function *Element::as_function(Element *elm) {

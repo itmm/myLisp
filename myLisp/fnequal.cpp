@@ -1,7 +1,5 @@
 #include "fnequal.h"
 #include "pair.h"
-#include "number.h"
-#include "string.h"
 
 Ptr FunctionEqual::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);

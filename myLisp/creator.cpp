@@ -6,6 +6,7 @@
 #include "creator.h"
 
 #include "dictionary.h"
+#include "error.h"
 #include "identifier.h"
 #include "number.h"
 #include "pair.h"
@@ -13,6 +14,11 @@
 
 Ptr Creator::new_element(Element *element) {
 	return Ptr(_collector->add_to_collector(element), _collector);
+}
+
+
+Ptr Creator::new_error(const std::string &message) {
+	return new_element(new Error(message));
 }
 
 Ptr Creator::new_dictionary(Dictionary *parent) {

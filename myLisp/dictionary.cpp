@@ -2,7 +2,6 @@
 
 #include "identifier.h"
 
-
 bool Dictionary::is_true() const {
 	if (_map.size()) { return true; }
 	if (_parent && _parent->is_true()) { return true; }

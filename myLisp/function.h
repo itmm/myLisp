@@ -5,14 +5,14 @@
 	#include "creator.h"
 #include "state.h"
 
-class Function: public Element {
+	class Function: public Element {
 		public:
 			virtual Function *as_function() override;
 			virtual void to_stream(std::ostream &stream) const override;
 
 			virtual Ptr apply(Ptr arguments, State &state);
 
-	virtual Ptr eval_arguments(Ptr arguments, State &state);
+			virtual Ptr eval_arguments(Ptr arguments, State &state);
 	};
 
 	/*TESTS:

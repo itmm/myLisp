@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "collector.h"
+#include "element.h"
 
 class Ptr {
 	public:
@@ -55,7 +56,10 @@ inline Ptr &Ptr::operator=(const Ptr &other) {
 }
 
 inline bool operator==(const Ptr &a, const Ptr &b) {
-	return a._collector == b._collector && a._value == b._value;
+	if (a._collector != b._collector) { return false; }
+	if (a._value == b._value) { return true; }
+	if (!a._value || !b._value) { return false; }
+	return a._value->is_equal(b._value);
 }
 
 inline bool operator!=(const Ptr &a, const Ptr &b) {

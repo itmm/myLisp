@@ -5,6 +5,7 @@
 	#include "collector.h"
 
 	class Function;
+	class Error;
     class Dictionary;
 	class Identifier;
     class Number;
@@ -22,6 +23,7 @@
 			virtual bool is_equal(Element *other) const;
 
             virtual Dictionary *as_dictionary();
+            virtual Error *as_error();
             virtual Function *as_function();
 			virtual Identifier *as_identifier();
             virtual Number *as_number();
@@ -32,6 +34,7 @@
 			static bool is_equal(Element *a, Element *b);
 
 			static Dictionary *as_dictionary(Element *elm);
+			static Error *as_error(Element *elm);
 			static Function *as_function(Element *elm);
 			static Identifier *as_identifier(Element *elm);
 			static Number *as_number(Element *elm);

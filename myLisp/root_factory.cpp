@@ -15,6 +15,7 @@
 #include "fnquote.h"
 #include "fnimport.h"
 #include "fndo.h"
+#include "fnerror.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -35,5 +36,6 @@ Ptr RootFactory::root() {
 	dict->put("quote", _creator->new_element(new FunctionQuote()));
 	dict->put("import", _creator->new_element(new FunctionImport()));
 	dict->put("do", _creator->new_element(new FunctionDo()));
+	dict->put("error", _creator->new_element(new FunctionError()));
 	return Ptr(dict, _creator->collector());
 }

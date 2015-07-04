@@ -9,19 +9,15 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*TESTS:
+	/*LISP-TESTS:
 	 *
-	 *> #include "number.h"
+	 *	(= (car (list 1 2)) 1)
+	 *	(= (car ()) (list))
 	 *
-	 *+	Parser p;
-	 *
-	 *	p.eval("(car (list 1 2))")->as_number()->value() == 1
-	 *	p.eval("(car ())") == nullptr
-	 *
-	 *	p.eval("(car)") == p.creator()->new_error("car needs one argument")
-	 *	p.eval("(car . 2)") == p.creator()->new_error("arguments of car are not a list")
-	 *	p.eval("(car 2)") == p.creator()->new_error("car's argument must be a pair")
-	 *	p.eval("(car (list 1 2) (list))") == p.creator()->new_error("car has more than one argument")
+	 *	(= (car 2) (error "car's argument must be a pair"))
+	 *	(= (car . 2) (error "arguments of car are not a list"))
+	 *	(= (car 2) (error "car's argument must be a pair"))
+	 *	(= (car (list (1 2)) (list)) (error "car has more than one argument"))
 	 *
 	 */
 

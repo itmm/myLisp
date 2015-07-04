@@ -19,12 +19,18 @@ end
 def grep_tests(file, base)
 	tests = []
 	in_tests = false
-	preset = ""
+	lisp_tests = false
+	preset = ''
     cnt = 1
 	File.open(file).each do |line|
 		if /\/\*TESTS:/ =~ line
 			in_tests = true
-			preset = ""
+			lisp_tests = false
+			preset = ''
+		elsif /\/\*LISP-TESTS:/ =~ line
+		    in_tests = true
+		    lisp_tests = true
+		    preset = ''
 		elsif /\*\// =~ line
 			in_tests = false
         elsif in_tests && /^\s*\*>/ =~ line
@@ -34,7 +40,12 @@ def grep_tests(file, base)
 		elsif in_tests && /^\s*\*\s/ =~ line
 			test = line.gsub(/^\s*\*\s*/, "").gsub(/\n/, '')
 			if test != ""
-                test = "assert(#{test});"
+			    if lisp_tests
+			        test.gsub! /"/, '\"'
+			        test = "Parser p; Ptr res = p.eval(\"#{test}\"); assert(res && res->is_true());"
+			    else
+                    test = "assert(#{test});"
+                end
 				tests << "static void test_#{cnt}() { #{preset} #{test} }"
                 cnt += 1;
 			end

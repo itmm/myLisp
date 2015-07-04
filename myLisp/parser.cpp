@@ -43,12 +43,13 @@ Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
 }
 
 void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
-    while (isspace(static_cast<int>(ch))) {
+    while (ch != EOF && isspace(static_cast<int>(ch))) {
         ch = rest.get();
     }
 }
 
 Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
+	if (ch == EOF) { return _state->creator()->new_error("unfinished list"); }
     if (ch == ')') {
         ch = rest.get();
         return Ptr();

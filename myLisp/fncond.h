@@ -8,16 +8,11 @@
 			virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*TESTS:
+	/*LISP-TESTS:
 	 *
-	 *>	#include "number.h"
-	 *
-	 *+ Parser p;
-	 *
-	 *	p.eval("(cond)") == nullptr
-	 *	p.eval("(cond (+ 1 1) (+ 2 2) true false)")->as_number()->value() == 4
-	 *	p.eval("(cond false 1 false 2 true 3)")->as_number()->value() == 3
-	 *
+	 *	(= (cond) (list))
+	 *	(= (cond (+ 1 1) (+ 2 2) true false) 4)
+	 *	(= (cond false 1 false 2 true 3) 3)
 	 */
 
 #endif

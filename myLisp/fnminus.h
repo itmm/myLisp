@@ -13,16 +13,12 @@
 	 *	different states as 0 and -1.
 	 */
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *>	#include "number.h"
-     *
-     *+ Parser p;
-     *
-     *	p.eval("(-)")->as_number()->value() == -Fractional(1)
-     *	p.eval("(- 10 2 3)")->as_number()->value() == 5
-     *  p.eval("(- -3)")->as_number()->value() == 3
-     *  p.eval("(- 1/3 2)")->as_number()->value() == -Fractional(5, 3)
+     *  (= (-) -1)
+     *  (= (- 10 2 3) 5)
+     *  (= (- -3) 3)
+     *  (= (- 1/3 2) -5/3)
      *
      */
 

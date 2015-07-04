@@ -7,7 +7,6 @@ Ptr FunctionEqual::apply(Ptr arguments, State &state) {
 	if (!cur) { return state.falseNumber(); }
 
 	Element *ref = cur->car();
-	if (!ref) { return state.trueNumber(); }
 
 	cur = Element::as_pair(Pair::cdr(cur));
 	if (!cur) {

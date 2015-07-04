@@ -8,22 +8,15 @@
 			virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*TESTS:
+	/*LISP-TESTS:
 	 *
-	 *> #include "number.h"
+	 *	(= (cdr ()) ())
+	 *	(= (cdr (list 1 2)) (list 2))
 	 *
-	 *+	Parser p;
-	 *
-	 *	p.eval("(cdr ())") == nullptr
-	 *
-	 *	p.eval("(cdr)") == p.creator()->new_error("cdr needs one argument")
-	 *	p.eval("(cdr . 2)") == p.creator()->new_error("arguments of cdr are not a list")
-	 *	p.eval("(cdr 2)") == p.creator()->new_error("cdr's argument must be a pair")
-	 *	p.eval("(cdr (list 1 2) (list))") == p.creator()->new_error("cdr has more than one argument")
-	 *
-	 *+ OutSink os;
-	 *
-	 *	(os << p.eval("(cdr (list 1 2))")) == "(2)"
+	 *  (= (cdr) (error "cdr needs one argument"))
+	 *  (= (cdr . 2) (error "arguments of cdr are not a list"))
+	 *  (= (cdr 2) (error "cdr's argument must be a pair"))
+	 *  (= (cdr (list 1 2) (list)) (error "cdr has more than one argument"))
 	 *
 	 */
 

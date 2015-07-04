@@ -8,14 +8,12 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*TESTS:
+	/*LISP-TESTS:
 	 *
-	 *+	Parser p;
-	 *+	OutSink os;
+	 * (= (list) (list))
+	 * (= (list 1 2 3) (list 1 2 3))
+	 * (= (list (+ 1 2) (+ 2 3)) (list 3 5))
 	 *
-	 * (os << p.eval("(list)")) == "()"
-	 * (os << p.eval("(list 1 2 3)")) == "(1 2 3)"
-	 * (os << p.eval("(list (+ 1 2) (+ 2 3))")) == "(3 5)"
 	 */
 
 #endif

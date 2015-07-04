@@ -18,6 +18,8 @@
 	 *  (= (cdr 2) (error "cdr's argument must be a pair"))
 	 *  (= (cdr (list 1 2) (list)) (error "cdr has more than one argument"))
 	 *
+	 * 	(= (cdr (list 2 . (4 5))) (list 4 5))
+	 *
 	 */
 
 #endif

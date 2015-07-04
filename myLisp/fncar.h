@@ -19,6 +19,8 @@
 	 *	(= (car 2) (error "car's argument must be a pair"))
 	 *	(= (car (list (1 2)) (list)) (error "car has more than one argument"))
 	 *
+	 * 	(= (car (list 2 . 3)) 2)
+	 *
 	 */
 
 #endif

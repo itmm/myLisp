@@ -18,4 +18,9 @@ output
 input
 substrings
 bessere Fehlermeldungen im Parser
-lisp unit-tests
+dynamische Funktion als fn ausgeben
+Fehlermeldungen für +
+Fehlermeldungen für -
+Fehlermeldungen für *
+Fehlermeldungen für def
+Fehlermeldungen für fn

@@ -2,29 +2,32 @@
 
 #include <sstream>
 
-#include "pair.h"
-#include "string.h"
-#include "state.h"
-
-Ptr Parser::parseNumber(std::istream::int_type &ch, std::istream &rest, bool negative) {
+Ptr Parser::parseNumber(const std::string &str) {
     BigInt numerator = 0;
     BigInt denominator;
+    bool negative = false;
 
-    while (isnumber(static_cast<int>(ch))) {
-        numerator = numerator * 10 + (ch - '0');
-        ch = rest.get();
-    }
-    if (ch == '/') {
-        denominator = 0;
-        ch = rest.get();
-        while (isnumber(static_cast<int>(ch))) {
-            denominator = denominator * 10 + (ch - '0');
-            ch = rest.get();
-        }
-    } else {
-        denominator = 1;
-    }
-    
+    auto cur = str.begin();
+    auto end = str.end();
+
+    if (cur != end && *cur == '-') { negative = true; ++cur; }
+
+	if (cur == end || !isnumber(*cur)) { return Ptr(); }
+	for (; cur != end && isnumber(*cur); ++cur) {
+        numerator = numerator * 10 + (*cur - '0');
+	}
+	if (cur != end) {
+		if (*cur != '/') { return Ptr(); }
+		++cur;
+		if (cur == end || !isnumber(*cur)) { return Ptr(); }
+		denominator = 0;
+		for (; cur != end && isnumber(*cur); ++cur) {
+    	    denominator = denominator * 10 + (*cur - '0');
+		}
+		if (cur != end) { return Ptr(); }
+	} else {
+		denominator = 1;
+	}
     return _state->creator()->new_number(Fractional(numerator, denominator, negative));
 }
 
@@ -63,59 +66,36 @@ Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
     }
 }
 
-Ptr Parser::parseIdentifier(std::istream::int_type first, std::istream::int_type &ch, std::istream &rest) {
+Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
     std::ostringstream buffer;
-    buffer << (char) first;
     while (ch != EOF && !isspace(static_cast<int>(ch)) && ch != ')') {
         buffer << (char) ch;
         ch = rest.get();
     }
-	return _state->creator()->new_identifier(buffer.str());
+    const std::string &str = buffer.str();
+    if (str.size() >= 2 && str[0] == ';' && str[1] == ';') {
+    	// handle comments
+    	while (ch != EOF && ch != '\n' && ch != '\r') {
+			ch = rest.get();
+		}
+		return parseElement(ch, rest);
+    }
+    Ptr number = parseNumber(str);
+    if (number) { return number; }
+	return _state->creator()->new_identifier(str);
 }
 
 Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
-	for (;;) {
-		eatSpace(ch, rest);
-		switch (ch) {
-			case static_cast<std::istream::int_type>(EOF): return Ptr();
-			case ';':
-				ch = rest.get();
-				if (ch == ';') {
-					while (ch != EOF && ch != '\n' && ch != '\r') {
-						ch = rest.get();
-					}
-					break; // read next token
-				} else {
-					return parseIdentifier(';', ch, rest);
-				}
-			case '-':
-				ch = rest.get();
-				if (!isdigit(static_cast<int>(ch))) {
-					return parseIdentifier('-', ch, rest);
-				} else {
-					return parseNumber(ch, rest, true);
-				}
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-				return parseNumber(ch, rest, false);
-			case '"':
-				return parseString(ch, rest);
-			case '(':
-				ch = rest.get();
-				return parsePair(ch, rest);
-			default:
-				std::istream::int_type first = ch;
-				ch = rest.get();
-				return parseIdentifier(first, ch, rest);
-		}
+	eatSpace(ch, rest);
+	switch (ch) {
+		case static_cast<std::istream::int_type>(EOF): return Ptr();
+		case '"':
+			return parseString(ch, rest);
+		case '(':
+			ch = rest.get();
+			return parsePair(ch, rest);
+		default:
+			return parseIdentifier(ch, rest);
 	}
 }
 

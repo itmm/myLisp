@@ -12,11 +12,10 @@ unlimited int for bigint
 (>)
 (>=)
 (><)
-(*)
 (/)
 string concatenation
 output
 input
 substrings
-bessere Fehlermeldungen im Interpreter
 bessere Fehlermeldungen im Parser
+lisp unit-tests

@@ -45,6 +45,7 @@
  *	GET_FN("import") != nullptr
  *	GET_FN("do") != nullptr
  *	GET_FN("error") != nullptr
+ *	GET_FN("*") != nullptr
  *
  */
 

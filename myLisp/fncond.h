@@ -16,7 +16,8 @@
 	 *
 	 *	p.eval("(cond)") == nullptr
 	 *	p.eval("(cond (+ 1 1) (+ 2 2) true false)")->as_number()->value() == 4
-	 *	p.eval("(cond false 1 false 2 true 3)")->as_number()->value() ==3
+	 *	p.eval("(cond false 1 false 2 true 3)")->as_number()->value() == 3
 	 *
 	 */
+
 #endif

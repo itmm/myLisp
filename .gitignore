@@ -20,3 +20,4 @@ testLisp/t_fnequal.cpp
 testLisp/t_fnquote.cpp
 testLisp/t_error.cpp
 testLisp/t_fnerror.cpp
+testLisp/t_fntimes.cpp

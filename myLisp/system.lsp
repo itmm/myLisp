@@ -17,6 +17,14 @@
 (defn cddar (x) (cdr (cdr (car x))))
 (defn cdddr (x) (cdr (cdr (cdr x))))
 
-(defm if (cnd block else) (cond cnd block true else))
+(defn 1+ (x) (+ 1 x))
+
+(defm if (cnd block else) (cond (eval cnd) (eval block) true (eval else)))
 
 (defn sum (n) (if (= n) 0 (+ n (sum (- n 1)))))
+(defn assert (cnd msg) (cond cnd true true (err-print msg)))
+
+(print "running unit tests")
+(assert (= (if true 3 4) 3) "if true not working")
+(assert (= (if false 3 4) 4) "if false not working")
+(print "done with unit tests")

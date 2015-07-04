@@ -17,6 +17,7 @@
 #include "fndo.h"
 #include "fnerror.h"
 #include "fntimes.h"
+#include "fnprint.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -39,5 +40,7 @@ Ptr RootFactory::root() {
 	dict->put("do", _creator->new_element(new FunctionDo()));
 	dict->put("error", _creator->new_element(new FunctionError()));
 	dict->put("*", _creator->new_element(new FunctionTimes()));
+	dict->put("print", _creator->new_element(new FunctionPrint(std::cout)));
+	dict->put("err-print", _creator->new_element(new FunctionPrint(std::cerr)));
 	return Ptr(dict, _creator->collector());
 }

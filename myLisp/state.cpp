@@ -11,12 +11,10 @@ Ptr State::eval(Ptr expression) {
 	Pair *pair = Element::as_pair(expression);
 	if (pair) {
 		Element *car = pair->car();
-		if (Element::as_identifier(car)) {
-			car = Ptr(_root->as_dictionary()->get(car), collector());
-		}
-		Function *fn = Element::as_function(car);
+		Function *fn = Element::as_function(eval(Ptr(car, collector())));
 		if (fn) {
-			return fn->apply(Ptr(pair->cdr(), collector()), *this);
+			Ptr result = fn->apply(Ptr(pair->cdr(), collector()), *this);
+			return result;
 		}
 	}
 	return expression;

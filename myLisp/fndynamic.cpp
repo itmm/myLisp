@@ -6,24 +6,31 @@
 void FunctionDynamic::add_to_visit(Collector::Visitor &visitor) {
 	visitor.add_to_visit(_args);
 	visitor.add_to_visit(_body);
+	visitor.add_to_visit(_root);
+	visitor.add_to_visit(_inserter);
 }
 
 Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 	if (!_macro) {
 		arguments = eval_arguments(arguments, state);
 	}
-	Dictionary *context = state.creator()->new_dictionary(state.root()->as_dictionary())->as_dictionary();
+	Dictionary *context = state.creator()->new_dictionary(_root)->as_dictionary();
 	Pair *cur_key = _args;
 	Pair *cur_value = Element::as_pair(arguments);
-	if (!cur_key || !cur_value) { return Ptr(); }
 
 	for (; cur_key; cur_key = Element::as_pair(cur_key->cdr()), cur_value = Element::as_pair(Pair::cdr(cur_value))) {
-		context->put(cur_key->car()->as_identifier()->str(), cur_value->car());
+		Element *value = cur_value->car();
+		if (Element::as_identifier(value)) {
+			value = _root->get(value);
+		}
+		context->put(cur_key->car()->as_identifier()->str(), value);
 	}
 
 	Ptr new_root(context, state.collector());
-	Ptr new_inserter(_macro ? state.inserter()->as_dictionary() : context, state.collector());
+	Ptr new_inserter(_macro ? _inserter : context, state.collector());
 	State sub_state(state.creator(), new_root, new_inserter);
+	sub_state.setName(_macro ? "macro-call" : "fn-call");
 	Ptr body = Ptr(_body, sub_state.collector());
-	return sub_state.eval(body);
+	Ptr result = sub_state.eval(body);
+	return result;
 }

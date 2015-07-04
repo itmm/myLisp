@@ -24,7 +24,11 @@ class State {
 			Ptr falseNumber() { return Ptr(_root->as_dictionary()->get("false"), collector()); }
 			Ptr boolNumber(bool value) { return value ? trueNumber() : falseNumber(); }
 
+			void setName(const std::string &name) { _name = name; }
+			const std::string &name() const { return _name; }
+
 		private:
+			std::string _name;
 			Creator *_creator;
 			bool _local_creator;
 
@@ -36,7 +40,8 @@ class State {
 
 	inline State::State(State &parent):
 		_creator(parent.creator()), _local_creator(false),
-		_root(_creator->new_dictionary(Element::as_dictionary(parent.root())))
+		_root(_creator->new_dictionary(Element::as_dictionary(parent.root()))),
+		_inserter(parent.inserter())
 	{
 	}
 

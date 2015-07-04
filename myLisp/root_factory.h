@@ -46,6 +46,8 @@
  *	GET_FN("do") != nullptr
  *	GET_FN("error") != nullptr
  *	GET_FN("*") != nullptr
+ *	GET_FN("print") != nullptr
+ *	GET_FN("err-print") != nullptr
  *
  */
 

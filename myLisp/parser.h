@@ -42,7 +42,9 @@
 
     inline Parser::Parser():
         _state(new State()), _local_state(true)
-    {}
+    {
+    	_state->setName("parser-local");
+    }
 
 	inline Parser::Parser(State *state):
 		_state(state), _local_state(false)

@@ -8,4 +8,12 @@
 			virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
+	/*LISP-TESTS:
+	 *
+	 *+	(= (import "simple.lsp") true)
+	 *
+	 *	(= answer 42)
+	 *
+	 */
+
 #endif

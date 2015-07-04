@@ -8,9 +8,8 @@ int main(int argc, const char * argv[]) {
 
     std::cout << "This is myLisp" << std::endl;
 
-	State state;
+	State state; state.setName("root");
     Parser parser(&state);
-
 	std::cout << std::endl << "(import \"system.lsp\")" << std::endl;
 	{
 		std::ifstream system("system.lsp");

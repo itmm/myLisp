@@ -8,7 +8,6 @@ Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	if (!cur) { return Ptr(); }
 
 	Identifier *name;
-
 	if (Element::as_identifier(cur->car())) {
 		name = cur->car()->as_identifier();
 	} else {
@@ -23,9 +22,9 @@ Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	Ptr value = Ptr(cur->car(), state.collector());
 	value = state.eval(value);
 
-	//std::cerr << name << " -> " << value << std::endl;
+	// std::cerr << name << " -> " << value << std::endl;
 
 	state.inserter()->as_dictionary()->put(name->str(), value);
 
-	return Ptr(value, state.collector());
+	return value;
 }

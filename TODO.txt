@@ -1,4 +1,3 @@
-turing maschine
 '
 dynamic parameters
 (let)
@@ -14,7 +13,6 @@ unlimited int for bigint
 (><)
 (/)
 string concatenation
-output
 input
 substrings
 bessere Fehlermeldungen im Parser

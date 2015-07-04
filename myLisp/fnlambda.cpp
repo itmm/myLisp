@@ -24,7 +24,6 @@ Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	} else {
 		real_args = Element::as_pair(args->car());
 	}
-	if (!real_args) { return Ptr(); }
 
 	Element *real_body = body->car();
 	if (Element::as_identifier(real_body)) {
@@ -32,5 +31,5 @@ Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	}
 	if (!real_body) { return Ptr(); }
 
-	return state.creator()->new_element(new FunctionDynamic(real_args, real_body, isMacro));
+	return state.creator()->new_element(new FunctionDynamic(real_args, real_body, isMacro, state));
 }

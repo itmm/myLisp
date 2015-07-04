@@ -19,7 +19,7 @@
 
 (defn 1+ (x) (+ 1 x))
 
-(defm if (cnd block else) (cond (eval cnd) (eval block) true (eval else)))
+(defm if (cnd block else) (cond cnd block true else))
 
 (defn sum (n) (if (= n) 0 (+ n (sum (- n 1)))))
 (defn assert (cnd msg) (cond cnd true true (err-print msg)))

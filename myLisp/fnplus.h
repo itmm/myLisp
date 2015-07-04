@@ -15,6 +15,9 @@
 	 *	(= (+ 7) 7)
 	 *	(= (+ -3 5/2) -1/2)
 	 *
+	 *  (= (+ . 2) (error "+ expects argument list"))
+	 *  (= (+ 1 . 2) (error "+ expects argument list"))
+	 *  (= (+ 1 "a") (error "+ expects numeric arguments"))
 	 */
 
 #endif

@@ -38,8 +38,6 @@
      *
      *+ Creator c;
      *
-     *	PAIR()->is_true() == true
-     *
      *  PAIR()->as_function() == nullptr
      *  PAIR()->as_dictionary() == nullptr
      *  PAIR()->as_identifier() == nullptr
@@ -57,5 +55,12 @@
      *  (os << c.new_pair(c.new_string("a"), c.new_string("b"))) == "(\"a\" . \"b\")"
      *
      */
+
+	/*LISP-TESTS:
+	 *
+	 *	(= (true? (list)) false)
+	 *	(= (true? (list (list))) true)
+	 *	(= (true? (list 0)) true)
+	 */
 
 #endif

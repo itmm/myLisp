@@ -29,10 +29,6 @@
      *
      *+ Creator c;
      *
-     *	c.new_string("")->is_true() == false
-     *	c.new_string(" ")->is_true() == true
-     *	c.new_string("0")->is_true() == true
-     *
      *  c.new_string("**")->as_function() == nullptr
      *  c.new_string("[]")->as_dictionary() == nullptr
      *  c.new_string("abc")->as_identifier() == nullptr
@@ -49,5 +45,11 @@
      *  (os << c.new_string("")) == "\"\""
      *
      */
-     
+
+	/*LISP-TESTS:
+	 *
+	 *	(= (true? "") false)
+	 *	(= (true? " ") true)
+	 *	(= (true? "0") true)
+	 */
 #endif

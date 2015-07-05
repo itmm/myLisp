@@ -18,6 +18,7 @@
 #include "fnerror.h"
 #include "fntimes.h"
 #include "fnprint.h"
+#include "fnbool.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -42,5 +43,8 @@ Ptr RootFactory::root() {
 	dict->put("*", _creator->new_element(new FunctionTimes()));
 	dict->put("print", _creator->new_element(new FunctionPrint(std::cout)));
 	dict->put("err-print", _creator->new_element(new FunctionPrint(std::cerr)));
+	dict->put("true?", _creator->new_element(new FunctionBool(true)));
+	dict->put("false?", _creator->new_element(new FunctionBool(false)));
+
 	return Ptr(dict, _creator->collector());
 }

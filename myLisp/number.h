@@ -28,10 +28,6 @@
      *
      *+ Creator c;
      *
-     *	c.new_number(0)->is_true() == false
-     *	c.new_number(1)->is_true() == true
-     *	c.new_number(-Fractional(2, 3))->is_true() == true
-     *
      *  c.new_number(5)->as_function() == nullptr
      *  c.new_number(0)->as_dictionary() == nullptr
      *	c.new_number(8)->as_identifier() == nullptr
@@ -50,4 +46,10 @@
      *
      */
 
+	/*LISP-TESTS:
+	 *
+	 *	(= (true? 0) false)
+	 *	(= (true? 1) true)
+	 *	(= (true? -2/3) true)
+	 */
 #endif

@@ -20,14 +20,13 @@
 	 *	Function().as_dictionary() == nullptr
 	 *	Function().as_function() != nullptr
 	 *	Function().as_identifier() == nullptr
-	 *	Function().as_number() == nullptr
-	 *
 	 */
 
 	/*TESTS:
 	 *
 	 * 	(= (true? +) false)
 	 *
+	 *	(= (number? +) false)
 	 *	(= (pair? +) false)
 	 *	(= (string? +) false)
 	 */

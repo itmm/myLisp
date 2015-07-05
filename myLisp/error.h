@@ -27,12 +27,6 @@
 	 *  c.new_error("b")->as_error() != nullptr
 	 *  c.new_error("c")->as_function() == nullptr
 	 *  c.new_error("d")->as_identifier() == nullptr
-	 *  c.new_error("e")->as_number() == nullptr
-	 *
-	 *	(c.new_error("a") == c.new_error("a")) == true
-	 *	(c.new_error("a") == c.new_error("b")) == false
-	 *	(c.new_error("a") == c.new_string("a")) == false
-	 *	(c.new_error("a") == c.new_identifier("a")) == false
 	 */
 
 	/*TESTS:
@@ -41,8 +35,14 @@
 	 *
 	 *	(= (true? (error "true")) false)
 	 *
+	 *	(= (number? (error "2")) false)
 	 *  (= (pair? (error "()")) false)
 	 *  (= (string? (error "abc")) false)
+	 *
+	 *  (= (= (error "a") (error "a")) true)
+	 *  (= (= (error "a") (error "b")) false)
+	 *  (= (= (error "a") "a") false)
+	 *  (= (= (error "unused-identifier") unused-identifier) false)
 	 */
 
 #endif

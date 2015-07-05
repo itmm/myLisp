@@ -31,7 +31,6 @@
      *  c.new_number(5)->as_function() == nullptr
      *  c.new_number(0)->as_dictionary() == nullptr
      *	c.new_number(8)->as_identifier() == nullptr
-     *  c.new_number(1)->as_number() != nullptr
      */
 
 	/*TESTS:
@@ -40,6 +39,11 @@
 	 *	(= (true? 1) true)
 	 *	(= (true? -2/3) true)
 	 *
+	 *	(= (number? 0) true)
+	 *	(= (number? -2/3) true)
+	 *	(= (number? Infinity) true)
+	 *	(= (number? (- Infinity)) true)
+	 *	(= (number? NotANumber) true)
 	 *	(= (pair? 2) false)
 	 *	(= (string? 3) false)
 	 *

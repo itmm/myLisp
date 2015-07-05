@@ -53,6 +53,7 @@
  *	GET_FN("str-print") != nullptr
  *	GET_FN("pair?") != nullptr
  *	GET_FN("string?") != nullptr
+ *	GET_FN("number?") != nullptr
  */
 
 #endif

@@ -22,6 +22,7 @@
 #include "fnstrprint.h"
 #include "fnpair.h"
 #include "fnstring.h"
+#include "fnnumber.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -51,6 +52,7 @@ Ptr RootFactory::root() {
 	dict->put("str-print", _creator->new_element(new FunctionStrPrint()));
 	dict->put("pair?", _creator->new_element(new FunctionPair()));
 	dict->put("string?", _creator->new_element(new FunctionString()));
+	dict->put("number?", _creator->new_element(new FunctionNumber()));
 
 	return Ptr(dict, _creator->collector());
 }

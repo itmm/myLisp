@@ -8,7 +8,7 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (*) 1)
 	 *	(= (* 2 3 4) 24)

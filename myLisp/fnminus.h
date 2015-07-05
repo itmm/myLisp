@@ -13,7 +13,7 @@
 	 *	different states as 0 and -1.
 	 */
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *  (= (-) -1)
      *  (= (- 10 2 3) 5)

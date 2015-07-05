@@ -8,7 +8,7 @@
 			virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (cond) (list))
 	 *	(= (cond (+ 1 1) (+ 2 2) true false) 4)

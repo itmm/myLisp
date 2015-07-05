@@ -30,7 +30,7 @@
 		virtual bool is_equal(Element *other) const override;
 	};
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *> #include "String.h"
      *
@@ -46,7 +46,7 @@
      *  PAIR()->as_string() == nullptr
      */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (true? (list)) false)
 	 *	(= (true? (list (list))) true)

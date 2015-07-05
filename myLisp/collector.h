@@ -50,7 +50,7 @@
         return false;
     }
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *> #include "dictionary.h"
      *> #include "number.h"

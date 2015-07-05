@@ -9,7 +9,7 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (car (list 1 2)) 1)
 	 *	(= (car (list)) (list))

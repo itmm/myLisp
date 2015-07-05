@@ -8,7 +8,7 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*TESTS:
+	/*C++-TESTS:
 	 *
 	 *+	Parser p;
 	 *

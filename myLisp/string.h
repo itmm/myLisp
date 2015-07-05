@@ -25,7 +25,7 @@
             std::string _str;
 	};
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *+ Creator c;
      *
@@ -37,7 +37,7 @@
      *  c.new_string("9")->as_string() != nullptr
      */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (true? "") false)
 	 *	(= (true? " ") true)

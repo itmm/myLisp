@@ -30,7 +30,7 @@ class Dictionary;
 			bool _local_collector;
 	};
 
-	/*TESTS:
+	/*C++-TESTS:
 	 *
 	 *> #include "pair.h"
 	 *

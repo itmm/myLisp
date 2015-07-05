@@ -23,11 +23,11 @@ def grep_tests(file, base)
 	preset = ''
     cnt = 1
 	File.open(file).each do |line|
-		if /\/\*TESTS:/ =~ line
+		if /\/\*C\+\+-TESTS:/ =~ line
 			in_tests = true
 			lisp_tests = false
 			preset = ''
-		elsif /\/\*LISP-TESTS:/ =~ line
+		elsif /\/\*TESTS:/ =~ line
 		    in_tests = true
 		    lisp_tests = true
 		    preset = ''

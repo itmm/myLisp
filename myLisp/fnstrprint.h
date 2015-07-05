@@ -8,7 +8,7 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (str-print) "")
 	 *	(= (str-print false) "false")

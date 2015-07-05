@@ -13,7 +13,7 @@
 		virtual void to_stream(std::ostream &output) const override;
 	};
 
-/*LISP-TESTS:
+/*TESTS:
  *
  *	(= (str-print true) "true")
  *	(= (str-print false) "false")

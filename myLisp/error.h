@@ -19,7 +19,7 @@
 			Error(const std::string &message): String(message) {}
 	};
 
-	/*TESTS:
+	/*C++-TESTS:
 	 *
 	 *+	Creator c;
 	 *
@@ -39,7 +39,7 @@
 	 *	(c.new_error("a") == c.new_identifier("a")) == false
 	 */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (str-print (error "not yet")) "(error \"not yet\")"
 	 */

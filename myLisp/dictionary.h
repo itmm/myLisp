@@ -33,7 +33,7 @@
             std::map<std::string, Element *> _map;
 	};
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *> #include "creator.h"
      *

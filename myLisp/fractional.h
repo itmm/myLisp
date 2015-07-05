@@ -23,7 +23,7 @@
             bool _isNegative;
     };
 
-	/*TESTS:
+	/*C++-TESTS:
 	 *
 	 *	Fractional(2, 3).numerator() == 2
 	 *	Fractional(2, 3).denominator() == 3
@@ -32,7 +32,7 @@
 	 *
 	 */
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= (- 2/3) -2/3)
      *	(= (- -2) 2)
@@ -42,7 +42,7 @@
         return Fractional(num.numerator(), num.denominator(), !num.isNegative());
     }
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *  gcd(2, 6) == 2
      *  gcd(6, 2) == 2
@@ -63,7 +63,7 @@
         return a;
     }
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= 8/4 2)
      *	(= -3/2 (- 3/2))
@@ -83,7 +83,7 @@
 
     Fractional operator-(const Fractional &a, const Fractional &b);
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= (+ 5/2 3) 11/2)
      *	(= (+ -3 7) 4)
@@ -102,7 +102,7 @@
 			b.denominator(), a.isNegative());
     }
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= (- 5 3) 2)
      *	(= (- 8/3 2/3) 2)
@@ -121,7 +121,7 @@
 			b.denominator(), a.isNegative());
     }
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= (* 2/3 5/7) 10/21)
      *	(= (* 3 2/3) 2)
@@ -132,7 +132,7 @@
         return Fractional(a.numerator() * b.numerator(), a.denominator() * b.denominator(), a.isNegative() != b.isNegative());
     }
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *  Fractional(6) / 3 == 2
      *  1 / Fractional(2) == Fractional(1, 2)
@@ -146,7 +146,7 @@
         return Fractional(a.numerator() * b.denominator(), a.denominator() * b.numerator(), a.isNegative() != b.isNegative());
     }
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= (= 3 3) true)
      *	(= (= 3 4) false)
@@ -160,7 +160,7 @@
         return a.isNegative() == b.isNegative() && a.numerator() == b.numerator() && a.denominator() == b.denominator();
     }
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *  (Fractional(3) < Fractional(4)) == true
      *  (Fractional(4) < Fractional(3)) == false
@@ -202,7 +202,7 @@
         }
     }
 
-    /*LISP-TESTS:
+    /*TESTS:
      *
      *	(= (str-print 42) "42")
      *	(= (str-print 2/3) "2/3")

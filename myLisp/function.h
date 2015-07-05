@@ -15,7 +15,7 @@
 			virtual Ptr eval_arguments(Ptr arguments, State &state);
 	};
 
-	/*TESTS:
+	/*C++-TESTS:
 	 *
 	 *	Function().as_dictionary() == nullptr
 	 *	Function().as_function() != nullptr
@@ -26,7 +26,7 @@
 	 *
 	 */
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *+ State s;
      *

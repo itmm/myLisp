@@ -13,7 +13,7 @@
 			bool _expected;
 	};
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (true? true) true)
 	 *	(= (true? false) false)

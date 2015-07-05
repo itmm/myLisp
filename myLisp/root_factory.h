@@ -19,7 +19,7 @@
 			bool _local_creator;
 	};
 
-/*TESTS:
+/*C++-TESTS:
  *
  *>	#include "dictionary.h"
  *> #include "number.h"

@@ -55,7 +55,7 @@
         if (_local_state) { delete _state; }
     }
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *> #include "number.h"
      *> #include "pair.h"
@@ -80,7 +80,7 @@
      *	Parser().parse(";;") == nullptr
      */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (str-print (2 3 4)) "(2 3 4)")
 	 *	(= (str-print (2 (3 4) ((5)))) "(2 (3 4) ((5)))")

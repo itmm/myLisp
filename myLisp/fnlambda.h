@@ -8,21 +8,21 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (= (fn () (+ 3 3)) ()) false)
 	 *	(= ((fn () 3)) 3)
 	 *	(= (cond ((fn () false)) 2 true 3) 3)
 	 */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *+	((fn macro () (def a 3)))
 	 *
 	 *	(= a 3)
 	 */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *+ (def a (fn macro (b) (eval b)))
 	 *+	(a (def x 32))

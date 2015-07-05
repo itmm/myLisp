@@ -24,7 +24,7 @@
             Fractional _value;
 	};
 
-    /*TESTS:
+    /*C++-TESTS:
      *
      *+ Creator c;
      *
@@ -36,7 +36,7 @@
      *  c.new_number(3)->as_string() == nullptr
      */
 
-	/*LISP-TESTS:
+	/*TESTS:
 	 *
 	 *	(= (true? 0) false)
 	 *	(= (true? 1) true)

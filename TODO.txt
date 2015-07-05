@@ -14,7 +14,6 @@ unlimited int for bigint
 (><)
 (/)
 string concatenation
-input
 substrings
 bessere Fehlermeldungen im Parser
 dynamische Funktion als fn ausgeben

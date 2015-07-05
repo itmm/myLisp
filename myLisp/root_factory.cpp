@@ -18,12 +18,12 @@
 #include "fnerror.h"
 #include "fntimes.h"
 #include "fnprint.h"
-#include "fnbool.h"
+#include "fnboolq.h"
 #include "fnstrprint.h"
-#include "fnpair.h"
-#include "fnstring.h"
-#include "fnnumber.h"
-#include "fnfunction.h"
+#include "fnpairq.h"
+#include "fnstringq.h"
+#include "fnnumberq.h"
+#include "fnfunctionq.h"
 #include "fnerrorq.h"
 
 Ptr RootFactory::root() {
@@ -49,13 +49,13 @@ Ptr RootFactory::root() {
 	dict->put("*", _creator->new_element(new FunctionTimes()));
 	dict->put("print", _creator->new_element(new FunctionPrint(std::cout)));
 	dict->put("err-print", _creator->new_element(new FunctionPrint(std::cerr)));
-	dict->put("true?", _creator->new_element(new FunctionBool(true)));
-	dict->put("false?", _creator->new_element(new FunctionBool(false)));
+	dict->put("true?", _creator->new_element(new FunctionBoolQuery(true)));
+	dict->put("false?", _creator->new_element(new FunctionBoolQuery(false)));
 	dict->put("str-print", _creator->new_element(new FunctionStrPrint()));
-	dict->put("pair?", _creator->new_element(new FunctionPair()));
-	dict->put("string?", _creator->new_element(new FunctionString()));
-	dict->put("number?", _creator->new_element(new FunctionNumber()));
-	dict->put("function?", _creator->new_element(new FunctionFunction()));
+	dict->put("pair?", _creator->new_element(new FunctionPairQuery()));
+	dict->put("string?", _creator->new_element(new FunctionStringQuery()));
+	dict->put("number?", _creator->new_element(new FunctionNumberQuery()));
+	dict->put("function?", _creator->new_element(new FunctionFunctionQuery()));
 	dict->put("error?", _creator->new_element(new FunctionErrorQuery()));
 
 	return Ptr(dict, _creator->collector());

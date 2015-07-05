@@ -3,9 +3,9 @@
 
 	#include "decider.h"
 
-	class FunctionBool: public Decider {
+	class FunctionBoolQuery: public Decider {
 		public:
-			FunctionBool(bool expected): _expected(expected) {}
+			FunctionBoolQuery(bool expected): _expected(expected) {}
 
 		private:
 			bool _expected;

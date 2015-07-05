@@ -3,7 +3,7 @@
 
 	#include "decider.h"
 
-	class FunctionString : public Decider {
+	class FunctionStringQuery: public Decider {
 	protected:
 		virtual bool is_valid(Element *element) override;
 	};

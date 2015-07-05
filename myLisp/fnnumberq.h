@@ -1,9 +1,9 @@
-#if ! defined(fnfunction_h)
-#define fnfunction_h
+#if ! defined(fnnumberq_h)
+#define fnnumberq_h
 
 	#include "decider.h"
 
-	class FunctionFunction : public Decider {
+	class FunctionNumberQuery: public Decider {
 	protected:
 		virtual bool is_valid(Element *element) override;
 	};

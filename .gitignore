@@ -23,6 +23,6 @@ testLisp/t_fnerror.cpp
 testLisp/t_fntimes.cpp
 testLisp/t_fnlambda.cpp
 testLisp/t_fnimport.cpp
-testLisp/t_fnbool.cpp
+testLisp/t_fnboolq.cpp
 testLisp/t_fnstrprint.cpp
 testLisp/t_identifier.cpp

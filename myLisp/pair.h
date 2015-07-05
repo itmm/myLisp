@@ -30,26 +30,16 @@
 		virtual bool is_equal(Element *other) const override;
 	};
 
-    /*C++-TESTS:
-     *
-     *> #include "String.h"
-     *
-     *> #define PAIR() c.new_pair(nullptr, nullptr)
-     *
-     *+ Creator c;
-     *
-     *  PAIR()->as_dictionary() == nullptr
-     *  PAIR()->as_identifier() == nullptr
-     */
-
 	/*TESTS:
 	 *
 	 *	(= (true? (list)) false)
 	 *	(= (true? (list (list))) true)
 	 *	(= (true? (list 0)) true)
 	 *
+	 *	(= (dictionary? (list 1)) false)
 	 *	(= (error? (list -1)) false)
 	 *	(= (function? (list +)) false)
+	 *	(= (identifier? (list "ab")) false)
 	 *	(= (number? (list 2)) false)
 	 * 	(= (pair? (list)) true)
 	 * 	(= (pair? (list false)) true)

@@ -25,22 +25,16 @@
             std::string _str;
 	};
 
-    /*C++-TESTS:
-     *
-     *+ Creator c;
-     *
-     *  c.new_string("[]")->as_dictionary() == nullptr
-     *  c.new_string("abc")->as_identifier() == nullptr
-     */
-
 	/*TESTS:
 	 *
 	 *	(= (true? "") false)
 	 *	(= (true? " ") true)
 	 *	(= (true? "0") true)
 	 *
+	 *	(= (dictionary? "dict") false)
 	 *	(= (error? "err") false)
 	 *	(= (function? "+") false)
+	 *	(= (identifier? "ab") false)
 	 *	(= (number? "0") false)
 	 * 	(= (pair? "()") false)
 	 * 	(= (string? "9") true)

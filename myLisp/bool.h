@@ -18,14 +18,18 @@
  *	(= (str-print true) "true")
  *	(= (str-print false) "false")
  *
+ *	(= (dictionary? true) false)
  *	(= (error? true) false)
  *	(= (function? true) false)
+ *	(= (identifier? true) false)
  *	(= (number? true) true)
  *  (= (pair? true) false)
  *  (= (string? true) false)
  *
+ *	(= (dictionary? false) false)
  *	(= (error? false) false)
  *	(= (function? false) false)
+ *	(= (identifier? false) false)
  *	(= (number? false) true)
  *  (= (pair? false) false)
  *  (= (string? false) false)

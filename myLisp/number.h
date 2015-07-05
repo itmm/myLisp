@@ -24,22 +24,16 @@
             Fractional _value;
 	};
 
-    /*C++-TESTS:
-     *
-     *+ Creator c;
-     *
-     *  c.new_number(0)->as_dictionary() == nullptr
-     *	c.new_number(8)->as_identifier() == nullptr
-     */
-
 	/*TESTS:
 	 *
 	 *	(= (true? 0) false)
 	 *	(= (true? 1) true)
 	 *	(= (true? -2/3) true)
 	 *
+	 *	(= (dictionary? 0) false)
 	 *	(= (error? -1) false)
 	 *	(= (function? 2) false)
+	 *	(= (identifier? 3) false)
 	 *	(= (number? 0) true)
 	 *	(= (number? -2/3) true)
 	 *	(= (number? Infinity) true)

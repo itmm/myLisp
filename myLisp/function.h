@@ -15,18 +15,14 @@
 			virtual Ptr eval_arguments(Ptr arguments, State &state);
 	};
 
-	/*C++-TESTS:
-	 *
-	 *	Function().as_dictionary() == nullptr
-	 *	Function().as_identifier() == nullptr
-	 */
-
 	/*TESTS:
 	 *
 	 * 	(= (true? +) false)
 	 *
+	 *	(= (dictionary? +) false)
 	 *	(= (error? +) false)
 	 *	(= (function? +) true)
+	 *	(= (identifier? +) false)
 	 *	(= (number? +) false)
 	 *	(= (pair? +) false)
 	 *	(= (string? +) false)

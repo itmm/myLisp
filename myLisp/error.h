@@ -19,22 +19,16 @@
 			Error(const std::string &message): String(message) {}
 	};
 
-	/*C++-TESTS:
-	 *
-	 *+	Creator c;
-	 *
-	 *  c.new_error("a")->as_dictionary() == nullptr
-	 *  c.new_error("d")->as_identifier() == nullptr
-	 */
-
 	/*TESTS:
 	 *
 	 *	(= (str-print (error "not yet")) "(error \"not yet\")"
 	 *
 	 *	(= (true? (error "true")) false)
 	 *
+	 *	(= (dictionary? (error "[]")) false)
 	 *	(= (error? (error "err")) true)
 	 *  (= (function? (error "+")) false)
+	 *  (= (identifier? (error "abc")) false)
 	 *	(= (number? (error "2")) false)
 	 *  (= (pair? (error "()")) false)
 	 *  (= (string? (error "abc")) false)

@@ -20,8 +20,10 @@
 	 *
 	 *	(= (true? unknown-identifier) true)
 	 *
+	 *	(= (dictionary? unknown-identifier) false)
 	 *	(= (error? unknown-identifier) false)
 	 *	(= (function? unknown-identifier) false)
+	 *	(= (identifier? unknown-identifier) true)
 	 *	(= (number? unknown-identifier) false)
 	 *  (= (pair? unknown-identifier) false)
 	 *  (= (string? unknown-identifier) false)

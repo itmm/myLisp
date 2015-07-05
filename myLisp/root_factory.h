@@ -51,7 +51,7 @@
  *	GET_FN("true?") != nullptr
  *	GET_FN("false?") != nullptr
  *	GET_FN("str-print") != nullptr
- *
+ *	GET_FN("pair?") != nullptr
  */
 
 #endif

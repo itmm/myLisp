@@ -17,6 +17,9 @@
  *
  *	(= (str-print true) "true")
  *	(= (str-print false) "false")
+ *
+ *  (= (pair? true) false)
+ *  (= (pair? false) false)
  */
 
 #endif

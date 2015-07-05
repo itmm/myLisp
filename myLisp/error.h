@@ -23,14 +23,11 @@
 	 *
 	 *+	Creator c;
 	 *
-	 *	c.new_error("true")->is_true() == false
-	 *
 	 *  c.new_error("a")->as_dictionary() == nullptr
 	 *  c.new_error("b")->as_error() != nullptr
 	 *  c.new_error("c")->as_function() == nullptr
 	 *  c.new_error("d")->as_identifier() == nullptr
 	 *  c.new_error("e")->as_number() == nullptr
-	 *  c.new_error("f")->as_pair() == nullptr
 	 *  c.new_error("e")->as_string() == nullptr
 	 *
 	 *	(c.new_error("a") == c.new_error("a")) == true
@@ -42,6 +39,10 @@
 	/*TESTS:
 	 *
 	 *	(= (str-print (error "not yet")) "(error \"not yet\")"
+	 *
+	 *	(= (true? (error "true")) false)
+	 *
+	 *  (= (pair? (error "()")) false)
 	 */
 
 #endif

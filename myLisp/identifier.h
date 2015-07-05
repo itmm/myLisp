@@ -16,5 +16,10 @@
 			Identifier(const std::string &str): String(str) {}
 	};
 
-
+	/*TESTS:
+	 *
+	 *	(= (true? unknown-identifier) true)
+	 *
+	 *  (= (pair? unknown-identifier) false)
+	 */
 #endif

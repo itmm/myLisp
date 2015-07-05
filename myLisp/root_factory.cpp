@@ -20,6 +20,7 @@
 #include "fnprint.h"
 #include "fnbool.h"
 #include "fnstrprint.h"
+#include "fnpair.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -47,6 +48,7 @@ Ptr RootFactory::root() {
 	dict->put("true?", _creator->new_element(new FunctionBool(true)));
 	dict->put("false?", _creator->new_element(new FunctionBool(false)));
 	dict->put("str-print", _creator->new_element(new FunctionStrPrint()));
+	dict->put("pair?", _creator->new_element(new FunctionPair()));
 
 	return Ptr(dict, _creator->collector());
 }

@@ -21,17 +21,15 @@
 	 *	Function().as_function() != nullptr
 	 *	Function().as_identifier() == nullptr
 	 *	Function().as_number() == nullptr
-	 *	Function().as_pair() == nullptr
 	 *	Function().as_string() == nullptr
 	 *
 	 */
 
-    /*C++-TESTS:
-     *
-     *+ State s;
-     *
-     *	Function().apply(Ptr(), s) == Ptr()
-     *
-     */
+	/*TESTS:
+	 *
+	 * 	(= (true? +) false)
+	 *
+	 *	(= (pair? +) false)
+	 */
 
 #endif

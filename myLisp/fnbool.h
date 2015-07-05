@@ -1,16 +1,17 @@
 #if !defined(fnbool_h)
 #define fnbool_h
 
-	#include "function.h"
+	#include "decider.h"
 
-	class FunctionBool: public Function {
+	class FunctionBool: public Decider {
 		public:
 			FunctionBool(bool expected): _expected(expected) {}
 
-			virtual Ptr apply(Ptr arguments, State &state) override;
-
 		private:
 			bool _expected;
+
+		protected:
+			virtual bool is_valid(Element *element) override;
 	};
 
 	/*TESTS:
@@ -22,6 +23,10 @@
 	 *
 	 *  (= (true? 1 2 "ab") true)
 	 *  (= (false? 0 "") true)
+	 *
+	 *  (= (true?) (error "Listable needs at least one argument"))
+	 *  (= (true? . 2) (error "Listable needs a plain list"))
+	 *  (= (true? 2 . 3) (error "Listable needs a plain list"))
 	 */
 
 #endif

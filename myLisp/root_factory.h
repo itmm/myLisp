@@ -55,6 +55,7 @@
  *	GET_FN("string?") != nullptr
  *	GET_FN("number?") != nullptr
  *	GET_FN("function?") != nullptr
+ *	GET_FN("error?") != nullptr
  */
 
 #endif

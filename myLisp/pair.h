@@ -48,6 +48,7 @@
 	 *	(= (true? (list (list))) true)
 	 *	(= (true? (list 0)) true)
 	 *
+	 *	(= (error? (list -1)) false)
 	 *	(= (function? (list +)) false)
 	 *	(= (number? (list 2)) false)
 	 * 	(= (pair? (list)) true)

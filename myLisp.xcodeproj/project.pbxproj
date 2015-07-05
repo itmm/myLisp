@@ -30,6 +30,7 @@
 		3652D15CDEDDF1182BBBB7C7 /* fncdr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DD44E2B76BFA2DBE61B4 /* fncdr.cpp */; };
 		3652D1A3CA4EBC293BD1C15C /* fnstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D0A296D4F97F6479DE88 /* fnstring.cpp */; };
 		3652D1AB81B57AE3DDD8572C /* t_fnlambda.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D1B609E657012BBAC1F5 /* t_fnlambda.cpp */; };
+		3652D1E5E58AAE2F2BB3DFFF /* fnerrorq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D906A94A218AA953F686 /* fnerrorq.cpp */; };
 		3652D1E601EA127795CD170F /* t_fnimport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DB8CB5CE64CF7F5B5D3E /* t_fnimport.cpp */; };
 		3652D1E7E9A78CC5ED3BE824 /* fnbool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D2F0AEA5FF2DC68FFEEA /* fnbool.cpp */; };
 		3652D23BD9C5479CFCF35ED9 /* fnlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DBF5B527AC48F4EE10CF /* fnlist.cpp */; };
@@ -59,6 +60,7 @@
 		3652D5450DE90ADC5E69FCD9 /* listable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DAD1206F93A9FEEB5400 /* listable.cpp */; };
 		3652D5774146A4F06A82B4CE /* ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DDD455DF176AF2F7282C /* ptr.cpp */; };
 		3652D593D74446D6308337E1 /* fncar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652DFCFF265AB291FD41FFA /* fncar.cpp */; };
+		3652D5E8DBBB4A3FCA9E1F58 /* fnerrorq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D906A94A218AA953F686 /* fnerrorq.cpp */; };
 		3652D6326A249DBBE33DE207 /* state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D0FAA138CD1D5707DD09 /* state.cpp */; };
 		3652D635B99DB33CD9791860 /* fndefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6530404676AA201C718 /* fndefine.cpp */; };
 		3652D68ED42C4FE6FAF9AA27 /* t_fnplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D5825FFA8649C74ED15D /* t_fnplus.cpp */; };
@@ -218,8 +220,10 @@
 		3652D896F361134E6FA12B67 /* fnpair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnpair.cpp; sourceTree = "<group>"; };
 		3652D8DC3696E36374FC5014 /* creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = creator.h; sourceTree = "<group>"; };
 		3652D8ED3BD34BD36E22C356 /* fnplus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnplus.cpp; sourceTree = "<group>"; };
+		3652D906A94A218AA953F686 /* fnerrorq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnerrorq.cpp; sourceTree = "<group>"; };
 		3652D9CEA6B011C6D598E9E8 /* t_fncond.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_fncond.cpp; sourceTree = "<group>"; };
 		3652DA5197E2C3A98103E2C4 /* fnlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnlist.h; sourceTree = "<group>"; };
+		3652DA58C18A6E89E129E4D5 /* fnerrorq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnerrorq.h; sourceTree = "<group>"; };
 		3652DA7DDFF12FC852B6D546 /* fndo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fndo.cpp; sourceTree = "<group>"; };
 		3652DA9322E2DB5381D02E5A /* fnerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnerror.h; sourceTree = "<group>"; };
 		3652DAAF57442FD2A54692C4 /* t_identifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = t_identifier.cpp; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				3652DD211B1A8CDA75501493 /* fnnumber.h */,
 				3652D1BB7A0240D288ECE2F2 /* fnfunction.cpp */,
 				3652D6501BBE30921E215856 /* fnfunction.h */,
+				3652D906A94A218AA953F686 /* fnerrorq.cpp */,
+				3652DA58C18A6E89E129E4D5 /* fnerrorq.h */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 				3652DFB4579F0918C6389372 /* fnstring.cpp in Sources */,
 				3652DE6E207272186E611954 /* fnnumber.cpp in Sources */,
 				3652D40462B891982A884DF5 /* fnfunction.cpp in Sources */,
+				3652D5E8DBBB4A3FCA9E1F58 /* fnerrorq.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +662,7 @@
 				3652D1A3CA4EBC293BD1C15C /* fnstring.cpp in Sources */,
 				3652DD2F7B227A9EEA7FCBEE /* fnnumber.cpp in Sources */,
 				3652D732760F7D02969A8F2B /* fnfunction.cpp in Sources */,
+				3652D1E5E58AAE2F2BB3DFFF /* fnerrorq.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

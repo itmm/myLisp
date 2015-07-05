@@ -24,7 +24,6 @@
 	 *+	Creator c;
 	 *
 	 *  c.new_error("a")->as_dictionary() == nullptr
-	 *  c.new_error("b")->as_error() != nullptr
 	 *  c.new_error("d")->as_identifier() == nullptr
 	 */
 
@@ -34,6 +33,7 @@
 	 *
 	 *	(= (true? (error "true")) false)
 	 *
+	 *	(= (error? (error "err")) true)
 	 *  (= (function? (error "+")) false)
 	 *	(= (number? (error "2")) false)
 	 *  (= (pair? (error "()")) false)

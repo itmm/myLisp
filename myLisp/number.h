@@ -38,6 +38,7 @@
 	 *	(= (true? 1) true)
 	 *	(= (true? -2/3) true)
 	 *
+	 *	(= (error? -1) false)
 	 *	(= (function? 2) false)
 	 *	(= (number? 0) true)
 	 *	(= (number? -2/3) true)

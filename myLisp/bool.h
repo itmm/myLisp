@@ -18,11 +18,13 @@
  *	(= (str-print true) "true")
  *	(= (str-print false) "false")
  *
+ *	(= (error? true) false)
  *	(= (function? true) false)
  *	(= (number? true) true)
  *  (= (pair? true) false)
  *  (= (string? true) false)
  *
+ *	(= (error? false) false)
  *	(= (function? false) false)
  *	(= (number? false) true)
  *  (= (pair? false) false)

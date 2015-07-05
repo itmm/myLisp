@@ -20,6 +20,7 @@
 	 *
 	 *	(= (true? unknown-identifier) true)
 	 *
+	 *	(= (error? unknown-identifier) false)
 	 *	(= (function? unknown-identifier) false)
 	 *	(= (number? unknown-identifier) false)
 	 *  (= (pair? unknown-identifier) false)

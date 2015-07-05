@@ -24,6 +24,7 @@
 #include "fnstring.h"
 #include "fnnumber.h"
 #include "fnfunction.h"
+#include "fnerrorq.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -55,6 +56,7 @@ Ptr RootFactory::root() {
 	dict->put("string?", _creator->new_element(new FunctionString()));
 	dict->put("number?", _creator->new_element(new FunctionNumber()));
 	dict->put("function?", _creator->new_element(new FunctionFunction()));
+	dict->put("error?", _creator->new_element(new FunctionErrorQuery()));
 
 	return Ptr(dict, _creator->collector());
 }

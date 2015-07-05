@@ -39,6 +39,7 @@
 	 *	(= (true? " ") true)
 	 *	(= (true? "0") true)
 	 *
+	 *	(= (error? "err") false)
 	 *	(= (function? "+") false)
 	 *	(= (number? "0") false)
 	 * 	(= (pair? "()") false)

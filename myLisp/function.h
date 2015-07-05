@@ -25,6 +25,7 @@
 	 *
 	 * 	(= (true? +) false)
 	 *
+	 *	(= (error? +) false)
 	 *	(= (function? +) true)
 	 *	(= (number? +) false)
 	 *	(= (pair? +) false)

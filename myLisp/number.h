@@ -28,7 +28,6 @@
      *
      *+ Creator c;
      *
-     *  c.new_number(5)->as_function() == nullptr
      *  c.new_number(0)->as_dictionary() == nullptr
      *	c.new_number(8)->as_identifier() == nullptr
      */
@@ -39,6 +38,7 @@
 	 *	(= (true? 1) true)
 	 *	(= (true? -2/3) true)
 	 *
+	 *	(= (function? 2) false)
 	 *	(= (number? 0) true)
 	 *	(= (number? -2/3) true)
 	 *	(= (number? Infinity) true)

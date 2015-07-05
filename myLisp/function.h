@@ -18,7 +18,6 @@
 	/*C++-TESTS:
 	 *
 	 *	Function().as_dictionary() == nullptr
-	 *	Function().as_function() != nullptr
 	 *	Function().as_identifier() == nullptr
 	 */
 
@@ -26,6 +25,7 @@
 	 *
 	 * 	(= (true? +) false)
 	 *
+	 *	(= (function? +) true)
 	 *	(= (number? +) false)
 	 *	(= (pair? +) false)
 	 *	(= (string? +) false)

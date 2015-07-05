@@ -25,7 +25,6 @@
 	 *
 	 *  c.new_error("a")->as_dictionary() == nullptr
 	 *  c.new_error("b")->as_error() != nullptr
-	 *  c.new_error("c")->as_function() == nullptr
 	 *  c.new_error("d")->as_identifier() == nullptr
 	 */
 
@@ -35,6 +34,7 @@
 	 *
 	 *	(= (true? (error "true")) false)
 	 *
+	 *  (= (function? (error "+")) false)
 	 *	(= (number? (error "2")) false)
 	 *  (= (pair? (error "()")) false)
 	 *  (= (string? (error "abc")) false)

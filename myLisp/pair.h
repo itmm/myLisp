@@ -38,7 +38,6 @@
      *
      *+ Creator c;
      *
-     *  PAIR()->as_function() == nullptr
      *  PAIR()->as_dictionary() == nullptr
      *  PAIR()->as_identifier() == nullptr
      */
@@ -49,6 +48,7 @@
 	 *	(= (true? (list (list))) true)
 	 *	(= (true? (list 0)) true)
 	 *
+	 *	(= (function? (list +)) false)
 	 *	(= (number? (list 2)) false)
 	 * 	(= (pair? (list)) true)
 	 * 	(= (pair? (list false)) true)

@@ -54,6 +54,7 @@
  *	GET_FN("pair?") != nullptr
  *	GET_FN("string?") != nullptr
  *	GET_FN("number?") != nullptr
+ *	GET_FN("function?") != nullptr
  */
 
 #endif

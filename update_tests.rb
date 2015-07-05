@@ -38,7 +38,8 @@ def grep_tests(file, base)
         elsif in_tests && /^\s*\*\+/ =~ line
             p = line.gsub(/^\s*\*\+\s*/, "").chomp
             if lisp_tests
-    			p.gsub! /"/, '\"'
+                p = p.gsub('\\') { '\\\\' }
+    			p.gsub! /"/, '\\"'
                 preset += "p.eval(\"#{p}\"); "
             else
                 preset += p
@@ -47,7 +48,8 @@ def grep_tests(file, base)
 			test = line.gsub(/^\s*\*\s*/, "").gsub(/\n/, '')
 			if test != ""
 			    if lisp_tests
-			        test.gsub! /"/, '\"'
+                    test = test.gsub('\\') { '\\\\' }
+			        test.gsub! /"/, '\\"'
 			        test = "Parser p; #{preset} Ptr res = p.eval(\"#{test}\"); assert(res && res->is_true());"
 			    else
                     test = "#{preset} assert(#{test});"

@@ -35,6 +35,9 @@ Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
     ch = rest.get();
     std::ostringstream buffer;
     while (ch != EOF && ch != '"') {
+    	if (ch == '\\') {
+    		ch = rest.get();
+    	}
         buffer << (char) ch;
         ch = rest.get();
     }

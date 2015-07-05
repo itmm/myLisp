@@ -78,14 +78,13 @@
      *	Parser().parse(";; some comments\n12")->as_number()->value() == 12
      *	Parser().parse(";;; 12\r13")->as_number()->value() == 13
      *	Parser().parse(";;") == nullptr
-     *
-     *+ OutSink os;
-     *
-     *  (os << Parser().parse("(2 3 4)")) == "(2 3 4)"
-     *  (os << Parser().parse("(2 (3 4) ((5)))")) == "(2 (3 4) ((5)))"
-     *  (os << Parser().parse("(2 . 3)")) == "(2 . 3)"
-     *  (os << Parser().parse("(+)")) == "(+)"
-     *
      */
+
+	/*LISP-TESTS:
+	 *
+	 *	(= (str-print (2 3 4)) "(2 3 4)")
+	 *	(= (str-print (2 (3 4) ((5)))) "(2 (3 4) ((5)))")
+	 *	(= (str-print (2 . 3)) "(2 . 3)")
+	 */
 
 #endif

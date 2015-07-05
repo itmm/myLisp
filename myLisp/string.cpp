@@ -14,5 +14,5 @@ bool String::is_equal(Element *other) const {
 String *String::as_string() { return this; }
 
 void String::to_stream(std::ostream &stream) const {
-    stream << "\"" << _str << "\"";
+    stream << _str;
 }

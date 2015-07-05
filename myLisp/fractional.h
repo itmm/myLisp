@@ -32,10 +32,10 @@
 	 *
 	 */
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *  -Fractional(2, 3) == Fractional(2, 3, true)
-     *  -Fractional(2, 1, true) == 2
+     *	(= (- 2/3) -2/3)
+     *	(= (- -2) 2)
      *
      */
     inline Fractional operator-(const Fractional &num) {
@@ -63,11 +63,10 @@
         return a;
     }
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *  Fractional(8, 4) == 2
-     *  Fractional(3, 2, true) == -Fractional(3, 2)
-     *
+     *	(= 8/4 2)
+     *	(= -3/2 (- 3/2))
      */
     inline Fractional::Fractional(const BigInt &numerator, const BigInt &denominator, bool isNegative) {
         if (!denominator) {
@@ -84,16 +83,15 @@
 
     Fractional operator-(const Fractional &a, const Fractional &b);
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *  Fractional(5, 2) + 3 == Fractional(11, 2)
-     *  -Fractional(3) + 7 == 4
-     *  -Fractional(3) + -Fractional(3) == -Fractional(6)
-     *  3 + -Fractional(7) == -Fractional(4)
-     *  Fractional(2, 3) + 0 == Fractional(2, 3)
-     *  Fractional(1, 3) + Fractional(5, 3) == 2
-     *  Fractional(1, 2) + Fractional(3, 5) == Fractional(11, 10)
-     *
+     *	(= (+ 5/2 3) 11/2)
+     *	(= (+ -3 7) 4)
+     *	(= (+ -3 -3) -6)
+     *	(= (+ 3 -7) -4)
+     * 	(= (+ 2/3 0) 2/3)
+     * 	(= (+ 1/3 5/3) 2)
+     * 	(= (+ 1/2 3/5) 11/10)
      */
     inline Fractional operator+(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
@@ -104,12 +102,11 @@
 			b.denominator(), a.isNegative());
     }
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *  Fractional(5) - 3 == 2
-     *  Fractional(8, 3) - Fractional(2, 3) == 2
-     *  Fractional(1, 3) - Fractional(4, 3) == -Fractional(1)
-     *
+     *	(= (- 5 3) 2)
+     *	(= (- 8/3 2/3) 2)
+     *	(= (- 1/3 4/3) -1)
      */
     inline Fractional operator-(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
@@ -124,13 +121,12 @@
 			b.denominator(), a.isNegative());
     }
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *  Fractional(2, 3) * Fractional(5, 7) == Fractional(10, 21)
-     *  Fractional(3) * Fractional(2, 3) == 2
-     *  3 * Fractional::infinity() == Fractional::infinity()
-     *  6 * Fractional::notANumber() == Fractional::notANumber()
-     *
+     *	(= (* 2/3 5/7) 10/21)
+     *	(= (* 3 2/3) 2)
+     *	(= (* 3 Infinity) Infinity)
+     *	(= (* 6 NotANumber) NotANumber)
      */
     inline Fractional operator*(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.numerator(), a.denominator() * b.denominator(), a.isNegative() != b.isNegative());
@@ -150,16 +146,15 @@
         return Fractional(a.numerator() * b.denominator(), a.denominator() * b.numerator(), a.isNegative() != b.isNegative());
     }
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *  (Fractional(3) == 3) == true
-     *  (Fractional(3) == 4) == false
-     *  (Fractional(3) == -Fractional(3)) == false
-     *  (Fractional(0) == -Fractional(0)) == true
+     *	(= (= 3 3) true)
+     *	(= (= 3 4) false)
+     *	(= (= 3 -3) false)
+     *	(= (= 0 -0) true)
      *
-     *  (Fractional(2, 3) == Fractional(4, 6)) == true
-     *  (Fractional(2, 3) == -Fractional(2, 3)) == false
-     *
+     *  (= (= 2/3 4/6) true)
+     *  (= (= 2/3, -2/3) false)
      */
     inline bool operator==(const Fractional &a, const Fractional &b) {
         return a.isNegative() == b.isNegative() && a.numerator() == b.numerator() && a.denominator() == b.denominator();
@@ -207,18 +202,15 @@
         }
     }
 
-    /*TESTS:
+    /*LISP-TESTS:
      *
-     *+ OutSink os;
-     *
-     *  (os << Fractional(42)) == "42"
-     *  (os << Fractional(2, 3)) == "2/3"
-     *  (os << Fractional(2, 3, true)) == "-2/3"
-     *  (os << Fractional(0, 2, true)) == "0"
-     *  (os << Fractional::infinity()) == "Infinity"
-     *  (os << Fractional::minusInfinity()) == "(- Infinity)"
-     *  (os << Fractional::notANumber()) == "NotANumber"
-     *
+     *	(= (str-print 42) "42")
+     *	(= (str-print 2/3) "2/3")
+     *	(= (str-print -2/3) "-2/3")
+     *	(= (str-print -0/2) "0")
+     *	(= (str-print Infinity) "Infinity")
+     *	(= (str-print (- Infinity)) "(- Infinity)")
+     *	(= (str-print NotANumber) "NotANumber")
      */
     std::ostream &operator<<(std::ostream &output, const Fractional &value);
 

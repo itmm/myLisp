@@ -44,16 +44,6 @@
      *  PAIR()->as_pair() != nullptr
      *  PAIR()->as_number() == nullptr
      *  PAIR()->as_string() == nullptr
-     *
-     *  PAIR()->as_pair()->car() == nullptr
-     *  PAIR()->as_pair()->cdr() == nullptr
-     *
-     *+ OutSink os;
-     *
-     *  (os << c.new_pair(c.new_string("a"), c.new_pair(c.new_string("b"), nullptr))) == "(\"a\" \"b\")"
-     *  (os << static_cast<Pair *>(nullptr)) == "()"
-     *  (os << c.new_pair(c.new_string("a"), c.new_string("b"))) == "(\"a\" . \"b\")"
-     *
      */
 
 	/*LISP-TESTS:
@@ -61,6 +51,10 @@
 	 *	(= (true? (list)) false)
 	 *	(= (true? (list (list))) true)
 	 *	(= (true? (list 0)) true)
+	 *
+	 *  (= (str-print (list "a" "b")) "(a b)")
+	 *  (= (str-print (list)) "()")
+	 *  (= (str-print (list "a" . "b")) "(a . b)")
 	 */
 
 #endif

@@ -35,15 +35,6 @@
      *  c.new_string("8")->as_number() == nullptr
      *  c.new_string("1 2")->as_pair() == nullptr
      *  c.new_string("9")->as_string() != nullptr
-     *  c.new_string("pv")->as_string()->str() == "pv"
-     * 
-     *  c.new_string("abc")->as_string()->str() == "abc"
-     *
-     *+ OutSink os;
-     *
-     *  (os << c.new_string("x y")) == "\"x y\""
-     *  (os << c.new_string("")) == "\"\""
-     *
      */
 
 	/*LISP-TESTS:
@@ -51,5 +42,8 @@
 	 *	(= (true? "") false)
 	 *	(= (true? " ") true)
 	 *	(= (true? "0") true)
+	 *
+	 *  (= (str-print "x y") "x y")
+	 *  (= (str-print "") "")
 	 */
 #endif

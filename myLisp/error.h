@@ -37,10 +37,11 @@
 	 *	(c.new_error("a") == c.new_error("b")) == false
 	 *	(c.new_error("a") == c.new_string("a")) == false
 	 *	(c.new_error("a") == c.new_identifier("a")) == false
-	 *
-	 *+	OutSink os;
-	 *
-	 *  (os << c.new_error("not yet")) == "(error \"not yet\")"
-	 *
 	 */
+
+	/*LISP-TESTS:
+	 *
+	 *	(= (str-print (error "not yet")) "(error \"not yet\")"
+	 */
+
 #endif

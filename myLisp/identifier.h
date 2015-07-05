@@ -10,8 +10,6 @@
 			virtual Identifier *as_identifier() override;
 			virtual String *as_string() override;
 
-			virtual void to_stream(std::ostream &stream) const override;
-
 		private:
 			friend class Creator;
 

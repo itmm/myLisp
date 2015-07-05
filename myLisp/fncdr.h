@@ -10,7 +10,7 @@
 
 	/*LISP-TESTS:
 	 *
-	 *	(= (cdr ()) ())
+	 *	(= (cdr (list)) (list))
 	 *	(= (cdr (list 1 2)) (list 2))
 	 *
 	 *  (= (cdr) (error "cdr needs one argument"))

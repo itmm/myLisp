@@ -34,16 +34,6 @@
      *  c.new_number(1)->as_number() != nullptr
      *  c.new_number(2)->as_pair() == nullptr
      *  c.new_number(3)->as_string() == nullptr
-     *  c.new_number(4)->as_number()->value() == 4
-     *
-     *  c.new_number(42)->as_number()->value() == 42
-     *
-     *>	static Fractional minusTwoThirds = -Fractional(2, 3);
-     *
-     *+ OutSink os;
-     *
-     *  (os << c.new_number(minusTwoThirds)) == "-2/3"
-     *
      */
 
 	/*LISP-TESTS:
@@ -51,5 +41,8 @@
 	 *	(= (true? 0) false)
 	 *	(= (true? 1) true)
 	 *	(= (true? -2/3) true)
+	 *
+	 *  (= (str-print -2/3) "-2/3")
 	 */
+
 #endif

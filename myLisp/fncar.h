@@ -12,7 +12,7 @@
 	/*LISP-TESTS:
 	 *
 	 *	(= (car (list 1 2)) 1)
-	 *	(= (car ()) (list))
+	 *	(= (car (list)) (list))
 	 *
 	 *	(= (car 2) (error "car's argument must be a pair"))
 	 *	(= (car . 2) (error "arguments of car are not a list"))

@@ -3,18 +3,18 @@
 #include "number.h"
 #include "pair.h"
 
-Ptr FunctionPlus::apply(Ptr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
 
-	Fractional sum = 0;
+Ptr FunctionPlus::empty_case(State &callerState) {
+	return callerState.creator()->new_number(0);
+}
 
-	if (arguments && !arguments->as_pair()) return state.creator()->new_error("+ expects argument list");
-	Pair *cur = Element::as_pair(arguments);
-	for (; cur ; cur = Element::as_pair(cur->cdr())) {
-		Number *n = Element::as_number(cur->car());
-		if (!n) return state.creator()->new_error("+ expects numeric arguments");
-		sum = sum + n->value();
-		if (cur->cdr() && !cur->cdr()->as_pair()) return state.creator()->new_error("+ expects argument list");
-	}
-	return state.creator()->new_number(sum);
+Ptr FunctionPlus::setup(State &callerState, bool &stop) {
+	return callerState.creator()->new_number(0);
+}
+
+Ptr FunctionPlus::argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {
+	Number *sum = Element::as_number(intermediate);
+	Number *value = Element::as_number(element);
+	if (!sum || !value) return callerState.creator()->new_error("+ expects numeric arguments");
+	return callerState.creator()->new_number(sum->value() + value->value());
 }

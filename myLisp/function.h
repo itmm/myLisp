@@ -21,7 +21,6 @@
 	 *	Function().as_function() != nullptr
 	 *	Function().as_identifier() == nullptr
 	 *	Function().as_number() == nullptr
-	 *	Function().as_string() == nullptr
 	 *
 	 */
 
@@ -30,6 +29,7 @@
 	 * 	(= (true? +) false)
 	 *
 	 *	(= (pair? +) false)
+	 *	(= (string? +) false)
 	 */
 
 #endif

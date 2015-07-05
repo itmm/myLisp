@@ -4,7 +4,7 @@
 
 Ptr Listable::apply(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
-	if (!arguments) return state.creator()->new_error("Listable needs at least one argument");
+	if (!arguments) return empty_case(state);
 	Pair *current = arguments->as_pair();
 	if (!current) return state.creator()->new_error("Listable needs a plain list");
 
@@ -12,7 +12,7 @@ Ptr Listable::apply(Ptr arguments, State &state) {
 	Ptr intermediate = setup(state, stop);
 	if (stop || Element::as_error(intermediate)) return intermediate;
 
-	intermediate = first_argument(intermediate, current->car(), state, stop);
+	intermediate = first_argument(intermediate, current->car(), current->cdr(), state, stop);
 	if (stop || Element::as_error(intermediate)) return intermediate;
 
 	while (current->cdr()) {
@@ -25,10 +25,15 @@ Ptr Listable::apply(Ptr arguments, State &state) {
 	return intermediate;
 }
 
+
+Ptr Listable::empty_case(State &callerState) {
+	return callerState.creator()->new_error("Listable needs at least one argument");;
+}
+
 Ptr Listable::setup(State &callerState, bool &stop) {
 	return Ptr();
 }
 
-Ptr Listable::first_argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {
+Ptr Listable::first_argument(Ptr intermediate, Element *element, bool hasMore, State &callerState, bool &stop) {
 	return argument(intermediate, element, callerState, stop);
 }

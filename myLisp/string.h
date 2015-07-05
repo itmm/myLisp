@@ -33,7 +33,6 @@
      *  c.new_string("[]")->as_dictionary() == nullptr
      *  c.new_string("abc")->as_identifier() == nullptr
      *  c.new_string("8")->as_number() == nullptr
-     *  c.new_string("9")->as_string() != nullptr
      */
 
 	/*TESTS:
@@ -43,6 +42,8 @@
 	 *	(= (true? "0") true)
 	 *
 	 * 	(= (pair? "()") false)
+	 * 	(= (string? "9") true)
+	 * 	(= (string? "") true)
 	 *
 	 *  (= (str-print "x y") "x y")
 	 *  (= (str-print "") "")

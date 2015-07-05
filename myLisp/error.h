@@ -28,7 +28,6 @@
 	 *  c.new_error("c")->as_function() == nullptr
 	 *  c.new_error("d")->as_identifier() == nullptr
 	 *  c.new_error("e")->as_number() == nullptr
-	 *  c.new_error("e")->as_string() == nullptr
 	 *
 	 *	(c.new_error("a") == c.new_error("a")) == true
 	 *	(c.new_error("a") == c.new_error("b")) == false
@@ -43,6 +42,7 @@
 	 *	(= (true? (error "true")) false)
 	 *
 	 *  (= (pair? (error "()")) false)
+	 *  (= (string? (error "abc")) false)
 	 */
 
 #endif

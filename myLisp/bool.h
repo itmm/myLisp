@@ -19,7 +19,10 @@
  *	(= (str-print false) "false")
  *
  *  (= (pair? true) false)
+ *  (= (string? true) false)
+ *
  *  (= (pair? false) false)
+ *  (= (string? false) false)
  */
 
 #endif

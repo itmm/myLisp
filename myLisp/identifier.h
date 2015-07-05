@@ -21,5 +21,6 @@
 	 *	(= (true? unknown-identifier) true)
 	 *
 	 *  (= (pair? unknown-identifier) false)
+	 *  (= (string? unknown-identifier) false)
 	 */
 #endif

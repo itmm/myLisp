@@ -32,7 +32,6 @@
      *  c.new_number(0)->as_dictionary() == nullptr
      *	c.new_number(8)->as_identifier() == nullptr
      *  c.new_number(1)->as_number() != nullptr
-     *  c.new_number(3)->as_string() == nullptr
      */
 
 	/*TESTS:
@@ -42,6 +41,7 @@
 	 *	(= (true? -2/3) true)
 	 *
 	 *	(= (pair? 2) false)
+	 *	(= (string? 3) false)
 	 *
 	 *  (= (str-print -2/3) "-2/3")
 	 */

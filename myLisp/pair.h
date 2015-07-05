@@ -42,7 +42,6 @@
      *  PAIR()->as_dictionary() == nullptr
      *  PAIR()->as_identifier() == nullptr
      *  PAIR()->as_number() == nullptr
-     *  PAIR()->as_string() == nullptr
      */
 
 	/*TESTS:
@@ -52,7 +51,8 @@
 	 *	(= (true? (list 0)) true)
 	 *
 	 * 	(= (pair? (list)) true)
-	 * 	(= (pair? (list false) true)
+	 * 	(= (pair? (list false)) true)
+	 * 	(= (string? (list 2)) false)
 	 *
 	 *  (= (str-print (list "a" "b")) "(a b)")
 	 *  (= (str-print (list)) "()")

@@ -25,3 +25,4 @@ testLisp/t_fnlambda.cpp
 testLisp/t_fnimport.cpp
 testLisp/t_fnbool.cpp
 testLisp/t_fnstrprint.cpp
+testLisp/t_identifier.cpp

@@ -48,9 +48,9 @@ inline Ptr::~Ptr() {
 }
 
 inline Ptr &Ptr::operator=(const Ptr &other) {
-	assert(_collector == other._collector || other._value == nullptr);
-	_collector->add_root(other._value);
-	_collector->remove_root(_value);
+	assert(_collector == other._collector || other._value == nullptr || _value == nullptr);
+	if (_value) { _collector->remove_root(_value); } else { _collector = other._collector; }
+	if (other._value) { _collector = other._collector; _collector->add_root(other._value); }
 	_value = other._value;
 	return *this;
 }

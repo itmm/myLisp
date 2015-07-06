@@ -1,28 +1,21 @@
 #include "fnminus.h"
 
 #include "number.h"
-#include "pair.h"
 
-Ptr FunctionMinus::apply(Ptr arguments, State &state) {
-    arguments = eval_arguments(arguments, state);
+Ptr FunctionMinus::empty_case(State &callerState) {
+	return callerState.creator()->new_number(-Fractional(1));
+}
 
-    Pair *cur = Element::as_pair(arguments);
-    if (!cur) { return state.creator()->new_number(-Fractional(1)); }
+Ptr FunctionMinus::first_argument(Ptr intermediate, Element *element, bool hasMore, State &callerState, bool &stop) {
+	Number *value = Element::as_number(element);
+	if (!value) return callerState.creator()->new_error("- expects numeric arguments");
+	return hasMore ? Ptr(value, callerState.collector()) : callerState.creator()->new_number(-value->value());
+}
 
-    Number *n = Element::as_number(cur->car());
-    if (!n) { return Ptr(); }
-    Fractional sum = n->value();
+Ptr FunctionMinus::argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {
+	Number *difference = Element::as_number(intermediate);
+	Number *value = Element::as_number(element);
+	if (!difference || !value) return callerState.creator()->new_error("- expects numeric arguments");
 
-	if (!cur->cdr()) {
-		return state.creator()->new_number(-sum);
-	}
-	cur = Element::as_pair(cur->cdr());
-	if (!cur) { return Ptr(); }
-    for (; cur; cur = Element::as_pair(cur->cdr())) {
-        n = Element::as_number(cur->car());
-        if (!n) { return Ptr(); }
-        sum = sum - n->value();
-    }
-
-	return state.creator()->new_number(sum);
+	return callerState.creator()->new_number(difference->value() - value->value());
 }

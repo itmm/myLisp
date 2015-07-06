@@ -1,11 +1,11 @@
 #if !defined(fnequal_h)
 #define fnequal_h
 
-	#include "function.h"
+	#include "lookbehind.h"
 
-	class FunctionEqual: public Function {
-		public:
-			virtual Ptr apply(Ptr arguments, State &state) override;
+	class FunctionEqual: public Lookbehind {
+	protected:
+		virtual bool is_valid(Element *last, Element *current) override;
 	};
 
 	/*TESTS:
@@ -13,9 +13,9 @@
 	 * 	(= (= (list) (list)) true)
 	 *	(= (= (list) (list 4)) false)
 	 *
-	 *	(= (=) false)
-	 *	(= (= (+ 1)) false)
-	 *	(= (= 0) true)
+	 *	(= (=) (error "Listable needs at least one argument"))
+	 *	(= (= (+ 1)) (error "Lookbehind needs at least two arguments"))
+	 *	(= (= 0) (error "Lookbehind needs at least two arguments"))
 	 *	(= (= 2 4/2) true)
 	 *	(= (= 2 3) false)
 	 *	(= (= "abc" "abc") true)

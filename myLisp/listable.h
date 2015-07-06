@@ -4,14 +4,20 @@
 	#include "function.h"
 
 	class Listable: public Function {
+		public:
+			Listable(bool stopOnError = true) : _stopOnError(stopOnError) {}
+
+			virtual Ptr apply(Ptr arguments, State &state) override;
+
 		protected:
 			virtual Ptr empty_case(State &callerState);
 			virtual Ptr setup(State &callerState, bool &stop);
 			virtual Ptr first_argument(Ptr intermediate, Element *element, bool hasMore, State &callerState, bool &stop);
 			virtual Ptr argument(Ptr intermediate, Element *element, State &callerState, bool &stop) = 0;
+			virtual Ptr finish(Ptr intermediate, State &callerState);
 
-	public:
-		virtual Ptr apply(Ptr arguments, State &state) override;
+		private:
+			bool _stopOnError;
 	};
 
 #endif

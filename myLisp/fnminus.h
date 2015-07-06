@@ -25,8 +25,8 @@
      *  (= (- -3) 3)
      *  (= (- 1/3 2) -5/3)
      *
-     *  (= (- "2") (error "- expects numeric arguments")
-     *  (= (- 4 "2") (error "- expects numeric arguments")
+     *  (= (- "2") (error "- expects numeric arguments"))
+     *  (= (- 4 "2") (error "- expects numeric arguments"))
      */
 
 #endif

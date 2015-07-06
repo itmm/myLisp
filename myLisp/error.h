@@ -21,7 +21,7 @@
 
 	/*TESTS:
 	 *
-	 *	(= (str-print (error "not yet")) "(error \"not yet\")"
+	 *	(= (str-print (error "not yet")) "(error \"not yet\")")
 	 *
 	 *	(= (true? (error "true")) false)
 	 *

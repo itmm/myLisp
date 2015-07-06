@@ -19,7 +19,7 @@
 	 *	(= (* 7) 7)
 	 *	(= (* -3 5/2) -15/2)
 	 *
-	 *  (= (* "2") (error "* expects numeric arguments")
+	 *  (= (* "2") (error "* expects numeric arguments"))
 	 */
 
 #endif

@@ -160,31 +160,30 @@
         return a.isNegative() == b.isNegative() && a.numerator() == b.numerator() && a.denominator() == b.denominator();
     }
 
-    /*C++-TESTS:
+    /*TESTS:
      *
-     *  (Fractional(3) < Fractional(4)) == true
-     *  (Fractional(4) < Fractional(3)) == false
-     *  (Fractional(3) < Fractional(3)) == false
-     *  (-Fractional(3) < Fractional(3)) == true
-     *  (Fractional(3) < -Fractional(4)) == false
+     *	(= (< 3 4) true)
+     *	(= (< 4 3) false)
+     *	(= (< 3 3) false)
+     *	(= (< -3 3) true)
+     *	(= (< 3 -4) false)
      *
-     *  (-Fractional(3) < -Fractional(4)) == false
-     *  (-Fractional(4) < -Fractional(3)) == true
-     *  (-Fractional(3) < -Fractional(3)) == false
-     *  (-Fractional(0) < Fractional(0)) == false
+     *	(= (< -3 -4) false)
+     *	(= (< -4 -3) true)
+     *	(= (< -3 -3) false)
+     *	(= (< -0 0) false)
      *
-     *  (Fractional(3, 5) < Fractional(4, 5)) == true
-     *  (Fractional(3, 5) < Fractional(2, 5)) == false
-     *  (Fractional(3, 5) < Fractional(3, 4)) == true
-     *  (Fractional(3, 5) < Fractional(3, 6)) == false
-     *  (Fractional(3, 5) < Fractional(4, 6)) == true
+     *	(= (< 3/5 4/5) true)
+     *	(= (< 3/5 2/5) false)
+     *	(= (< 3/5 3/4) true)
+     *	(= (< 3/5 3/6) false)
+     *	(= (< 3/5 4/6) true)
      *
-     *  (-Fractional(3, 5) < -Fractional(4, 5)) == false
-     *  (-Fractional(3, 5) < -Fractional(2, 5)) == true
-     *  (-Fractional(3, 5) < -Fractional(3, 4)) == false
-     *  (-Fractional(3, 5) < -Fractional(3, 6)) == true
-     *  (-Fractional(3, 5) < -Fractional(4, 6)) == false
-     *
+     *	(= (< -3/5 -4/5) false)
+     *	(= (< -3/5 -2/5) true)
+     *	(= (< -3/5 -3/4) false)
+     *	(= (< -3/5 -3/6) true)
+     *	(= (< -3/5 -4/6) false)
      */
     inline bool operator<(const Fractional &a, const Fractional &b) {
         if (a.isNegative()) {

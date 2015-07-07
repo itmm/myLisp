@@ -7,7 +7,6 @@ unlimited int for bigint
 (or)
 (not)
 (xor)
-(<)
 (<=)
 (>)
 (>=)
@@ -19,3 +18,8 @@ bessere Fehlermeldungen im Parser
 dynamische Funktion als fn ausgeben
 Fehlermeldungen für def
 Fehlermeldungen für fn
+< für Strings
+< für Pairs
+< für Dictionaries
+< für Errors
+< für Funktionen

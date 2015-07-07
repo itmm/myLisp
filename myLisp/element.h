@@ -21,6 +21,7 @@
 
 			virtual bool is_true() const;
 			virtual bool is_equal(Element *other) const;
+			virtual bool is_less(Element *other) const;
 
             virtual Dictionary *as_dictionary();
             virtual Error *as_error();
@@ -32,6 +33,7 @@
 
 			static bool is_true(Element *elm);
 			static bool is_equal(Element *a, Element *b);
+			static bool is_less(Element *a, Element *b);
 
 			static Dictionary *as_dictionary(Element *elm);
 			static Error *as_error(Element *elm);

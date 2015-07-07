@@ -58,6 +58,7 @@
  *	GET_FN("error?") != nullptr
  *	GET_FN("identifier?") != nullptr
  *	GET_FN("dictionary?") != nullptr
+ *	GET_FN("<") != nullptr
  */
 
 #endif

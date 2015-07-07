@@ -18,6 +18,15 @@ bool Element::is_true(Element *elm) {
 	return elm ? elm->is_true() : false;
 }
 
+bool Element::is_less(Element *other) const {
+	return false;
+}
+
+bool Element::is_less(Element *a, Element *b) {
+	if (!a) { return b != nullptr; }
+	return a->is_less(b);
+}
+
 bool Element::is_equal(Element *other) const {
 	return this == other;
 }

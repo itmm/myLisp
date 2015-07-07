@@ -15,3 +15,9 @@ bool Number::is_equal(Element *other) const {
 	Number *otherNum = Element::as_number(other);
 	return otherNum && otherNum->value() == _value;
 }
+
+bool Number::is_less(Element *other) const {
+	Number *otherValue = Element::as_number(other);
+	if (!otherValue) { return false; }
+	return _value < otherValue->value();
+}

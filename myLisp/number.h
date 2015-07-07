@@ -22,6 +22,8 @@
 
 		private:
             Fractional _value;
+	public:
+		virtual bool is_less(Element *other) const override;
 	};
 
 	/*TESTS:

@@ -12,6 +12,7 @@
 
 			virtual bool is_true() const override;
 			virtual bool is_equal(Element *other) const override;
+            virtual bool is_less(Element *other) const override;
 
 			virtual String *as_string();
             virtual void to_stream(std::ostream &stream) const;
@@ -23,13 +24,22 @@
 
 		private:
             std::string _str;
-	};
+    };
 
 	/*TESTS:
 	 *
 	 *	(= (true? "") false)
 	 *	(= (true? " ") true)
 	 *	(= (true? "0") true)
+	 *
+	 *  (= (= "ab" "ab") true)
+	 *
+	 *  (= (< "abc" "aca") true)
+	 *  (= (< "A" "a") true)
+	 *  (= (< "" "a") true)
+	 *  (= (< "zz" "zza") true)
+	 *  (= (< "b" "b ") true)
+	 *  (= (< " b" "b") true)
 	 *
 	 *	(= (dictionary? "dict") false)
 	 *	(= (error? "err") false)

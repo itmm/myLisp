@@ -10,16 +10,16 @@ Ptr Listable::apply(Ptr arguments, State &state) {
 
 	bool stop = false;
 	Ptr intermediate = setup(state, stop);
-	if (stop || _stopOnError && Element::as_error(intermediate)) return intermediate;
+	if (stop || (_stopOnError && Element::as_error(intermediate))) return intermediate;
 
 	intermediate = first_argument(intermediate, current->car(), current->cdr() != nullptr, state, stop);
-	if (stop || _stopOnError && Element::as_error(intermediate)) return intermediate;
+	if (stop || (_stopOnError && Element::as_error(intermediate))) return intermediate;
 
 	while (current->cdr()) {
 		current = Element::as_pair(current->cdr());
 		if (!current) return state.creator()->new_error("Listable needs a plain list");
 		intermediate = argument(intermediate, current->car(), state, stop);
-		if (stop || _stopOnError && Element::as_error(intermediate)) return intermediate;
+		if (stop || (_stopOnError && Element::as_error(intermediate))) return intermediate;
 	}
 
 	return finish(intermediate, state);

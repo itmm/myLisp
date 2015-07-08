@@ -29,14 +29,12 @@
 	 *	Fractional(2, 3).denominator() == 3
 	 *	(-Fractional(3)).numerator() == 3
 	 *	Fractional::infinity().denominator() == 0
-	 *
 	 */
 
     /*TESTS:
      *
      *	(= (- 2/3) -2/3)
      *	(= (- -2) 2)
-     *
      */
     inline Fractional operator-(const Fractional &num) {
         return Fractional(num.numerator(), num.denominator(), !num.isNegative());

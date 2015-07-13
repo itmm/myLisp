@@ -28,13 +28,25 @@
         
 	public:
 		virtual bool is_equal(Element *other) const override;
-	};
+
+        virtual bool is_less(Element *other) const override;
+    };
 
 	/*TESTS:
 	 *
 	 *	(= (true? (list)) false)
 	 *	(= (true? (list (list))) true)
 	 *	(= (true? (list 0)) true)
+	 *
+	 *  (= (= (list) (list)) true)
+	 *  (= (= (list 1 2) (list 1 2)) true)
+	 *  (= (= (list 1 2) (list 1)) false)
+	 *
+	 *  (= (< (list) (list 1)) true)
+	 *  (= (< (list 1) (list)) false)
+	 *  (= (< (list 2 3) (list 3 2)) true)
+	 *  (= (< (list 3 2) (list 2 3)) false)
+	 *  (= (< (list 2 3) (list 2 4)) true)
 	 *
 	 *	(= (dictionary? (list 1)) false)
 	 *	(= (error? (list -1)) false)

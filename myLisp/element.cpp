@@ -19,7 +19,7 @@ bool Element::is_true(Element *elm) {
 }
 
 bool Element::is_less(Element *other) const {
-	return false;
+	return (void *) this < (void *) other;
 }
 
 bool Element::is_less(Element *a, Element *b) {

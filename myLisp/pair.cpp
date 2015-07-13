@@ -30,6 +30,14 @@ bool Pair::is_equal(Element *other) const {
 	return otherPair && Element::is_equal(_car, otherPair->car()) && Element::is_equal(_cdr, otherPair->cdr());
 }
 
+bool Pair::is_less(Element *other) const {
+    Pair *otherPair = Element::as_pair(other);
+    if (!otherPair) return false;
+    if (Element::is_less(_car, otherPair->car())) return true;
+    if (! Element::is_equal(_car, otherPair->car())) return false;
+    return Element::is_less(_cdr, otherPair->cdr());
+}
+
 Pair *Pair::as_pair() { return this; }
 
 void Pair::to_stream(std::ostream &stream) const {

@@ -3,7 +3,6 @@ Probleme mit if
 dynamic parameters
 (let)
 unlimited int for bigint
-(and)
 (or)
 (not)
 (xor)

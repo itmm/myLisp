@@ -28,6 +28,7 @@
 #include "fnidentifierq.h"
 #include "fndictionaryq.h"
 #include "fnless.h"
+#include "fnand.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -63,6 +64,7 @@ Ptr RootFactory::root() {
 	dict->put("identifier?", _creator->new_element(new FunctionIdentifierQuery()));
 	dict->put("dictionary?", _creator->new_element(new FunctionDictionaryQuery()));
 	dict->put("<", _creator->new_element(new FunctionLess()));
+	dict->put("and", _creator->new_element(new FunctionAnd()));
 
 	return Ptr(dict, _creator->collector());
 }

@@ -59,6 +59,7 @@
  *	GET_FN("identifier?") != nullptr
  *	GET_FN("dictionary?") != nullptr
  *	GET_FN("<") != nullptr
+ *	GET_FN("and") != nullptr
  */
 
 #endif

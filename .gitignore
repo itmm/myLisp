@@ -26,3 +26,4 @@ testLisp/t_fnimport.cpp
 testLisp/t_fnboolq.cpp
 testLisp/t_fnstrprint.cpp
 testLisp/t_identifier.cpp
+testLisp/t_fnand.cpp

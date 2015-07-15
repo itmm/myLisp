@@ -1,15 +1,9 @@
-Probleme mit if
 '
 dynamic parameters
 (let)
 unlimited int for bigint
-(or)
-(not)
 (xor)
-(<=)
-(>)
 (>=)
-(><)
 (/)
 string concatenation
 substrings

@@ -30,4 +30,4 @@ testLisp/t_fnand.cpp
 testLisp/t_expander.cpp
 testLisp/t_fndict.cpp
 testLisp/t_fnexpand.cpp
-
+testLisp/t_fnapply.cpp

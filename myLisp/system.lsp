@@ -31,27 +31,41 @@
     true (list)
 ))
 (defn "or" ("a" "b") (if a a b))
-(defn "filter" ("lst", "op") (cond
+(defn "filter" ("lst" "ref" "op") (cond
     (= (list) lst) (list)
-    (op (car lst)) (cons (car lst) (filter (cdr lst) op))
-    true (filter (cdr lst) op)
+    (op (car lst) ref) (cons (car lst) (filter (cdr lst) ref op))
+    true (filter (cdr lst) ref op)
 ))
 (defn "<=" ("a" "b") (or (= a b) (< a b)))
+(defn ">" ("a" "b") (< b a))
 (defn "sort" "a" (cond
     (= (list) a) a
     (= (list) (cdr a)) a
-    true (cat-3 (sort (filter (cdr a) <=)) (list a) (sort (filter (cdr a) >)))
+    true (cat-3
+        (apply sort (filter (cdr a) (car a) <=))
+        (list (car a))
+        (apply sort (filter (cdr a) (car a) >))
+    )
 ))
 (defn "not" ("a") (cond a false true true))
-(defn "><" "a" (not (= (sort a))))
+(defn "doubles" ("a") (cond
+    (= (list) a) false
+    (= (list) (cdr a)) false
+    (= (car a) (cadr a)) true
+    true (doubles (cdr a))
+))
+(defn "><" "a" (not (doubles (apply sort a))))
 (print "running unit tests")
 
-(assert (= (cons 1 (list 2 3)) (list 1 2 3) "cons not working")
+(assert (= (cons 1 (list 2 3)) (list 1 2 3)) "cons not working")
 
 (assert (= (if true 3 4) 3) "if true not working")
 (assert (= (if false 3 4) 4) "if false not working")
 (assert (<= 2 2) "not 2 <= 2")
 (assert (<= 2 3) "not 2 <= 3")
 (assert (= (<= 3 2) false) "3 <= 2")
+(assert (= (cat-3 (2 3) (4) (5 6)) (2 3 4 5 6)))
+(err-print "after cat-3")
+(assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort not working")
 
 (print "done with unit tests")

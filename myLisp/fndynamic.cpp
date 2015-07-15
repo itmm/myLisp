@@ -24,11 +24,13 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 	} else {
 		Pair *cur_key = Element::as_pair(_args);
 		for (; cur_key; cur_key = Element::as_pair(cur_key->cdr()), cur_value = Element::as_pair(Pair::cdr(cur_value))) {
-			Element *value = cur_value->car();
-			if (Element::as_string(value)) {
-				value = _root->get(value);
-			}
-			context->put(cur_key->car()->as_string()->str(), value);
+			Element *value = Pair::car(cur_value);
+//			if (Element::as_string(value)) {
+//				value = _root->get(value);
+//			}
+			String *key = Element::as_string(cur_key->car());
+			if (! key) return state.creator()->new_error("string expected as key");
+			context->put(key->str(), value);
 		}
 	}
 	if (_macro) {

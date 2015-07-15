@@ -24,12 +24,23 @@
 (defn "sum" ("n") (if (= n) 0 (+ n (sum (- n 1)))))
 (defn "assert" ("cnd" "msg") (cond cnd true true (err-print msg)))
 
-(defn "cat-3" ("a" "b" "c") (cond
-    (< (list) a) (cons (car a) (cat-3 (cdr a) b c))
-    (< (list) b) (cons (car b) (cat-3 a (cdr b) c))
-    (< (list) c) (cons (car c) (cat-3 a b (cdr c)))
-    true (list)
+(defn "null?" ("lst") (= (list) lst))
+
+(defn "flatten" "lsts" (cond
+    (null? lsts) (list)
+    (null? (car lsts)) (apply flatten (cdr lsts))
+    true (flatten-2 (car lsts) (cdr lsts))
 ))
+(defn "flatten-2" ("cur" "rest") (cond
+    (null? cur) (apply flatten rest)
+    (pair? cur) (cons (car cur) (flatten-2 (cdr cur) rest))
+    true (cons cur (apply flatten rest))
+))
+
+    (assert (= (flatten) (list)) "can't flatten empty")
+    (assert (= (flatten 1 2) (1 2)) "can't flatten numbers")
+    (assert (= (flatten (1 2) (3)) (1 2 3)) "can't flatten lists")
+
 (defn "or" ("a" "b") (if a a b))
 (defn "filter" ("lst" "ref" "op") (cond
     (= (list) lst) (list)
@@ -41,7 +52,7 @@
 (defn "sort" "a" (cond
     (= (list) a) a
     (= (list) (cdr a)) a
-    true (cat-3
+    true (flatten
         (apply sort (filter (cdr a) (car a) <=))
         (list (car a))
         (apply sort (filter (cdr a) (car a) >))
@@ -72,5 +83,4 @@
 (assert (<= 2 2) "not 2 <= 2")
 (assert (<= 2 3) "not 2 <= 3")
 (assert (= (<= 3 2) false) "3 <= 2")
-(assert (= (cat-3 (2 3) (4) (5 6)) (2 3 4 5 6)))
 (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort not working")

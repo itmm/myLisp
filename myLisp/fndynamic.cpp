@@ -2,6 +2,7 @@
 
 #include "identifier.h"
 #include "pair.h"
+#include "expander.h"
 
 void FunctionDynamic::add_to_visit(Collector::Visitor &visitor) {
 	visitor.add_to_visit(_args);
@@ -14,7 +15,7 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 	if (!_macro) {
 		arguments = eval_arguments(arguments, state);
 	}
-	Dictionary *context = state.creator()->new_dictionary(_root)->as_dictionary();
+	Dictionary *context = state.creator()->new_dictionary(_macro ? static_cast<Dictionary *>(nullptr) : _root)->as_dictionary();
 	Pair *cur_value = Element::as_pair(arguments);
 
 	if (_var_args) {
@@ -30,11 +31,22 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 			context->put(cur_key->car()->as_string()->str(), value);
 		}
 	}
-	Ptr new_root(context, state.collector());
-	Ptr new_inserter(_macro ? _inserter : context, state.collector());
-	State sub_state(state.creator(), new_root, new_inserter);
-	sub_state.setName(_macro ? "macro-call" : "fn-call");
-	Ptr body = Ptr(_body, sub_state.collector());
-	Ptr result = sub_state.eval(body);
-	return result;
+	if (_macro) {
+		Expander expander(Ptr(context, state.collector()));
+		State sub_state(state.creator(), Ptr(_root, state.collector()), Ptr(_inserter, state.collector()));
+		sub_state.setName("macro-call");
+		Ptr body = Ptr(_body, sub_state.collector());
+		Ptr body2 = expander.rewrite(body, *sub_state.creator());
+		//std::cerr << body << " -> " << body2 << std::endl;
+		Ptr result = state.eval(body2);
+		return result;
+	} else {
+		Ptr new_root(context, state.collector());
+		Ptr new_inserter(context, state.collector());
+		State sub_state(state.creator(), new_root, new_inserter);
+		sub_state.setName("fn-call");
+		Ptr body = Ptr(_body, sub_state.collector());
+		Ptr result = sub_state.eval(body);
+		return result;
+	}
 }

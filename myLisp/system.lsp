@@ -1,7 +1,7 @@
 ;; this file defines basic functions
 
-(def "defn" (fn macro ("name" "args" "body") (def (eval name) (fn args body))))
-(def "defm" (fn macro ("name" "args" "body") (def (eval name) (fn macro args body))))
+(def "defn" (fn macro ("name" "args" "body") (def name (fn args body))))
+(def "defm" (fn macro ("name" "args" "body") (def name (fn macro args body))))
 
 (defn "cons" ("a" "b") (list a . b))
 (defn "caar" ("x") (car (car x)))
@@ -27,9 +27,10 @@
 (defn "cat-3" ("a" "b" "c") (cond
     (< (list) a) (cons (car a) (cat-3 (cdr a) b c))
     (< (list) b) (cons (car b) (cat-3 a (cdr b) c))
-    (< (list) c) (cons (car c) (cat-3 a b (cdr c))
+    (< (list) c) (cons (car c) (cat-3 a b (cdr c)))
     true (list)
 ))
+(defn "or" ("a" "b") (if a a b))
 (defn "filter" ("lst", "op") (cond
     (= (list) lst) (list)
     (op (car lst)) (cons (car lst) (filter (cdr lst) op))
@@ -37,8 +38,8 @@
 ))
 (defn "<=" ("a" "b") (or (= a b) (< a b)))
 (defn "sort" "a" (cond
-    (= (list) a) a)
-    (= (list) (cdr a)) a)
+    (= (list) a) a
+    (= (list) (cdr a)) a
     true (cat-3 (sort (filter (cdr a) <=)) (list a) (sort (filter (cdr a) >)))
 ))
 (defn "not" ("a") (cond a false true true))
@@ -49,9 +50,8 @@
 
 (assert (= (if true 3 4) 3) "if true not working")
 (assert (= (if false 3 4) 4) "if false not working")
-
 (assert (<= 2 2) "not 2 <= 2")
 (assert (<= 2 3) "not 2 <= 3")
-(assert (= (<= 3 2) false" "3 <= 2")
+(assert (= (<= 3 2) false) "3 <= 2")
 
 (print "done with unit tests")

@@ -17,17 +17,24 @@
 
 	/*TESTS:
 	 *
-	 *+	((fn macro () (def a 3)))
+	 *+	((fn macro () (def "a" 3)))
 	 *
 	 *	(= a 3)
 	 */
 
 	/*TESTS:
 	 *
-	 *+ (def a (fn macro (b) (eval b)))
-	 *+	(a (def x 32))
+	 *+ (def "a" (fn macro ("b") (eval b)))
+	 *+	(a (def "x" 32))
 	 *
 	 *	(= x 32)
+	 */
+
+	/*TESTS:
+	 *
+	 *+ (def "f" (fn "args" (car args)))
+	 *
+	 *	(= (f 2 3) 2)
 	 */
 
 #endif

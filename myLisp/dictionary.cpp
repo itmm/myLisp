@@ -11,7 +11,7 @@ bool Dictionary::is_true() const {
 bool Dictionary::is_subset_of(const Dictionary *other) const {
 	if (_parent && !_parent->is_subset_of(other)) { return false; }
 	for (auto i = _map.begin(); i != _map.end(); ++i) {
-		if (!other || !other->contains(i->first) || Element::is_equal(i->second, other->get(i->first))) { return false; }
+		if (! other || ! other->contains(i->first) || ! Element::is_equal(i->second, other->get(i->first))) { return false; }
 	}
 	return true;
 }
@@ -64,4 +64,12 @@ Element *Dictionary::get(Element *key) const {
 Dictionary *Dictionary::put(const std::string &key, Element *value) {
 	_map[key] = value;
     return this;
+}
+
+std::map<std::string, Element *>::const_iterator Dictionary::begin() const {
+	return _map.begin();
+}
+
+std::map<std::string, Element *>::const_iterator Dictionary::end() const {
+	return _map.end();
 }

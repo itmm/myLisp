@@ -3,6 +3,7 @@
 #include "fndynamic.h"
 #include "identifier.h"
 #include "pair.h"
+#include "string.h"
 
 Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	Pair *args = Element::as_pair(arguments);
@@ -18,12 +19,8 @@ Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	Pair *body = Element::as_pair(args->cdr());
 	if (!body) { return Ptr(); }
 
-	Pair *real_args;
-	if (Element::as_identifier(args->car())) {
-		real_args = Element::as_pair(state.root()->as_dictionary()->get(args->car()));
-	} else {
-		real_args = Element::as_pair(args->car());
-	}
+	Element *real_args = state.eval(Ptr(args->car(), state.collector()));
+	bool var_args = Element::as_string(real_args);
 
 	Element *real_body = body->car();
 	if (Element::as_identifier(real_body)) {
@@ -31,5 +28,5 @@ Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	}
 	if (!real_body) { return Ptr(); }
 
-	return state.creator()->new_element(new FunctionDynamic(real_args, real_body, isMacro, state));
+	return state.creator()->new_element(new FunctionDynamic(real_args, var_args, real_body, isMacro, state));
 }

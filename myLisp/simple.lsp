@@ -1,1 +1,1 @@
-(def answer 42)
+(def "answer" 42)

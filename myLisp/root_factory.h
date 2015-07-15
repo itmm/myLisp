@@ -60,6 +60,8 @@
  *	GET_FN("dictionary?") != nullptr
  *	GET_FN("<") != nullptr
  *	GET_FN("and") != nullptr
+ *	GET_FN("dict") != nullptr
+ *	GET_FN("expand") != nullptr
  */
 
 #endif

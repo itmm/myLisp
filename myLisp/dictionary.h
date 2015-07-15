@@ -23,7 +23,10 @@
 
             virtual Dictionary *as_dictionary();
             virtual void to_stream(std::ostream &stream) const;
-        
+
+        	std::map<std::string, Element *>::const_iterator begin() const;
+        	std::map<std::string, Element *>::const_iterator end() const;
+
         private:
             Dictionary(Dictionary *parent): _parent(parent) {}
         

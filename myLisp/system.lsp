@@ -48,14 +48,22 @@
     )
 ))
 (defn "not" ("a") (cond a false true true))
+
+; doubles is a helper method for ><
+
 (defn "doubles" ("a") (cond
     (= (list) a) false
     (= (list) (cdr a)) false
     (= (car a) (cadr a)) true
     true (doubles (cdr a))
 ))
+
+    (assert (= (doubles (2 3 3 5)) true) "doubles not found")
+    (assert (= (doubles (2 3 5)) false) "no doubles in 2 3 5")
+    (assert (= (doubles) false) "no doubles in empty call")
+    (assert (= (doubles (2)) false) "no doubles with one argument")
+
 (defn "><" "a" (not (doubles (apply sort a))))
-(print "running unit tests")
 
 (assert (= (cons 1 (list 2 3)) (list 1 2 3)) "cons not working")
 
@@ -65,7 +73,4 @@
 (assert (<= 2 3) "not 2 <= 3")
 (assert (= (<= 3 2) false) "3 <= 2")
 (assert (= (cat-3 (2 3) (4) (5 6)) (2 3 4 5 6)))
-(err-print "after cat-3")
 (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort not working")
-
-(print "done with unit tests")

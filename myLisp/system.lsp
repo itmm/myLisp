@@ -169,7 +169,16 @@
     (def "circumference" (* 2 pi radius))
     (assert (= circumference 628318/10000) "circumference not working")
 ))
-
+((fn ()
+    (defn ("square" "x") (* x x))
+    (assert (= (square 21) 441) "simple square wrong")
+    (assert (= (square (+ 2 5)) 49) "square of sum wrong")
+    (assert (= (square (square 3)) 81 ) "square of square wrong")
+    (defn ("sum-of-squares" "x" "y") (+ (square x) (square y)))
+    (assert (= (sum-of-squares 3 4) 25) "sum of squares not working")
+    (defn ("f" "a") (sum-of-squares (+ a 1) (* a 2)))
+    (assert (= (f 5) 136) "special sum of squares not working")
+))
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;
 

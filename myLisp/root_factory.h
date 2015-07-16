@@ -63,6 +63,7 @@
  *	GET_FN("dict") != nullptr
  *	GET_FN("expand") != nullptr
  *	GET_FN("apply") != nullptr
+ *	GET_FN("/") != nullptr
  */
 
 #endif

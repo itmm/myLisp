@@ -145,6 +145,31 @@
 (assert (= (<= 3 2) false) "3 <= 2")
 (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort not working")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Structure & Interpretation of Computer Programs ;;
+
+(assert (= 486 486) "number not working")
+(assert (= (+ 137 349) 486) "addition not working")
+(assert (= (- 1000 334) 666) "subtraction not working")
+(assert (= (* 5 99) 495) "multiplication not working")
+(assert (= (/ 10 5) 2) "division not working")
+(assert (= (+ 27/10 10) 127/10) "fractional addition not working")
+(assert (= (+ 21 35 12 7) 75) "multiple addition not working")
+(assert (= (* 25 4 12) 1200) "multiple multiplication not working")
+(assert (= (+ (* 3 5) (- 10 6)) 19) "nesting not working")
+(assert (= (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6)) 57) "complex nesting not working")
+
+((fn () (do
+    (def "size" 2)
+    (assert (= size 2) "define not working")
+    (assert (= (* 5 size) 10) "multiply with define not working")
+
+    (def "pi" 314159/100000)
+    (def "radius" 10)
+    (assert (= (* pi (* radius radius)) 314159/1000) "area not working")
+    (def "circumference" (* 2 pi radius))
+    (assert (= circumference 628318/10000) "circumference not working")
+)))
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;
 

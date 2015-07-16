@@ -5,7 +5,7 @@
 
 	class FunctionDynamic: public Function {
 		public:
-			FunctionDynamic(Element *args, bool var_args, Element *body, bool macro, State &state): _var_args(var_args), _args(args), _body(body), _macro(macro), _root(Element::as_dictionary(state.root())), _inserter(Element::as_dictionary(
+			FunctionDynamic(Element *args, Element *body, bool macro, State &state): _args(args), _body(body), _macro(macro), _root(Element::as_dictionary(state.root())), _inserter(Element::as_dictionary(
 				state.inserter()
 			)) {}
 
@@ -14,7 +14,6 @@
 			virtual Ptr apply(Ptr arguments, State &state) override;
 		private:
 			bool _macro;
-			bool _var_args;
 			Element *_args;
 			Element *_body;
 

@@ -5,11 +5,10 @@
 
 Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	Pair *cur = Element::as_pair(arguments);
-	if (!cur) { return Ptr(); }
+	if (!cur) return state.creator()->new_error("arguments must be a list");
 
-	String *name = Element::as_string(state.eval(Ptr(cur->car(), state.collector())));
-	if (!name) { return Ptr(); }
-
+	Element *name = state.eval(Ptr(cur->car(), state.collector()));
+	if (! Element::as_string(name)) return state.creator()->new_error("first argument must eval to string");
 	cur = Element::as_pair(cur->cdr());
 
 	if (!cur) { return Ptr(); }
@@ -19,7 +18,7 @@ Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 
 	// std::cerr << name << " -> " << value << std::endl;
 
-	state.inserter()->as_dictionary()->put(name->str(), value);
+	state.inserter()->as_dictionary()->put(name->as_string()->str(), value);
 
 	return value;
 }

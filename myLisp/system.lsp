@@ -25,6 +25,8 @@
     )
 ))
 
+;;;;;;;;;;;;;;;;;
+;; build lists ;;
 
 (defn "cons" ("a" "b") (list a . b))
 

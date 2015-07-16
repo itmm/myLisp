@@ -28,10 +28,10 @@
         	std::map<std::string, Element *>::const_iterator end() const;
 
         private:
-            Dictionary(Dictionary *parent): _parent(parent) {}
-        
             friend class Creator;
-        
+
+            Dictionary(Dictionary *parent): _parent(parent) {}
+
             Dictionary *_parent;
             std::map<std::string, Element *> _map;
 	};

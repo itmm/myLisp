@@ -62,6 +62,12 @@ Element *Dictionary::get(Element *key) const {
 }
 
 Dictionary *Dictionary::put(const std::string &key, Element *value) {
+    for (Dictionary *current = this; current; current = current->parent()) {
+        if (current->_map.find(key) != current->_map.end()) {
+            current->_map[key] = value;
+            return this;
+        }
+    }
 	_map[key] = value;
     return this;
 }

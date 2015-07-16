@@ -30,7 +30,7 @@
 
     (assert (= (cons 1 (2 3)) (1 2 3)) "cons not working")
     (assert (= (cons 1 ()) (1)) "can't cons empty")
-    
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; car/cdr shorthands ;;
@@ -60,6 +60,7 @@
 (defn "cddar" ("x") (cdr (cdr (car x))))
 (defn "cdddr" ("x") (cdr (cdr (cdr x))))
 
+
 ;;;;;;;;;;;;;;;
 ;; increment ;;
 
@@ -73,15 +74,24 @@
 
 (defn "null?" ("lst") (= (list) lst))
 
-(defn "flatten" "lsts" (cond
-    (null? lsts) (list)
-    (null? (car lsts)) (apply flatten (cdr lsts))
-    true (flatten-2 (car lsts) (cdr lsts))
-))
-(defn "flatten-2" ("cur" "rest") (cond
-    (null? cur) (apply flatten rest)
-    (pair? cur) (cons (car cur) (flatten-2 (cdr cur) rest))
-    true (cons cur (apply flatten rest))
+    (assert (= (null? ()) true) "empty list is not null")
+    (assert (= (null? (1)) false) "non-empty list is null")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;
+;; contatenate lists ;;
+
+(defn "flatten" "lsts" (do
+    (defn "flatten-2" ("cur" "rest") (cond
+        (null? cur) (apply flatten rest)
+        (pair? cur) (cons (car cur) (flatten-2 (cdr cur) rest))
+        true (cons cur (apply flatten rest))
+    ))
+    (cond
+        (null? lsts) (list)
+        (null? (car lsts)) (apply flatten (cdr lsts))
+        true (flatten-2 (car lsts) (cdr lsts))
+    )
 ))
 
     (assert (= (flatten) (list)) "can't flatten empty")

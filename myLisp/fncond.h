@@ -10,9 +10,9 @@
 
 	/*TESTS:
 	 *
-	 *	(= (cond) (list))
-	 *	(= (cond (+ 1 1) (+ 2 2) true false) 4)
-	 *	(= (cond false 1 false 2 true 3) 3)
+	 *	(= (cond) (error "unmatched cond"))
+	 *	(= (cond ((+ 1 1) (+ 2 2)) (true false)) 4)
+	 *	(= (cond (false 1) (false 2) (true 3)) 3)
 	 */
 
 #endif

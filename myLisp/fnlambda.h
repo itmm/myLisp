@@ -12,7 +12,7 @@
 	 *
 	 *	(= (= (fn () (+ 3 3)) ()) false)
 	 *	(= ((fn () 3)) 3)
-	 *	(= (cond ((fn () false)) 2 true 3) 3)
+	 *	(= (cond (((fn () false)) 2) (true 3)) 3)
 	 */
 
 	/*TESTS:

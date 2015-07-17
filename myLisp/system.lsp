@@ -17,8 +17,8 @@
 (defn ("assert" "cnd" "msg")
     (def "tests-run" (+ 1 tests-run))
     (cond
-        cnd true
-        true (do
+        (cnd true)
+        (true
             (def "tests-failed" (+ 1 tests-failed))
             (err-print msg)
         )
@@ -69,7 +69,7 @@
 
     (assert (= (1+ 5) 6) "1+ not working")
 
-(defm ("if" "cnd" "block" "else") (cond cnd block true else))
+(defm ("if" "cnd" "block" "else") (cond (cnd block) (true else)))
 
 (defn ("sum" "n") (if (= n) 0 (+ n (sum (- n 1)))))
 
@@ -84,14 +84,14 @@
 
 (defn ("flatten" . "lsts")
     (defn ("flatten-2" "cur" "rest") (cond
-        (null? cur) (apply flatten rest)
-        (pair? cur) (cons (car cur) (flatten-2 (cdr cur) rest))
-        true (cons cur (apply flatten rest))
+        ((null? cur) (apply flatten rest))
+        ((pair? cur) (cons (car cur) (flatten-2 (cdr cur) rest)))
+        (true (cons cur (apply flatten rest)))
     ))
     (cond
-        (null? lsts) (list)
-        (null? (car lsts)) (apply flatten (cdr lsts))
-        true (flatten-2 (car lsts) (cdr lsts))
+        ((null? lsts) (list))
+        ((null? (car lsts)) (apply flatten (cdr lsts)))
+        (true (flatten-2 (car lsts) (cdr lsts)))
     )
 )
 
@@ -104,30 +104,30 @@
     (assert (or 1 (err-print "or is not short-circuing")))
 
 (defn ("filter" "lst" "ref" "op") (cond
-    (= (list) lst) (list)
-    (op (car lst) ref) (cons (car lst) (filter (cdr lst) ref op))
-    true (filter (cdr lst) ref op)
+    ((= (list) lst) (list))
+    ((op (car lst) ref) (cons (car lst) (filter (cdr lst) ref op)))
+    (true (filter (cdr lst) ref op))
 ))
 (defn ("<=" "a" "b") (or (= a b) (< a b)))
 (defn (">" "a" "b") (< b a))
 (defn ("sort" . "a") (cond
-    (= (list) a) a
-    (= (list) (cdr a)) a
-    true (flatten
+    ((= (list) a) a)
+    ((= (list) (cdr a)) a)
+    (true (flatten
         (apply sort (filter (cdr a) (car a) <=))
         (list (car a))
         (apply sort (filter (cdr a) (car a) >))
-    )
+    ))
 ))
 (defn ("not" "a") (cond a false true true))
 
 ;; doubles is a helper method for ><
 
 (defn ("doubles" "a") (cond
-    (= (list) a) false
-    (= (list) (cdr a)) false
-    (= (car a) (cadr a)) true
-    true (doubles (cdr a))
+    ((= (list) a) false)
+    ((= (list) (cdr a)) false)
+    ((= (car a) (cadr a)) true)
+    (true (doubles (cdr a)))
 ))
 
     (assert (= (doubles (2 3 3 5)) true) "doubles not found")
@@ -179,6 +179,7 @@
     (defn ("f" "a") (sum-of-squares (+ a 1) (* a 2)))
     (assert (= (f 5) 136) "special sum of squares not working")
 ))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;
 

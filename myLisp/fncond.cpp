@@ -2,16 +2,17 @@
 #include "pair.h"
 
 Ptr FunctionCond::apply(Ptr arguments, State &state) {
-	Pair *cur = Element::as_pair(arguments);
-	for (;;) {
-		Element *cond = Pair::car(cur);
-		cur = Element::as_pair(Pair::cdr(cur));
-		if (!cond) { return Ptr(); }
-		Ptr evaled = state.eval(Ptr(cond, state.collector()));
-		if (Element::is_true(evaled)) {
-			return state.eval(Ptr(Pair::car(cur), state.collector()));
-		} else {
-			cur = Element::as_pair(Pair::cdr(cur));
+	for (Pair *cur = Element::as_pair(arguments); cur; cur = Element::as_pair(cur->cdr())) {
+		Pair *entry = Element::as_pair(cur->car());
+		if (! entry) return state.creator()->new_error("entries must be pairs");
+		Ptr condition = state.eval(Ptr(entry->car(), state.collector()));
+		if (Element::is_true(condition)) {
+			Ptr result;
+			for (entry = Element::as_pair(entry->cdr()); entry; entry = Element::as_pair(entry->cdr())) {
+				result = state.eval(Ptr(entry->car(), state.collector()));
+			}
+			return result;
 		}
 	}
+	return state.creator()->new_error("unmatched cond");
 }

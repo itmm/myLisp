@@ -43,7 +43,6 @@
  *	GET_FN("=") != nullptr
  *	GET_FN("quote") != nullptr
  *	GET_FN("import") != nullptr
- *	GET_FN("do") != nullptr
  *	GET_FN("error") != nullptr
  *	GET_FN("*") != nullptr
  *	GET_FN("print") != nullptr

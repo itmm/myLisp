@@ -144,6 +144,10 @@
 (assert (= (<= 3 2) false) "3 <= 2")
 (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort not working")
 
+(defm ("do" . "statements") (cond (true . statements)))
+
+    (assert (= (do (+ 1 2) (+ 2 3)) 5), "do not working")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Structure & Interpretation of Computer Programs ;;
 

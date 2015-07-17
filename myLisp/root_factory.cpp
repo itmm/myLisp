@@ -14,7 +14,6 @@
 #include "fnequal.h"
 #include "fnquote.h"
 #include "fnimport.h"
-#include "fndo.h"
 #include "fnerror.h"
 #include "fntimes.h"
 #include "fnprint.h"
@@ -52,7 +51,6 @@ Ptr RootFactory::root() {
 	dict->put("=", _creator->new_element(new FunctionEqual()));
 	dict->put("quote", _creator->new_element(new FunctionQuote()));
 	dict->put("import", _creator->new_element(new FunctionImport()));
-	dict->put("do", _creator->new_element(new FunctionDo()));
 	dict->put("error", _creator->new_element(new FunctionError()));
 	dict->put("*", _creator->new_element(new FunctionTimes()));
 	dict->put("print", _creator->new_element(new FunctionPrint(std::cout)));

@@ -206,6 +206,13 @@
     (defn ("f" "a") (sum-of-squares (+ a 1) (* a 2)))
     (assert (= (f 5) 136) "special sum of squares")
 ))
+((fn ()
+    (defn ("a-plus-abs-b" "a" "b")
+        ((if (< b 0) - +) a b)
+    )
+    (assert (= (a-plus-abs-b 2 3) 5) "positive a-plus-abs-b")
+    (assert (= (a-plus-abs-b 2 -3) 5) "negative a-plus-abs-b")
+))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;

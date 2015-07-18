@@ -1,3 +1,5 @@
+(assert-setup)
+
 (defn ("turing" "left" "head" "right" "states" "state")
     (def "result" (states head state))
     (def "state" (car result))
@@ -18,7 +20,7 @@
             (def "head" (if head head 0))
             (turing left head right states state)
         )
-        (true right)
+        (else right)
     )
 )
 
@@ -27,6 +29,7 @@
     (turing () (car in) (cdr in) minus-1-fn 0)
 )
 
+    (assert (= (minus-1 (1 1 1)) (1 1)) "minus-1")
 
 (defn ("plus-1" "in")
     (defn ("plus-1-fn" "head" "state") (if
@@ -36,3 +39,7 @@
     ))
     (turing () (car in) (cdr in) plus-1-fn 0)
 )
+
+    (assert (= (plus-1 (1 1 1)) (1 1 1 1)) "plus-1")
+
+(assert-summary)

@@ -3,11 +3,11 @@
 #include "number.h"
 
 Ptr FunctionTimes::empty_case(State &callerState) {
-	return callerState.creator()->new_number(1);
+	return callerState.creator()->new_number(BigInt(1));
 }
 
 Ptr FunctionTimes::setup(State &callerState, bool &stop) {
-	return callerState.creator()->new_number(1);
+	return callerState.creator()->new_number(BigInt(1));
 }
 
 Ptr FunctionTimes::argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {

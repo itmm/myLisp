@@ -5,11 +5,11 @@
 
 
 Ptr FunctionPlus::empty_case(State &callerState) {
-	return callerState.creator()->new_number(0);
+	return callerState.creator()->new_number(BigInt(0));
 }
 
 Ptr FunctionPlus::setup(State &callerState, bool &stop) {
-	return callerState.creator()->new_number(0);
+	return callerState.creator()->new_number(BigInt(0));
 }
 
 Ptr FunctionPlus::argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {

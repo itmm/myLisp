@@ -40,8 +40,8 @@ Ptr RootFactory::root() {
 	dict->put("+", _creator->new_element(new FunctionPlus()));
     dict->put("-", _creator->new_element(new FunctionMinus()));
 	dict->put("def", _creator->new_element(new FunctionDefine()));
-	dict->put("true", _creator->new_element(new Bool(1)));
-	dict->put("false", _creator->new_element(new Bool(0)));
+	dict->put("true", _creator->new_element(new Bool(BigInt(1))));
+	dict->put("false", _creator->new_element(new Bool(BigInt(0))));
 	dict->put("list", _creator->new_element(new FunctionList()));
 	dict->put("fn", _creator->new_element(new FunctionLambda()));
 	dict->put("eval", _creator->new_element(new FunctionEval()));

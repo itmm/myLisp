@@ -3,7 +3,7 @@
 
     #include <iostream>
     
-    typedef unsigned long BigInt;
+	#include "bigint.h"
 
     class Fractional {
         public:
@@ -14,7 +14,7 @@
             static Fractional notANumber() { return Fractional(0, 0); }
         
             const BigInt &numerator() const { return _numerator; }
-            const BigInt denominator() const { return _denominator; }
+            const BigInt &denominator() const { return _denominator; }
             bool isNegative() const { return _isNegative; }
         
         private:
@@ -25,10 +25,10 @@
 
 	/*C++-TESTS:
 	 *
-	 *	Fractional(2, 3).numerator() == 2
-	 *	Fractional(2, 3).denominator() == 3
-	 *	(-Fractional(3)).numerator() == 3
-	 *	Fractional::infinity().denominator() == 0
+	 *	Fractional(2, 3).numerator() == BigInt(2)
+	 *	Fractional(2, 3).denominator() == BigInt(3)
+	 *	(-Fractional(3)).numerator() == BigInt(3)
+	 *	Fractional::infinity().denominator() == BigInt(0)
 	 */
 
     /*TESTS:
@@ -42,14 +42,13 @@
 
     /*C++-TESTS:
      *
-     *  gcd(2, 6) == 2
-     *  gcd(6, 2) == 2
-     *  gcd(1, 1) == 1
-     *  gcd(8, 8) == 8
-     *  gcd(0, 3) == 0
-     *  gcd(3, 0) == 0
-     *  gcd(0, 0) == 0
-     *
+     *  gcd(2, 6) == BigInt(2)
+     *  gcd(6, 2) == BigInt(2)
+     *  gcd(1, 1) == BigInt(1)
+     *  gcd(8, 8) == BigInt(8)
+     *  gcd(0, 3) == BigInt(0)
+     *  gcd(3, 0) == BigInt(0)
+     *  gcd(0, 0) == BigInt(0)
      */
     inline BigInt gcd(BigInt a, BigInt b) {
         if (!a || ! b) { return 0; }
@@ -73,8 +72,8 @@
             _isNegative = numerator ? isNegative : false;
         } else {
             BigInt g = gcd(numerator, denominator);
-            _numerator =  g ? numerator/g : 0;
-            _denominator = _numerator ? denominator /g : 1;
+            _numerator =  g ? numerator/g : BigInt(0);
+            _denominator = _numerator ? denominator/g : BigInt(1);
             _isNegative = _numerator ? isNegative : false;
         }
     }
@@ -132,12 +131,12 @@
 
     /*C++-TESTS:
      *
-     *  Fractional(6) / 3 == 2
-     *  1 / Fractional(2) == Fractional(1, 2)
-     *  -Fractional(3) / 6 == -Fractional(1, 2)
-     *  Fractional(1) / 0 == Fractional::infinity()
-     *  -Fractional(1) / 0 == Fractional::minusInfinity()
-     *  Fractional(0) / 0 == Fractional::notANumber()
+     *  Fractional(6) / BigInt(3) == BigInt(2)
+     *  BigInt(1) / Fractional(2) == Fractional(1, 2)
+     *  -Fractional(3) / BigInt(6) == -Fractional(1, 2)
+     *  Fractional(1) / BigInt(0) == Fractional::infinity()
+     *  -Fractional(1) / BigInt(0) == Fractional::minusInfinity()
+     *  Fractional(0) / BigInt(0) == Fractional::notANumber()
      *
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
@@ -186,7 +185,7 @@
     inline bool operator<(const Fractional &a, const Fractional &b) {
         if (a.isNegative()) {
             if (b.isNegative()) {
-                return a.numerator() * b.denominator() > b.numerator() * a.denominator();
+                return b.numerator() * a.denominator() < a.numerator() * b.denominator();
             } else {
                 return true;
             }

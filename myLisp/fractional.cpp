@@ -19,7 +19,7 @@ std::ostream &operator<<(std::ostream &output, const Fractional &value) {
         }
         output << value.numerator();
         const auto &denominator = value.denominator();
-        if (denominator != 1) {
+        if (!(denominator == BigInt(1))) {
             output << "/" << denominator;
         }
     }

@@ -1,7 +1,6 @@
 '
 dynamic parameters
 (let)
-unlimited int for bigint
 (xor)
 (>=)
 substrings

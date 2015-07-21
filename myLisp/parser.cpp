@@ -14,7 +14,7 @@ Ptr Parser::parseNumber(const std::string &str) {
 
 	if (cur == end || !isnumber(*cur)) { return Ptr(); }
 	for (; cur != end && isnumber(*cur); ++cur) {
-        numerator = numerator * 10 + (*cur - '0');
+        numerator = numerator * BigInt(10) + BigInt(*cur - '0');
 	}
 	if (cur != end) {
 		if (*cur != '/') { return Ptr(); }
@@ -22,7 +22,7 @@ Ptr Parser::parseNumber(const std::string &str) {
 		if (cur == end || !isnumber(*cur)) { return Ptr(); }
 		denominator = 0;
 		for (; cur != end && isnumber(*cur); ++cur) {
-    	    denominator = denominator * 10 + (*cur - '0');
+    	    denominator = denominator * BigInt(10) + BigInt(*cur - '0');
 		}
 		if (cur != end) { return Ptr(); }
 	} else {

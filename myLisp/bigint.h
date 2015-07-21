@@ -37,7 +37,7 @@
 			BigInt normalize() const;
 			BigInt shift() const;
 			BigInt unshift() const;
-			BigInt factor(const BigInt &a, const BigInt &b) const;
+			unsigned factor(const BigInt &a, const BigInt &b) const;
 			BigInt full_divide(const BigInt &a, const BigInt &b, BigInt *mod) const;
 	};
 

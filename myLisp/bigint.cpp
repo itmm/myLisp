@@ -167,8 +167,7 @@ BigInt BigInt::operator*(const unsigned other) const {
 }
 
 BigInt BigInt::operator*(const BigInt &other) const {
-	if (! *this) return *this;
-	if (! other) return other;
+	if (! *this || ! other) return BigInt();
 
     BigInt result;
     BigInt shifted = *this;
@@ -199,7 +198,7 @@ BigInt BigInt::unshift() const {
     return result.normalize();
 }
 
-BigInt BigInt::factor(const BigInt &a, const BigInt &b) const {
+unsigned BigInt::factor(const BigInt &a, const BigInt &b) const {
     unsigned min = 1;
     unsigned max = _MOD - 1;
     while (max > 1 + min) {
@@ -217,7 +216,8 @@ BigInt BigInt::factor(const BigInt &a, const BigInt &b) const {
 
 BigInt BigInt::full_divide(const BigInt &a, const BigInt &b, BigInt *mod) const {
 	if (! b) { std::cerr << "division by zero" << std::endl; return b; }
-    if (! a) { return a; }
+    if (! a) { if (mod) { *mod = BigInt(0); } return a; }
+	if (b == BigInt(1)) { if (mod) { *mod = BigInt(0); } return a; }
 
 	BigInt rest = a;
 	BigInt result;
@@ -253,7 +253,8 @@ BigInt BigInt::full_divide(const BigInt &a, const BigInt &b, BigInt *mod) const 
 
 
 BigInt BigInt::operator/(const BigInt &other) const {
-	return full_divide(*this, other, nullptr);
+	BigInt result = full_divide(*this, other, nullptr);
+	return result;
 }
 
 BigInt BigInt::operator%(const BigInt &other) const {

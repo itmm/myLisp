@@ -72,8 +72,16 @@
             _isNegative = numerator ? isNegative : false;
         } else {
             BigInt g = gcd(numerator, denominator);
-            _numerator =  g ? numerator/g : BigInt(0);
-            _denominator = _numerator ? denominator/g : BigInt(1);
+            if (! g) {
+            	_numerator = BigInt(0);
+            	_denominator = BigInt(1);
+            } else if (g == BigInt(1)) {
+	            _numerator =  numerator;
+    	        _denominator = denominator;
+            } else {
+            	_numerator =  numerator/g;
+            	_denominator = denominator/g;
+            }
             _isNegative = _numerator ? isNegative : false;
         }
     }

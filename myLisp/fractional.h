@@ -137,15 +137,14 @@
         return Fractional(a.numerator() * b.numerator(), a.denominator() * b.denominator(), a.isNegative() != b.isNegative());
     }
 
-    /*C++-TESTS:
+    /*TESTS:
      *
-     *  Fractional(6) / BigInt(3) == BigInt(2)
-     *  BigInt(1) / Fractional(2) == Fractional(1, 2)
-     *  -Fractional(3) / BigInt(6) == -Fractional(1, 2)
-     *  Fractional(1) / BigInt(0) == Fractional::infinity()
-     *  -Fractional(1) / BigInt(0) == Fractional::minusInfinity()
-     *  Fractional(0) / BigInt(0) == Fractional::notANumber()
-     *
+     *	(= (/ 6 3) 2)
+     *	(= (/ 1 2) 1/2)
+     *	(= (/ -3 6) -1/2)
+     *	(= (/ 1 0) Infinity)
+     *	(= (/ -1 0) (- Infinity))
+     *	(= (/ 0 0) NotANumber)
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.denominator(), a.denominator() * b.numerator(), a.isNegative() != b.isNegative());

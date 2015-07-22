@@ -10,16 +10,16 @@
 
 	/*TESTS:
 	 *
-	 *	(= (= (fn () (+ 3 3)) ()) false)
-	 *	(= ((fn () 3)) 3)
-	 *	(= (cond (((fn () false)) 2) (true 3)) 3)
+	 *	(assert (= (= (fn () (+ 3 3)) ()) false) "simple fn")
+	 *	(assert (= ((fn () 3)) 3) "constant fn")
+	 *	(assert (= (cond (((fn () false)) 2) (true 3)) 3) "fn in cond")
 	 */
 
 	/*TESTS:
 	 *
 	 *+	((fn macro () (def "a" 3)))
 	 *
-	 *	(= a 3)
+	 *	(assert (= a 3) "macro defines to global")
 	 */
 
 	/*TESTS:
@@ -27,20 +27,21 @@
 	 *+ (def "a" (fn macro ("b") (eval b)))
 	 *+	(a (def "x" 32))
 	 *
-	 *	(= x 32)
+	 *	(assert (= x 32) "indirect macro")
 	 */
 
 	/*TESTS:
 	 *
 	 *+ (def "f" (fn "args" (car args)))
 	 *
-	 *	(= (f 2 3) 2)
+	 *	(assert (= (f 2 3) 2) "simple global fn")
 	 */
 
 	/*TESTS:
 	 *
 	 *+ (def "f" (fn ("a" . "b") (+ a (car b))))
 	 *
-	 *	(= (f 2 3 4) 5)
+	 *	(assert (= (f 2 3 4) 5) "simple variadic fn")
 	 */
+
 #endif

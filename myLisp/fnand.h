@@ -14,19 +14,19 @@
 
 	/*TESTS:
 	 *
-	 *	(= (and) true)
+	 *	(assert (= (and) true) "empty and")
 	 *
-	 *	(= (and true) true)
-	 *	(= (and 1) true)
-	 *	(= (and false) false)
-	 *	(= (and 0) 0)
+	 *	(assert (= (and true) true) "and true")
+	 *	(assert (= (and 1) true) "and 1")
+	 *	(assert (= (and false) false) "and false")
+	 *	(assert (= (and 0) 0) "and 0")
 	 *
-	 *  (= (and false false) false)
-	 *  (= (and false true) false)
-	 *  (= (and true false) false)
-	 *  (= (and true 1) true)
+	 *  (assert (= (and false false) false) "and false false")
+	 *  (assert (= (and false true) false) "and false true")
+	 *  (assert (= (and true false) false) "and true false")
+	 *  (assert (= (and true 1) true) "and true 1")
 	 *
-	 *  (= (and 1 2 3 4) true)
+	 *  (assert (= (and 1 2 3 4) true) "and 1 2 3 4")
 	 */
 
 #endif

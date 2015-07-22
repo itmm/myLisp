@@ -171,6 +171,8 @@
 
     (assert (= (do (+ 1 2) (+ 2 3)) 5), "do")
 
+(import "tests.lsp")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Structure & Interpretation of Computer Programs ;;
 

@@ -18,14 +18,14 @@
 
 	/*TESTS:
 	 *
-	 *	(= (true? unknown-identifier) true)
+	 *	(assert (= (true? unknown-identifier) true) "true? identifier")
 	 *
-	 *	(= (dictionary? unknown-identifier) false)
-	 *	(= (error? unknown-identifier) false)
-	 *	(= (function? unknown-identifier) false)
-	 *	(= (identifier? unknown-identifier) true)
-	 *	(= (number? unknown-identifier) false)
-	 *  (= (pair? unknown-identifier) false)
-	 *  (= (string? unknown-identifier) false)
+	 *	(assert (= (dictionary? unknown-identifier) false) "dictionary? identifier")
+	 *	(assert (= (error? unknown-identifier) false) "error? identifier")
+	 *	(assert (= (function? unknown-identifier) false) "function? identifier")
+	 *	(assert (= (identifier? unknown-identifier) true) "identifier? identifier")
+	 *	(assert (= (number? unknown-identifier) false) "number? identifier")
+	 *  (assert (= (pair? unknown-identifier) false) "pair? identifier")
+	 *  (assert (= (string? unknown-identifier) false) "string? identifier")
 	 */
 #endif

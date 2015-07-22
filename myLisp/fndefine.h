@@ -10,13 +10,13 @@
 
 	/*TESTS:
 	 *
-	 *	(= (def "a" 3) 3)
+	 *	(assert (= (def "a" 3) 3) "define")
 	 */
 
 	/*TESTS:
 	 *
 	 *+	(def "a" 42)
-	 *	(= (+ a a) 84)
+	 *	(assert (= (+ a a) 84) "check defined")
 	 */
 
 #endif

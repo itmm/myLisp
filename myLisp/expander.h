@@ -15,7 +15,7 @@
 
 	/*TESTS:
 	 *
-	 *	(= (expand (dict ("a" 1) ("b" 2)) (a (b a))) (list 1 (2 1)))
+	 *	(assert (= (expand (dict ("a" 1) ("b" 2)) (a (b a))) (list 1 (2 1))) "expander")
 	 */
 
 #endif

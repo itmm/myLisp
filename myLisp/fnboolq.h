@@ -16,17 +16,17 @@
 
 	/*TESTS:
 	 *
-	 *	(= (true? true) true)
-	 *	(= (true? false) false)
-	 *	(= (false? true) false)
-	 *	(= (false? false) true)
+	 *	(assert (= (true? true) true) "true? true")
+	 *	(assert (= (true? false) false) "true? false")
+	 *	(assert (= (false? true) false) "false? true")
+	 *	(assert (= (false? false) true) "false? false")
 	 *
-	 *  (= (true? 1 2 "ab") true)
-	 *  (= (false? 0 "") true)
+	 *  (assert (= (true? 1 2 "ab") true) "true? multiple")
+	 *  (assert (= (false? 0 "") true) "false? multiple")
 	 *
-	 *  (= (true?) (error "Listable needs at least one argument"))
-	 *  (= (true? . 2) (error "Listable needs a plain list"))
-	 *  (= (true? 2 . 3) (error "Listable needs a plain list"))
+	 *  (assert (= (true?) (error "Listable needs at least one argument")) "true? error")
+	 *  (assert (= (true? . 2) (error "Listable needs a plain list")) "true? . 2")
+	 *  (assert (= (true? 2 . 3) (error "Listable needs a plain list")) "true? 2 . 3")
 	 */
 
 #endif

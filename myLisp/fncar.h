@@ -11,16 +11,15 @@
 
 	/*TESTS:
 	 *
-	 *	(= (car (list 1 2)) 1)
-	 *	(= (car (list)) (list))
+	 *	(assert (= (car (list 1 2)) 1) "car list")
+	 *	(assert (= (car (list)) (list)) "car ()")
 	 *
-	 *	(= (car 2) (error "car's argument must be a pair"))
-	 *	(= (car . 2) (error "arguments of car are not a list"))
-	 *	(= (car 2) (error "car's argument must be a pair"))
-	 *	(= (car (list (1 2)) (list)) (error "car has more than one argument"))
+	 *	(assert (= (car 2) (error "car's argument must be a pair")) "car 2")
+	 *	(assert (= (car . 2) (error "arguments of car are not a list")) "car . 2")
+	 *	(assert (= (car 2) (error "car's argument must be a pair")) "car 2")
+	 *	(assert (= (car (list (1 2)) (list)) (error "car has more than one argument")) "car multiple")
 	 *
-	 * 	(= (car (list 2 . 3)) 2)
-	 *
+	 * 	(assert (= (car (list 2 . 3)) 2) "= car")
 	 */
 
 #endif

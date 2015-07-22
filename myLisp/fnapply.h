@@ -10,7 +10,7 @@
 
 	/*TESTS:
 	 *
-	 *	(= (apply + (2 3 4)) 9)
+	 *	(assert (= (apply + (2 3 4)) 9) "apply")
 	 */
 
 #endif

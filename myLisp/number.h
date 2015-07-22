@@ -28,23 +28,23 @@
 
 	/*TESTS:
 	 *
-	 *	(= (true? 0) false)
-	 *	(= (true? 1) true)
-	 *	(= (true? -2/3) true)
+	 *	(assert (= (true? 0) false) "true? 0")
+	 *	(assert (= (true? 1) true) "true? 1")
+	 *	(assert (= (true? -2/3) true) "true? -2/3")
 	 *
-	 *	(= (dictionary? 0) false)
-	 *	(= (error? -1) false)
-	 *	(= (function? 2) false)
-	 *	(= (identifier? 3) false)
-	 *	(= (number? 0) true)
-	 *	(= (number? -2/3) true)
-	 *	(= (number? Infinity) true)
-	 *	(= (number? (- Infinity)) true)
-	 *	(= (number? NotANumber) true)
-	 *	(= (pair? 2) false)
-	 *	(= (string? 3) false)
+	 *	(assert (= (dictionary? 0) false) "dictionary? 0")
+	 *	(assert (= (error? -1) false) "error? -1")
+	 *	(assert (= (function? 2) false) "function? 2")
+	 *	(assert (= (identifier? 3) false) "identifier? 3")
+	 *	(assert (= (number? 0) true) "number? 0")
+	 *	(assert (= (number? -2/3) true) "number? -2/3")
+	 *	(assert (= (number? Infinity) true) "number? Infinity")
+	 *	(assert (= (number? (- Infinity)) true) "number? -Infinity")
+	 *	(assert (= (number? NotANumber) true) "number? NotANumber")
+	 *	(assert (= (pair? 2) false) "pair? 2")
+	 *	(assert (= (string? 3) false) "string? 3")
 	 *
-	 *  (= (str-print -2/3) "-2/3")
+	 *  (assert (= (str-print -2/3) "-2/3") "str-print -2/3")
 	 */
 
 #endif

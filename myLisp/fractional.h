@@ -33,8 +33,8 @@
 
     /*TESTS:
      *
-     *	(= (- 2/3) -2/3)
-     *	(= (- -2) 2)
+     *	(assert (= (- 2/3) -2/3) "- 2/3")
+     *	(assert (= (- -2) 2) "- -2")
      */
     inline Fractional operator-(const Fractional &num) {
         return Fractional(num.numerator(), num.denominator(), !num.isNegative());
@@ -62,8 +62,8 @@
 
     /*TESTS:
      *
-     *	(= 8/4 2)
-     *	(= -3/2 (- 3/2))
+     *	(assert (= 8/4 2) "= 8/4 2")
+     *	(assert (= -3/2 (- 3/2)) "= -3/2 - 3/2")
      */
     inline Fractional::Fractional(const BigInt &numerator, const BigInt &denominator, bool isNegative) {
         if (!denominator) {
@@ -90,13 +90,13 @@
 
     /*TESTS:
      *
-     *	(= (+ 5/2 3) 11/2)
-     *	(= (+ -3 7) 4)
-     *	(= (+ -3 -3) -6)
-     *	(= (+ 3 -7) -4)
-     * 	(= (+ 2/3 0) 2/3)
-     * 	(= (+ 1/3 5/3) 2)
-     * 	(= (+ 1/2 3/5) 11/10)
+     *	(assert (= (+ 5/2 3) 11/2) "+ 5/2 3")
+     *	(assert (= (+ -3 7) 4) "+ -3 7")
+     *	(assert (= (+ -3 -3) -6) "+ -3 -3")
+     *	(assert (= (+ 3 -7) -4) "+ 3 -7")
+     * 	(assert (= (+ 2/3 0) 2/3) "+ 2/3 0")
+     * 	(assert (= (+ 1/3 5/3) 2) "+ 1/3 5/3")
+     * 	(assert (= (+ 1/2 3/5) 11/10) "+ 1/2 3/5")
      */
     inline Fractional operator+(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
@@ -109,9 +109,9 @@
 
     /*TESTS:
      *
-     *	(= (- 5 3) 2)
-     *	(= (- 8/3 2/3) 2)
-     *	(= (- 1/3 4/3) -1)
+     *	(assert (= (- 5 3) 2) "- 5 3")
+     *	(assert (= (- 8/3 2/3) 2) "- 8/3 2/3")
+     *	(assert (= (- 1/3 4/3) -1) "- 1/3 4/3")
      */
     inline Fractional operator-(const Fractional &a, const Fractional &b) {
         if (a.isNegative() != b.isNegative()) {
@@ -128,10 +128,10 @@
 
     /*TESTS:
      *
-     *	(= (* 2/3 5/7) 10/21)
-     *	(= (* 3 2/3) 2)
-     *	(= (* 3 Infinity) Infinity)
-     *	(= (* 6 NotANumber) NotANumber)
+     *	(assert (= (* 2/3 5/7) 10/21) "* 2/3 5/7")
+     *	(assert (= (* 3 2/3) 2) "* 3 2/3")
+     *	(assert (= (* 3 Infinity) Infinity) "* 3 Infinity")
+     *	(assert (= (* 6 NotANumber) NotANumber) "* 6 NotANumber")
      */
     inline Fractional operator*(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.numerator(), a.denominator() * b.denominator(), a.isNegative() != b.isNegative());
@@ -139,12 +139,12 @@
 
     /*TESTS:
      *
-     *	(= (/ 6 3) 2)
-     *	(= (/ 1 2) 1/2)
-     *	(= (/ -3 6) -1/2)
-     *	(= (/ 1 0) Infinity)
-     *	(= (/ -1 0) (- Infinity))
-     *	(= (/ 0 0) NotANumber)
+     *	(assert (= (/ 6 3) 2) "/ 6 3")
+     *	(assert (= (/ 1 2) 1/2) "/ 1 2")
+     *	(assert (= (/ -3 6) -1/2) "/ -3 6")
+     *	(assert (= (/ 1 0) Infinity) "/ 1 0")
+     *	(assert (= (/ -1 0) (- Infinity)) "/ -1 0")
+     *	(assert (= (/ 0 0) NotANumber) "/ 0 0")
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.denominator(), a.denominator() * b.numerator(), a.isNegative() != b.isNegative());
@@ -152,13 +152,13 @@
 
     /*TESTS:
      *
-     *	(= (= 3 3) true)
-     *	(= (= 3 4) false)
-     *	(= (= 3 -3) false)
-     *	(= (= 0 -0) true)
+     *	(assert (= (= 3 3) true) "= 3 3")
+     *	(assert (= (= 3 4) false) "= 3 4")
+     *	(assert (= (= 3 -3) false) "= 3 -3")
+     *	(assert (= (= 0 -0) true) "= 0 -0")
      *
-     *  (= (= 2/3 4/6) true)
-     *  (= (= 2/3, -2/3) false)
+     *  (assert (= (= 2/3 4/6) true) "= 2/3 4/6")
+     *  (assert (= (= 2/3, -2/3) false) "= 2/3 -2/3")
      */
     inline bool operator==(const Fractional &a, const Fractional &b) {
         return a.isNegative() == b.isNegative() && a.numerator() == b.numerator() && a.denominator() == b.denominator();
@@ -166,28 +166,28 @@
 
     /*TESTS:
      *
-     *	(= (< 3 4) true)
-     *	(= (< 4 3) false)
-     *	(= (< 3 3) false)
-     *	(= (< -3 3) true)
-     *	(= (< 3 -4) false)
+     *	(assert (= (< 3 4) true) "< 3 4")
+     *	(assert (= (< 4 3) false) "< 4 3")
+     *	(assert (= (< 3 3) false) "< 3 3")
+     *	(assert (= (< -3 3) true) "< -3 3")
+     *	(assert (= (< 3 -4) false) "< 3 -4")
      *
-     *	(= (< -3 -4) false)
-     *	(= (< -4 -3) true)
-     *	(= (< -3 -3) false)
-     *	(= (< -0 0) false)
+     *	(assert (= (< -3 -4) false) "< -3 -4")
+     *	(assert (= (< -4 -3) true) "< -4 -3")
+     *	(assert (= (< -3 -3) false) "< -3 -3")
+     *	(assert (= (< -0 0) false) "< -0 0")
      *
-     *	(= (< 3/5 4/5) true)
-     *	(= (< 3/5 2/5) false)
-     *	(= (< 3/5 3/4) true)
-     *	(= (< 3/5 3/6) false)
-     *	(= (< 3/5 4/6) true)
+     *	(assert (= (< 3/5 4/5) true) "< 3/5 4/5")
+     *	(assert (= (< 3/5 2/5) false) "< 3/5 2/5")
+     *	(assert (= (< 3/5 3/4) true) "< 3/5 3/4")
+     *	(assert (= (< 3/5 3/6) false) "< 3/5 3/6")
+     *	(assert (= (< 3/5 4/6) true) "< 3/5 4/6")
      *
-     *	(= (< -3/5 -4/5) false)
-     *	(= (< -3/5 -2/5) true)
-     *	(= (< -3/5 -3/4) false)
-     *	(= (< -3/5 -3/6) true)
-     *	(= (< -3/5 -4/6) false)
+     *	(assert (= (< -3/5 -4/5) false) "< -3/5 -4/5")
+     *	(assert (= (< -3/5 -2/5) true) "< -3/5 -2/5")
+     *	(assert (= (< -3/5 -3/4) false) "< -3/5 -3/4")
+     *	(assert (= (< -3/5 -3/6) true) "< -3/5 -3/6")
+     *	(assert (= (< -3/5 -4/6) false) "< -3/5 -4/6")
      */
     inline bool operator<(const Fractional &a, const Fractional &b) {
         if (a.isNegative()) {
@@ -207,13 +207,13 @@
 
     /*TESTS:
      *
-     *	(= (str-print 42) "42")
-     *	(= (str-print 2/3) "2/3")
-     *	(= (str-print -2/3) "-2/3")
-     *	(= (str-print -0/2) "0")
-     *	(= (str-print Infinity) "Infinity")
-     *	(= (str-print (- Infinity)) "(- Infinity)")
-     *	(= (str-print NotANumber) "NotANumber")
+     *	(assert (= (str-print 42) "42") "str-print 42")
+     *	(assert (= (str-print 2/3) "2/3") "str-print 2/3")
+     *	(assert (= (str-print -2/3) "-2/3") "str-print -2/3")
+     *	(assert (= (str-print -0/2) "0") "str-print -0/2")
+     *	(assert (= (str-print Infinity) "Infinity") "str-print Infinity")
+     *	(assert (= (str-print (- Infinity)) "(- Infinity)") "str-print -Infinity")
+     *	(assert (= (str-print NotANumber) "NotANumber") "str-print NotANumber")
      */
     std::ostream &operator<<(std::ostream &output, const Fractional &value);
 

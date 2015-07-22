@@ -28,30 +28,30 @@
 
 	/*TESTS:
 	 *
-	 *	(= (true? "") false)
-	 *	(= (true? " ") true)
-	 *	(= (true? "0") true)
+	 *	(assert (= (true? "") false) "true? empty string")
+	 *	(assert (= (true? " ") true) "true? space")
+	 *	(assert (= (true? "0") true) "true? zero string")
 	 *
-	 *  (= (= "ab" "ab") true)
+	 *  (assert (= (= "ab" "ab") true) "= ab ab")
 	 *
-	 *  (= (< "abc" "aca") true)
-	 *  (= (< "A" "a") true)
-	 *  (= (< "" "a") true)
-	 *  (= (< "zz" "zza") true)
-	 *  (= (< "b" "b ") true)
-	 *  (= (< " b" "b") true)
+	 *  (assert (= (< "abc" "aca") true) "< abc aca")
+	 *  (assert (= (< "A" "a") true) "< A a")
+	 *  (assert (= (< "" "a") true) "< empty string a")
+	 *  (assert (= (< "zz" "zza") true) "< zz zza")
+	 *  (assert (= (< "b" "b ") true) "< b b")
+	 *  (assert (= (< " b" "b") true) "< prefixed b b")
 	 *
-	 *	(= (dictionary? "dict") false)
-	 *	(= (error? "err") false)
-	 *	(= (function? "+") false)
-	 *	(= (identifier? "ab") false)
-	 *	(= (number? "0") false)
-	 * 	(= (pair? "()") false)
-	 * 	(= (string? "9") true)
-	 * 	(= (string? "") true)
+	 *	(assert (= (dictionary? "dict") false) "dictionary? str")
+	 *	(assert (= (error? "err") false) "error? str")
+	 *	(assert (= (function? "+") false) "function? str")
+	 *	(assert (= (identifier? "ab") false) "identifier? str")
+	 *	(assert (= (number? "0") false) "number? str")
+	 * 	(assert (= (pair? "()") false) "pair? str")
+	 * 	(assert (= (string? "9") true) "string? str")
+	 * 	(assert (= (string? "") true) "string empty string")
 	 *
-	 *  (= (str-print "x y") "x y")
-	 *  (= (str-print "") "")
+	 *  (assert (= (str-print "x y") "x y") "str-print str")
+	 *  (assert (= (str-print "") "") "str-print empty string")
 	 */
 
 #endif

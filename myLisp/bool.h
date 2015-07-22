@@ -15,24 +15,24 @@
 
 /*TESTS:
  *
- *	(= (str-print true) "true")
- *	(= (str-print false) "false")
+ *	(assert (= (str-print true) "true") "true")
+ *	(assert (= (str-print false) "false") "false")
  *
- *	(= (dictionary? true) false)
- *	(= (error? true) false)
- *	(= (function? true) false)
- *	(= (identifier? true) false)
- *	(= (number? true) true)
- *  (= (pair? true) false)
- *  (= (string? true) false)
+ *	(assert (= (dictionary? true) false) "dictionary? true")
+ *	(assert (= (error? true) false) "error? true")
+ *	(assert (= (function? true) false) "function? true")
+ *	(assert (= (identifier? true) false) "identifier? true")
+ *	(assert (= (number? true) true) "number? true")
+ *  (assert (= (pair? true) false) "pair? true")
+ *  (assert (= (string? true) false) "string? true")
  *
- *	(= (dictionary? false) false)
- *	(= (error? false) false)
- *	(= (function? false) false)
- *	(= (identifier? false) false)
- *	(= (number? false) true)
- *  (= (pair? false) false)
- *  (= (string? false) false)
+ *	(assert (= (dictionary? false) false) "dictionary? false")
+ *	(assert (= (error? false) false) "error? false")
+ *	(assert (= (function? false) false) "function? false")
+ *	(assert (= (identifier? false) false) "identifier? false")
+ *	(assert (= (number? false) true) "number? false")
+ *  (assert (= (pair? false) false) "pair? false")
+ *  (assert (= (string? false) false) "string? false")
  */
 
 #endif

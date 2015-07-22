@@ -14,12 +14,12 @@
 
 	/*TESTS:
 	 *
-	 *	(= (*) 1)
-	 *	(= (* 2 3 4) 24)
-	 *	(= (* 7) 7)
-	 *	(= (* -3 5/2) -15/2)
+	 *	(assert (= (*) 1) "empty *")
+	 *	(assert (= (* 2 3 4) 24) "* 2 3 4")
+	 *	(assert (= (* 7) 7) "* 7")
+	 *	(assert (= (* -3 5/2) -15/2) "fractional *")
 	 *
-	 *  (= (* "2") (error "* expects numeric arguments"))
+	 *  (assert (= (* "2") (error "* expects numeric arguments")) "* string")
 	 */
 
 #endif

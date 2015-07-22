@@ -21,22 +21,22 @@
 
 	/*TESTS:
 	 *
-	 *	(= (str-print (error "not yet")) "(error \"not yet\")")
+	 *	(assert (= (str-print (error "not yet")) "(error \"not yet\")") "str-print error")
 	 *
-	 *	(= (true? (error "true")) false)
+	 *	(assert (= (true? (error "true")) false) "true? error")
 	 *
-	 *	(= (dictionary? (error "[]")) false)
-	 *	(= (error? (error "err")) true)
-	 *  (= (function? (error "+")) false)
-	 *  (= (identifier? (error "abc")) false)
-	 *	(= (number? (error "2")) false)
-	 *  (= (pair? (error "()")) false)
-	 *  (= (string? (error "abc")) false)
+	 *	(assert (= (dictionary? (error "[]")) false) "dictionary? error")
+	 *	(assert (= (error? (error "err")) true) "error? error")
+	 *  (assert (= (function? (error "+")) false) "function? error")
+	 *  (assert (= (identifier? (error "abc")) false) "identifier? error")
+	 *	(assert (= (number? (error "2")) false) "number? error")
+	 *  (assert (= (pair? (error "()")) false) "pair? error")
+	 *  (assert (= (string? (error "abc")) false) "string? error")
 	 *
-	 *  (= (= (error "a") (error "a")) true)
-	 *  (= (= (error "a") (error "b")) false)
-	 *  (= (= (error "a") "a") false)
-	 *  (= (= (error "unused-identifier") unused-identifier) false)
+	 *  (assert (= (= (error "a") (error "a")) true) "= error a a")
+	 *  (assert (= (= (error "a") (error "b")) false) "= error a b")
+	 *  (assert (= (= (error "a") "a") false) "= error string")
+	 *  (assert (= (= (error "unused-identifier") unused-identifier) false) "= error identifier")
 	 */
 
 #endif

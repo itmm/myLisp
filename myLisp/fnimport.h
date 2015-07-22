@@ -12,8 +12,7 @@
 	 *
 	 *+	(= (import "simple.lsp") true)
 	 *
-	 *	(= answer 42)
-	 *
+	 *	(assert (= answer 42) "import")
 	 */
 
 #endif

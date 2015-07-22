@@ -10,10 +10,10 @@
 
 	/*TESTS:
 	 *
-	 *	(= (str-print) "")
-	 *	(= (str-print false) "false")
-	 *	(= (str-print 1 2 3) "1 2 3")
-	 *	(= (str-print unused-identifier) "unused-identifier")
+	 *	(assert (= (str-print) "") "empty str-print")
+	 *	(assert (= (str-print false) "false") "str-print false")
+	 *	(assert (= (str-print 1 2 3) "1 2 3") "str-print 1 2 3")
+	 *	(assert (= (str-print unused-identifier) "unused-identifier") "str-print identifier")
 	 */
 
 #endif

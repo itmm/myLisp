@@ -8,11 +8,9 @@
 		virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
-	/*C++-TESTS:
+	/*TESTS:
 	 *
-	 *+	Parser p;
-	 *
-	 *	p.eval("(quote +)")->as_identifier() != nullptr
+	 *	(assert (identifier? (quote +)) "quote +")
 	 */
 
 #endif

@@ -11,6 +11,11 @@ void Function::to_stream(std::ostream &stream) const {
 }
 
 Ptr Function::apply(Ptr arguments, State &state) {
+	arguments = eval_arguments(arguments, state);
+	return apply_evaled(arguments, state);
+}
+
+Ptr Function::apply_evaled(Ptr arguments, State &state) {
 	return arguments;
 }
 

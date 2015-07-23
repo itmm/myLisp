@@ -19,6 +19,7 @@
 (import "t_fnlist.lsp")
 (import "t_fnminus.lsp")
 (import "t_fnplus.lsp")
+(import "t_fnquote.lsp")"
 (import "t_fnstrprint.lsp")
 (import "t_fntimes.lsp")
 (import "t_fractional.lsp")

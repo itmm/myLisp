@@ -22,7 +22,7 @@ testLisp/t_fnlist.lsp
 testLisp/t_fnminus.lsp
 testLisp/t_fnnumerator.lsp
 testLisp/t_fnplus.lsp
-testLisp/t_fnquote.cpp
+testLisp/t_fnquote.lsp
 testLisp/t_fnstrprint.lsp
 testLisp/t_fntimes.lsp
 testLisp/t_fractional.cpp

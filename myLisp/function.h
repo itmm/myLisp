@@ -11,7 +11,7 @@
 			virtual void to_stream(std::ostream &stream) const override;
 
 			virtual Ptr apply(Ptr arguments, State &state);
-
+			virtual Ptr apply_evaled(Ptr arguments, State &state);
 			virtual Ptr eval_arguments(Ptr arguments, State &state);
 	};
 

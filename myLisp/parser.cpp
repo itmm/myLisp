@@ -99,6 +99,12 @@ Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
 	eatSpace(ch, rest);
 	switch (ch) {
 		case static_cast<std::istream::int_type>(EOF): return Ptr();
+		case '\'': {
+			ch = rest.get();
+			Ptr quoted = parseElement(ch, rest);
+			Ptr args = _state->creator()->new_pair(quoted, nullptr);
+			return _state->creator()->new_pair(_state->root()->as_dictionary()->get("quote"), args);
+		}
 		case '"':
 			return parseString(ch, rest);
 		case '(':

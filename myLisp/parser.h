@@ -85,6 +85,8 @@
 	 *	(assert (= (str-print (2 3 4)) "(2 3 4)") "str-print (2 3 4)")
 	 *	(assert (= (str-print (2 (3 4) ((5)))) "(2 (3 4) ((5)))") "str-print (2 (3 4) ((5)))")
 	 *	(assert (= (str-print (2 . 3)) "(2 . 3)") "str-print (2 . 3)")
+	 *
+	 *  (assert (identifier? 'unknown) "single quote quote")
 	 */
 
 #endif

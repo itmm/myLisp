@@ -11,6 +11,7 @@ testLisp/t_fncar.lsp
 testLisp/t_fncdr.lsp
 testLisp/t_fncond.lsp
 testLisp/t_fndefine.lsp
+testLisp/t_fndenominator.lsp
 testLisp/t_fndict.lsp
 testLisp/t_fnequal.lsp
 testLisp/t_fnerror.lsp
@@ -19,6 +20,7 @@ testLisp/t_fnimport.lsp
 testLisp/t_fnlambda.lsp
 testLisp/t_fnlist.lsp
 testLisp/t_fnminus.lsp
+testLisp/t_fnnumerator.lsp
 testLisp/t_fnplus.lsp
 testLisp/t_fnquote.cpp
 testLisp/t_fnstrprint.lsp

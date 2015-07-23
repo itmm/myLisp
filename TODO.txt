@@ -1,5 +1,4 @@
 '
-dynamic parameters
 (let)
 (xor)
 (>=)
@@ -10,7 +9,6 @@ Fehlermeldungen für def
 Fehlermeldungen für fn
 < für Dictionaries
 endstellige Rekursion
-(numerator)
 (denominator)
 (sign)
 (gcd)

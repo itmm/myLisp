@@ -32,6 +32,7 @@
 #include "fnexpand.h"
 #include "fnapply.h"
 #include "fndivide.h"
+#include "numerator.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -71,6 +72,7 @@ Ptr RootFactory::root() {
 	dict->put("expand", _creator->new_element(new FunctionExpand()));
 	dict->put("apply", _creator->new_element(new FunctionApply()));
 	dict->put("/", _creator->new_element(new FunctionDivide()));
+	dict->put("numerator", _creator->new_element(new FunctionNumerator()));
 
 	return Ptr(dict, _creator->collector());
 }

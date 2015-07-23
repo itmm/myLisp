@@ -23,6 +23,8 @@
 (import "t_function.lsp")
 (import "t_identifier.lsp")
 (import "t_number.lsp")
+(import "t_numerator.lsp")
 (import "t_pair.lsp")
 (import "t_parser.lsp")
+(import "t_root_factory.lsp")
 (import "t_string.lsp")

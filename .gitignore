@@ -28,9 +28,10 @@ testLisp/t_fractional.lsp
 testLisp/t_function.lsp
 testLisp/t_identifier.lsp
 testLisp/t_number.lsp
+testLisp/t_numerator.lsp
 testLisp/t_pair.lsp
 testLisp/t_parser.cpp
 testLisp/t_parser.lsp
-testLisp/t_root_factory.cpp
+testLisp/t_root_factory.lsp
 testLisp/t_string.lsp
 

@@ -19,50 +19,44 @@
 			bool _local_creator;
 	};
 
-/*C++-TESTS:
+/*TESTS:
  *
- *>	#include "dictionary.h"
- *> #include "number.h"
- *
- *> #define GET(key) RootFactory().root()->as_dictionary()->get(key)
- *> #define GET_NM(key) GET(key)->as_number()
- *> #define GET_FN(key) GET(key)->as_function()
- *
- *	GET_NM("Infinity")->value() == Fractional::infinity()
- *	GET_NM("NotANumber") != nullptr
- *	GET_FN("+") != nullptr
- *	GET_FN("def") != nullptr
- *	GET_NM("true") != nullptr
- *	GET_NM("false") != nullptr
- *	GET_FN("list") != nullptr
- *	GET_FN("fn") != nullptr
- *	GET_FN("eval") != nullptr
- *	GET_FN("car") != nullptr
- *	GET_FN("cond") != nullptr
- *	GET_FN("cdr") != nullptr
- *	GET_FN("=") != nullptr
- *	GET_FN("quote") != nullptr
- *	GET_FN("import") != nullptr
- *	GET_FN("error") != nullptr
- *	GET_FN("*") != nullptr
- *	GET_FN("print") != nullptr
- *	GET_FN("err-print") != nullptr
- *	GET_FN("true?") != nullptr
- *	GET_FN("false?") != nullptr
- *	GET_FN("str-print") != nullptr
- *	GET_FN("pair?") != nullptr
- *	GET_FN("string?") != nullptr
- *	GET_FN("number?") != nullptr
- *	GET_FN("function?") != nullptr
- *	GET_FN("error?") != nullptr
- *	GET_FN("identifier?") != nullptr
- *	GET_FN("dictionary?") != nullptr
- *	GET_FN("<") != nullptr
- *	GET_FN("and") != nullptr
- *	GET_FN("dict") != nullptr
- *	GET_FN("expand") != nullptr
- *	GET_FN("apply") != nullptr
- *	GET_FN("/") != nullptr
+ *	(assert (number? Infinity) "Infinity")
+ *	(assert (number? NotANumber) "NotANumber")
+ *	(assert (function? +) "+")
+ *	(assert (function? def) "def")
+ *	(assert (number? true) "true")
+ *	(assert (number? false) "false")
+ *	(assert (function? list) "list")
+ *	(assert (function? fn) "fn")
+ *	(assert (function? eval) "eval")
+ *	(assert (function? car) "car")
+ *	(assert (function? cond) "cond")
+ *	(assert (function? cdr) "cdr")
+ *	(assert (function? =) "=")
+ *	(assert (function? quote) "quote")
+ *	(assert (function? import) "import")
+ *	(assert (function? error) "error")
+ *	(assert (function? *) "*")
+ *	(assert (function? print) "print")
+ *	(assert (function? err-print) "err-print")
+ *	(assert (function? true?) "true?")
+ *	(assert (function? false?) "false?")
+ *	(assert (function? str-print) "str-print")
+ *	(assert (function? pair?) "pair?")
+ *	(assert (function? string?) "string?")
+ *	(assert (function? number?) "number?")
+ *	(assert (function? function?) "function?")
+ *	(assert (function? error?) "error?")
+ *	(assert (function? identifier?) "identifier?")
+ *	(assert (function? dictionary?) "dictionary?")
+ *	(assert (function? <) "<")
+ *	(assert (function? and) "and")
+ *	(assert (function? dict) "dict")
+ *	(assert (function? expand) "expand")
+ *	(assert (function? apply) "apply")
+ *	(assert (function? /) "/")
+ *	(assert (function? numerator) "numerator")
  */
 
 #endif

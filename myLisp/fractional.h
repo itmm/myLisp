@@ -23,11 +23,15 @@
             bool _isNegative;
     };
 
+	/*TESTS:
+	 *
+	 *	(assert (= (numerator 2/3) 2) "numerator 2/3")
+	 *	(assert (= (numerator -3) 3) "numerator -3")
+	 */
+
 	/*C++-TESTS:
 	 *
-	 *	Fractional(2, 3).numerator() == BigInt(2)
 	 *	Fractional(2, 3).denominator() == BigInt(3)
-	 *	(-Fractional(3)).numerator() == BigInt(3)
 	 *	Fractional::infinity().denominator() == BigInt(0)
 	 */
 

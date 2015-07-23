@@ -6,9 +6,9 @@ std::ostream &operator<<(std::ostream &output, const Fractional &value) {
             output << "(- ";
         }
         if (value.numerator()) {
-            output << "Infinity";
+            output << "infinity";
         } else {
-            output << "NotANumber";
+            output << "not-a-number";
         }
         if (value.isNegative()) {
             output << ")";

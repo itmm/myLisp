@@ -26,13 +26,9 @@
 	/*TESTS:
 	 *
 	 *	(assert (= (numerator 2/3) 2) "numerator 2/3")
+	 *	(assert (= (denominator 2/3) 3) "denominator 2/3")
 	 *	(assert (= (numerator -3) 3) "numerator -3")
-	 */
-
-	/*C++-TESTS:
-	 *
-	 *	Fractional(2, 3).denominator() == BigInt(3)
-	 *	Fractional::infinity().denominator() == BigInt(0)
+	 *	(assert (= (denominator infinity) 0) "denominator infinity")
 	 */
 
     /*TESTS:
@@ -134,8 +130,8 @@
      *
      *	(assert (= (* 2/3 5/7) 10/21) "* 2/3 5/7")
      *	(assert (= (* 3 2/3) 2) "* 3 2/3")
-     *	(assert (= (* 3 Infinity) Infinity) "* 3 Infinity")
-     *	(assert (= (* 6 NotANumber) NotANumber) "* 6 NotANumber")
+     *	(assert (= (* 3 infinity) infinity) "* 3 infinity")
+     *	(assert (= (* 6 not-a-number) not-a-number) "* 6 not a number")
      */
     inline Fractional operator*(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.numerator(), a.denominator() * b.denominator(), a.isNegative() != b.isNegative());
@@ -146,9 +142,9 @@
      *	(assert (= (/ 6 3) 2) "/ 6 3")
      *	(assert (= (/ 1 2) 1/2) "/ 1 2")
      *	(assert (= (/ -3 6) -1/2) "/ -3 6")
-     *	(assert (= (/ 1 0) Infinity) "/ 1 0")
-     *	(assert (= (/ -1 0) (- Infinity)) "/ -1 0")
-     *	(assert (= (/ 0 0) NotANumber) "/ 0 0")
+     *	(assert (= (/ 1 0) infinity) "/ 1 0")
+     *	(assert (= (/ -1 0) (- infinity)) "/ -1 0")
+     *	(assert (= (/ 0 0) not-a-number) "/ 0 0")
      */
     inline Fractional operator/(const Fractional &a, const Fractional &b) {
         return Fractional(a.numerator() * b.denominator(), a.denominator() * b.numerator(), a.isNegative() != b.isNegative());
@@ -215,9 +211,9 @@
      *	(assert (= (str-print 2/3) "2/3") "str-print 2/3")
      *	(assert (= (str-print -2/3) "-2/3") "str-print -2/3")
      *	(assert (= (str-print -0/2) "0") "str-print -0/2")
-     *	(assert (= (str-print Infinity) "Infinity") "str-print Infinity")
-     *	(assert (= (str-print (- Infinity)) "(- Infinity)") "str-print -Infinity")
-     *	(assert (= (str-print NotANumber) "NotANumber") "str-print NotANumber")
+     *	(assert (= (str-print infinity) "infinity") "str-print infinity")
+     *	(assert (= (str-print (- infinity)) "(- infinity)") "str-print -infinity")
+     *	(assert (= (str-print not-a-number) "not-a-number") "str-print not-a-number")
      */
     std::ostream &operator<<(std::ostream &output, const Fractional &value);
 

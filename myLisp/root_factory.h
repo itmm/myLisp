@@ -21,8 +21,8 @@
 
 /*TESTS:
  *
- *	(assert (number? Infinity) "Infinity")
- *	(assert (number? NotANumber) "NotANumber")
+ *	(assert (number? infinity) "infinity")
+ *	(assert (number? not-a-number) "not-a-number")
  *	(assert (function? +) "+")
  *	(assert (function? def) "def")
  *	(assert (number? true) "true")
@@ -57,6 +57,7 @@
  *	(assert (function? apply) "apply")
  *	(assert (function? /) "/")
  *	(assert (function? numerator) "numerator")
+ *	(assert (function? denominator) "denominator")
  */
 
 #endif

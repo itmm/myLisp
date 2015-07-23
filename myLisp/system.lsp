@@ -11,8 +11,8 @@
 ;;;;;;;;;;;;;;;
 ;; constants ;;
 
-(def "Infinity" 1/0)
-(def "NotANumber" 0/0)
+(def "infinity" 1/0)
+(def "not-a-number" 0/0)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; assert can be used for unit-tests ;;

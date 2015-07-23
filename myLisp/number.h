@@ -38,9 +38,9 @@
 	 *	(assert (= (identifier? 3) false) "identifier? 3")
 	 *	(assert (= (number? 0) true) "number? 0")
 	 *	(assert (= (number? -2/3) true) "number? -2/3")
-	 *	(assert (= (number? Infinity) true) "number? Infinity")
-	 *	(assert (= (number? (- Infinity)) true) "number? -Infinity")
-	 *	(assert (= (number? NotANumber) true) "number? NotANumber")
+	 *	(assert (= (number? infinity) true) "number? infinity")
+	 *	(assert (= (number? (- infinity)) true) "number? -infinity")
+	 *	(assert (= (number? not-a-number) true) "number? not a number")
 	 *	(assert (= (pair? 2) false) "pair? 2")
 	 *	(assert (= (string? 3) false) "string? 3")
 	 *

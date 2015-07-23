@@ -42,6 +42,7 @@
 		24D30F151B60B6A300B837FC /* t_root_factory.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D77F2DEF051D6977D344 /* t_root_factory.lsp */; };
 		24D30F161B60B80100B837FC /* t_numerator.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652DD069CBCD36F4B2C0473 /* t_numerator.lsp */; };
 		24D30F171B614CD700B837FC /* t_fndenominator.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D9CE693D0D9A7D4D1C34 /* t_fndenominator.lsp */; };
+		24D30F191B6154B800B837FC /* t_dictionary.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F181B61544A00B837FC /* t_dictionary.lsp */; };
 		24D82F641B23500100A8A86C /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895601B18BA5D0035ED69 /* string.cpp */; };
 		24D82F671B2351B000A8A86C /* pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705895501B18697C0035ED69 /* pair.cpp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
@@ -172,6 +173,7 @@
 				24A612971B3C842400A2CB04 /* turing.lsp in CopyFiles */,
 				24A612961B36C90C00A2CB04 /* system.lsp in CopyFiles */,
 				24D30EF71B5FC15D00B837FC /* t_bool.lsp in CopyFiles */,
+				24D30F191B6154B800B837FC /* t_dictionary.lsp in CopyFiles */,
 				24D30EF81B5FC15D00B837FC /* t_error.lsp in CopyFiles */,
 				24D30EF91B5FC15D00B837FC /* t_expander.lsp in CopyFiles */,
 				24D30EFA1B5FC15D00B837FC /* t_fnand.lsp in CopyFiles */,
@@ -248,6 +250,7 @@
 		24D30ED71B5FC11300B837FC /* t_parser.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_parser.lsp; sourceTree = "<group>"; };
 		24D30ED81B5FC11300B837FC /* t_string.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_string.lsp; sourceTree = "<group>"; };
 		24D30ED91B5FC11300B837FC /* tests.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tests.lsp; sourceTree = "<group>"; };
+		24D30F181B61544A00B837FC /* t_dictionary.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_dictionary.lsp; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F601B233FFE00A8A86C /* t_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_test.h; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
@@ -542,6 +545,7 @@
 		7058956F1B1C9CF90035ED69 /* testLisp */ = {
 			isa = PBXGroup;
 			children = (
+				24D30F181B61544A00B837FC /* t_dictionary.lsp */,
 				24D30EBD1B5FC11300B837FC /* t_bool.lsp */,
 				24D30EBE1B5FC11300B837FC /* t_error.lsp */,
 				24D30EBF1B5FC11300B837FC /* t_expander.lsp */,

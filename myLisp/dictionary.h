@@ -40,15 +40,18 @@
      *
      *> #include "creator.h"
      *
-     *  Creator().new_dictionary()->as_function() == nullptr
-     *  Creator().new_dictionary()->as_dictionary() != nullptr
-     *  Creator().new_dictionary()->as_number() == nullptr
-     *  Creator().new_dictionary()->as_pair() == nullptr
-     *  Creator().new_dictionary()->as_string() == nullptr
-     *
      *  Creator().new_dictionary()->as_dictionary()->parent() == nullptr
      *  Creator().new_dictionary()->as_dictionary()->get("ab") == nullptr
      *
      */
 
+	/*TESTS:
+	 *
+	 *	(assert (= (function? (dict)) false) "function? dict")
+	 *	(assert (= (dictionary? (dict)) true) "dictionary? dict")
+	 *	(assert (= (error? (dict)) false) "error? dict")
+	 *	(assert (= (number? (dict)) false) "number? dict")
+	 *	(assert (= (pair? (dict)) false) "pair? dict")
+	 *	(assert (= (string? (dict)) false) "string? dict")
+	 */
 #endif

@@ -1,4 +1,5 @@
 (import "t_bool.lsp")
+(import "t_dictionary.lsp")
 (import "t_error.lsp")
 (import "t_expander.lsp")
 (import "t_fnand.lsp")

@@ -11,7 +11,8 @@ Ptr FunctionDefine::apply(Ptr arguments, State &state) {
 	if (! Element::as_string(name)) return state.creator()->new_error("first argument must eval to string");
 	cur = Element::as_pair(cur->cdr());
 
-	if (!cur) { return Ptr(); }
+	if (! cur) return state.creator()->new_error("second argument needed");
+	if (Pair::cdr(cur)) return state.creator()->new_error("only two arguments expected");
 
 	Ptr value = Ptr(cur->car(), state.collector());
 	value = state.eval(value);

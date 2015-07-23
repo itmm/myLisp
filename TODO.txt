@@ -5,7 +5,6 @@
 substrings
 bessere Fehlermeldungen im Parser
 dynamische Funktion als fn ausgeben
-Fehlermeldungen für def
 < für Dictionaries
 endstellige Rekursion
 (sign)

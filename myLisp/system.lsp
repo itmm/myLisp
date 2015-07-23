@@ -8,6 +8,12 @@
 (def "defn" (fn macro ("args" . "body") (def (car args) (fn (cdr args) . body))))
 (def "defm" (fn macro ("args" . "body") (def (car args) (fn macro (cdr args) . body))))
 
+;;;;;;;;;;;;;;;
+;; constants ;;
+
+(def "Infinity" 1/0)
+(def "NotANumber" 0/0)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; assert can be used for unit-tests ;;
 

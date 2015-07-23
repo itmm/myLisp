@@ -36,8 +36,6 @@
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
-	dict->put("Infinity", _creator->new_number(Fractional::infinity()));
-	dict->put("NotANumber", _creator->new_number(Fractional::notANumber()));
 	dict->put("+", _creator->new_element(new FunctionPlus()));
     dict->put("-", _creator->new_element(new FunctionMinus()));
 	dict->put("def", _creator->new_element(new FunctionDefine()));

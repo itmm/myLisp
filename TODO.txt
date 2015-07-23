@@ -6,10 +6,8 @@ substrings
 bessere Fehlermeldungen im Parser
 dynamische Funktion als fn ausgeben
 Fehlermeldungen für def
-Fehlermeldungen für fn
 < für Dictionaries
 endstellige Rekursion
-(denominator)
 (sign)
 (gcd)
 (lcm)

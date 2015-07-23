@@ -7,13 +7,13 @@
 
 Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	Pair *args = Element::as_pair(arguments);
-	if (!args) { return Ptr(); }
+	if (!args) return state.creator()->new_error("arguments expected");
 
 	bool isMacro = false;
 	if (Element::as_identifier(args->car()) && args->car()->as_identifier()->str() == "macro") {
 		isMacro = true;
 		args = Element::as_pair(args->cdr());
-		if (!args) { return Ptr(); }
+		if (!args) return state.creator()->new_error("arguments expected");
 	}
 
 	Pair *body = Element::as_pair(args->cdr());

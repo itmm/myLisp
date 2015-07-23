@@ -44,4 +44,10 @@
 	 *	(assert (= (f 2 3 4) 5) "simple variadic fn")
 	 */
 
+	/*TESTS:
+	 *
+	 *	(assert (= (fn) (error "arguments expected")) "empty fn")
+	 *	(assert (= (fn macro) (error "arguments expected")) "empty fn macro")
+	 */
+
 #endif

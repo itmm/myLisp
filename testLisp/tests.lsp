@@ -1,3 +1,4 @@
+(import "t_binary.lsp")
 (import "t_bool.lsp")
 (import "t_dictionary.lsp")
 (import "t_error.lsp")
@@ -20,6 +21,7 @@
 (import "t_fnminus.lsp")
 (import "t_fnplus.lsp")
 (import "t_fnquote.lsp")"
+(import "t_fnremainder.lsp")
 (import "t_fnstrprint.lsp")
 (import "t_fntimes.lsp")
 (import "t_fractional.lsp")
@@ -27,6 +29,7 @@
 (import "t_identifier.lsp")
 (import "t_number.lsp")
 (import "t_numerator.lsp")
+(import "t_numeric_binary.lsp")
 (import "t_pair.lsp")
 (import "t_parser.lsp")
 (import "t_root_factory.lsp")

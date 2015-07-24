@@ -10,3 +10,7 @@ endstellige Rekursion
 (gcd)
 (lcm)
 import nonexistent file
+(remainder)
+binary
+numeric_binary
+

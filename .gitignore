@@ -36,4 +36,6 @@ testLisp/t_parser.cpp
 testLisp/t_parser.lsp
 testLisp/t_root_factory.lsp
 testLisp/t_string.lsp
-
+testLisp/t_binary.lsp
+testLisp/t_fnremainder.lsp
+testLisp/t_numeric_binary.lsp

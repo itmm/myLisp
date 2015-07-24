@@ -8,7 +8,7 @@ Ptr FunctionAnd::setup(State &callerState, bool &stop) {
 	return callerState.trueNumber();
 }
 
-Ptr FunctionAnd::argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {
+Ptr FunctionAnd::argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) {
 	if (Element::is_true(element)) {
 		return intermediate;
 	}

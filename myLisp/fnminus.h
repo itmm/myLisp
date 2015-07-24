@@ -7,9 +7,9 @@
 		protected:
 			virtual Ptr empty_case(State &callerState) override;
 
-			virtual Ptr first_argument(Ptr intermediate, Element *element, bool hasMore, State &callerState, bool &stop) override;
+			virtual Ptr first_argument(Ptr intermediate, Ptr element, bool hasMore, State &callerState, bool &stop) override;
 
-			virtual Ptr argument(Ptr intermediate, Element *element, State &callerState, bool &stop) override;
+			virtual Ptr argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) override;
 	};
 
 	/*	Some strange behavior was added: (-) returns -1 and (- a) returns -a.

@@ -12,8 +12,8 @@
 		protected:
 			virtual Ptr empty_case(State &callerState);
 			virtual Ptr setup(State &callerState, bool &stop);
-			virtual Ptr first_argument(Ptr intermediate, Element *element, bool hasMore, State &callerState, bool &stop);
-			virtual Ptr argument(Ptr intermediate, Element *element, State &callerState, bool &stop) = 0;
+			virtual Ptr first_argument(Ptr intermediate, Ptr element, bool hasMore, State &callerState, bool &stop);
+			virtual Ptr argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) = 0;
 			virtual Ptr finish(Ptr intermediate, State &callerState);
 
 		private:

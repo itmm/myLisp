@@ -1,6 +1,6 @@
 #include "lookbehind.h"
 
-Ptr Lookbehind::first_argument(Ptr intermediate, Element *element, bool hasMore, State &callerState, bool &stop) {
+Ptr Lookbehind::first_argument(Ptr, Ptr element, bool hasMore, State &callerState, bool &stop) {
 	if (!hasMore) {
 		stop = true;
 		return callerState.creator()->new_error("Lookbehind needs at least two arguments");
@@ -8,7 +8,7 @@ Ptr Lookbehind::first_argument(Ptr intermediate, Element *element, bool hasMore,
 	return Ptr(element, callerState.collector());
 }
 
-Ptr Lookbehind::argument(Ptr intermediate, Element *element, State &callerState, bool &stop) {
+Ptr Lookbehind::argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) {
 	if (!is_valid(intermediate, element)) {
 		stop = true;
 		return callerState.falseNumber();
@@ -16,6 +16,6 @@ Ptr Lookbehind::argument(Ptr intermediate, Element *element, State &callerState,
 	return Ptr(element, callerState.collector());
 }
 
-Ptr Lookbehind::finish(Ptr intermediate, State &callerState) {
+Ptr Lookbehind::finish(Ptr, State &callerState) {
 	return callerState.trueNumber();
 }

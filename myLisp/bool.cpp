@@ -5,6 +5,6 @@
 
 #include "bool.h"
 
-void Bool::to_stream(std::ostream &output) const {
+void Bool::to_stream(std::ostream &output, bool) const {
 	output << (is_true() ? "true" : "false");
 }

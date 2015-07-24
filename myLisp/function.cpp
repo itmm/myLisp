@@ -6,7 +6,7 @@ Function *Function::as_function() {
 	return this;
 }
 
-void Function::to_stream(std::ostream &stream) const {
+void Function::to_stream(std::ostream &stream, bool) const {
 	stream << "[#FUNCTION#]";
 }
 

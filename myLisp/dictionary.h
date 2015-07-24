@@ -22,7 +22,7 @@
 			bool is_subset_of(const Dictionary *other) const;
 
             virtual Dictionary *as_dictionary();
-            virtual void to_stream(std::ostream &stream) const;
+            virtual void to_stream(std::ostream &stream, bool escape) const;
 
         	std::map<std::string, Element *>::const_iterator begin() const;
         	std::map<std::string, Element *>::const_iterator end() const;

@@ -72,7 +72,6 @@
      *
      *  Parser().parse("()") == nullptr
      *
-     *  Parser().eval("infinity")->as_number()->value() == Fractional::infinity()
      *  Parser().parse("abc")->as_identifier() != nullptr
      *
      *	Parser().parse(";; some comments\n12")->as_number()->value() == BigInt(12)

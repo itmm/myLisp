@@ -3,7 +3,7 @@
 
 std::ostream &operator<<(std::ostream &out, Ptr ptr) {
 	if (ptr) {
-		ptr->to_stream(out);
+		ptr->to_stream(out, false);
 	} else {
 		out << "()";
 	}

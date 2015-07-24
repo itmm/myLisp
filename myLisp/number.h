@@ -8,7 +8,7 @@
         public:
 
             virtual Number *as_number();
-            virtual void to_stream(std::ostream &output) const;
+            virtual void to_stream(std::ostream &output, bool escape) const override;
         
             const Fractional &value() const { return _value; }
 

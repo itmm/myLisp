@@ -33,7 +33,7 @@ Dictionary *Dictionary::as_dictionary() {
     return this;
 }
 
-void Dictionary::to_stream(std::ostream &stream) const {
+void Dictionary::to_stream(std::ostream &stream, bool) const {
     stream << "[Dictionary]";
 }
 

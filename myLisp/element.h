@@ -43,7 +43,7 @@
 			static Pair *as_pair(Element *elm);
 			static String *as_string(Element *elm);
 
-			virtual void to_stream(std::ostream &stream) const = 0;
+			virtual void to_stream(std::ostream &stream, bool escape) const = 0;
         
         private:
             Element(const Element &) = delete;
@@ -58,7 +58,7 @@
 
 	inline std::ostream &operator<<(std::ostream &out, const Element *elm) {
 		if (elm) {
-			elm->to_stream(out);
+			elm->to_stream(out, false);
 		} else {
 			out << "()";
 		}

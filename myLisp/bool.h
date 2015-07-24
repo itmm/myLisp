@@ -10,7 +10,7 @@
 			friend class RootFactory;
 
 	public:
-		virtual void to_stream(std::ostream &output) const override;
+		virtual void to_stream(std::ostream &output, bool escape) const override;
 	};
 
 /*TESTS:

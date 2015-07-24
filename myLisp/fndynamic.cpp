@@ -57,3 +57,11 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 		return result;
 	}
 }
+
+void FunctionDynamic::to_stream(std::ostream &stream, bool) const {
+	stream << "(fn ";
+	_args->to_stream(stream, true);
+	stream << ' ';
+	_body->to_stream(stream, true);
+	stream << ')';
+}

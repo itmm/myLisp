@@ -2,7 +2,7 @@
 
 Number *Number::as_number() { return this; }
 
-void Number::to_stream(std::ostream &output) const {
+void Number::to_stream(std::ostream &output, bool) const {
     output << _value;
 }
 

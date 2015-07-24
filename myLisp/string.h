@@ -15,7 +15,7 @@
             virtual bool is_less(Element *other) const override;
 
 			virtual String *as_string();
-            virtual void to_stream(std::ostream &stream) const;
+            virtual void to_stream(std::ostream &stream, bool escape) const override;
 
 			friend class Creator;
 

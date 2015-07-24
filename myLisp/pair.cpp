@@ -40,14 +40,15 @@ bool Pair::is_less(Element *other) const {
 
 Pair *Pair::as_pair() { return this; }
 
-void Pair::to_stream(std::ostream &stream) const {
+void Pair::to_stream(std::ostream &stream, bool escape) const {
 	stream << "(";
 	Pair *cur = const_cast<Pair *>(this);
 	while (cur) {
 		if (cur != this) { stream << " "; }
-		stream << cur->car();
+		if (cur->car()) { cur->car()->to_stream(stream, escape); } else { stream << "()"; }
 		if (cur->cdr() && !cur->cdr()->as_pair()) {
-			stream << " . " << cur->cdr();
+			stream << " . ";
+			cur->cdr()->to_stream(stream, escape);
 			break;
 		}
 		cur = Element::as_pair(cur->cdr());

@@ -20,6 +20,8 @@ String *Error::as_string() {
 	return nullptr;
 }
 
-void Error::to_stream(std::ostream &stream) const {
-	stream << "(error \"" << str() << "\")";
+void Error::to_stream(std::ostream &stream, bool escape) const {
+	stream << "(error ";
+	String::to_stream(stream, true);
+	stream << ")";
 }

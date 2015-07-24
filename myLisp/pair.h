@@ -14,7 +14,7 @@
 			virtual void add_to_visit(Collector::Visitor &visitor) override;
 
 			virtual Pair *as_pair();
-            virtual void to_stream(std::ostream &stream) const;
+            virtual void to_stream(std::ostream &stream, bool escape) const override;
 
 			virtual bool is_true() const override;
 

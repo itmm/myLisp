@@ -19,6 +19,8 @@
 
 			Dictionary *_root;
 			Dictionary *_inserter;
+	public:
+		virtual void to_stream(std::ostream &stream, bool escape) const override;
 	};
 
 

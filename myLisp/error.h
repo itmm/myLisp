@@ -11,7 +11,7 @@
 			virtual Error *as_error() override;
 			virtual String *as_string() override;
 
-			virtual void to_stream(std::ostream &stream) const override;
+			virtual void to_stream(std::ostream &stream, bool escape) const override;
 
 		private:
 			friend class Creator;

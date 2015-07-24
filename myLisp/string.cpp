@@ -18,6 +18,17 @@ bool String::is_less(Element *other) const {
 
 String *String::as_string() { return this; }
 
-void String::to_stream(std::ostream &stream) const {
-    stream << _str;
+void String::to_stream(std::ostream &stream, bool escape) const {
+	if (escape) {
+		stream << '"';
+		auto cur = _str.begin();
+		auto end = _str.end();
+		for(; cur != end; ++cur) {
+			if (*cur == '\\' || *cur == '"') stream << '\\';
+			stream << *cur;
+		}
+		stream << '"';
+	} else {
+    	stream << _str;
+	}
 }

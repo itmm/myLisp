@@ -7,7 +7,7 @@ void Number::to_stream(std::ostream &output) const {
 }
 
 bool Number::is_true() const {
-	return _value.numerator() != 0;
+	return _value.numerator() != BigInt(0);
 }
 
 bool Number::is_equal(Element *other) const {

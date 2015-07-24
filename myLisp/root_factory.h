@@ -59,6 +59,7 @@
  *	(assert (function? numerator) "numerator")
  *	(assert (function? denominator) "denominator")
  *	(assert (function? remainder) "remainder")
+ *	(assert (function? gcd) "gcd")
  */
 
 #endif

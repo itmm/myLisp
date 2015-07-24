@@ -25,7 +25,6 @@ testLisp/t_fnplus.lsp
 testLisp/t_fnquote.lsp
 testLisp/t_fnstrprint.lsp
 testLisp/t_fntimes.lsp
-testLisp/t_fractional.cpp
 testLisp/t_fractional.lsp
 testLisp/t_function.lsp
 testLisp/t_identifier.lsp
@@ -39,3 +38,6 @@ testLisp/t_string.lsp
 testLisp/t_binary.lsp
 testLisp/t_fnremainder.lsp
 testLisp/t_numeric_binary.lsp
+testLisp/t_fngcd.lsp
+testLisp/t_integer_binary.lsp
+

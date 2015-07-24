@@ -35,6 +35,7 @@
 #include "fnnumerator.h"
 #include "fndenominator.h"
 #include "fnremainder.h"
+#include "fngcd.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -75,5 +76,6 @@ Ptr RootFactory::root() {
 	dict->put("numerator", _creator->new_element(new FunctionNumerator()));
 	dict->put("denominator", _creator->new_element(new FunctionDenominator()));
 	dict->put("remainder", _creator->new_element(new FunctionRemainder()));
+	dict->put("gcd", _creator->new_element(new FunctionGcd()));
 	return Ptr(dict, _creator->collector());
 }

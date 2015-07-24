@@ -8,9 +8,4 @@ dynamische Funktion als fn ausgeben
 endstellige Rekursion
 (sign)
 (gcd)
-(lcm)
 import nonexistent file
-(remainder)
-binary
-numeric_binary
-

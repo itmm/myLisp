@@ -40,15 +40,15 @@
         return Fractional(num.numerator(), num.denominator(), !num.isNegative());
     }
 
-    /*C++-TESTS:
+    /*TESTS:
      *
-     *  gcd(2, 6) == BigInt(2)
-     *  gcd(6, 2) == BigInt(2)
-     *  gcd(1, 1) == BigInt(1)
-     *  gcd(8, 8) == BigInt(8)
-     *  gcd(0, 3) == BigInt(0)
-     *  gcd(3, 0) == BigInt(0)
-     *  gcd(0, 0) == BigInt(0)
+     *	(assert (= (gcd 2 6) 2) "gcd 2 6")
+     *	(assert (= (gcd 6 2) 2) "gcd 6 2")
+     *	(assert (= (gcd 1 1) 1) "gcd 1 1")
+     *	(assert (= (gcd 8 8) 8) "gcd 8 8")
+     *	(assert (= (gcd 0 3) 0) "gcd 0 3")
+     *	(assert (= (gcd 3 0) 0) "gcd 3 0")
+     *	(assert (= (gcd 0 0) 0) "gcd 0 0")
      */
     inline BigInt gcd(BigInt a, BigInt b) {
         if (!a || ! b) { return 0; }

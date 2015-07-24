@@ -48,5 +48,8 @@
 		return out;
 	}
 
+	inline bool operator!=(const BigInt &a, const BigInt &b) {
+		return !(a == b);
+	}
 
 #endif

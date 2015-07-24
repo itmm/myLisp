@@ -14,6 +14,9 @@
 			friend class Creator;
 
 			Identifier(const std::string &str): String(str) {}
+
+	public:
+		virtual void to_stream(std::ostream &stream, bool escape) const override;
 	};
 
 	/*TESTS:
@@ -27,5 +30,7 @@
 	 *	(assert (= (number? unknown-identifier) false) "number? identifier")
 	 *  (assert (= (pair? unknown-identifier) false) "pair? identifier")
 	 *  (assert (= (string? unknown-identifier) false) "string? identifier")
+	 *
+	 *  (assert (= (str-print (a)) "(a)") "str-print (a)")
 	 */
 #endif

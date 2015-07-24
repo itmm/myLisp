@@ -45,10 +45,10 @@ void Pair::to_stream(std::ostream &stream, bool escape) const {
 	Pair *cur = const_cast<Pair *>(this);
 	while (cur) {
 		if (cur != this) { stream << " "; }
-		if (cur->car()) { cur->car()->to_stream(stream, escape); } else { stream << "()"; }
+		if (cur->car()) { cur->car()->to_stream(stream, true); } else { stream << "()"; }
 		if (cur->cdr() && !cur->cdr()->as_pair()) {
 			stream << " . ";
-			cur->cdr()->to_stream(stream, escape);
+			cur->cdr()->to_stream(stream, true);
 			break;
 		}
 		cur = Element::as_pair(cur->cdr());

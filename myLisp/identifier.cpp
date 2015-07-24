@@ -14,3 +14,7 @@ Identifier *Identifier::as_identifier() {
 String *Identifier::as_string() {
 	return nullptr;
 }
+
+void Identifier::to_stream(std::ostream &stream, bool) const {
+	String::to_stream(stream, false);
+}

@@ -57,9 +57,9 @@
 	 * 	(assert (= (pair? (list false)) true) "pair? (false)")
 	 * 	(assert (= (string? (list "a")) false) "string? (a)")
 	 *
-	 *  (assert (= (str-print (list "a" "b")) "(a b)") "str-print (a b)")
+	 *  (assert (= (str-print (list "a" "b")) "(\"a\" \"b\")") "str-print (\"a\" \"b\")")
 	 *  (assert (= (str-print (list)) "()") "str-print ()")
-	 *  (assert (= (str-print (list "a" . "b")) "(a . b)") "str-print (a . b)")
+	 *  (assert (= (str-print (list "a" . "b")) "(\"a\" . \"b\")") "str-print (\"a\" . \"b\")")
 	 */
 
 #endif

@@ -6,6 +6,4 @@ bessere Fehlermeldungen im Parser
 dynamische Funktion als fn ausgeben
 < für Dictionaries
 endstellige Rekursion
-(sign)
-(gcd)
 import nonexistent file

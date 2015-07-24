@@ -177,6 +177,16 @@
 
     (assert (= (do (+ 1 2) (+ 2 3)) 5), "do")
 
+(defn ("sign" "a") (cond
+    ((= a 0) 0)
+    ((< a 0) -1)
+    (else 1)
+))
+
+    (assert (= (sign 5) 1) "sign 5")
+    (assert (= (sign 0) 0) "sign 0")
+    (assert (= (sign -3) -1) "sign -3")
+
 (import "tests.lsp")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

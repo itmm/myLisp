@@ -15,4 +15,10 @@
 	 *	(assert (= answer 42) "import")
 	 */
 
+	/*TESTS:
+	 *
+	 *	(assert (= (import 42) (error "string expected")) "import 42")
+	 *	(assert (= (import "non-existent.lsp") (error "can't import non-existent.lsp")) "import non-existent")
+	 */
+
 #endif

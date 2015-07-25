@@ -13,9 +13,6 @@
 			virtual Ptr apply(Ptr arguments, State &state);
 			virtual Ptr apply_evaled(Ptr arguments, State &state);
 			virtual Ptr eval_arguments(Ptr arguments, State &state);
-
-		protected:
-			Ptr error(const std::string &message, State &state);
 	};
 
 	/*TESTS:

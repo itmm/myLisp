@@ -157,7 +157,7 @@ BigInt BigInt::operator*(const unsigned other) const {
 
         for (int i = 0; i < _BLOCK_SIZE; ++i) {
             if (a) { mult += a->_values[i] * (unsigned long) other; }
-            current->_values[i] = mult % _MOD;
+            current->_values[i] = (unsigned int) (mult % _MOD);
             mult /= _MOD;
         }
         if (a) { a = a->_bigger; }
@@ -283,8 +283,7 @@ bool BigInt::operator<(const BigInt &other) const {
 	bool otherBiggerPresent = other._bigger && *other._bigger;
 
 	if (biggerPresent && otherBiggerPresent) {
-		if (*_bigger < *other._bigger) return true;
-		return false;
+		return *_bigger < *other._bigger;
 	}
 	else if (otherBiggerPresent) return true;
 	else if (biggerPresent) return false;

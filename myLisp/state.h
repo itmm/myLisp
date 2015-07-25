@@ -28,6 +28,7 @@ class State {
 			const std::string &name() const { return _name; }
 
 			Ptr ptr(Element *element) { return Ptr(element, collector()); }
+			Ptr error(const std::string &message) { return creator()->new_error(message); }
 
 		private:
 			std::string _name;

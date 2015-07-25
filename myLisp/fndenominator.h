@@ -1,11 +1,11 @@
 #if ! defined(fndenominator_h)
 #define fndenominator_h
 
-	#include "function.h"
+#include "unary_numeric.h"
 
-	class FunctionDenominator : public Function {
-	public:
-		virtual Ptr apply(Ptr arguments, State &state) override;
+	class FunctionDenominator : public UnaryNumericFunction {
+	protected:
+		virtual Ptr apply_unary_numeric(const Fractional &value, State &state) override;
 	};
 
 	/*TESTS:
@@ -17,10 +17,6 @@
 	 *	(assert (= (denominator infinity) 0) "denominator infinity")
 	 *	(assert (= (denominator (- infinity)) 0) "denominator -infinity")
 	 *	(assert (= (denominator not-a-number) 0) "denominator not a number")
-	 *
-	 *  (assert (= (denominator) (error "argument must be numeric")) "empty denominator")
-	 *  (assert (= (denominator "1") (error "argument must be numeric")) "denominator string")
-	 *  (assert (= (denominator 1 2) (error "too many arguments")) "denominator 1 2")
 	 */
 
 #endif

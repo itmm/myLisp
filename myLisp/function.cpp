@@ -35,3 +35,7 @@ Ptr Function::eval_arguments(Ptr arguments, State &state) {
 		return arguments;
 	}
 }
+
+Ptr Function::error(const std::string &message, State &state) {
+	return state.creator()->new_error(message);
+}

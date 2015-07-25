@@ -21,17 +21,17 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 	Element *cur_value = arguments;
 	for (; Element::as_pair(cur_key); cur_key = Pair::cdr(cur_key), cur_value = Pair::cdr(cur_value)) {
 		String *key = Element::as_string(Pair::car(cur_key));
-		if (! key) return state.creator()->new_error("string expected as key");
-		if (! cur_value) return state.creator()->new_error("too few arguments");
+		if (! key) return state.error("string expected as key");
+		if (! cur_value) return state.error("too few arguments");
 		Element *value = Pair::car(cur_value);
 		context->put(key->str(), value);
 	}
 	if (cur_key) {
 		String *key = Element::as_string(cur_key);
-		if (! key) return state.creator()->new_error("string expected as list key");
+		if (! key) return state.error("string expected as list key");
 		context->put(key->str(), cur_value);
 	} else if (cur_value) {
-		return state.creator()->new_error("too many arguments");
+		return state.error("too many arguments");
 	}
 
 	if (_macro) {

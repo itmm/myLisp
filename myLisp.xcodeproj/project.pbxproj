@@ -40,7 +40,6 @@
 		24D30F121B5FC15E00B837FC /* t_string.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30ED81B5FC11300B837FC /* t_string.lsp */; };
 		24D30F131B5FC15E00B837FC /* tests.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30ED91B5FC11300B837FC /* tests.lsp */; };
 		24D30F151B60B6A300B837FC /* t_root_factory.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D77F2DEF051D6977D344 /* t_root_factory.lsp */; };
-		24D30F161B60B80100B837FC /* t_numerator.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652DD069CBCD36F4B2C0473 /* t_numerator.lsp */; };
 		24D30F171B614CD700B837FC /* t_fndenominator.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D9CE693D0D9A7D4D1C34 /* t_fndenominator.lsp */; };
 		24D30F191B6154B800B837FC /* t_dictionary.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F181B61544A00B837FC /* t_dictionary.lsp */; };
 		24D30F1C1B61588B00B837FC /* t_fnquote.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F1B1B61582B00B837FC /* t_fnquote.lsp */; };
@@ -228,7 +227,6 @@
 				24D30F081B5FC15E00B837FC /* t_fnminus.lsp in CopyFiles */,
 				24D30F091B5FC15E00B837FC /* t_fnplus.lsp in CopyFiles */,
 				24D30F0A1B5FC15E00B837FC /* t_fnstrprint.lsp in CopyFiles */,
-				24D30F161B60B80100B837FC /* t_numerator.lsp in CopyFiles */,
 				24D30F0B1B5FC15E00B837FC /* t_fntimes.lsp in CopyFiles */,
 				24D30F0C1B5FC15E00B837FC /* t_fractional.lsp in CopyFiles */,
 				24D30F0D1B5FC15E00B837FC /* t_function.lsp in CopyFiles */,
@@ -399,7 +397,6 @@
 		3652DC4D66C8800DFDDEC98B /* fnremainder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnremainder.cpp; sourceTree = "<group>"; };
 		3652DCC3E3A7F6470231FF1C /* fntimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fntimes.h; sourceTree = "<group>"; };
 		3652DCFDD9C76DD192420E1F /* fncond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fncond.h; sourceTree = "<group>"; };
-		3652DD069CBCD36F4B2C0473 /* t_numerator.lsp */ = {isa = PBXFileReference; lastKnownFileType = file.lsp; path = t_numerator.lsp; sourceTree = "<group>"; };
 		3652DD13C309769A1202800F /* unary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unary.h; sourceTree = "<group>"; };
 		3652DD16F5C5A639334AAA77 /* creator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = creator.cpp; sourceTree = "<group>"; };
 		3652DD211B1A8CDA75501493 /* fnnumberq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnnumberq.h; sourceTree = "<group>"; };
@@ -669,7 +666,6 @@
 				24D82F601B233FFE00A8A86C /* t_test.h */,
 				3652DB0D4482A6F66AF0754B /* t_creator.cpp */,
 				3652D77F2DEF051D6977D344 /* t_root_factory.lsp */,
-				3652DD069CBCD36F4B2C0473 /* t_numerator.lsp */,
 				3652D9CE693D0D9A7D4D1C34 /* t_fndenominator.lsp */,
 			);
 			path = testLisp;

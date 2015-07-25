@@ -8,3 +8,5 @@ endstellige Rekursion
 move dynamic sources in one directory
 remove c++ unit-tests
 rename numeric_binary to binary_numeric
+listable_numeric
+eval for lists

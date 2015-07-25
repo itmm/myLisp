@@ -5,3 +5,5 @@ substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries
 endstellige Rekursion
+move dynamic sources in one directory
+remove c++ unit-tests

@@ -27,6 +27,8 @@ class State {
 			void setName(const std::string &name) { _name = name; }
 			const std::string &name() const { return _name; }
 
+			Ptr ptr(Element *element) { return Ptr(element, collector()); }
+
 		private:
 			std::string _name;
 			Creator *_creator;

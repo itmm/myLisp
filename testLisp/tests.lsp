@@ -11,6 +11,7 @@
 (import "t_fncond.lsp")
 (import "t_fndefine.lsp")
 (import "t_fndenominator.lsp")
+(import "t_fndynamic.lsp")
 (import "t_fndict.lsp")
 (import "t_fnequal.lsp")
 (import "t_fnerror.lsp")

@@ -40,4 +40,4 @@ testLisp/t_fnremainder.lsp
 testLisp/t_numeric_binary.lsp
 testLisp/t_fngcd.lsp
 testLisp/t_integer_binary.lsp
-
+testLisp/t_fndynamic.lsp

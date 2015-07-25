@@ -163,7 +163,7 @@
 
     (assert (= (doubles (2 3 3 5)) true) "doubles in 2 3 3 5")
     (assert (= (doubles (2 3 5)) false) "no in 2 3 5")
-    (assert (= (doubles) false) "empty doubles")
+    (assert (= (doubles ()) false) "empty doubles")
     (assert (= (doubles (2)) false) "single doubles")
 
 (defn ("><" . "a") (not (doubles (apply sort a))))

@@ -1,11 +1,11 @@
 #if ! defined(fnapply_h)
 #define fnapply_h
 
-	#include "function.h"
+	#include "binary.h"
 
-	class FunctionApply: public Function {
-	public:
-		virtual Ptr apply(Ptr arguments, State &state) override;
+	class FunctionApply: public BinaryFunction {
+		protected:
+			virtual Ptr apply_binary(Ptr first, Ptr second, State &state) override;
 	};
 
 	/*TESTS:

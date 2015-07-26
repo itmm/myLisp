@@ -150,6 +150,11 @@
     (assert (= (> 5 4 3) true) "> 5 4 3")
     (assert (= (> 5 4 5) false) "> 5 4 5")
 
+(defm (">=" . "args") (listable (fn ("a" "b") (or (= a b) (< b a))) . args))
+
+    (assert (= (>= 5 4 4) true) ">= 5 4 4")
+    (assert (= (>= 5 4 5) false) ">= 5 4 5")
+
 (defn ("sort" . "a") (cond
     ((= (list) a) a)
     ((= (list) (cdr a)) a)

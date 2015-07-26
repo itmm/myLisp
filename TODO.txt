@@ -1,6 +1,5 @@
 (let)
 (xor)
-(>=)
 substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries
@@ -16,5 +15,5 @@ random
 runtime
 numeric output of numbers
 rename listable to listable-function
-let for <=
+let for listable
 empty?

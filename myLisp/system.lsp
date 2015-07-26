@@ -89,7 +89,7 @@
 
 (defn ("sum" "n") (if (= n) 0 (+ n (sum (- n 1)))))
 
-(defn ("null?" "lst") (= (list) lst))
+(defn ("null?" "lst") (= () lst))
 
     (assert (= (null? ()) true) "empty null?")
     (assert (= (null? (1)) false) "non-empty null?")
@@ -116,7 +116,7 @@
     (assert (= (flatten (1 2) (3)) (1 2 3)) "flatten lists")
 
 (defm ("and" "a" "b" . "args") (if a
-    (if (= () args)
+    (if (null? args)
         b
         (and b . args)
     )
@@ -132,7 +132,7 @@
 
 (defm ("or" "a" "b" . "args") (if a
     a
-    (if (= () args)
+    (if (null? args)
         b
         (or b . args)
     )
@@ -141,6 +141,23 @@
     (assert (= (or 1 (err-print "or is not short-circuing")) 1) "or")
     (assert (= (or 0 false 2) 2) "or 0 false 2")
     (assert (= (or false 0) 0) "or false 0")
+
+(defn ("not" "a") (false? a))
+
+    (assert (= (not 1) false) "not true")
+    (assert (= (not 0) true) "not false")
+
+(defn ("xor" "a" "b" . "args") (if a
+    (if (null? args) (not b) (not (xor b . args)))
+    (if (null? args) (true? b) (xor b . args))
+))
+
+    (assert (= (xor 0 0) false) "xor 0 0")
+    (assert (= (xor 0 1) true) "xor 0 1")
+    (assert (= (xor 1 0) true) "xor 1 0")
+    (assert (= (xor 1 1) false) "xor 1 1")
+
+    (assert (= (xor 0 1 0) true) "xor 0 1 0")
 
 (defn ("filter" "lst" "ref" "op") (cond
     ((= (list) lst) (list))
@@ -152,7 +169,7 @@
     (assert (= (filter (4 3 2 1) 3 <) (2 1)) "reverse filter")
 
 (defm ("listable" "cnd" "a" "b" . "args") (if (cnd a b)
-    (if (= () args)
+    (if (null? args)
         true
         (listable cnd b . args)
     )
@@ -189,11 +206,6 @@
 ))
 
     (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort")
-
-(defn ("not" "a") (if a false true))
-
-    (assert (= (not 1) false) "not true")
-    (assert (= (not 0) true) "not false")
 
 ;; doubles is a helper method for ><
 

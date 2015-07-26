@@ -1,5 +1,4 @@
 (let)
-(xor)
 substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries

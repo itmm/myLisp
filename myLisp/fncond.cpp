@@ -9,7 +9,7 @@ Ptr FunctionCond::apply(Ptr arguments, State &state) {
 		if (Element::is_true(condition)) {
 			Ptr result;
 			for (entry = Element::as_pair(entry->cdr()); entry; entry = Element::as_pair(entry->cdr())) {
-				result = state.eval(Ptr(entry->car(), state.collector()));
+				result = state.eval(state.ptr(entry->car()));
 			}
 			return result;
 		}

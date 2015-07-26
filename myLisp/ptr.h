@@ -36,21 +36,21 @@ class Ptr {
 };
 
 inline Ptr::Ptr(Element *value, Collector *collector): _value(value), _collector(collector) {
-	_collector->add_root(_value);
+	if (_value && _collector) _collector->add_root(_value);
 }
 
 inline Ptr::Ptr(const Ptr &other): _value(other._value), _collector(other._collector) {
-	_collector->add_root(_value);
+	if (_value && _collector) _collector->add_root(_value);
 }
 
 inline Ptr::~Ptr() {
-	_collector->remove_root(_value);
+	if (_value && _collector) _collector->remove_root(_value);
 }
 
 inline Ptr &Ptr::operator=(const Ptr &other) {
 	assert(_collector == other._collector || other._value == nullptr || _value == nullptr);
-	if (_value) { _collector->remove_root(_value); } else { _collector = other._collector; }
-	if (other._value) { _collector = other._collector; _collector->add_root(other._value); }
+	if (_value && _collector) { _collector->remove_root(_value); } else { _collector = other._collector; }
+	if (other._value && other._collector) { _collector = other._collector; _collector->add_root(other._value); }
 	_value = other._value;
 	return *this;
 }

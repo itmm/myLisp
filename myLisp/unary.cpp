@@ -1,7 +1,6 @@
 #include "unary.h"
 #include "pair.h"
 
-
 Ptr UnaryFunction::apply_evaled(Ptr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
 	if (! Element::as_pair(arguments)) return state.error("need one argument");

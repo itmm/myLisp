@@ -43,7 +43,7 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 
 		Ptr result;
 		for (Pair *cur = Element::as_pair(body2); cur; cur = Element::as_pair(cur->cdr())) {
-			result = state.eval(Ptr(cur->car(), state.collector()));
+			result = state.eval(state.ptr(cur->car()));
 		}
 		return result;
 	} else {

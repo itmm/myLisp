@@ -4,7 +4,6 @@
 (import "t_dictionary.lsp")
 (import "t_error.lsp")
 (import "t_expander.lsp")
-(import "t_fnand.lsp")
 (import "t_fnapply.lsp")
 (import "t_fnboolq.lsp")
 (import "t_fncar.lsp")

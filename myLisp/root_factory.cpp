@@ -27,7 +27,6 @@
 #include "fnidentifierq.h"
 #include "fndictionaryq.h"
 #include "fnless.h"
-#include "fnand.h"
 #include "fndict.h"
 #include "fnexpand.h"
 #include "fnapply.h"
@@ -68,7 +67,6 @@ Ptr RootFactory::root() {
 	dict->put("identifier?", _creator->new_element(new FunctionIdentifierQuery()));
 	dict->put("dictionary?", _creator->new_element(new FunctionDictionaryQuery()));
 	dict->put("<", _creator->new_element(new FunctionLess()));
-	dict->put("and", _creator->new_element(new FunctionAnd()));
 	dict->put("dict", _creator->new_element(new FunctionDict()));
 	dict->put("expand", _creator->new_element(new FunctionExpand()));
 	dict->put("apply", _creator->new_element(new FunctionApply()));

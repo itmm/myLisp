@@ -115,9 +115,32 @@
     (assert (= (flatten 1 2) (1 2)) "flatten numbers")
     (assert (= (flatten (1 2) (3)) (1 2 3)) "flatten lists")
 
-(defm ("or" "a" "b") (if a a b))
+(defm ("and" "a" "b" . "args") (if a
+    (if (= () args)
+        b
+        (and b . args)
+    )
+    a
+))
 
-    (assert (or 1 (err-print "or is not short-circuing")) "or")
+    (assert (= (and false false) false) "and false false")
+    (assert (= (and false true) false) "and false true")
+    (assert (= (and true false) false) "and true false")
+    (assert (= (and true 1) true) "and true 1")
+
+    (assert (= (and 1 2 3 4) 4) "and 1 2 3 4")
+
+(defm ("or" "a" "b" . "args") (if a
+    a
+    (if (= () args)
+        b
+        (or b . args)
+    )
+))
+
+    (assert (= (or 1 (err-print "or is not short-circuing")) 1) "or")
+    (assert (= (or 0 false 2) 2) "or 0 false 2")
+    (assert (= (or false 0) 0) "or false 0")
 
 (defn ("filter" "lst" "ref" "op") (cond
     ((= (list) lst) (list))

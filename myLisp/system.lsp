@@ -181,12 +181,14 @@
     (assert (= (filter (1 2 3 4) 3 <) (1 2)) "filter")
     (assert (= (filter (4 3 2 1) 3 <) (2 1)) "reverse filter")
 
-(defm ("listable" "cnd" "a" "b" . "args") (if (cnd a b)
-    (if (null? args)
-        true
-        (listable cnd b . args)
+(defm ("listable" "cnd" "a" "b" . "args") (let (("b-evaled" b) ("cnd-evaled" cnd))
+    (if (cnd-evaled a b-evaled)
+        (if (null? args)
+            true
+            (listable cnd-evaled b . args)
+        )
+        false
     )
-    false
 ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;

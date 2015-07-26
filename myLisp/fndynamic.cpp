@@ -24,12 +24,12 @@ Ptr FunctionDynamic::apply(Ptr arguments, State &state) {
 		if (! key) return state.error("string expected as key");
 		if (! cur_value) return state.error("too few arguments");
 		Element *value = Pair::car(cur_value);
-		context->put(key->str(), value);
+		context->add(key->str(), value);
 	}
 	if (cur_key) {
 		String *key = Element::as_string(cur_key);
 		if (! key) return state.error("string expected as list key");
-		context->put(key->str(), cur_value);
+		context->add(key->str(), cur_value);
 	} else if (cur_value) {
 		return state.error("too many arguments");
 	}

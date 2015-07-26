@@ -1,10 +1,8 @@
-(let)
 substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries
 endstellige Rekursion
 repl in gui app
-(and) as decider
 self-register functions
 trigger garbage collection after each repl statement
 chromatic colorscheme for identifiers
@@ -13,5 +11,4 @@ random
 runtime
 numeric output of numbers
 rename listable to listable-function
-let for listable
 apply as function not as macro

@@ -72,6 +72,12 @@ Dictionary *Dictionary::put(const std::string &key, Element *value) {
     return this;
 }
 
+Dictionary *Dictionary::add(const std::string &key, Element *value) {
+	_map[key] = value;
+    return this;
+}
+
+
 std::map<std::string, Element *>::const_iterator Dictionary::begin() const {
 	return _map.begin();
 }

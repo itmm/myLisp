@@ -55,6 +55,7 @@
 		24D30FB71B653A9300B837FC /* listable_numeric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D30FB51B653A9300B837FC /* listable_numeric.cpp */; };
 		24D30FBA1B653FD200B837FC /* t_listable_numeric.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30FB81B653F7600B837FC /* t_listable_numeric.lsp */; };
 		24D30FBB1B653FD200B837FC /* t_listable.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30FB91B653F7600B837FC /* t_listable.lsp */; };
+		24D30FBE1B65776C00B837FC /* fnlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D30FBC1B65776C00B837FC /* fnlet.cpp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -225,6 +226,8 @@
 		24D30FB61B653A9300B837FC /* listable_numeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listable_numeric.h; sourceTree = "<group>"; };
 		24D30FB81B653F7600B837FC /* t_listable_numeric.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_listable_numeric.lsp; sourceTree = "<group>"; };
 		24D30FB91B653F7600B837FC /* t_listable.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_listable.lsp; sourceTree = "<group>"; };
+		24D30FBC1B65776C00B837FC /* fnlet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnlet.cpp; sourceTree = "<group>"; };
+		24D30FBD1B65776C00B837FC /* fnlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnlet.h; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -501,6 +504,8 @@
 				3652D08ABEF53212E245755A /* fnlambda.h */,
 				3652DEF813B24A5DCBA3004A /* fnless.cpp */,
 				3652D0EFB4F3B5D8B55A86D2 /* fnless.h */,
+				24D30FBC1B65776C00B837FC /* fnlet.cpp */,
+				24D30FBD1B65776C00B837FC /* fnlet.h */,
 				3652DBF5B527AC48F4EE10CF /* fnlist.cpp */,
 				3652DA5197E2C3A98103E2C4 /* fnlist.h */,
 				90A2C3B5F0B91C4AEAC4992E /* fnminus.cpp */,
@@ -650,6 +655,7 @@
 				705895681B18C27B0035ED69 /* fractional.cpp in Sources */,
 				24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */,
 				705895521B18697C0035ED69 /* pair.cpp in Sources */,
+				24D30FBE1B65776C00B837FC /* fnlet.cpp in Sources */,
 				3652D259E50387A55ED2AFB3 /* function.cpp in Sources */,
 				3652DA104AD82394BDEC4D2E /* fnplus.cpp in Sources */,
 				3652D5314877F5CFD626C94D /* state.cpp in Sources */,

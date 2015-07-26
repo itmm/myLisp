@@ -16,6 +16,7 @@
             Element *get(const std::string &key) const;
 			Element *get(Element *key) const;
             Dictionary *put(const std::string &key, Element *value);
+            Dictionary *add(const std::string &key, Element *value);
 
 			virtual bool is_true() const override;
 			virtual bool is_equal(Element *other) const override;

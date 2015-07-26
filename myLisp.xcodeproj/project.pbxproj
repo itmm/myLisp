@@ -50,6 +50,7 @@
 		24D30F7F1B64E61A00B837FC /* t_unary_numeric.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F551B64E5AB00B837FC /* t_unary_numeric.lsp */; };
 		24D30F801B64E61A00B837FC /* t_unary_pair.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F561B64E5AB00B837FC /* t_unary_pair.lsp */; };
 		24D30F811B64E61A00B837FC /* tests.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F571B64E5AB00B837FC /* tests.lsp */; };
+		24D30F831B6505FE00B837FC /* sicp-tests.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F821B6505B700B837FC /* sicp-tests.lsp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -124,6 +125,7 @@
 			dstSubfolderSpec = 6;
 			files = (
 				24A612971B3C842400A2CB04 /* turing.lsp in CopyFiles */,
+				24D30F831B6505FE00B837FC /* sicp-tests.lsp in CopyFiles */,
 				24A612961B36C90C00A2CB04 /* system.lsp in CopyFiles */,
 				24D30F591B64E61A00B837FC /* simple.lsp in CopyFiles */,
 				24D30F5A1B64E61A00B837FC /* t_binary.lsp in CopyFiles */,
@@ -213,6 +215,7 @@
 		24D30F561B64E5AB00B837FC /* t_unary_pair.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_unary_pair.lsp; sourceTree = "<group>"; };
 		24D30F571B64E5AB00B837FC /* tests.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tests.lsp; sourceTree = "<group>"; };
 		24D30F581B64E5F400B837FC /* simple.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simple.lsp; sourceTree = "<group>"; };
+		24D30F821B6505B700B837FC /* sicp-tests.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sicp-tests.lsp"; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -545,6 +548,7 @@
 				3652D580110EAAA0F2926A9B /* rewriter.h */,
 				3652D2FDC29674E566B9A885 /* root_factory.cpp */,
 				3652DFB4794774B82D7455FE /* root_factory.h */,
+				24D30F821B6505B700B837FC /* sicp-tests.lsp */,
 				3652D0FAA138CD1D5707DD09 /* state.cpp */,
 				3652DBD71DBC8FACD7C6861B /* state.h */,
 				705895601B18BA5D0035ED69 /* string.cpp */,

@@ -24,7 +24,7 @@
 
 	/*TESTS:
 	 *
-	 *+ (def "a" (fn macro ("b") (eval b)))
+	 *+ (def "a" (fn macro ("b") b))
 	 *+	(a (def "x" 32))
 	 *
 	 *	(assert (= x 32) "indirect macro")

@@ -3,7 +3,6 @@ substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries
 endstellige Rekursion
-eval for lists
 repl in gui app
 (and) as decider
 self-register functions

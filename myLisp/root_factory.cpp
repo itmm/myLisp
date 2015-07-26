@@ -7,7 +7,6 @@
 #include "bool.h"
 #include "fnlist.h"
 #include "fnlambda.h"
-#include "fneval.h"
 #include "fncar.h"
 #include "fncond.h"
 #include "fncdr.h"
@@ -44,7 +43,6 @@ Ptr RootFactory::root() {
 	dict->put("false", _creator->new_element(new Bool(BigInt(0))));
 	dict->put("list", _creator->new_element(new FunctionList()));
 	dict->put("fn", _creator->new_element(new FunctionLambda()));
-	dict->put("eval", _creator->new_element(new FunctionEval()));
 	dict->put("car", _creator->new_element(new FunctionCar()));
 	dict->put("cond", _creator->new_element(new FunctionCond()));
 	dict->put("cdr", _creator->new_element(new FunctionCdr()));

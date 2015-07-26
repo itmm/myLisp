@@ -29,7 +29,6 @@
  *	(assert (number? false) "false")
  *	(assert (function? list) "list")
  *	(assert (function? fn) "fn")
- *	(assert (function? eval) "eval")
  *	(assert (function? car) "car")
  *	(assert (function? cond) "cond")
  *	(assert (function? cdr) "cdr")

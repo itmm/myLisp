@@ -1,10 +1,3 @@
-#include "t_test.h"
-#include "parser.h"
-
-#include <cassert>
-
-#include "fndynamic.h"
-
 ((fn () (defn ("f" "a" "b") (+ a b))(defn ("g" . "args") (apply + args)) (assert (= (f 2 3) 5) "f 2 3")))
 ((fn () (defn ("f" "a" "b") (+ a b))(defn ("g" . "args") (apply + args)) (assert (= (g 2 3) 5) "g 2 3")))
 ((fn () (defn ("f" "a" "b") (+ a b))(defn ("g" . "args") (apply + args)) (assert (= (f) (error "too few arguments")) "f")))

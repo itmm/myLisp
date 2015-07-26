@@ -55,30 +55,6 @@
         if (_local_state) { delete _state; }
     }
 
-    /*C++-TESTS:
-     *
-     *> #include "number.h"
-     *> #include "pair.h"
-     *> #include "string.h"
-     *
-     *  Parser().parse("") == nullptr
-     *  Parser().parse(" \t\n\r") == nullptr
-     *
-     *  Parser().parse("3")->as_number()->value() == BigInt(3)
-     *  Parser().parse("  2/3")->as_number()->value() == Fractional(2, 3)
-     *  Parser().parse("-2/3")->as_number()->value() == -Fractional(2, 3)
-     *
-     *  Parser().parse("\n\"abc\"")->as_string()->str() == "abc"
-     *
-     *  Parser().parse("()") == nullptr
-     *
-     *  Parser().parse("abc")->as_identifier() != nullptr
-     *
-     *	Parser().parse(";; some comments\n12")->as_number()->value() == BigInt(12)
-     *	Parser().parse(";;; 12\r13")->as_number()->value() == BigInt(13)
-     *	Parser().parse(";;") == nullptr
-     */
-
 	/*TESTS:
 	 *
 	 *	(assert (= (str-print (2 3 4)) "(2 3 4)") "str-print (2 3 4)")

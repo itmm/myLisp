@@ -30,16 +30,4 @@ class Dictionary;
 			bool _local_collector;
 	};
 
-	/*C++-TESTS:
-	 *
-	 *> #include "pair.h"
-	 *
-	 *+ Creator c;
-	 *
-	 *	c.new_identifier("abc") != Ptr()
-	 *
-	 *	c.new_pair(nullptr, nullptr) != Ptr()
-	 *
-	 */
-
 #endif

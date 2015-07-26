@@ -50,14 +50,4 @@
         return false;
     }
 
-    /*C++-TESTS:
-     *
-     *> #include "dictionary.h"
-     *> #include "number.h"
-     *
-     *  Collector().remove_initial_lock(nullptr) == false
-     *  Collector().add_root(nullptr) == false
-     *  Collector().remove_root(nullptr) == false
-     */
-
 #endif

@@ -36,15 +36,6 @@
             std::map<std::string, Element *> _map;
 	};
 
-    /*C++-TESTS:
-     *
-     *> #include "creator.h"
-     *
-     *  Creator().new_dictionary()->as_dictionary()->parent() == nullptr
-     *  Creator().new_dictionary()->as_dictionary()->get("ab") == nullptr
-     *
-     */
-
 	/*TESTS:
 	 *
 	 *	(assert (= (function? (dict)) false) "function? dict")
@@ -54,4 +45,5 @@
 	 *	(assert (= (pair? (dict)) false) "pair? dict")
 	 *	(assert (= (string? (dict)) false) "string? dict")
 	 */
+     
 #endif

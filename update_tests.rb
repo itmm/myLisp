@@ -61,7 +61,7 @@ Dir.foreach("myLisp") { |f|
 
 		last_change = [File.mtime(header), File.mtime(source), last_static_change].max()
 
-        t_source = "testLisp/t_#{base}.lsp"
+        t_source = "tests/t_#{base}.lsp"
 		
         if needs_update t_source, last_change
             update_tests base, header, source, t_source

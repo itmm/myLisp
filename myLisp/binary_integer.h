@@ -3,7 +3,7 @@
 
 	#include "binary_numeric.h"
 
-	class IntegerBinaryFunction : public BinaryNumericFunction {
+	class BinaryIntegerFunction : public BinaryNumericFunction {
 		protected:
 			virtual Ptr apply_binary(const Fractional &first, const Fractional &second, State &state) override;
 			virtual Ptr apply_integers(const BigInt &first, const BigInt &second, State &state) = 0;

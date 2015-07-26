@@ -19,3 +19,4 @@ chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 random
 runtime
+numeric output of numbers

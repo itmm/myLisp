@@ -1,9 +1,9 @@
 #if ! defined(fngcd_h)
 #define fngcd_h
 
-	#include "integer_binary.h"
+	#include "binary_integer.h"
 
-	class FunctionGcd : public IntegerBinaryFunction {
+	class FunctionGcd : public BinaryIntegerFunction {
 		protected:
 			virtual Ptr apply_integers(const BigInt &first, const BigInt &second, State &state) override;
 	};

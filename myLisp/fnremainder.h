@@ -1,9 +1,9 @@
 #if ! defined(fnremainder_h)
 #define fnremainder_h
 
-	#include "integer_binary.h"
+	#include "binary_integer.h"
 
-	class FunctionRemainder : public IntegerBinaryFunction {
+	class FunctionRemainder : public BinaryIntegerFunction {
 		protected:
 			virtual Ptr apply_integers(const BigInt &first, const BigInt &second, State &state) override;
 	};

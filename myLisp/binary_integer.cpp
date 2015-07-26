@@ -1,6 +1,6 @@
-#include "integer_binary.h"
+#include "binary_integer.h"
 
-Ptr IntegerBinaryFunction::apply_binary(const Fractional &first, const Fractional &second, State &state) {
+Ptr BinaryIntegerFunction::apply_binary(const Fractional &first, const Fractional &second, State &state) {
 	static BigInt one(1);
 	if (first.denominator() != one) return state.error("first argument must be integer");
 	if (second.denominator() != one) return state.error("second argument must be integer");

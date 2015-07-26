@@ -7,12 +7,9 @@ substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries
 endstellige Rekursion
-move dynamic sources in one directory
-listable_numeric
 eval for lists
 repl in gui app
 (and) as decider
-unit-tests for Listable
 self-register functions
 trigger garbage collection after each repl statement
 chromatic colorscheme for identifiers
@@ -20,3 +17,4 @@ chromatic colorscheme for matching parenthesis
 random
 runtime
 numeric output of numbers
+rename listable to listable-function

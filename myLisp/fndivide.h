@@ -1,13 +1,24 @@
 #if ! defined(fndivide_h)
 #define fndivide_h
 
-	#include "listable.h"
+	#include "listable_numeric.h"
 
-	class FunctionDivide : public Listable {
+	class FunctionDivide : public ListableNumericFunction {
 		protected:
-			virtual Ptr first_argument(Ptr intermediate, Ptr element, bool hasMore, State &callerState, bool &stop) override;
+			virtual Ptr first_argument_numeric(
+                Ptr intermediate,
+                const Fractional &element,
+                bool hasMore,
+                State &callerState,
+                bool &stop
+            ) override;
 
-			virtual Ptr argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) override;
+			virtual Ptr argument_numeric(
+                Ptr intermediate,
+                const Fractional &element,
+                State &callerState,
+                bool &stop
+            ) override;
 	};
 
 #endif

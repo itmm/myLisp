@@ -31,6 +31,8 @@
 (import "t_fractional.lsp")
 (import "t_function.lsp")
 (import "t_identifier.lsp")
+(import "t_listable_numeric.lsp")
+(import "t_listable.lsp")
 (import "t_integer_binary.lsp")
 (import "t_number.lsp")
 (import "t_pair.lsp")

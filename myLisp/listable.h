@@ -20,4 +20,10 @@
 			bool _stopOnError;
 	};
 
+    /*TESTS:
+     *
+	 *  (assert (= (+ . 2) (error "Listable needs a plain list")) "+ . 2")
+	 *  (assert (= (+ 1 . 2) (error "Listable needs a plain list")) "+ 1 . 2")
+     */
+     
 #endif

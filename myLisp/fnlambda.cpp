@@ -7,17 +7,19 @@
 
 Ptr FunctionLambda::apply(Ptr arguments, State &state) {
 	Pair *args = Element::as_pair(arguments);
-	if (!args) return state.creator()->new_error("arguments expected");
+	if (! args) return state.error("arguments expected");
 
 	bool isMacro = false;
-	if (Element::as_identifier(args->car()) && args->car()->as_identifier()->str() == "macro") {
+    Identifier *first_argument = Element::as_identifier(args->car());
+	if (first_argument && Element::as_identifier(args->car())->str() == "macro") {
 		isMacro = true;
 		args = Element::as_pair(args->cdr());
-		if (!args) return state.creator()->new_error("arguments expected");
+		if (!args) return state.error("arguments expected");
 	}
 
 	Pair *body = Element::as_pair(args->cdr());
-	Element *real_args = state.eval(Ptr(args->car(), state.collector()));
-	// std::cerr << "args == " << Ptr(real_args, state.collector()) << std::endl;
-	return state.creator()->new_element(new FunctionDynamic(real_args, body, isMacro, state));
+	Element *real_args = state.eval(state.ptr(args->car()));
+	return state.creator()->new_element(
+        new FunctionDynamic(real_args, body, isMacro, state)
+    );
 }

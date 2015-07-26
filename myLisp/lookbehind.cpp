@@ -3,7 +3,7 @@
 Ptr Lookbehind::first_argument(Ptr, Ptr element, bool hasMore, State &callerState, bool &stop) {
 	if (!hasMore) {
 		stop = true;
-		return callerState.creator()->new_error("Lookbehind needs at least two arguments");
+		return callerState.error("Lookbehind needs at least two arguments");
 	}
 	return Ptr(element, callerState.collector());
 }

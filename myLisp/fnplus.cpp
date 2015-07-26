@@ -13,6 +13,6 @@ Ptr FunctionPlus::setup(State &callerState, bool &stop) {
 Ptr FunctionPlus::argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) {
 	Number *sum = Element::as_number(intermediate);
 	Number *value = Element::as_number(element);
-	if (!sum || !value) return callerState.creator()->new_error("+ expects numeric arguments");
+	if (!sum || !value) return callerState.error("+ expects numeric arguments");
 	return callerState.creator()->new_number(sum->value() + value->value());
 }

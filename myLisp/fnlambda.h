@@ -4,8 +4,8 @@
 	#include "function.h"
 
 	class FunctionLambda: public Function {
-	public:
-		virtual Ptr apply(Ptr arguments, State &state) override;
+        public:
+            virtual Ptr apply(Ptr arguments, State &state) override;
 	};
 
 	/*TESTS:

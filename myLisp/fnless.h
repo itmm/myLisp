@@ -4,8 +4,8 @@
 	#include "lookbehind.h"
 
 	class FunctionLess: public Lookbehind {
-	protected:
-		virtual bool is_valid(Element *last, Element *current) override;
+        protected:
+            virtual bool is_valid(Element *last, Element *current) override;
 	};
 
 #endif

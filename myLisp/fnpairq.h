@@ -4,8 +4,8 @@
 	#include "decider.h"
 
 	class FunctionPairQuery: public Decider {
-	protected:
-		virtual bool is_valid(Element *element) override;
+        protected:
+            virtual bool is_valid(Element *element) override;
 	};
 
 #endif

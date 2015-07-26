@@ -2,7 +2,6 @@
 
 #include "pair.h"
 
-Ptr FunctionList::apply(Ptr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
+Ptr FunctionList::apply_evaled(Ptr arguments, State &state) {
 	return Ptr(arguments, state.collector());
 }

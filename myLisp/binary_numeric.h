@@ -1,9 +1,9 @@
-#if ! defined(numeric_binary_h)
-#define numeric_binary_h
+#if ! defined(binary_numeric_h)
+#define binary_numeric_h
 
 	#include "binary.h"
 
-	class NumericBinaryFunction : public BinaryFunction {
+	class BinaryNumericFunction : public BinaryFunction {
 		protected:
 			virtual Ptr apply_binary(const Fractional &first, const Fractional &second, State &state) = 0;
 

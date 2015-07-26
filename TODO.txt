@@ -8,7 +8,6 @@ bessere Fehlermeldungen im Parser
 < für Dictionaries
 endstellige Rekursion
 move dynamic sources in one directory
-rename numeric_binary to binary_numeric
 listable_numeric
 eval for lists
 repl in gui app

@@ -1,9 +1,9 @@
 #if ! defined(integer_binary_h)
 #define integer_binary_h
 
-	#include "numeric_binary.h"
+	#include "binary_numeric.h"
 
-	class IntegerBinaryFunction : public NumericBinaryFunction {
+	class IntegerBinaryFunction : public BinaryNumericFunction {
 		protected:
 			virtual Ptr apply_binary(const Fractional &first, const Fractional &second, State &state) override;
 			virtual Ptr apply_integers(const BigInt &first, const BigInt &second, State &state) = 0;

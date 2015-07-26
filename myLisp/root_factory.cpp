@@ -29,7 +29,6 @@
 #include "fnless.h"
 #include "fndict.h"
 #include "fnexpand.h"
-#include "fnapply.h"
 #include "fndivide.h"
 #include "fnnumerator.h"
 #include "fndenominator.h"
@@ -69,7 +68,6 @@ Ptr RootFactory::root() {
 	dict->put("<", _creator->new_element(new FunctionLess()));
 	dict->put("dict", _creator->new_element(new FunctionDict()));
 	dict->put("expand", _creator->new_element(new FunctionExpand()));
-	dict->put("apply", _creator->new_element(new FunctionApply()));
 	dict->put("/", _creator->new_element(new FunctionDivide()));
 	dict->put("numerator", _creator->new_element(new FunctionNumerator()));
 	dict->put("denominator", _creator->new_element(new FunctionDenominator()));

@@ -93,7 +93,12 @@
 
     (assert (= (null? ()) true) "empty null?")
     (assert (= (null? (1)) false) "non-empty null?")
+    (assert (= (null? 0) false) "null? 0")
+    (assert (= (null? "()") false) "null? \"()\"")
 
+(defm ("apply" "f" "args") (f . args))
+
+    (assert (= (apply + (2 3 4)) 9) "apply")
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; contatenate lists ;;
@@ -114,6 +119,10 @@
     (assert (= (flatten) (list)) "empty flatten")
     (assert (= (flatten 1 2) (1 2)) "flatten numbers")
     (assert (= (flatten (1 2) (3)) (1 2 3)) "flatten lists")
+
+
+;;;;;;;;;;
+;; bool ;;
 
 (defm ("and" "a" "b" . "args") (if a
     (if (null? args)
@@ -159,6 +168,10 @@
 
     (assert (= (xor 0 1 0) true) "xor 0 1 0")
 
+
+;;;;;;;;;;;;;;;;;;;;;;;
+;; filter & listable ;;
+
 (defn ("filter" "lst" "ref" "op") (cond
     ((= (list) lst) (list))
     ((op (car lst) ref) (cons (car lst) (filter (cdr lst) ref op)))
@@ -175,6 +188,9 @@
     )
     false
 ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; comparison shortcuts ;;
 
 (defm ("<=" . "args") (listable (fn ("a" "b") (or (= a b) (< a b))) . args))
 
@@ -228,9 +244,17 @@
     (assert (= (><) 1) "single not equal")
     (assert (= (>< 2 1 2) false) "double not equal")
 
+
+;;;;;;;;
+;; do ;;
+
 (defm ("do" . "statements") (cond (true . statements)))
 
-    (assert (= (do (+ 1 2) (+ 2 3)) 5), "do")
+    (assert (= (do (+ 1 2) (+ 2 3)) 5) "do")
+
+
+;;;;;;;;;;
+;; sign ;;
 
 (defn ("sign" "a") (cond
     ((= a 0) 0)

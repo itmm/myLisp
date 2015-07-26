@@ -26,7 +26,7 @@
 	/*TESTS:
 	 *
 	 *+	(defn ("f" "a" "b") (+ a b))
-	 *+ (defn ("g" . "args") (apply + args))
+	 *+ (defm ("g" . "args") (apply + args))
 	 *
 	 *	(assert (= (f 2 3) 5) "f 2 3")
 	 *	(assert (= (g 2 3) 5) "g 2 3")
@@ -43,7 +43,7 @@
 
 	/*TESTS:
 	 *
-	 *+ (defn ("f" "a" . "b") (+ a (apply + b)))
+	 *+ (defm ("f" "a" . "b") (+ a (apply + b)))
 	 *
 	 *	(assert (= (f 2 3 4) 9) "mixed with 2 3 4")
 	 *	(assert (= (f 2) 2) "mixed with 2")

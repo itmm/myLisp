@@ -15,4 +15,4 @@ runtime
 numeric output of numbers
 rename listable to listable-function
 let for listable
-empty?
+apply as function not as macro

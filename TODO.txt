@@ -1,5 +1,7 @@
 (let)
 (xor)
+(<=) as listable
+(>) as listable
 (>=)
 substrings
 bessere Fehlermeldungen im Parser
@@ -13,3 +15,6 @@ repl in gui app
 (and) as decider
 unit-tests for Listable
 self-register functions
+trigger garbage collection after each repl statement
+chromatic colorscheme for identifiers
+chromatic colorscheme for matching parenthesis

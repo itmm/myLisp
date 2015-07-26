@@ -128,13 +128,28 @@
     (assert (= (filter (1 2 3 4) 3 <) (1 2)) "filter")
     (assert (= (filter (4 3 2 1) 3 <) (2 1)) "reverse filter")
 
-(defn ("<=" "a" "b") (or (= a b) (< a b)))
+(defm ("listable" "cnd" "a" "b" . "args") (if (cnd a b)
+    (if (= () args)
+        true
+        (listable cnd b . args)
+    )
+    false
+))
 
-    (assert (<= 2 2) "2 <= 2")
-    (assert (<= 2 3) "2 <= 3")
+(defm ("<=" . "args") (listable (fn ("a" "b") (or (= a b) (< a b))) . args))
+
+    (assert (= (<= 2 2) true) "2 <= 2")
+    (assert (= (<= 2 3) true) "2 <= 3")
     (assert (= (<= 3 2) false) "3 <= 2")
+    (assert (= (<= 1 2 2 3) true) "<= 1 2 2 3")
+    (assert (= (<= 1 2 1) false) "<= 1 2 1")
+    (assert (= (<= 2 1 (err-print "<= lazy not working")) false) "<= 2 1 err")
 
-(defn (">" "a" "b") (< b a))
+(defm (">" . "args") (listable (fn ("a" "b") (< b a)) . args))
+
+    (assert (= (> 5 4 3) true) "> 5 4 3")
+    (assert (= (> 5 4 5) false) "> 5 4 5")
+
 (defn ("sort" . "a") (cond
     ((= (list) a) a)
     ((= (list) (cdr a)) a)

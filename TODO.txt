@@ -1,7 +1,5 @@
 (let)
 (xor)
-(<=) as listable
-(>) as listable
 (>=)
 substrings
 bessere Fehlermeldungen im Parser
@@ -18,3 +16,5 @@ random
 runtime
 numeric output of numbers
 rename listable to listable-function
+let for <=
+empty?

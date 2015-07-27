@@ -60,6 +60,7 @@
  *	(assert (function? remainder) "remainder")
  *	(assert (function? gcd) "gcd")
  *  (assert (function? let) "let")
+ *  (assert (function? random) "random")
  */
 
 #endif

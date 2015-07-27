@@ -7,8 +7,8 @@ self-register functions
 trigger garbage collection after each repl statement
 chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
-random
 runtime
 numeric output of numbers
 rename listable to listable-function
 apply as function not as macro
+(import "t_*.lsp")

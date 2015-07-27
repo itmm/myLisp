@@ -34,6 +34,7 @@
 #include "fnremainder.h"
 #include "fngcd.h"
 #include "fnlet.h"
+#include "fnrandom.h"
 
 Ptr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -73,5 +74,6 @@ Ptr RootFactory::root() {
 	dict->put("remainder", _creator->new_element(new FunctionRemainder()));
 	dict->put("gcd", _creator->new_element(new FunctionGcd()));
     dict->put("let", _creator->new_element(new FunctionLet()));
+    dict->put("random", _creator->new_element(new FunctionRandom()));
 	return Ptr(dict, _creator->collector());
 }

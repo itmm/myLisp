@@ -23,6 +23,7 @@
 (import "t_fnnumerator.lsp")
 (import "t_fnplus.lsp")
 (import "t_fnquote.lsp")
+(import "t_fnrandom.lsp")
 (import "t_fnremainder.lsp")
 (import "t_fnstrprint.lsp")
 (import "t_fntimes.lsp")

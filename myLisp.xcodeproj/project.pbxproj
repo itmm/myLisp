@@ -56,6 +56,8 @@
 		24D30FBA1B653FD200B837FC /* t_listable_numeric.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30FB81B653F7600B837FC /* t_listable_numeric.lsp */; };
 		24D30FBB1B653FD200B837FC /* t_listable.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30FB91B653F7600B837FC /* t_listable.lsp */; };
 		24D30FBE1B65776C00B837FC /* fnlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D30FBC1B65776C00B837FC /* fnlet.cpp */; };
+		24D30FC11B65FA7100B837FC /* fnrandom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D30FBF1B65FA7100B837FC /* fnrandom.cpp */; };
+		24D30FC31B65FD4200B837FC /* t_fnrandom.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30FC21B65FCF700B837FC /* t_fnrandom.lsp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -156,6 +158,7 @@
 				24D30FA11B651E9D00B837FC /* t_fnnumerator.lsp in CopyFiles */,
 				24D30FA21B651E9D00B837FC /* t_fnplus.lsp in CopyFiles */,
 				24D30FA31B651E9D00B837FC /* t_fnquote.lsp in CopyFiles */,
+				24D30FC31B65FD4200B837FC /* t_fnrandom.lsp in CopyFiles */,
 				24D30FA41B651E9D00B837FC /* t_fnremainder.lsp in CopyFiles */,
 				24D30FA51B651E9D00B837FC /* t_fnstrprint.lsp in CopyFiles */,
 				24D30FA61B651E9D00B837FC /* t_fntimes.lsp in CopyFiles */,
@@ -228,6 +231,9 @@
 		24D30FB91B653F7600B837FC /* t_listable.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_listable.lsp; sourceTree = "<group>"; };
 		24D30FBC1B65776C00B837FC /* fnlet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnlet.cpp; sourceTree = "<group>"; };
 		24D30FBD1B65776C00B837FC /* fnlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnlet.h; sourceTree = "<group>"; };
+		24D30FBF1B65FA7100B837FC /* fnrandom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnrandom.cpp; sourceTree = "<group>"; };
+		24D30FC01B65FA7100B837FC /* fnrandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnrandom.h; sourceTree = "<group>"; };
+		24D30FC21B65FCF700B837FC /* t_fnrandom.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnrandom.lsp; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -397,6 +403,7 @@
 				24D30F451B64E5AB00B837FC /* t_fnnumerator.lsp */,
 				24D30F461B64E5AB00B837FC /* t_fnplus.lsp */,
 				24D30F871B651E6300B837FC /* t_fnquote.lsp */,
+				24D30FC21B65FCF700B837FC /* t_fnrandom.lsp */,
 				24D30F471B64E5AB00B837FC /* t_fnremainder.lsp */,
 				24D30F481B64E5AB00B837FC /* t_fnstrprint.lsp */,
 				24D30F491B64E5AB00B837FC /* t_fntimes.lsp */,
@@ -522,6 +529,8 @@
 				3652D7F1CE610A61A891C3EA /* fnprint.h */,
 				3652D4507D93EF742DF218FF /* fnquote.cpp */,
 				3652D375BF1ABD0090EA679C /* fnquote.h */,
+				24D30FBF1B65FA7100B837FC /* fnrandom.cpp */,
+				24D30FC01B65FA7100B837FC /* fnrandom.h */,
 				3652DC4D66C8800DFDDEC98B /* fnremainder.cpp */,
 				3652DAF58464413CA3E7B36D /* fnremainder.h */,
 				3652D0A296D4F97F6479DE88 /* fnstringq.cpp */,
@@ -664,6 +673,7 @@
 				3652DAD93097B5B2EA6FA6A0 /* root_factory.cpp in Sources */,
 				3652D635B99DB33CD9791860 /* fndefine.cpp in Sources */,
 				90A2CF24F05180FDA24B6AC4 /* fnminus.cpp in Sources */,
+				24D30FC11B65FA7100B837FC /* fnrandom.cpp in Sources */,
 				3652DFCC9C4A983DB1E43A4B /* bool.cpp in Sources */,
 				3652D7B65F7113D097623637 /* identifier.cpp in Sources */,
 				3652D4BA1A465782B2866FD4 /* fnlist.cpp in Sources */,

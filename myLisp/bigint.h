@@ -24,6 +24,8 @@
 			bool operator<=(const BigInt &other) const { return !(other < *this); }
 			bool operator>(const BigInt &other) const { return other < *this; }
 
+            BigInt random() const;
+            
 			~BigInt() { if (_bigger) { delete _bigger; }}
 
 		private:

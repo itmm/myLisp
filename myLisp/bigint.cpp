@@ -1,5 +1,6 @@
 #include "bigint.h"
 
+#include <cassert>
 #include <iomanip>
 
 BigInt::BigInt(const BigInt &other): _bigger(other._bigger ? new BigInt(*other._bigger) : static_cast<BigInt *>(nullptr)) {
@@ -306,4 +307,33 @@ bool BigInt::write(std::ostream &out) const {
 		}
 	}
 	return wrote_something;
+}
+
+BigInt BigInt::random() const {
+    BigInt result;
+    BigInt *last = nullptr;
+    assert(RAND_MAX >= _MOD);
+    for (const BigInt *cur = this; cur; cur = cur->_bigger) {
+        BigInt *res = last ? new BigInt() : &result;
+        if (last) last->_bigger = res;
+        last = res;
+        
+        bool has_more = cur->_bigger && *cur->_bigger;
+        int biggest_index;
+        if (has_more) {
+            biggest_index = _BLOCK_SIZE;
+        } else {
+            for (biggest_index = _BLOCK_SIZE - 1; biggest_index >= 0; --biggest_index) {
+                if (cur->_values[biggest_index]) break;
+            }
+        }
+        
+        for (int i = 0; i < biggest_index; ++i) {
+            res->_values[i] = rand() % _MOD;
+        }
+        if (biggest_index >= 0 && biggest_index < _BLOCK_SIZE) {
+            res->_values[biggest_index] = rand() % cur->_values[biggest_index];
+        }
+    }
+    return result;
 }

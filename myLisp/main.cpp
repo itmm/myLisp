@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
 		std::ifstream system("system.lsp");
 		for (; ;
 			) {
-			Ptr in = parser.parse(system);
+			EPtr in = parser.parse(system);
 			if (!in) { break; }
 			state.eval(in);
 		}
@@ -23,9 +23,9 @@ int main(int argc, const char * argv[]) {
 	std::cout << "true" << std::endl << std::endl;
 
 	for (;;) {
-        Ptr in = parser.parse(std::cin);
+        EPtr in = parser.parse(std::cin);
         if (!in) { std::cout << "[# parse error #]" << std:: endl; break; }
-		Ptr result = state.eval(in);
+		EPtr result = state.eval(in);
 		std::cout << result << std::endl;
     }
     

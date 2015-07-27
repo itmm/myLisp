@@ -2,7 +2,7 @@
 
 #include "pair.h"
 
-EPtr Listable::apply(EPtr arguments, State &state) {
+EPtr ListableFunction::apply(EPtr arguments, State &state) {
 	if (! arguments) return empty_case(state);
 	Pair *current = arguments->as_pair();
 	if (! current) return state.error("Listable needs a plain list");
@@ -25,18 +25,18 @@ EPtr Listable::apply(EPtr arguments, State &state) {
 }
 
 
-EPtr Listable::empty_case(State &callerState) {
+EPtr ListableFunction::empty_case(State &callerState) {
 	return callerState.error("Listable needs at least one argument");;
 }
 
-EPtr Listable::setup(State &callerState, bool &stop) {
+EPtr ListableFunction::setup(State &callerState, bool &stop) {
 	return EPtr();
 }
 
-EPtr Listable::first_argument(EPtr intermediate, EPtr element, bool, State &callerState, bool &stop) {
+EPtr ListableFunction::first_argument(EPtr intermediate, EPtr element, bool, State &callerState, bool &stop) {
 	return argument(intermediate, element, callerState, stop);
 }
 
-EPtr Listable::finish(EPtr intermediate, State &callerState) {
+EPtr ListableFunction::finish(EPtr intermediate, State &callerState) {
 	return intermediate;
 }

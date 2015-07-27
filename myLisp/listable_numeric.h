@@ -3,9 +3,9 @@
 
     #include "listable.h"
 
-    class ListableNumericFunction : public Listable {
+    class ListableNumericFunction : public ListableFunction {
 		public:
-			ListableNumericFunction(bool stopOnError = true) : Listable(stopOnError) {}
+			ListableNumericFunction(bool stopOnError = true) : ListableFunction(stopOnError) {}
 
 		protected:
 			virtual EPtr first_argument(

@@ -3,16 +3,22 @@
 
 	#include "function.h"
 
-	class Listable: public Function {
+	class ListableFunction: public Function {
 		public:
-			Listable(bool stopOnError = true) : _stopOnError(stopOnError) {}
+			ListableFunction(bool stopOnError = true) : _stopOnError(stopOnError) {}
 
 			virtual EPtr apply(EPtr arguments, State &state) override;
 
 		protected:
 			virtual EPtr empty_case(State &callerState);
 			virtual EPtr setup(State &callerState, bool &stop);
-			virtual EPtr first_argument(EPtr intermediate, EPtr element, bool hasMore, State &callerState, bool &stop);
+			virtual EPtr first_argument(
+                EPtr intermediate,
+                EPtr element,
+                bool hasMore,
+                State &callerState,
+                bool &stop
+            );
 			virtual EPtr argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) = 0;
 			virtual EPtr finish(EPtr intermediate, State &callerState);
 

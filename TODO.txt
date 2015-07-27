@@ -2,13 +2,11 @@ substrings
 bessere Fehlermeldungen im Parser
 < für Dictionaries
 endstellige Rekursion
-repl in gui app
 self-register functions
 trigger garbage collection after each repl statement
 chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 runtime
 numeric output of numbers
-rename listable to listable-function
 apply as function not as macro
 (import "t_*.lsp")

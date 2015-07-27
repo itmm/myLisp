@@ -3,9 +3,9 @@
 
 	#include "listable.h"
 
-	class Lookbehind : public Listable {
+	class Lookbehind : public ListableFunction {
 		public:
-			Lookbehind(): Listable(false) {}
+			Lookbehind(): ListableFunction(false) {}
 
 		protected:
 			virtual bool is_valid(Element *last, Element *current) = 0;

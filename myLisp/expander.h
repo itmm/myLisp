@@ -5,12 +5,12 @@
 
 	class Expander : public Rewriter {
 		public:
-			Expander(Ptr replacements): _replacements(replacements) {}
+			Expander(EPtr replacements): _replacements(replacements) {}
 
 		private:
-			Ptr _replacements;
+			EPtr _replacements;
 	public:
-		virtual Ptr rewrite_identifier(Ptr identifier, Creator &creator) override;
+		virtual EPtr rewrite_identifier(EPtr identifier, Creator &creator) override;
 	};
 
 	/*TESTS:

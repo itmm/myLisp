@@ -5,12 +5,12 @@
 
 	class FunctionPlus : public ListableNumericFunction {
 	protected:
-		virtual Ptr empty_case(State &callerState) override;
+		virtual EPtr empty_case(State &callerState) override;
 
-		virtual Ptr setup(State &callerState, bool &stop) override;
+		virtual EPtr setup(State &callerState, bool &stop) override;
 
-		virtual Ptr argument_numeric(
-            Ptr intermediate,
+		virtual EPtr argument_numeric(
+            EPtr intermediate,
             const Fractional &element,
             State &callerState,
             bool &stop

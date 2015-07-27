@@ -10,11 +10,11 @@
 		protected:
 			virtual bool is_valid(Element *last, Element *current) = 0;
 
-			virtual Ptr first_argument(Ptr intermediate, Ptr element, bool hasMore, State &callerState, bool &stop) override;
+			virtual EPtr first_argument(EPtr intermediate, EPtr element, bool hasMore, State &callerState, bool &stop) override;
 
-			virtual Ptr argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) override;
+			virtual EPtr argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) override;
 
-			virtual Ptr finish(Ptr intermediate, State &callerState) override;
+			virtual EPtr finish(EPtr intermediate, State &callerState) override;
 	};
 
 #endif

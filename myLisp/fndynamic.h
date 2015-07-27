@@ -11,7 +11,7 @@
 
 			virtual void add_to_visit(Collector::Visitor &visitor) override;
 
-			virtual Ptr apply(Ptr arguments, State &state) override;
+			virtual EPtr apply(EPtr arguments, State &state) override;
 		private:
 			bool _macro;
 			Element *_args;

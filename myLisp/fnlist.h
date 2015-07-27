@@ -5,7 +5,7 @@
 
 	class FunctionList: public Function {
         public:
-            virtual Ptr apply_evaled(Ptr arguments, State &state) override;
+            virtual EPtr apply_evaled(EPtr arguments, State &state) override;
 	};
 
 	/*TESTS:

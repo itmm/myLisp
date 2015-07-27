@@ -5,7 +5,7 @@
 #import "parser.h"
 #import "string.h"
 
-Ptr FunctionImport::apply(Ptr arguments, State &state) {
+EPtr FunctionImport::apply(EPtr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
 
 	Parser parser(&state);
@@ -15,7 +15,7 @@ Ptr FunctionImport::apply(Ptr arguments, State &state) {
 		std::ifstream in(path->str().c_str());
 		if (in.fail()) return state.creator()->new_error("can't import " + path->str());
 		for (;;) {
-			Ptr res = parser.parse(in);
+			EPtr res = parser.parse(in);
 			if (!res) { break; }
 			state.eval(res);
 		}

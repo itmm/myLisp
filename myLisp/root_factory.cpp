@@ -36,7 +36,7 @@
 #include "fnlet.h"
 #include "fnrandom.h"
 
-Ptr RootFactory::root() {
+EPtr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
 	dict->put("+", _creator->new_element(new FunctionPlus()));
     dict->put("-", _creator->new_element(new FunctionMinus()));
@@ -75,5 +75,5 @@ Ptr RootFactory::root() {
 	dict->put("gcd", _creator->new_element(new FunctionGcd()));
     dict->put("let", _creator->new_element(new FunctionLet()));
     dict->put("random", _creator->new_element(new FunctionRandom()));
-	return Ptr(dict, _creator->collector());
+	return EPtr(dict, _creator->collector());
 }

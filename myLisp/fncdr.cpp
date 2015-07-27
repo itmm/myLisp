@@ -1,6 +1,6 @@
 #include "fncdr.h"
 #include "pair.h"
 
-Ptr FunctionCdr::apply_unary_pair(Ptr pair, State &state) {
+EPtr FunctionCdr::apply_unary_pair(EPtr pair, State &state) {
 	return state.ptr(Pair::cdr(pair));
 }

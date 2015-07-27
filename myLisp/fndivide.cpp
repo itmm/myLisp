@@ -1,8 +1,8 @@
 #include "fndivide.h"
 #include "number.h"
 
-Ptr FunctionDivide::first_argument_numeric(
-    Ptr,
+EPtr FunctionDivide::first_argument_numeric(
+    EPtr,
     const Fractional &element,
     bool hasMore,
     State &callerState,
@@ -11,8 +11,8 @@ Ptr FunctionDivide::first_argument_numeric(
 	return callerState.creator()->new_number(hasMore ? element : BigInt(1) / element);
 }
 
-Ptr FunctionDivide::argument_numeric(
-    Ptr intermediate,
+EPtr FunctionDivide::argument_numeric(
+    EPtr intermediate,
     const Fractional &element,
     State &callerState,
     bool &stop

@@ -5,7 +5,7 @@
 
 	class FunctionCdr : public UnaryPairFunction {
 		protected:
-			virtual Ptr apply_unary_pair(Ptr pair, State &state) override;
+			virtual EPtr apply_unary_pair(EPtr pair, State &state) override;
 	};
 
 	/*TESTS:

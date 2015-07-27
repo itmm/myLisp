@@ -5,10 +5,10 @@
 
 	class UnaryFunction : public Function {
 		protected:
-			virtual Ptr apply_unary(Ptr arg, State &callerState) = 0;
+			virtual EPtr apply_unary(EPtr arg, State &callerState) = 0;
 
 		public:
-			virtual Ptr apply_evaled(Ptr arguments, State &state) override;
+			virtual EPtr apply_evaled(EPtr arguments, State &state) override;
 	};
 
 	/*TESTS:

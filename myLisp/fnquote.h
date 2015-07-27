@@ -5,7 +5,7 @@
 
 	class FunctionQuote: public Function {
 	public:
-		virtual Ptr apply(Ptr arguments, State &state) override;
+		virtual EPtr apply(EPtr arguments, State &state) override;
 	};
 
 	/*TESTS:

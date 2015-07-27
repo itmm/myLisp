@@ -5,7 +5,7 @@
 
     class FunctionRandom : public UnaryNumericFunction {
         protected:
-			virtual Ptr apply_unary_numeric(const Fractional &value, State &state) override;
+			virtual EPtr apply_unary_numeric(const Fractional &value, State &state) override;
     };
 
     /*TESTS:

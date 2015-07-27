@@ -3,10 +3,10 @@
 #include "dictionary.h"
 #include "identifier.h"
 
-Ptr Expander::rewrite_identifier(Ptr identifier, Creator &creator) {
+EPtr Expander::rewrite_identifier(EPtr identifier, Creator &creator) {
 	Dictionary *dict = _replacements->as_dictionary();
 	if (dict->contains(identifier->as_identifier()->str())) {
-		return Ptr(_replacements->as_dictionary()->get(identifier), creator.collector());
+		return EPtr(_replacements->as_dictionary()->get(identifier), creator.collector());
 	}
 	return identifier;
 }

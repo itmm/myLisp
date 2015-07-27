@@ -7,7 +7,7 @@
 		public:
 			FunctionPrint(std::ostream &stream): _stream(stream) {}
 
-			virtual Ptr apply(Ptr arguments, State &state) override;
+			virtual EPtr apply(EPtr arguments, State &state) override;
 
 		private:
 			std::ostream &_stream;

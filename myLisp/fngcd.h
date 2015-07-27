@@ -5,7 +5,7 @@
 
 	class FunctionGcd : public BinaryIntegerFunction {
 		protected:
-			virtual Ptr apply_integers(const BigInt &first, const BigInt &second, State &state) override;
+			virtual EPtr apply_integers(const BigInt &first, const BigInt &second, State &state) override;
 	};
 
 	/*TESTS:

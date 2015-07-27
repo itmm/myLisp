@@ -2,10 +2,10 @@
 #include "string.h"
 #include "pair.h"
 
-Ptr FunctionDict::apply(Ptr arguments, State &state) {
+EPtr FunctionDict::apply(EPtr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
 	Pair *current = Element::as_pair(arguments);
-	Ptr result = state.creator()->new_dictionary(nullptr);
+	EPtr result = state.creator()->new_dictionary(nullptr);
 	Dictionary *dict = Element::as_dictionary(result);
 	for (; current; current = Element::as_pair(current->cdr())) {
 		Pair *pair = Element::as_pair(current->car());

@@ -5,9 +5,9 @@
 
 	class UnaryPairFunction : public UnaryFunction {
 		protected:
-			virtual Ptr apply_unary_pair(Ptr pair, State &state) = 0;
+			virtual EPtr apply_unary_pair(EPtr pair, State &state) = 0;
 
-			virtual Ptr apply_unary(Ptr arg, State &callerState) override;
+			virtual EPtr apply_unary(EPtr arg, State &callerState) override;
 	};
 
 	/*TESTS:

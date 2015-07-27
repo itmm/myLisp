@@ -9,7 +9,7 @@
 			RootFactory(): _creator(new Creator()), _local_creator(true) {}
 			~RootFactory() { if (_local_creator) delete _creator; }
 
-			Ptr root();
+			EPtr root();
 
 		private:
 			RootFactory(const RootFactory &) = delete;

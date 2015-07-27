@@ -2,16 +2,16 @@
 
 #include "number.h"
 
-Ptr FunctionTimes::empty_case(State &callerState) {
+EPtr FunctionTimes::empty_case(State &callerState) {
 	return callerState.creator()->new_number(BigInt(1));
 }
 
-Ptr FunctionTimes::setup(State &callerState, bool &stop) {
+EPtr FunctionTimes::setup(State &callerState, bool &stop) {
 	return callerState.creator()->new_number(BigInt(1));
 }
 
-Ptr FunctionTimes::argument_numeric(
-    Ptr intermediate,
+EPtr FunctionTimes::argument_numeric(
+    EPtr intermediate,
     const Fractional &element,
     State &callerState,
     bool &stop

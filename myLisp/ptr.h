@@ -13,14 +13,14 @@
 #include "collector.h"
 #include "element.h"
 
-class Ptr {
+class EPtr {
 	public:
-		Ptr(): _collector(nullptr), _value(nullptr) {}
-		Ptr(Element *value, Collector *collector);
-		Ptr(const Ptr &other);
-		~Ptr();
+		EPtr(): _collector(nullptr), _value(nullptr) {}
+		EPtr(Element *value, Collector *collector);
+		EPtr(const EPtr &other);
+		~EPtr();
 
-		Ptr &operator=(const Ptr &other);
+		EPtr &operator=(const EPtr &other);
 
 		Element &operator*() const { return *_value; }
 		Element *operator->() const { return _value; }
@@ -29,25 +29,25 @@ class Ptr {
 		operator bool() const { return _value != nullptr; }
 
 	private:
-		friend bool operator==(const Ptr &a, const Ptr &b);
+		friend bool operator==(const EPtr &a, const EPtr &b);
 
 		Collector *_collector;
 		Element *_value;
 };
 
-inline Ptr::Ptr(Element *value, Collector *collector): _value(value), _collector(collector) {
+inline EPtr::EPtr(Element *value, Collector *collector): _value(value), _collector(collector) {
 	if (_value && _collector) _collector->add_root(_value);
 }
 
-inline Ptr::Ptr(const Ptr &other): _value(other._value), _collector(other._collector) {
+inline EPtr::EPtr(const EPtr &other): _value(other._value), _collector(other._collector) {
 	if (_value && _collector) _collector->add_root(_value);
 }
 
-inline Ptr::~Ptr() {
+inline EPtr::~EPtr() {
 	if (_value && _collector) _collector->remove_root(_value);
 }
 
-inline Ptr &Ptr::operator=(const Ptr &other) {
+inline EPtr &EPtr::operator=(const EPtr &other) {
 	assert(_collector == other._collector || other._value == nullptr || _value == nullptr);
 	if (_value && _collector) { _collector->remove_root(_value); } else { _collector = other._collector; }
 	if (other._value && other._collector) { _collector = other._collector; _collector->add_root(other._value); }
@@ -55,17 +55,17 @@ inline Ptr &Ptr::operator=(const Ptr &other) {
 	return *this;
 }
 
-inline bool operator==(const Ptr &a, const Ptr &b) {
+inline bool operator==(const EPtr &a, const EPtr &b) {
 	if (a._collector != b._collector) { return false; }
 	if (a._value == b._value) { return true; }
 	if (!a._value || !b._value) { return false; }
 	return a._value->is_equal(b._value);
 }
 
-inline bool operator!=(const Ptr &a, const Ptr &b) {
+inline bool operator!=(const EPtr &a, const EPtr &b) {
 	return !(a == b);
 }
 
-std::ostream &operator<<(std::ostream &out, Ptr ptr);
+std::ostream &operator<<(std::ostream &out, EPtr ptr);
 
 #endif

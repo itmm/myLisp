@@ -8,26 +8,26 @@
 			ListableNumericFunction(bool stopOnError = true) : Listable(stopOnError) {}
 
 		protected:
-			virtual Ptr first_argument(
-                Ptr intermediate,
-                Ptr element,
+			virtual EPtr first_argument(
+                EPtr intermediate,
+                EPtr element,
                 bool hasMore,
                 State &callerState,
                 bool &stop
             ) override;
         
-			virtual Ptr argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) override;
+			virtual EPtr argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) override;
         
-            virtual Ptr first_argument_numeric(
-                Ptr intermediate,
+            virtual EPtr first_argument_numeric(
+                EPtr intermediate,
                 const Fractional &element,
                 bool hasMore,
                 State &callerState,
                 bool &stop
             );
         
-            virtual Ptr argument_numeric(
-                Ptr intermediate,
+            virtual EPtr argument_numeric(
+                EPtr intermediate,
                 const Fractional &element,
                 State &callerState,
                 bool &stop

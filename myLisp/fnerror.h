@@ -6,7 +6,7 @@
 
 class FunctionError: public UnaryFunction {
 protected:
-	virtual Ptr apply_unary(Ptr arg, State &callerState) override;
+	virtual EPtr apply_unary(EPtr arg, State &callerState) override;
 };
 
 	/*TESTS:

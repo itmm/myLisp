@@ -2,9 +2,9 @@
 
 #include "number.h"
 
-Ptr ListableNumericFunction::first_argument(
-    Ptr intermediate,
-    Ptr element,
+EPtr ListableNumericFunction::first_argument(
+    EPtr intermediate,
+    EPtr element,
     bool hasMore,
     State &callerState,
     bool &stop
@@ -14,14 +14,14 @@ Ptr ListableNumericFunction::first_argument(
     return first_argument_numeric(intermediate, value->value(), hasMore, callerState, stop);
 }
 
-Ptr ListableNumericFunction::argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) {
+EPtr ListableNumericFunction::argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) {
     Number *value = Element::as_number(element);
     if (! value) { stop = true; return callerState.error("argument must be numeric"); }
     return argument_numeric(intermediate, value->value(), callerState, stop);
 }
 
-Ptr ListableNumericFunction::first_argument_numeric(
-    Ptr intermediate,
+EPtr ListableNumericFunction::first_argument_numeric(
+    EPtr intermediate,
     const Fractional &element,
     bool hasMore,
     State &callerState,

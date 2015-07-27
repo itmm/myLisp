@@ -10,9 +10,9 @@
 			virtual Function *as_function() override;
 			virtual void to_stream(std::ostream &stream, bool escape) const override;
 
-			virtual Ptr apply(Ptr arguments, State &state);
-			virtual Ptr apply_evaled(Ptr arguments, State &state);
-			virtual Ptr eval_arguments(Ptr arguments, State &state);
+			virtual EPtr apply(EPtr arguments, State &state);
+			virtual EPtr apply_evaled(EPtr arguments, State &state);
+			virtual EPtr eval_arguments(EPtr arguments, State &state);
 	};
 
 	/*TESTS:

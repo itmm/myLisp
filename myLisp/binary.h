@@ -5,10 +5,10 @@
 
 	class BinaryFunction : public Function {
 		protected:
-			virtual Ptr apply_binary(Ptr first, Ptr second, State &state) = 0;
+			virtual EPtr apply_binary(EPtr first, EPtr second, State &state) = 0;
 
 		public:
-			virtual Ptr apply_evaled(Ptr arguments, State &state) override;
+			virtual EPtr apply_evaled(EPtr arguments, State &state) override;
 	};
 
 	/*TESTS:

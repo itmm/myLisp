@@ -1,21 +1,21 @@
 #include "lookbehind.h"
 
-Ptr Lookbehind::first_argument(Ptr, Ptr element, bool hasMore, State &callerState, bool &stop) {
+EPtr Lookbehind::first_argument(EPtr, EPtr element, bool hasMore, State &callerState, bool &stop) {
 	if (!hasMore) {
 		stop = true;
 		return callerState.error("Lookbehind needs at least two arguments");
 	}
-	return Ptr(element, callerState.collector());
+	return EPtr(element, callerState.collector());
 }
 
-Ptr Lookbehind::argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) {
+EPtr Lookbehind::argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) {
 	if (!is_valid(intermediate, element)) {
 		stop = true;
 		return callerState.falseNumber();
 	}
-	return Ptr(element, callerState.collector());
+	return EPtr(element, callerState.collector());
 }
 
-Ptr Lookbehind::finish(Ptr, State &callerState) {
+EPtr Lookbehind::finish(EPtr, State &callerState) {
 	return callerState.trueNumber();
 }

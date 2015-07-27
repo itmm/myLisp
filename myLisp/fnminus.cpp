@@ -2,12 +2,12 @@
 
 #include "number.h"
 
-Ptr FunctionMinus::empty_case(State &callerState) {
+EPtr FunctionMinus::empty_case(State &callerState) {
 	return callerState.creator()->new_number(-Fractional(1));
 }
 
-Ptr FunctionMinus::first_argument_numeric(
-    Ptr,
+EPtr FunctionMinus::first_argument_numeric(
+    EPtr,
     const Fractional &element,
     bool hasMore,
     State &callerState,
@@ -16,8 +16,8 @@ Ptr FunctionMinus::first_argument_numeric(
 	return callerState.creator()->new_number(hasMore ? element : -element);
 }
 
-Ptr FunctionMinus::argument_numeric(
-    Ptr intermediate,
+EPtr FunctionMinus::argument_numeric(
+    EPtr intermediate,
     const Fractional &element,
     State &callerState,
     bool &stop

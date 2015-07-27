@@ -12,31 +12,31 @@
 #include "pair.h"
 
 
-Ptr Creator::new_element(Element *element) {
-	return Ptr(_collector->add_to_collector(element), _collector);
+EPtr Creator::new_element(Element *element) {
+	return EPtr(_collector->add_to_collector(element), _collector);
 }
 
 
-Ptr Creator::new_error(const std::string &message) {
+EPtr Creator::new_error(const std::string &message) {
 	return new_element(new Error(message));
 }
 
-Ptr Creator::new_dictionary(Dictionary *parent) {
+EPtr Creator::new_dictionary(Dictionary *parent) {
 	return new_element(new Dictionary(parent));
 }
 
-Ptr Creator::new_number(const Fractional &value) {
+EPtr Creator::new_number(const Fractional &value) {
 	return new_element(new Number(value));
 }
 
-Ptr Creator::new_identifier(const std::string &value) {
+EPtr Creator::new_identifier(const std::string &value) {
 	return new_element(new Identifier(value));
 }
 
-Ptr Creator::new_pair(Element *car, Element *cdr) {
+EPtr Creator::new_pair(Element *car, Element *cdr) {
 	return new_element(new Pair(car, cdr));
 }
 
-Ptr Creator::new_string(const std::string &value) {
+EPtr Creator::new_string(const std::string &value) {
 	return new_element(new String(value));
 }

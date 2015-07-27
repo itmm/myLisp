@@ -19,11 +19,11 @@
 
 			Creator *creator() { return _state->creator(); }
 
-            Ptr parse(std::istream &source);
-            Ptr parse(const std::string &source);
+            EPtr parse(std::istream &source);
+            EPtr parse(const std::string &source);
 
-        	Ptr eval(std::istream &source);
-			Ptr eval(const std::string &source);
+        	EPtr eval(std::istream &source);
+			EPtr eval(const std::string &source);
 
         private:
             Parser(const Parser &) = delete;
@@ -33,11 +33,11 @@
             bool _local_state;
         
             void eatSpace(std::istream::int_type &ch, std::istream &rest);
-            Ptr parseElement(std::istream::int_type &ch, std::istream &rest);
-            Ptr parseNumber(const std::string &str);
-            Ptr parsePair(std::istream::int_type &ch, std::istream &rest);
-            Ptr parseString(std::istream::int_type &ch, std::istream &rest);
-            Ptr parseIdentifier(std::istream::int_type &ch, std::istream &rest);
+            EPtr parseElement(std::istream::int_type &ch, std::istream &rest);
+            EPtr parseNumber(const std::string &str);
+            EPtr parsePair(std::istream::int_type &ch, std::istream &rest);
+            EPtr parseString(std::istream::int_type &ch, std::istream &rest);
+            EPtr parseIdentifier(std::istream::int_type &ch, std::istream &rest);
     };
 
     inline Parser::Parser():

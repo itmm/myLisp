@@ -5,7 +5,7 @@
 #include "pair.h"
 #include "string.h"
 
-Ptr FunctionLambda::apply(Ptr arguments, State &state) {
+EPtr FunctionLambda::apply(EPtr arguments, State &state) {
 	Pair *args = Element::as_pair(arguments);
 	if (! args) return state.error("arguments expected");
 

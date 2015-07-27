@@ -5,16 +5,16 @@
 
 	class FunctionDivide : public ListableNumericFunction {
 		protected:
-			virtual Ptr first_argument_numeric(
-                Ptr intermediate,
+			virtual EPtr first_argument_numeric(
+                EPtr intermediate,
                 const Fractional &element,
                 bool hasMore,
                 State &callerState,
                 bool &stop
             ) override;
 
-			virtual Ptr argument_numeric(
-                Ptr intermediate,
+			virtual EPtr argument_numeric(
+                EPtr intermediate,
                 const Fractional &element,
                 State &callerState,
                 bool &stop

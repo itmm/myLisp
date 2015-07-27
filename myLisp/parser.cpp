@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-Ptr Parser::parseNumber(const std::string &str) {
+EPtr Parser::parseNumber(const std::string &str) {
     BigInt numerator = 0;
     BigInt denominator;
     bool negative = false;
@@ -12,26 +12,26 @@ Ptr Parser::parseNumber(const std::string &str) {
 
     if (cur != end && *cur == '-') { negative = true; ++cur; }
 
-	if (cur == end || !isnumber(*cur)) { return Ptr(); }
+	if (cur == end || !isnumber(*cur)) { return EPtr(); }
 	for (; cur != end && isnumber(*cur); ++cur) {
         numerator = numerator * BigInt(10) + BigInt(*cur - '0');
 	}
 	if (cur != end) {
-		if (*cur != '/') { return Ptr(); }
+		if (*cur != '/') { return EPtr(); }
 		++cur;
-		if (cur == end || !isnumber(*cur)) { return Ptr(); }
+		if (cur == end || !isnumber(*cur)) { return EPtr(); }
 		denominator = 0;
 		for (; cur != end && isnumber(*cur); ++cur) {
     	    denominator = denominator * BigInt(10) + BigInt(*cur - '0');
 		}
-		if (cur != end) { return Ptr(); }
+		if (cur != end) { return EPtr(); }
 	} else {
 		denominator = 1;
 	}
     return _state->creator()->new_number(Fractional(numerator, denominator, negative));
 }
 
-Ptr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
+EPtr Parser::parseString(std::istream::int_type &ch, std::istream &rest) {
     ch = rest.get();
     std::ostringstream buffer;
     while (ch != EOF && ch != '"') {
@@ -51,18 +51,18 @@ void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
     }
 }
 
-Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
+EPtr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
 	if (ch == EOF) { return _state->creator()->new_error("unfinished list"); }
     if (ch == ')') {
         ch = rest.get();
-        return Ptr();
+        return EPtr();
     }
-    Ptr car = parseElement(ch, rest);
+    EPtr car = parseElement(ch, rest);
 
     eatSpace(ch, rest);
     if (ch == '.') {
         ch = rest.get();
-        Ptr cdr = parseElement(ch, rest);
+        EPtr cdr = parseElement(ch, rest);
         eatSpace(ch, rest);
         if (ch == ')') {
         	ch = rest.get();
@@ -71,12 +71,12 @@ Ptr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
         }
         return _state->creator()->new_pair(car, cdr);
     } else {
-        Ptr cdr = parsePair(ch, rest);
+        EPtr cdr = parsePair(ch, rest);
         return _state->creator()->new_pair(car, cdr);
     }
 }
 
-Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
+EPtr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
     std::ostringstream buffer;
     while (ch != EOF && !isspace(static_cast<int>(ch)) && ch != ')') {
         buffer << (char) ch;
@@ -90,19 +90,19 @@ Ptr Parser::parseIdentifier(std::istream::int_type &ch, std::istream &rest) {
 		}
 		return parseElement(ch, rest);
     }
-    Ptr number = parseNumber(str);
+    EPtr number = parseNumber(str);
     if (number) { return number; }
 	return _state->creator()->new_identifier(str);
 }
 
-Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
+EPtr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
 	eatSpace(ch, rest);
 	switch (ch) {
-		case static_cast<std::istream::int_type>(EOF): return Ptr();
+		case static_cast<std::istream::int_type>(EOF): return EPtr();
 		case '\'': {
 			ch = rest.get();
-			Ptr quoted = parseElement(ch, rest);
-			Ptr args = _state->creator()->new_pair(quoted, nullptr);
+			EPtr quoted = parseElement(ch, rest);
+			EPtr args = _state->creator()->new_pair(quoted, nullptr);
 			return _state->creator()->new_pair(_state->root()->as_dictionary()->get("quote"), args);
 		}
 		case '"':
@@ -115,22 +115,22 @@ Ptr Parser::parseElement(std::istream::int_type &ch, std::istream &rest) {
 	}
 }
 
-Ptr Parser::parse(std::istream &source) {
+EPtr Parser::parse(std::istream &source) {
 	std::istream::int_type ch = source.get();
     return parseElement(ch, source);
 }
 
-Ptr Parser::parse(const std::string &source) {
+EPtr Parser::parse(const std::string &source) {
     std::istringstream in(source);
-    Ptr result = parse(in);
+    EPtr result = parse(in);
 	return result;
 }
 
-Ptr Parser::eval(std::istream &source) {
+EPtr Parser::eval(std::istream &source) {
 	return _state->eval(parse(source));
 }
 
-Ptr Parser::eval(const std::string &source) {
+EPtr Parser::eval(const std::string &source) {
 	std::istringstream in(source);
 	return eval(in);
 }

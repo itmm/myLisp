@@ -8,14 +8,14 @@
 			Rewriter() {}
 			virtual ~Rewriter();
 
-			virtual Ptr rewrite(Ptr element, Creator &creator);
-			virtual Ptr rewrite_dictionary(Ptr dictionary, Creator &creator);
-			virtual Ptr rewrite_error(Ptr error, Creator &creator);
-			virtual Ptr rewrite_function(Ptr function, Creator &creator);
-			virtual Ptr rewrite_identifier(Ptr identifier, Creator &creator);
-			virtual Ptr rewrite_number(Ptr number, Creator &creator);
-			virtual Ptr rewrite_pair(Ptr pair, Creator &creator);
-			virtual Ptr rewrite_string(Ptr str, Creator &creator);
+			virtual EPtr rewrite(EPtr element, Creator &creator);
+			virtual EPtr rewrite_dictionary(EPtr dictionary, Creator &creator);
+			virtual EPtr rewrite_error(EPtr error, Creator &creator);
+			virtual EPtr rewrite_function(EPtr function, Creator &creator);
+			virtual EPtr rewrite_identifier(EPtr identifier, Creator &creator);
+			virtual EPtr rewrite_number(EPtr number, Creator &creator);
+			virtual EPtr rewrite_pair(EPtr pair, Creator &creator);
+			virtual EPtr rewrite_string(EPtr str, Creator &creator);
 
 		private:
 			Rewriter(const Rewriter &) = delete;

@@ -5,9 +5,9 @@
 
 	class BinaryNumericFunction : public BinaryFunction {
 		protected:
-			virtual Ptr apply_binary(const Fractional &first, const Fractional &second, State &state) = 0;
+			virtual EPtr apply_binary(const Fractional &first, const Fractional &second, State &state) = 0;
 
-		virtual Ptr apply_binary(Ptr first, Ptr second, State &state) override;
+            virtual EPtr apply_binary(EPtr first, EPtr second, State &state) override;
 	};
 
 	/*TESTS:

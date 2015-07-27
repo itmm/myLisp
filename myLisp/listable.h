@@ -7,14 +7,14 @@
 		public:
 			Listable(bool stopOnError = true) : _stopOnError(stopOnError) {}
 
-			virtual Ptr apply(Ptr arguments, State &state) override;
+			virtual EPtr apply(EPtr arguments, State &state) override;
 
 		protected:
-			virtual Ptr empty_case(State &callerState);
-			virtual Ptr setup(State &callerState, bool &stop);
-			virtual Ptr first_argument(Ptr intermediate, Ptr element, bool hasMore, State &callerState, bool &stop);
-			virtual Ptr argument(Ptr intermediate, Ptr element, State &callerState, bool &stop) = 0;
-			virtual Ptr finish(Ptr intermediate, State &callerState);
+			virtual EPtr empty_case(State &callerState);
+			virtual EPtr setup(State &callerState, bool &stop);
+			virtual EPtr first_argument(EPtr intermediate, EPtr element, bool hasMore, State &callerState, bool &stop);
+			virtual EPtr argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) = 0;
+			virtual EPtr finish(EPtr intermediate, State &callerState);
 
 		private:
 			bool _stopOnError;

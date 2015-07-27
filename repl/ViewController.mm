@@ -47,7 +47,26 @@
 }
 
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString {
-    NSLog(@"replacement: '%@' (%@)", replacementString, NSStringFromRange(affectedCharRange));
+    if ([replacementString isEqualToString: @"\n"]) {
+        NSRange lineStart = [textView.textStorage.string rangeOfString:@"\n" options:NSBackwardsSearch range:NSMakeRange(0, affectedCharRange.location)];
+        NSUInteger start = 0;
+        if (lineStart.length) {
+            start = lineStart.location + lineStart.length;
+        }
+        NSString *line = [textView.textStorage.string substringWithRange:NSMakeRange(start, affectedCharRange.location - start)];
+        std::istringstream stream([line cStringUsingEncoding: NSUTF8StringEncoding]);
+        EPtr in = _parser->parse(stream);
+        if (in) {
+            EPtr out = _state->eval(in);
+            if (out) {
+                std::ostringstream result; result << out;
+                NSString *result_string = [NSString stringWithUTF8String: result.str().c_str()];
+                NSString *replacement = [NSString stringWithFormat: @"\n%@\n", result_string];
+                [textView insertText: replacement replacementRange: affectedCharRange];
+                return NO;
+            }
+        }
+    }
     return YES;
 }
 

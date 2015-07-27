@@ -679,13 +679,24 @@
                                     <rect key="frame" x="1" y="1" width="223" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView focusRingType="none" importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="xqE-SF-SJn">
+                                        <textView focusRingType="none" importsGraphics="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" smartInsertDelete="YES" id="xqE-SF-SJn">
                                             <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <size key="minSize" width="480" height="270"/>
                                             <size key="maxSize" width="480" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment>
+                                                    <string key="content">REPL
+</string>
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="14" name="Menlo-Regular"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <color key="insertionPointColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <size key="minSize" width="480" height="270"/>
                                             <size key="maxSize" width="480" height="10000000"/>

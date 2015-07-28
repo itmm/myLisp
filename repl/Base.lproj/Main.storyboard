@@ -724,6 +724,9 @@
                             <constraint firstItem="evz-zh-1t6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="fvH-r7-47t"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sourceField" destination="xqE-SF-SJn" id="nic-OM-tWn"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

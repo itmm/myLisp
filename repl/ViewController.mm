@@ -9,19 +9,29 @@
 #import "ViewController.h"
 
 #import "parser.h"
+#import "fnprint.h"
+#import "stream_handler_collector.h"
 
 #import <sstream>
 
 @implementation ViewController {
 	State *_state;
     Parser *_parser;
+    StreamHandlerCollector *_collector;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if (! _state) { _state = new State(); _state->setName("root"); }
+    if (! _collector) { _collector = new StreamHandlerCollector(); }
+    if (! _state) {
+        _state = new State();
+        _state->setName("root");
+        dynamic_cast<FunctionPrint *>(_state->root()->as_dictionary()->get("print"))->setHandler(_collector);
+        dynamic_cast<FunctionPrint *>(_state->root()->as_dictionary()->get("err-print"))->setHandler(_collector);
+    }
     if (! _parser) {
+        _collector->str(std::string());
         _parser = new Parser(_state);
         NSURL *url = [NSBundle.mainBundle URLForResource: @"system" withExtension: @"lsp"];
         NSString *system = [NSString stringWithContentsOfURL: url encoding: NSUTF8StringEncoding error: nil];
@@ -32,6 +42,8 @@
 			if (!in) { break; }
 			_state->eval(in);
 		}
+        NSString *stream_string = [NSString stringWithUTF8String: _collector->str().c_str()];
+        [self.sourceField insertText: stream_string replacementRange: NSMakeRange(self.sourceField.textStorage.string.length, 0)];
     }
 }
 
@@ -42,8 +54,9 @@
 }
 
 - (void) dealloc {
-    if (_parser) { delete _parser; _parser = NULL; }
-    if (_state) { delete _state; _state = NULL; }
+    if (_parser) { delete _parser; _parser = nullptr; }
+    if (_state) { delete _state; _state = nullptr; }
+    if (_collector) { delete _collector; _collector = nullptr; }
 }
 
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString {
@@ -57,11 +70,13 @@
         std::istringstream stream([line cStringUsingEncoding: NSUTF8StringEncoding]);
         EPtr in = _parser->parse(stream);
         if (in) {
+            _collector->str(std::string());
             EPtr out = _state->eval(in);
             if (out) {
                 std::ostringstream result; result << out;
+                NSString *stream_string = [NSString stringWithUTF8String: _collector->str().c_str()];
                 NSString *result_string = [NSString stringWithUTF8String: result.str().c_str()];
-                NSString *replacement = [NSString stringWithFormat: @"\n%@\n", result_string];
+                NSString *replacement = [NSString stringWithFormat: @"\n%@%@\n", stream_string, result_string];
                 [textView insertText: replacement replacementRange: affectedCharRange];
                 return NO;
             }

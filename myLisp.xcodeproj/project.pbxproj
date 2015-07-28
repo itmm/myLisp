@@ -132,6 +132,7 @@
 		24D310361B674BFC00B837FC /* stream_handler_str.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310331B674BFC00B837FC /* stream_handler_str.cpp */; };
 		24D310381B6751F000B837FC /* t_fnprint.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310371B6751F000B837FC /* t_fnprint.lsp */; };
 		24D310391B67522100B837FC /* t_fnprint.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D310371B6751F000B837FC /* t_fnprint.lsp */; };
+		24D3103C1B67E9F700B837FC /* stream_handler_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -322,6 +323,8 @@
 		24D310331B674BFC00B837FC /* stream_handler_str.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stream_handler_str.cpp; sourceTree = "<group>"; };
 		24D310341B674BFC00B837FC /* stream_handler_str.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_handler_str.h; sourceTree = "<group>"; };
 		24D310371B6751F000B837FC /* t_fnprint.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnprint.lsp; sourceTree = "<group>"; };
+		24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stream_handler_collector.cpp; sourceTree = "<group>"; };
+		24D3103B1B67E9F700B837FC /* stream_handler_collector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_handler_collector.h; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -699,6 +702,8 @@
 				3652DDB4243DCF435931634D /* unary_pair.h */,
 				3652D09422057258F70D6E87 /* unary.cpp */,
 				3652DD13C309769A1202800F /* unary.h */,
+				24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */,
+				24D3103B1B67E9F700B837FC /* stream_handler_collector.h */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -837,6 +842,7 @@
 				24D30FEB1B660E0100B837FC /* bigint.cpp in Sources */,
 				24D310251B660E0100B837FC /* root_factory.cpp in Sources */,
 				24D3100A1B660E0100B837FC /* fnless.cpp in Sources */,
+				24D3103C1B67E9F700B837FC /* stream_handler_collector.cpp in Sources */,
 				24D310361B674BFC00B837FC /* stream_handler_str.cpp in Sources */,
 				24D30FD31B65FF0800B837FC /* ViewController.mm in Sources */,
 				24D310071B660E0100B837FC /* fnidentifierq.cpp in Sources */,

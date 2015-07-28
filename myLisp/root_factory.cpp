@@ -17,7 +17,6 @@
 #include "fntimes.h"
 #include "fnprint.h"
 #include "fnboolq.h"
-#include "fnstrprint.h"
 #include "fnpairq.h"
 #include "fnstringq.h"
 #include "fnnumberq.h"
@@ -35,6 +34,7 @@
 #include "fngcd.h"
 #include "fnlet.h"
 #include "fnrandom.h"
+#include "stream_handler_str.h"
 
 EPtr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -53,11 +53,11 @@ EPtr RootFactory::root() {
 	dict->put("import", _creator->new_element(new FunctionImport()));
 	dict->put("error", _creator->new_element(new FunctionError()));
 	dict->put("*", _creator->new_element(new FunctionTimes()));
-	dict->put("print", _creator->new_element(new FunctionPrint(std::cout)));
-	dict->put("err-print", _creator->new_element(new FunctionPrint(std::cerr)));
+	dict->put("print", _creator->new_element(new FunctionPrint(nullptr)));
+	dict->put("err-print", _creator->new_element(new FunctionPrint(nullptr)));
 	dict->put("true?", _creator->new_element(new FunctionBoolQuery(true)));
 	dict->put("false?", _creator->new_element(new FunctionBoolQuery(false)));
-	dict->put("str-print", _creator->new_element(new FunctionStrPrint()));
+	dict->put("str-print", _creator->new_element(new FunctionPrint(new StreamHandlerStr())));
 	dict->put("pair?", _creator->new_element(new FunctionPairQuery()));
 	dict->put("string?", _creator->new_element(new FunctionStringQuery()));
 	dict->put("number?", _creator->new_element(new FunctionNumberQuery()));

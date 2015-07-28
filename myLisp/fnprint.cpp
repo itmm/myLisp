@@ -1,14 +1,26 @@
 #include "fnprint.h"
 #include "pair.h"
 
-EPtr FunctionPrint::apply(EPtr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
+void FunctionPrint::setHandler(StreamHandler *handler) {
+    if (handler != _handler) {
+        if (_handler) delete _handler;
+        _handler = handler;
+    }
+}
+
+FunctionPrint::~FunctionPrint() {
+    setHandler(nullptr);
+}
+
+EPtr FunctionPrint::apply_evaled(EPtr arguments, State &state) {
+    if (! _handler) return state.error("no stream handler");
+    
 	Pair *cur = Element::as_pair(arguments);
 	std::string separator;
+    std::ostream *stream = _handler->prepare();
 	for (; cur; cur = Element::as_pair(Pair::cdr(cur))) {
-		_stream << separator << EPtr(cur->car(), state.collector());
+		*stream << separator << EPtr(cur->car(), state.collector());
 		separator = " ";
 	}
-	_stream << std::endl;
-	return EPtr();
+    return state.creator()->new_string(_handler->finish(stream));
 }

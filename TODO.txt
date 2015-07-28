@@ -10,3 +10,6 @@ runtime
 numeric output of numbers
 apply as function not as macro
 (import "t_*.lsp")
+print in app
+err-print in app
+multiline statements in app

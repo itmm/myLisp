@@ -15,7 +15,7 @@ EPtr FunctionLet::apply(EPtr arguments, State &state) {
         if (! key) return state.error("key must be string");
         def = Element::as_pair(def->cdr());
         if (! def) return state.error("no value present");
-        Element *value = sub_state.eval(sub_state.ptr(def->car()));
+        Element *value = state.eval(sub_state.ptr(def->car()));
         if (def->cdr()) return state.error("too many values");
         dict->add(key->str(), value);
     }

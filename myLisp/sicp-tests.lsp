@@ -57,3 +57,30 @@
     (defn ("sum-integers" "a" "b") (sum identity a inc b))
     (assert (= (sum-integers 1 10) 55) "sum-integers")
 ))
+((fn ()
+    (def "x" 5)
+    (assert (=
+        (+
+            (let (("x" 3))
+                (+ x (* x 10))
+            )
+            x
+        )
+        38
+    ) "inner let")
+))
+((fn ()
+    (def "x" 2)
+    (assert (=
+        (let (("x" 3) ("y" (+ x 2)))
+            (* x y)
+        )
+        12
+    ) "redefining let")
+))
+((fn ()
+    (defn ("f" "g") (g 2))
+    (defn ("square" "x") (* x x))
+    (assert (= (f square) 4) "f square")
+    (assert (= (f (fn ("z") (* z (+ 1 z)))) 6) "f lambda")
+))

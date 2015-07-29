@@ -3,7 +3,7 @@
 
 	#include "string.h"
 
-	class Error: public String {
+	class Error : public String {
 		public:
 			virtual bool is_true() const override;
 			virtual bool is_equal(Element *other) const override;

@@ -3,7 +3,7 @@
 
 	#include "listable.h"
 
-	class Decider: public ListableFunction {
+	class Decider : public ListableFunction {
 		protected:
 			virtual EPtr setup(State &callerState, bool &stop) override;
 			virtual EPtr argument(EPtr intermediate, EPtr element, State &callerState, bool &stop) override;

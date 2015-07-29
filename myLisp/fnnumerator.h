@@ -3,7 +3,7 @@
 
 	#include "unary_numeric.h"
 
-	class FunctionNumerator: public UnaryNumericFunction {
+	class FunctionNumerator : public UnaryNumericFunction {
 		protected:
 			virtual EPtr apply_unary_numeric(const Fractional &value, State &state) override;
 	};

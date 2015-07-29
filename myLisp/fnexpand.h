@@ -3,7 +3,7 @@
 
 	#include "function.h"
 
-	class FunctionExpand: public Function {
+	class FunctionExpand : public Function {
 		public:
 			virtual EPtr apply(EPtr arguments, State &state) override;
 	};

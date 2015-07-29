@@ -3,9 +3,9 @@
 
 	#include "lookbehind.h"
 
-	class FunctionEqual: public Lookbehind {
-	protected:
-		virtual bool is_valid(Element *last, Element *current) override;
+	class FunctionEqual : public Lookbehind {
+        protected:
+            virtual bool is_valid(Element *last, Element *current) override;
 	};
 
 	/*TESTS:

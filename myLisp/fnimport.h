@@ -4,7 +4,7 @@
 	#include "function.h"
     #include "import_handler.h"
 
-	class FunctionImport: public Function {
+	class FunctionImport : public Function {
 		public:
             FunctionImport(): _handler(new ImportHandler()) {}
             virtual ~FunctionImport();

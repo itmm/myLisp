@@ -4,7 +4,7 @@
     #include "element.h"
     #include "fractional.h"
 
-    class Number: public Element {
+    class Number : public Element {
         public:
 
             virtual Number *as_number();
@@ -14,6 +14,7 @@
 
 			virtual bool is_true() const override;
 			virtual bool is_equal(Element *other) const override;
+            virtual bool is_less(Element *other) const override;
 
         protected:
 			friend class Creator;
@@ -22,8 +23,6 @@
 
 		private:
             Fractional _value;
-	public:
-		virtual bool is_less(Element *other) const override;
 	};
 
 	/*TESTS:

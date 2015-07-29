@@ -3,7 +3,7 @@
 
 	#include "lookbehind.h"
 
-	class FunctionLess: public Lookbehind {
+	class FunctionLess : public Lookbehind {
         protected:
             virtual bool is_valid(Element *last, Element *current) override;
 	};

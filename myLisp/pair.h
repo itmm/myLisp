@@ -3,7 +3,7 @@
 
     #include "element.h"
     
-    class Pair: public Element {
+    class Pair : public Element {
         public:
             Element *car() const { return _car; }
             Element *cdr() const { return _cdr; }
@@ -18,6 +18,10 @@
 
 			virtual bool is_true() const override;
 
+            virtual bool is_equal(Element *other) const override;
+
+            virtual bool is_less(Element *other) const override;
+
         private:
             Pair(Element *car, Element *cdr): _car(car), _cdr(cdr) {}
 
@@ -25,11 +29,6 @@
             
             Element *_car;
             Element *_cdr;
-        
-	public:
-		virtual bool is_equal(Element *other) const override;
-
-        virtual bool is_less(Element *other) const override;
     };
 
 	/*TESTS:

@@ -3,7 +3,7 @@
 
 	#include "function.h"
 
-	class FunctionQuote: public Function {
+	class FunctionQuote : public Function {
 	public:
 		virtual EPtr apply(EPtr arguments, State &state) override;
 	};

@@ -5,7 +5,7 @@
 
     #include "element.h"
 
-    class String: public Element {
+    class String : public Element {
         public:
 
             const std::string &str() const { return _str; }

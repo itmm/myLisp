@@ -3,15 +3,22 @@
 
 	#include "function.h"
 
-	class FunctionDynamic: public Function {
+	class FunctionDynamic : public Function {
 		public:
-			FunctionDynamic(Element *args, Element *body, bool macro, State &state): _args(args), _body(body), _macro(macro), _root(Element::as_dictionary(state.root())), _inserter(Element::as_dictionary(
-				state.inserter()
-			)) {}
+			FunctionDynamic(Element *args, Element *body, bool macro, State &state):
+                _args(args),
+                _body(body),
+                _macro(macro),
+                _root(Element::as_dictionary(state.root())),
+                _inserter(Element::as_dictionary(state.inserter()))
+            {}
 
 			virtual void add_to_visit(Collector::Visitor &visitor) override;
 
 			virtual EPtr apply(EPtr arguments, State &state) override;
+
+            virtual void to_stream(std::ostream &stream, bool escape) const override;
+
 		private:
 			bool _macro;
 			Element *_args;
@@ -19,8 +26,6 @@
 
 			Dictionary *_root;
 			Dictionary *_inserter;
-	public:
-		virtual void to_stream(std::ostream &stream, bool escape) const override;
 	};
 
 	/*TESTS:

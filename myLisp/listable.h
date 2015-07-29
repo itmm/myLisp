@@ -3,7 +3,7 @@
 
 	#include "function.h"
 
-	class ListableFunction: public Function {
+	class ListableFunction : public Function {
 		public:
 			ListableFunction(bool stopOnError = true) : _stopOnError(stopOnError) {}
 

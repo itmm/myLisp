@@ -4,7 +4,7 @@
 	#include "function.h"
     #include "stream_handler.h"
 
-	class FunctionPrint: public Function {
+	class FunctionPrint : public Function {
 		public:
 			FunctionPrint(StreamHandler *handler): _handler(handler) {}
             virtual ~FunctionPrint();

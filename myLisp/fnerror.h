@@ -1,13 +1,12 @@
 #if !defined(fnerror_h)
 #define fnerror_h
 
-	#include "function.h"
-#include "unary.h"
+    #include "unary.h"
 
-class FunctionError: public UnaryFunction {
-protected:
-	virtual EPtr apply_unary(EPtr arg, State &callerState) override;
-};
+    class FunctionError : public UnaryFunction {
+        protected:
+            virtual EPtr apply_unary(EPtr arg, State &callerState) override;
+    };
 
 	/*TESTS:
 	 *

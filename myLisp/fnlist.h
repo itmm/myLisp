@@ -3,7 +3,7 @@
 
 	#include "function.h"
 
-	class FunctionList: public Function {
+	class FunctionList : public Function {
         public:
             virtual EPtr apply_evaled(EPtr arguments, State &state) override;
 	};

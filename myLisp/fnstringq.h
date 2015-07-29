@@ -3,9 +3,9 @@
 
 	#include "decider.h"
 
-	class FunctionStringQuery: public Decider {
-	protected:
-		virtual bool is_valid(Element *element) override;
+	class FunctionStringQuery : public Decider {
+        protected:
+            virtual bool is_valid(Element *element) override;
 	};
 
 #endif

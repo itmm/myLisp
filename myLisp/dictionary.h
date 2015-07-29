@@ -6,7 +6,7 @@
     #include <map>
     #include <string>
 
-    class Dictionary: public Element {
+    class Dictionary : public Element {
 		public:
 			virtual void add_to_visit(Collector::Visitor &visitor) override;
 

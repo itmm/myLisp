@@ -3,7 +3,7 @@
 
 	#include "decider.h"
 
-	class FunctionBoolQuery: public Decider {
+	class FunctionBoolQuery : public Decider {
 		public:
 			FunctionBoolQuery(bool expected): _expected(expected) {}
 

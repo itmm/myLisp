@@ -8,9 +8,27 @@
 
 class State {
 		public:
-			State(): _creator(new Creator()), _local_creator(true), _root(RootFactory(_creator).root()), _inserter(_root) {}
-			State(Creator *creator, EPtr root): _creator(creator), _local_creator(false), _root(root), _inserter(_root) {}
-	State(Creator *creator, EPtr root, EPtr inserter): _creator(creator), _local_creator(false), _root(root), _inserter(inserter) {}
+			State():
+                _creator(new Creator()),
+                _local_creator(true),
+                _root(RootFactory(_creator).root()),
+                _inserter(_root)
+            {}
+    
+			State(Creator *creator, EPtr root):
+                _creator(creator),
+                _local_creator(false),
+                _root(root),
+                _inserter(_root)
+            {}
+    
+            State(Creator *creator, EPtr root, EPtr inserter):
+                _creator(creator),
+                _local_creator(false),
+                _root(root),
+                _inserter(inserter)
+            {}
+            
 			State(State &parent);
 			~State() { _root = EPtr(); _inserter = EPtr(); if (_local_creator) delete _creator; }
 

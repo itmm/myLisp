@@ -132,7 +132,7 @@
 		24D310361B674BFC00B837FC /* stream_handler_str.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310331B674BFC00B837FC /* stream_handler_str.cpp */; };
 		24D310381B6751F000B837FC /* t_fnprint.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310371B6751F000B837FC /* t_fnprint.lsp */; };
 		24D310391B67522100B837FC /* t_fnprint.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D310371B6751F000B837FC /* t_fnprint.lsp */; };
-		24D3103C1B67E9F700B837FC /* stream_handler_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */; };
+		24D3103C1B67E9F700B837FC /* stream_handler_collector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103A1B67E9F700B837FC /* stream_handler_collector.mm */; };
 		24D3103F1B67EEE600B837FC /* fnround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103D1B67EEE600B837FC /* fnround.cpp */; };
 		24D310401B67EEE600B837FC /* fnround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103D1B67EEE600B837FC /* fnround.cpp */; };
 		24D310431B689C8B00B837FC /* t_fnround.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310421B689C8B00B837FC /* t_fnround.lsp */; };
@@ -373,7 +373,7 @@
 		24D310331B674BFC00B837FC /* stream_handler_str.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stream_handler_str.cpp; sourceTree = "<group>"; };
 		24D310341B674BFC00B837FC /* stream_handler_str.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_handler_str.h; sourceTree = "<group>"; };
 		24D310371B6751F000B837FC /* t_fnprint.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnprint.lsp; sourceTree = "<group>"; };
-		24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stream_handler_collector.cpp; sourceTree = "<group>"; };
+		24D3103A1B67E9F700B837FC /* stream_handler_collector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = stream_handler_collector.mm; sourceTree = "<group>"; };
 		24D3103B1B67E9F700B837FC /* stream_handler_collector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_handler_collector.h; sourceTree = "<group>"; };
 		24D3103D1B67EEE600B837FC /* fnround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnround.cpp; sourceTree = "<group>"; };
 		24D3103E1B67EEE600B837FC /* fnround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnround.h; sourceTree = "<group>"; };
@@ -748,7 +748,7 @@
 				24D30F821B6505B700B837FC /* sicp-tests.lsp */,
 				3652D0FAA138CD1D5707DD09 /* state.cpp */,
 				3652DBD71DBC8FACD7C6861B /* state.h */,
-				24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */,
+				24D3103A1B67E9F700B837FC /* stream_handler_collector.mm */,
 				24D3103B1B67E9F700B837FC /* stream_handler_collector.h */,
 				24D310301B674A7F00B837FC /* stream_handler_std.cpp */,
 				24D310311B674A7F00B837FC /* stream_handler_std.h */,
@@ -967,7 +967,7 @@
 				24D30FEB1B660E0100B837FC /* bigint.cpp in Sources */,
 				24D310251B660E0100B837FC /* root_factory.cpp in Sources */,
 				24D3100A1B660E0100B837FC /* fnless.cpp in Sources */,
-				24D3103C1B67E9F700B837FC /* stream_handler_collector.cpp in Sources */,
+				24D3103C1B67E9F700B837FC /* stream_handler_collector.mm in Sources */,
 				24D310361B674BFC00B837FC /* stream_handler_str.cpp in Sources */,
 				24D30FD31B65FF0800B837FC /* ViewController.mm in Sources */,
 				24D310071B660E0100B837FC /* fnidentifierq.cpp in Sources */,

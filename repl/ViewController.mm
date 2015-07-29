@@ -19,28 +19,30 @@
 @implementation ViewController {
 	State *_state;
     Parser *_parser;
-    StreamHandlerCollector *_collector;
+    NSMutableAttributedString *_buffer;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if (! _collector) { _collector = new StreamHandlerCollector(); }
+    if (! _buffer) { _buffer = [NSMutableAttributedString new]; }
     if (! _state) {
         _state = new State();
         _state->setName("root");
         Dictionary *dict = _state->root()->as_dictionary();
-        dynamic_cast<FunctionPrint *>(dict->get("print"))->setHandler(_collector);
-        dynamic_cast<FunctionPrint *>(dict->get("err-print"))->setHandler(_collector);
+        auto errCollector = new StreamHandlerCollector(_buffer, [NSColor redColor]);
+        auto outCollector = new StreamHandlerCollector(_buffer, [NSColor grayColor]);
+        dynamic_cast<FunctionPrint *>(dict->get("print"))->setHandler(outCollector);
+        dynamic_cast<FunctionPrint *>(dict->get("err-print"))->setHandler(errCollector);
         dynamic_cast<FunctionImport *>(dict->get("import"))->setHandler(new ImportHandlerBundle());
     }
     if (! _parser) {
-        _collector->str(std::string());
+        [_buffer setAttributedString: [NSAttributedString new]];
         _parser = new Parser(_state);
         Dictionary *dict = _state->root()->as_dictionary();
         EPtr res = dynamic_cast<FunctionImport *>(dict->get("import"))->import("system.lsp", *_state);
-        NSString *stream_string = [NSString stringWithUTF8String: _collector->str().c_str()];
-        [self.sourceField insertText: stream_string replacementRange: NSMakeRange(self.sourceField.textStorage.string.length, 0)];
+        [_buffer appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
+        [self.sourceField insertText: _buffer replacementRange: NSMakeRange(self.sourceField.textStorage.string.length, 0)];
     }
 }
 
@@ -53,7 +55,6 @@
 - (void) dealloc {
     if (_parser) { delete _parser; _parser = nullptr; }
     if (_state) { delete _state; _state = nullptr; }
-    if (_collector) { delete _collector; _collector = nullptr; }
 }
 
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString {
@@ -67,14 +68,16 @@
         std::istringstream stream([line cStringUsingEncoding: NSUTF8StringEncoding]);
         EPtr in = _parser->parse(stream);
         if (in) {
-            _collector->str(std::string());
+        [_buffer setAttributedString: [NSAttributedString new]];
             EPtr out = _state->eval(in);
             if (out) {
                 std::ostringstream result; result << out;
-                NSString *stream_string = [NSString stringWithUTF8String: _collector->str().c_str()];
+                NSMutableAttributedString *formatted = [[NSMutableAttributedString alloc] initWithString: @"\n"];
+                [formatted appendAttributedString: _buffer];
                 NSString *result_string = [NSString stringWithUTF8String: result.str().c_str()];
-                NSString *replacement = [NSString stringWithFormat: @"\n%@%@\n", stream_string, result_string];
-                [textView insertText: replacement replacementRange: affectedCharRange];
+                [formatted appendAttributedString: [NSAttributedString.alloc initWithString: result_string]];
+                [formatted appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
+                [textView insertText: formatted replacementRange: affectedCharRange];
                 return NO;
             }
         }

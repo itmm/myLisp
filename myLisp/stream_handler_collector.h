@@ -5,15 +5,17 @@
 
     #include <sstream>
 
+    #include <AppKit/AppKit.h>
+
     class StreamHandlerCollector : public StreamHandlerStr {
         public:
-            std::string str() { return buffer.str(); }
-            void str(const std::string &s) { buffer.str(s); }
-
+            StreamHandlerCollector(NSMutableAttributedString *buffer, NSColor *color): _buffer(buffer), _color(color) {}
+        
             virtual std::string finish(std::ostream *stream) override;
         
         private:
-            std::ostringstream buffer;
+            NSMutableAttributedString *_buffer;
+            NSColor *_color;
     };
 
 #endif

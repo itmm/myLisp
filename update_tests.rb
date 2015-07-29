@@ -58,7 +58,9 @@ Dir.foreach("myLisp") { |f|
 		base = File.basename(f, ".h")
 		header = "myLisp/#{base}.h"
 		source = "myLisp/#{base}.cpp"
-
+        if test ?f, "myLisp/#{base}.mm"
+            source = "myLisp/#{base}.mm"
+        end
 		last_change = [File.mtime(header), File.mtime(source), last_static_change].max()
 
         t_source = "tests/t_#{base}.lsp"

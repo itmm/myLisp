@@ -9,8 +9,10 @@
 #import "ViewController.h"
 
 #import "parser.h"
+#import "fnimport.h"
 #import "fnprint.h"
 #import "stream_handler_collector.h"
+#import "import_handler_bundle.h"
 
 #import <sstream>
 
@@ -27,21 +29,16 @@
     if (! _state) {
         _state = new State();
         _state->setName("root");
-        dynamic_cast<FunctionPrint *>(_state->root()->as_dictionary()->get("print"))->setHandler(_collector);
-        dynamic_cast<FunctionPrint *>(_state->root()->as_dictionary()->get("err-print"))->setHandler(_collector);
+        Dictionary *dict = _state->root()->as_dictionary();
+        dynamic_cast<FunctionPrint *>(dict->get("print"))->setHandler(_collector);
+        dynamic_cast<FunctionPrint *>(dict->get("err-print"))->setHandler(_collector);
+        dynamic_cast<FunctionImport *>(dict->get("import"))->setHandler(new ImportHandlerBundle());
     }
     if (! _parser) {
         _collector->str(std::string());
         _parser = new Parser(_state);
-        NSURL *url = [NSBundle.mainBundle URLForResource: @"system" withExtension: @"lsp"];
-        NSString *system = [NSString stringWithContentsOfURL: url encoding: NSUTF8StringEncoding error: nil];
-        const char *data = [system cStringUsingEncoding: NSUTF8StringEncoding];
-        std::istringstream stream(data);
-		for (;;) {
-			EPtr in = _parser->parse(stream);
-			if (!in) { break; }
-			_state->eval(in);
-		}
+        Dictionary *dict = _state->root()->as_dictionary();
+        EPtr res = dynamic_cast<FunctionImport *>(dict->get("import"))->import("system.lsp", *_state);
         NSString *stream_string = [NSString stringWithUTF8String: _collector->str().c_str()];
         [self.sourceField insertText: stream_string replacementRange: NSMakeRange(self.sourceField.textStorage.string.length, 0)];
     }

@@ -61,6 +61,7 @@
  *	(assert (function? gcd) "gcd")
  *  (assert (function? let) "let")
  *  (assert (function? random) "random")
+ *  (assert (function? round) "round")
  */
 
 #endif

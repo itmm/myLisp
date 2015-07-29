@@ -2,10 +2,21 @@
 #define fnimport_h
 
 	#include "function.h"
+    #include "import_handler.h"
 
 	class FunctionImport: public Function {
 		public:
-			virtual EPtr apply(EPtr arguments, State &state) override;
+            FunctionImport(): _handler(new ImportHandler()) {}
+            virtual ~FunctionImport();
+
+			virtual EPtr apply_evaled(EPtr arguments, State &state) override;
+        
+            void setHandler(ImportHandler *handler);
+        
+            EPtr import(const std::string &name, State &state);
+        
+        private:
+            ImportHandler *_handler;
 	};
 
 	/*TESTS:

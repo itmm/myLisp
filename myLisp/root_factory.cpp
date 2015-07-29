@@ -34,6 +34,7 @@
 #include "fngcd.h"
 #include "fnlet.h"
 #include "fnrandom.h"
+#include "fnround.h"
 #include "stream_handler_str.h"
 
 EPtr RootFactory::root() {
@@ -75,5 +76,6 @@ EPtr RootFactory::root() {
 	dict->put("gcd", _creator->new_element(new FunctionGcd()));
     dict->put("let", _creator->new_element(new FunctionLet()));
     dict->put("random", _creator->new_element(new FunctionRandom()));
-	return EPtr(dict, _creator->collector());
+    dict->put("round", _creator->new_element(new FunctionRound()));
+;	return EPtr(dict, _creator->collector());
 }

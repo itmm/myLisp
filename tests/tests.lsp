@@ -26,6 +26,7 @@
 (import "t_fnquote.lsp")
 (import "t_fnrandom.lsp")
 (import "t_fnremainder.lsp")
+(import "t_fnround.lsp")
 (import "t_fntimes.lsp")
 (import "t_fractional.lsp")
 (import "t_function.lsp")

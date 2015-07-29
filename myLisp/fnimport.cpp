@@ -5,20 +5,38 @@
 #import "parser.h"
 #import "string.h"
 
-EPtr FunctionImport::apply(EPtr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
+FunctionImport::~FunctionImport() {
+    setHandler(nullptr);
+}
 
+void FunctionImport::setHandler(ImportHandler *handler) {
+    if (handler != _handler) {
+        if (_handler) delete _handler;
+        _handler = handler;
+    }
+}
+
+EPtr FunctionImport::import(const std::string &name, State &state) {
 	Parser parser(&state);
+    std::cerr << "importing " << name << std::endl;
+    std::ifstream in(_handler->find_path(name.c_str()));
+    if (in.fail()) return state.creator()->new_error("can't import " + name);
+ 
+    for (;;) {
+        EPtr res = parser.parse(in);
+        if (!res) break;
+        res = state.eval(res);
+        if (Element::as_error(res)) return res;
+    }
+    return state.trueNumber();
+}
+
+EPtr FunctionImport::apply_evaled(EPtr arguments, State &state) {
 	for (Element *cur = Element::as_pair(arguments); cur; cur = Pair::cdr(cur)) {
 		String *path = Pair::car(cur)->as_string();
 		if (!path) return state.creator()->new_error("string expected");
-		std::ifstream in(path->str().c_str());
-		if (in.fail()) return state.creator()->new_error("can't import " + path->str());
-		for (;;) {
-			EPtr res = parser.parse(in);
-			if (!res) { break; }
-			state.eval(res);
-		}
+        EPtr res = import(path->str(), state);
+        if (Element::as_error(res)) return res;
 	}
 	return state.trueNumber();
 }

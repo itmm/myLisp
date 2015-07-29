@@ -133,6 +133,56 @@
 		24D310381B6751F000B837FC /* t_fnprint.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310371B6751F000B837FC /* t_fnprint.lsp */; };
 		24D310391B67522100B837FC /* t_fnprint.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D310371B6751F000B837FC /* t_fnprint.lsp */; };
 		24D3103C1B67E9F700B837FC /* stream_handler_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */; };
+		24D3103F1B67EEE600B837FC /* fnround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103D1B67EEE600B837FC /* fnround.cpp */; };
+		24D310401B67EEE600B837FC /* fnround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3103D1B67EEE600B837FC /* fnround.cpp */; };
+		24D310431B689C8B00B837FC /* t_fnround.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310421B689C8B00B837FC /* t_fnround.lsp */; };
+		24D310441B689CB500B837FC /* tests.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F571B64E5AB00B837FC /* tests.lsp */; };
+		24D310451B689CBF00B837FC /* simple.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F581B64E5F400B837FC /* simple.lsp */; };
+		24D310461B689CBF00B837FC /* t_binary_integer.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30FB31B65399C00B837FC /* t_binary_integer.lsp */; };
+		24D310471B689CBF00B837FC /* t_binary_numeric.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F841B651E6300B837FC /* t_binary_numeric.lsp */; };
+		24D310481B689CBF00B837FC /* t_binary.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F301B64E5AB00B837FC /* t_binary.lsp */; };
+		24D310491B689CBF00B837FC /* t_bool.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F311B64E5AB00B837FC /* t_bool.lsp */; };
+		24D3104A1B689CBF00B837FC /* t_dictionary.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F851B651E6300B837FC /* t_dictionary.lsp */; };
+		24D3104B1B689CBF00B837FC /* t_error.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F321B64E5AB00B837FC /* t_error.lsp */; };
+		24D3104C1B689CBF00B837FC /* t_expander.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F331B64E5AB00B837FC /* t_expander.lsp */; };
+		24D3104D1B689CBF00B837FC /* t_fnboolq.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F361B64E5AB00B837FC /* t_fnboolq.lsp */; };
+		24D3104E1B689CBF00B837FC /* t_fncar.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F371B64E5AB00B837FC /* t_fncar.lsp */; };
+		24D3104F1B689CBF00B837FC /* t_fncdr.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F381B64E5AB00B837FC /* t_fncdr.lsp */; };
+		24D310501B689CBF00B837FC /* t_fncond.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F391B64E5AB00B837FC /* t_fncond.lsp */; };
+		24D310511B689CBF00B837FC /* t_fndefine.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F3A1B64E5AB00B837FC /* t_fndefine.lsp */; };
+		24D310521B689CBF00B837FC /* t_fndenominator.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F3B1B64E5AB00B837FC /* t_fndenominator.lsp */; };
+		24D310531B689CBF00B837FC /* t_fndict.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F3C1B64E5AB00B837FC /* t_fndict.lsp */; };
+		24D310541B689CBF00B837FC /* t_fndynamic.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F861B651E6300B837FC /* t_fndynamic.lsp */; };
+		24D310551B689CBF00B837FC /* t_fnequal.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F3D1B64E5AB00B837FC /* t_fnequal.lsp */; };
+		24D310561B689CBF00B837FC /* t_fnerror.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F3E1B64E5AB00B837FC /* t_fnerror.lsp */; };
+		24D310571B689CBF00B837FC /* t_fnexpand.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F3F1B64E5AB00B837FC /* t_fnexpand.lsp */; };
+		24D310581B689CBF00B837FC /* t_fngcd.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F401B64E5AB00B837FC /* t_fngcd.lsp */; };
+		24D310591B689CBF00B837FC /* t_fnimport.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F411B64E5AB00B837FC /* t_fnimport.lsp */; };
+		24D3105A1B689CBF00B837FC /* t_fnlambda.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F421B64E5AB00B837FC /* t_fnlambda.lsp */; };
+		24D3105B1B689CBF00B837FC /* t_fnlist.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F431B64E5AB00B837FC /* t_fnlist.lsp */; };
+		24D3105C1B689CBF00B837FC /* t_fnminus.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F441B64E5AB00B837FC /* t_fnminus.lsp */; };
+		24D3105D1B689CBF00B837FC /* t_fnnumerator.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F451B64E5AB00B837FC /* t_fnnumerator.lsp */; };
+		24D3105E1B689CBF00B837FC /* t_fnplus.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F461B64E5AB00B837FC /* t_fnplus.lsp */; };
+		24D3105F1B689CBF00B837FC /* t_fnquote.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F871B651E6300B837FC /* t_fnquote.lsp */; };
+		24D310601B689CBF00B837FC /* t_fnrandom.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30FC21B65FCF700B837FC /* t_fnrandom.lsp */; };
+		24D310611B689CBF00B837FC /* t_fnremainder.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F471B64E5AB00B837FC /* t_fnremainder.lsp */; };
+		24D310621B689CBF00B837FC /* t_fntimes.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F491B64E5AB00B837FC /* t_fntimes.lsp */; };
+		24D310631B689CBF00B837FC /* t_fractional.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F4A1B64E5AB00B837FC /* t_fractional.lsp */; };
+		24D310641B689CBF00B837FC /* t_function.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F4B1B64E5AB00B837FC /* t_function.lsp */; };
+		24D310651B689CBF00B837FC /* t_identifier.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F4C1B64E5AB00B837FC /* t_identifier.lsp */; };
+		24D310661B689CBF00B837FC /* t_listable_numeric.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30FB81B653F7600B837FC /* t_listable_numeric.lsp */; };
+		24D310671B689CBF00B837FC /* t_listable.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30FB91B653F7600B837FC /* t_listable.lsp */; };
+		24D310681B689CBF00B837FC /* t_number.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F4E1B64E5AB00B837FC /* t_number.lsp */; };
+		24D310691B689CBF00B837FC /* t_pair.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F501B64E5AB00B837FC /* t_pair.lsp */; };
+		24D3106A1B689CBF00B837FC /* t_parser.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F511B64E5AB00B837FC /* t_parser.lsp */; };
+		24D3106B1B689CBF00B837FC /* t_root_factory.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F521B64E5AB00B837FC /* t_root_factory.lsp */; };
+		24D3106C1B689CBF00B837FC /* t_string.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F531B64E5AB00B837FC /* t_string.lsp */; };
+		24D3106D1B689CBF00B837FC /* t_unary_numeric.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F551B64E5AB00B837FC /* t_unary_numeric.lsp */; };
+		24D3106E1B689CBF00B837FC /* t_unary_pair.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F561B64E5AB00B837FC /* t_unary_pair.lsp */; };
+		24D3106F1B689CBF00B837FC /* t_unary.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D30F541B64E5AB00B837FC /* t_unary.lsp */; };
+		24D310721B689D2B00B837FC /* import_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310701B689D2B00B837FC /* import_handler.cpp */; };
+		24D310731B689D2B00B837FC /* import_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310701B689D2B00B837FC /* import_handler.cpp */; };
+		24D310761B689F0900B837FC /* import_handler_bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 24D310741B689F0900B837FC /* import_handler_bundle.mm */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -325,6 +375,13 @@
 		24D310371B6751F000B837FC /* t_fnprint.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnprint.lsp; sourceTree = "<group>"; };
 		24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stream_handler_collector.cpp; sourceTree = "<group>"; };
 		24D3103B1B67E9F700B837FC /* stream_handler_collector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_handler_collector.h; sourceTree = "<group>"; };
+		24D3103D1B67EEE600B837FC /* fnround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnround.cpp; sourceTree = "<group>"; };
+		24D3103E1B67EEE600B837FC /* fnround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnround.h; sourceTree = "<group>"; };
+		24D310421B689C8B00B837FC /* t_fnround.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnround.lsp; sourceTree = "<group>"; };
+		24D310701B689D2B00B837FC /* import_handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = import_handler.cpp; sourceTree = "<group>"; };
+		24D310711B689D2B00B837FC /* import_handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = import_handler.h; sourceTree = "<group>"; };
+		24D310741B689F0900B837FC /* import_handler_bundle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = import_handler_bundle.mm; sourceTree = "<group>"; };
+		24D310751B689F0900B837FC /* import_handler_bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = import_handler_bundle.h; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -472,6 +529,7 @@
 		24D30F2F1B64E5AB00B837FC /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				24D310421B689C8B00B837FC /* t_fnround.lsp */,
 				24D30F581B64E5F400B837FC /* simple.lsp */,
 				24D30FB31B65399C00B837FC /* t_binary_integer.lsp */,
 				24D30F841B651E6300B837FC /* t_binary_numeric.lsp */,
@@ -628,6 +686,8 @@
 				3652D2498BDE3CC27CEE7C31 /* fnidentifierq.h */,
 				3652D3F1C4DBF7D85E1DF212 /* fnimport.cpp */,
 				3652D26923E9C50B8690BC2B /* fnimport.h */,
+				24D310741B689F0900B837FC /* import_handler_bundle.mm */,
+				24D310751B689F0900B837FC /* import_handler_bundle.h */,
 				3652D4F8BCDB94A2C085A989 /* fnlambda.cpp */,
 				3652D08ABEF53212E245755A /* fnlambda.h */,
 				3652DEF813B24A5DCBA3004A /* fnless.cpp */,
@@ -654,6 +714,8 @@
 				24D30FC01B65FA7100B837FC /* fnrandom.h */,
 				3652DC4D66C8800DFDDEC98B /* fnremainder.cpp */,
 				3652DAF58464413CA3E7B36D /* fnremainder.h */,
+				24D3103D1B67EEE600B837FC /* fnround.cpp */,
+				24D3103E1B67EEE600B837FC /* fnround.h */,
 				3652D0A296D4F97F6479DE88 /* fnstringq.cpp */,
 				3652D37DADE51622CCBFDECD /* fnstringq.h */,
 				3652D5B458124C1FCBFEFFE4 /* fntimes.cpp */,
@@ -686,6 +748,8 @@
 				24D30F821B6505B700B837FC /* sicp-tests.lsp */,
 				3652D0FAA138CD1D5707DD09 /* state.cpp */,
 				3652DBD71DBC8FACD7C6861B /* state.h */,
+				24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */,
+				24D3103B1B67E9F700B837FC /* stream_handler_collector.h */,
 				24D310301B674A7F00B837FC /* stream_handler_std.cpp */,
 				24D310311B674A7F00B837FC /* stream_handler_std.h */,
 				24D310331B674BFC00B837FC /* stream_handler_str.cpp */,
@@ -702,8 +766,8 @@
 				3652DDB4243DCF435931634D /* unary_pair.h */,
 				3652D09422057258F70D6E87 /* unary.cpp */,
 				3652DD13C309769A1202800F /* unary.h */,
-				24D3103A1B67E9F700B837FC /* stream_handler_collector.cpp */,
-				24D3103B1B67E9F700B837FC /* stream_handler_collector.h */,
+				24D310701B689D2B00B837FC /* import_handler.cpp */,
+				24D310711B689D2B00B837FC /* import_handler.h */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -715,6 +779,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24D30FE51B65FF0800B837FC /* Build configuration list for PBXNativeTarget "repl" */;
 			buildPhases = (
+				24D310411B689C6800B837FC /* ShellScript */,
 				24D30FC41B65FF0800B837FC /* Sources */,
 				24D30FC51B65FF0800B837FC /* Frameworks */,
 				24D30FC61B65FF0800B837FC /* Resources */,
@@ -787,10 +852,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24D310531B689CBF00B837FC /* t_fndict.lsp in Resources */,
+				24D310681B689CBF00B837FC /* t_number.lsp in Resources */,
+				24D3106B1B689CBF00B837FC /* t_root_factory.lsp in Resources */,
+				24D310611B689CBF00B837FC /* t_fnremainder.lsp in Resources */,
+				24D310501B689CBF00B837FC /* t_fncond.lsp in Resources */,
 				24D30FD51B65FF0800B837FC /* Images.xcassets in Resources */,
+				24D3105F1B689CBF00B837FC /* t_fnquote.lsp in Resources */,
 				24D30FD81B65FF0800B837FC /* Main.storyboard in Resources */,
+				24D310631B689CBF00B837FC /* t_fractional.lsp in Resources */,
+				24D310601B689CBF00B837FC /* t_fnrandom.lsp in Resources */,
+				24D310451B689CBF00B837FC /* simple.lsp in Resources */,
+				24D310591B689CBF00B837FC /* t_fnimport.lsp in Resources */,
+				24D310431B689C8B00B837FC /* t_fnround.lsp in Resources */,
+				24D310571B689CBF00B837FC /* t_fnexpand.lsp in Resources */,
+				24D310671B689CBF00B837FC /* t_listable.lsp in Resources */,
+				24D3104B1B689CBF00B837FC /* t_error.lsp in Resources */,
+				24D3104E1B689CBF00B837FC /* t_fncar.lsp in Resources */,
+				24D3106F1B689CBF00B837FC /* t_unary.lsp in Resources */,
+				24D310541B689CBF00B837FC /* t_fndynamic.lsp in Resources */,
+				24D3105B1B689CBF00B837FC /* t_fnlist.lsp in Resources */,
+				24D310691B689CBF00B837FC /* t_pair.lsp in Resources */,
+				24D310661B689CBF00B837FC /* t_listable_numeric.lsp in Resources */,
+				24D310651B689CBF00B837FC /* t_identifier.lsp in Resources */,
 				24D310381B6751F000B837FC /* t_fnprint.lsp in Resources */,
 				24D310281B660E0100B837FC /* system.lsp in Resources */,
+				24D3106D1B689CBF00B837FC /* t_unary_numeric.lsp in Resources */,
+				24D310561B689CBF00B837FC /* t_fnerror.lsp in Resources */,
+				24D310551B689CBF00B837FC /* t_fnequal.lsp in Resources */,
+				24D3104C1B689CBF00B837FC /* t_expander.lsp in Resources */,
+				24D310491B689CBF00B837FC /* t_bool.lsp in Resources */,
+				24D3104D1B689CBF00B837FC /* t_fnboolq.lsp in Resources */,
+				24D3105D1B689CBF00B837FC /* t_fnnumerator.lsp in Resources */,
+				24D3105E1B689CBF00B837FC /* t_fnplus.lsp in Resources */,
+				24D3105C1B689CBF00B837FC /* t_fnminus.lsp in Resources */,
+				24D310461B689CBF00B837FC /* t_binary_integer.lsp in Resources */,
+				24D310471B689CBF00B837FC /* t_binary_numeric.lsp in Resources */,
+				24D310441B689CB500B837FC /* tests.lsp in Resources */,
+				24D3104F1B689CBF00B837FC /* t_fncdr.lsp in Resources */,
+				24D3104A1B689CBF00B837FC /* t_dictionary.lsp in Resources */,
+				24D310511B689CBF00B837FC /* t_fndefine.lsp in Resources */,
+				24D310621B689CBF00B837FC /* t_fntimes.lsp in Resources */,
+				24D310481B689CBF00B837FC /* t_binary.lsp in Resources */,
+				24D310641B689CBF00B837FC /* t_function.lsp in Resources */,
+				24D3106E1B689CBF00B837FC /* t_unary_pair.lsp in Resources */,
+				24D310521B689CBF00B837FC /* t_fndenominator.lsp in Resources */,
+				24D3106A1B689CBF00B837FC /* t_parser.lsp in Resources */,
+				24D3106C1B689CBF00B837FC /* t_string.lsp in Resources */,
+				24D310581B689CBF00B837FC /* t_fngcd.lsp in Resources */,
+				24D3105A1B689CBF00B837FC /* t_fnlambda.lsp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +908,20 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		24D30F141B5FC2D600B837FC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./update_tests.rb;
+			showEnvVarsInLog = 0;
+		};
+		24D310411B689C6800B837FC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -834,6 +958,7 @@
 				24D30FF21B660E0100B837FC /* decider.cpp in Sources */,
 				24D310001B660E0100B837FC /* fndynamic.cpp in Sources */,
 				24D30FF91B660E0100B837FC /* fncdr.cpp in Sources */,
+				24D310761B689F0900B837FC /* import_handler_bundle.mm in Sources */,
 				24D30FEE1B660E0100B837FC /* binary.cpp in Sources */,
 				24D30FFD1B660E0100B837FC /* fndict.cpp in Sources */,
 				24D3102A1B660E0100B837FC /* unary_pair.cpp in Sources */,
@@ -875,6 +1000,7 @@
 				24D30FFA1B660E0100B837FC /* fncond.cpp in Sources */,
 				24D30FD01B65FF0800B837FC /* main.m in Sources */,
 				24D310181B660E0100B837FC /* fntimes.cpp in Sources */,
+				24D310401B67EEE600B837FC /* fnround.cpp in Sources */,
 				24D30FFB1B660E0100B837FC /* fndefine.cpp in Sources */,
 				24D30FFE1B660E0100B837FC /* fndictionaryq.cpp in Sources */,
 				24D310041B660E0100B837FC /* fnexpand.cpp in Sources */,
@@ -884,6 +1010,7 @@
 				24D30FCE1B65FF0800B837FC /* AppDelegate.m in Sources */,
 				24D3101E1B660E0100B837FC /* lookbehind.cpp in Sources */,
 				24D310161B660E0100B837FC /* fnstringq.cpp in Sources */,
+				24D310731B689D2B00B837FC /* import_handler.cpp in Sources */,
 				24D310151B660E0100B837FC /* fnremainder.cpp in Sources */,
 				24D3101C1B660E0100B837FC /* listable_numeric.cpp in Sources */,
 			);
@@ -896,6 +1023,7 @@
 				24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */,
 				7058954A1B1869200035ED69 /* main.cpp in Sources */,
 				705895581B186D380035ED69 /* collector.cpp in Sources */,
+				24D3103F1B67EEE600B837FC /* fnround.cpp in Sources */,
 				705895651B18BFCE0035ED69 /* number.cpp in Sources */,
 				705895551B186A3E0035ED69 /* element.cpp in Sources */,
 				705895621B18BA5D0035ED69 /* string.cpp in Sources */,
@@ -955,6 +1083,7 @@
 				3652D799724C40627BAEC11B /* binary.cpp in Sources */,
 				3652DDC69689D9E571E061A6 /* binary_numeric.cpp in Sources */,
 				3652D51D1DABD09AA26D2BEB /* fnremainder.cpp in Sources */,
+				24D310721B689D2B00B837FC /* import_handler.cpp in Sources */,
 				3652DE35478CD286BC56FDA0 /* binary_integer.cpp in Sources */,
 				3652DC434D9E60CBD751D7B5 /* fngcd.cpp in Sources */,
 				3652D636CEE672BB4DCBC50C /* unary_pair.cpp in Sources */,

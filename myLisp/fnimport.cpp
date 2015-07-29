@@ -18,7 +18,6 @@ void FunctionImport::setHandler(ImportHandler *handler) {
 
 EPtr FunctionImport::import(const std::string &name, State &state) {
 	Parser parser(&state);
-    std::cerr << "importing " << name << std::endl;
     std::ifstream in(_handler->find_path(name.c_str()));
     if (in.fail()) return state.creator()->new_error("can't import " + name);
  

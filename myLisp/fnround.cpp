@@ -22,7 +22,7 @@ EPtr FunctionRound::apply_unary_numeric(const Fractional &value, State &state) {
     Fractional result = value;
     if (result.denominator() > BigInt(1)) {
        BigInt rest = result.numerator() % result.denominator();
-       result = result - rest;
+       result = result - Fractional(rest, value.denominator(), value.isNegative());
     }
     return state.creator()->new_number(result);
 }

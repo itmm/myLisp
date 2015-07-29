@@ -75,7 +75,9 @@
                 NSMutableAttributedString *formatted = [[NSMutableAttributedString alloc] initWithString: @"\n"];
                 [formatted appendAttributedString: _buffer];
                 NSString *result_string = [NSString stringWithUTF8String: result.str().c_str()];
-                [formatted appendAttributedString: [NSAttributedString.alloc initWithString: result_string]];
+                [formatted appendAttributedString: [NSAttributedString.alloc initWithString: result_string attributes: @{
+                    NSForegroundColorAttributeName: NSColor.whiteColor
+                }]];
                 [formatted appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
                 [textView insertText: formatted replacementRange: affectedCharRange];
                 return NO;

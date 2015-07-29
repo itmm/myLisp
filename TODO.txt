@@ -8,8 +8,8 @@ chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 runtime
 numeric output of numbers
-round
 apply as function not as macro
 (import "t_*.lsp")
 multiline statements in app
-import from bundle
+(err-print) in red
+(print) in grey

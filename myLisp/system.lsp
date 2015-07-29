@@ -258,10 +258,13 @@
 ;;;;;;;;;;
 ;; sign ;;
 
-(defn ("sign" "a") (cond
-    ((= a 0) 0)
-    ((< a 0) -1)
-    (else 1)
+(defn ("sign" "a") (if (number? a)
+    (cond
+        ((= a 0) 0)
+        ((< a 0) -1)
+        (else 1)
+    )
+    (error "argument must be numeric")
 ))
 
     (assert (= (sign 5) 1) "sign 5")

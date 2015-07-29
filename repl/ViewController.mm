@@ -25,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.sourceField.automaticQuoteSubstitutionEnabled = NO;
+    self.sourceField.automaticDashSubstitutionEnabled = NO;
+    self.sourceField.automaticTextReplacementEnabled = NO;
+    
     if (! _buffer) { _buffer = [NSMutableAttributedString new]; }
     if (! _state) {
         _state = new State();
@@ -44,12 +48,6 @@
         [_buffer appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
         [self.sourceField insertText: _buffer replacementRange: NSMakeRange(self.sourceField.textStorage.string.length, 0)];
     }
-}
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
 }
 
 - (void) dealloc {

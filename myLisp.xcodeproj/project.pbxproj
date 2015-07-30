@@ -183,6 +183,8 @@
 		24D310721B689D2B00B837FC /* import_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310701B689D2B00B837FC /* import_handler.cpp */; };
 		24D310731B689D2B00B837FC /* import_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310701B689D2B00B837FC /* import_handler.cpp */; };
 		24D310761B689F0900B837FC /* import_handler_bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 24D310741B689F0900B837FC /* import_handler_bundle.mm */; };
+		24D310791B69F48A00B837FC /* function_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310771B69F48900B837FC /* function_pool.cpp */; };
+		24D3107A1B69F48A00B837FC /* function_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310771B69F48900B837FC /* function_pool.cpp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -382,6 +384,9 @@
 		24D310711B689D2B00B837FC /* import_handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = import_handler.h; sourceTree = "<group>"; };
 		24D310741B689F0900B837FC /* import_handler_bundle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = import_handler_bundle.mm; sourceTree = "<group>"; };
 		24D310751B689F0900B837FC /* import_handler_bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = import_handler_bundle.h; sourceTree = "<group>"; };
+		24D310771B69F48900B837FC /* function_pool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = function_pool.cpp; sourceTree = "<group>"; };
+		24D310781B69F48A00B837FC /* function_pool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_pool.h; sourceTree = "<group>"; };
+		24D3107C1B69F4CD00B837FC /* function_creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_creator.h; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -768,6 +773,9 @@
 				3652DD13C309769A1202800F /* unary.h */,
 				24D310701B689D2B00B837FC /* import_handler.cpp */,
 				24D310711B689D2B00B837FC /* import_handler.h */,
+				24D310771B69F48900B837FC /* function_pool.cpp */,
+				24D310781B69F48A00B837FC /* function_pool.h */,
+				24D3107C1B69F4CD00B837FC /* function_creator.h */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -975,6 +983,7 @@
 				24D310141B660E0100B837FC /* fnrandom.cpp in Sources */,
 				24D30FF81B660E0100B837FC /* fncar.cpp in Sources */,
 				24D310131B660E0100B837FC /* fnquote.cpp in Sources */,
+				24D3107A1B69F48A00B837FC /* function_pool.cpp in Sources */,
 				24D310201B660E0100B837FC /* number.cpp in Sources */,
 				24D3101D1B660E0100B837FC /* listable.cpp in Sources */,
 				24D30FF11B660E0100B837FC /* creator.cpp in Sources */,
@@ -1053,6 +1062,7 @@
 				3652D77A1B29117193D775F9 /* fnequal.cpp in Sources */,
 				3652D4999E241DFDDC19C225 /* fnquote.cpp in Sources */,
 				3652D3F53DA96A9A258E6A56 /* fnimport.cpp in Sources */,
+				24D310791B69F48A00B837FC /* function_pool.cpp in Sources */,
 				3652DCBA529217912A8E04CC /* error.cpp in Sources */,
 				3652D0DFB4D59D5AA2ADF0DC /* fnerror.cpp in Sources */,
 				3652DE0744FB1EF871726CDC /* fntimes.cpp in Sources */,

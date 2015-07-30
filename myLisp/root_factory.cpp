@@ -34,8 +34,9 @@
 #include "fngcd.h"
 #include "fnlet.h"
 #include "fnrandom.h"
-#include "fnround.h"
 #include "stream_handler_str.h"
+
+#include "function_pool.h"
 
 EPtr RootFactory::root() {
 	Dictionary *dict = _creator->new_dictionary()->as_dictionary();
@@ -75,7 +76,8 @@ EPtr RootFactory::root() {
 	dict->put("remainder", _creator->new_element(new FunctionRemainder()));
 	dict->put("gcd", _creator->new_element(new FunctionGcd()));
     dict->put("let", _creator->new_element(new FunctionLet()));
-    dict->put("random", _creator->new_element(new FunctionRandom()));
-    dict->put("round", _creator->new_element(new FunctionRound()));
-;	return EPtr(dict, _creator->collector());
+    
+    FunctionPool::insert_functions(dict, _creator);
+    
+	return EPtr(dict, _creator->collector());
 }

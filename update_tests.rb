@@ -35,7 +35,7 @@ end
 
 def update_tests(base, header, source, t_source)
 	puts 'testing ' + base + '.lsp'
-	tests = [grep_tests(header), grep_tests(source)].flatten(1)
+	tests = [grep_tests(header), source ? grep_tests(source) : []].flatten(1)
 	if tests.size() > 0
 		write_tests base, t_source, tests
 	end
@@ -58,10 +58,17 @@ Dir.foreach("myLisp") { |f|
 		base = File.basename(f, ".h")
 		header = "myLisp/#{base}.h"
 		source = "myLisp/#{base}.cpp"
+        if not test ?f, source
+            source = false
+        end
         if test ?f, "myLisp/#{base}.mm"
             source = "myLisp/#{base}.mm"
         end
-		last_change = [File.mtime(header), File.mtime(source), last_static_change].max()
+        if source
+            last_change = [File.mtime(header), File.mtime(source), last_static_change].max()
+        else
+            last_change = [File.mtime(header), last_static_change].max()
+        end
 
         t_source = "tests/t_#{base}.lsp"
 		

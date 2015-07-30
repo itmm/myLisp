@@ -1,5 +1,9 @@
 #include "fnround.h"
 
+#include "function_creator.h"
+
+SimpleFunctionCreator<FunctionRound> roundCreator("round");
+
 /*
 EPtr FunctionRound::apply_evaled(EPtr arguments, State &state) {
     Number *value = Element::as_number(Pair::car(arguments));

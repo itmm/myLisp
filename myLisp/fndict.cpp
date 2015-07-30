@@ -2,6 +2,10 @@
 #include "string.h"
 #include "pair.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionDict> _creator("dict");
+
 EPtr FunctionDict::apply(EPtr arguments, State &state) {
 	arguments = eval_arguments(arguments, state);
 	Pair *current = Element::as_pair(arguments);

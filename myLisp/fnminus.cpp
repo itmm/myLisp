@@ -2,6 +2,10 @@
 
 #include "number.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionMinus> _creator("-");
+
 EPtr FunctionMinus::empty_case(State &callerState) {
 	return callerState.creator()->new_number(-Fractional(1));
 }

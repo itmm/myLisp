@@ -2,7 +2,7 @@
 
 #include "function_creator.h"
 
-SimpleFunctionCreator<FunctionRound> roundCreator("round");
+static SimpleFunctionCreator<FunctionRound> _creator("round");
 
 /*
 EPtr FunctionRound::apply_evaled(EPtr arguments, State &state) {

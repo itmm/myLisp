@@ -2,7 +2,7 @@
 
 #include "function_creator.h"
 
-SimpleFunctionCreator<FunctionRandom> randomCreator("random");
+static SimpleFunctionCreator<FunctionRandom> _creator("random");
 
 EPtr FunctionRandom::apply_unary_numeric(const Fractional &value, State &state) {
     if (value.denominator() != BigInt(1)) return state.error("argument must be integer");

@@ -3,6 +3,10 @@
 #include "pair.h"
 #include "string.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionDefine> _creator("def");
+
 EPtr FunctionDefine::apply(EPtr arguments, State &state) {
 	Pair *cur = Element::as_pair(arguments);
 	if (! cur) return state.error("arguments must be a list");

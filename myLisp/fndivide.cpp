@@ -1,6 +1,10 @@
 #include "fndivide.h"
 #include "number.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionDivide> _creator("/");
+
 EPtr FunctionDivide::first_argument_numeric(
     EPtr,
     const Fractional &element,

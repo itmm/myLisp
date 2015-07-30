@@ -2,6 +2,10 @@
 
 #include "number.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionTimes> _creator("*");
+
 EPtr FunctionTimes::empty_case(State &callerState) {
 	return callerState.creator()->new_number(BigInt(1));
 }

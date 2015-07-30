@@ -5,6 +5,10 @@
 #import "parser.h"
 #import "string.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionImport> _creator("import");
+
 FunctionImport::~FunctionImport() {
     setHandler(nullptr);
 }

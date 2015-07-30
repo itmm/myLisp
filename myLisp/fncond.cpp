@@ -1,6 +1,10 @@
 #include "fncond.h"
 #include "pair.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionCond> _creator("cond");
+
 EPtr FunctionCond::apply(EPtr arguments, State &state) {
 	for (Pair *cur = Element::as_pair(arguments); cur; cur = Element::as_pair(cur->cdr())) {
 		Pair *entry = Element::as_pair(cur->car());

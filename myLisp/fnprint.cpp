@@ -1,6 +1,28 @@
 #include "fnprint.h"
 #include "pair.h"
 
+#include "function_creator.h"
+#include "stream_handler_str.h"
+
+class PrintFunctionCreator : public FunctionCreator {
+    public:
+        PrintFunctionCreator(StreamHandler *handler, const std::string key):
+            FunctionCreator(key),
+            _handler(handler)
+        {}
+    
+        Function *create() override {
+            return new FunctionPrint(_handler);
+        }
+    
+    private:
+        StreamHandler *_handler;
+};
+
+static PrintFunctionCreator printCreator(nullptr, "print");
+static PrintFunctionCreator printErrCreator(nullptr, "err-print");
+static PrintFunctionCreator printStrCreator(new StreamHandlerStr(), "str-print");
+
 void FunctionPrint::setHandler(StreamHandler *handler) {
     if (handler != _handler) {
         if (_handler) delete _handler;

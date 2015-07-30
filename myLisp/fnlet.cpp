@@ -3,6 +3,10 @@
 #include "pair.h"
 #include "string.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionLet> _creator("let");
+
 EPtr FunctionLet::apply(EPtr arguments, State &state) {
     if (! Element::as_pair(arguments)) return state.error("definition expected");
     EPtr root = state.creator()->new_dictionary(Element::as_dictionary(state.root()));

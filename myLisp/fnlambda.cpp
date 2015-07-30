@@ -5,6 +5,10 @@
 #include "pair.h"
 #include "string.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionLambda> _creator("fn");
+
 EPtr FunctionLambda::apply(EPtr arguments, State &state) {
 	Pair *args = Element::as_pair(arguments);
 	if (! args) return state.error("arguments expected");

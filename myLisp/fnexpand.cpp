@@ -2,6 +2,10 @@
 #include "pair.h"
 #include "expander.h"
 
+#include "function_creator.h"
+
+static SimpleFunctionCreator<FunctionExpand> _creator("expand");
+
 EPtr FunctionExpand::apply(EPtr arguments, State &state) {
 	if (Pair::cdr(Pair::cdr(arguments))) return state.creator()->new_error("expand needs two arguments");
 	Dictionary *dictionary = Element::as_dictionary(state.eval(EPtr(Pair::car(arguments), state.collector())));

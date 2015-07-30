@@ -1,6 +1,5 @@
 substrings
 bessere Fehlermeldungen im Parser
-< für Dictionaries
 endstellige Rekursion
 self-register functions
 trigger garbage collection after each repl statement

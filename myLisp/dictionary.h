@@ -21,6 +21,7 @@
 			virtual bool is_true() const override;
 			virtual bool is_equal(Element *other) const override;
 			bool is_subset_of(const Dictionary *other) const;
+			virtual bool is_less(Element *other) const override;
 
             virtual Dictionary *as_dictionary();
             virtual void to_stream(std::ostream &stream, bool escape) const;
@@ -45,6 +46,15 @@
 	 *	(assert (= (number? (dict)) false) "number? dict")
 	 *	(assert (= (pair? (dict)) false) "pair? dict")
 	 *	(assert (= (string? (dict)) false) "string? dict")
+     *
+     *  (assert (= (< (dict) (dict)) false) "< (dict) (dict)")
+     *  (assert (= (< (dict ("a" 2)) (dict)) false) "< (dict \"a\" 2) (dict)")
+     *  (assert (= (< (dict) (dict ("a" 2))) true) "< (dict) (dict \"a\" 2)")
+     *  (assert (= (< (dict ("a" 2)) (dict ("b" 2))) true) "< (dict \"a\" 2) (dict \"b\" 2)")
+     *  (assert (= (< (dict ("a" 2)) (dict ("a" 2))) false) "< (dict \"a\" 2) (dict \"a\" 2)")
+     *  (assert (= (< (dict ("b" 2)) (dict ("a" 2))) false) "< (dict \"b\" 2) (dict \"a\" 2)")
+     *  (assert (= (< (dict ("a" 2)) (dict ("a" 3))) true) "< (dict \"a\" 2) (dict \"a\" 3)")
+     *  (assert (= (< (dict ("a" 2) ("b" 2)) (dict ("a" 2) ("b" 3))) true) "< (dict 2, 2) (dict 2, 3)")
 	 */
      
 #endif

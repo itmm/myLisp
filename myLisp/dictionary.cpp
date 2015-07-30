@@ -85,3 +85,21 @@ std::map<std::string, Element *>::const_iterator Dictionary::begin() const {
 std::map<std::string, Element *>::const_iterator Dictionary::end() const {
 	return _map.end();
 }
+
+bool Dictionary::is_less(Element *other) const {
+    Dictionary *other_dict = Element::as_dictionary(other);
+    if (! other_dict) return false;
+    
+    auto my_iter = _map.begin();
+    auto my_end = _map.end();
+    auto other_iter = other_dict->_map.begin();
+    auto other_end = other_dict->_map.end();
+    for (; my_iter != my_end && other_iter != other_end; ++my_iter, ++other_iter) {
+        if (my_iter->first < other_iter->first) return true;
+        if (other_iter->first < my_iter->first) return false;
+        if (Element::is_less(my_iter->second, other_iter->second)) return true;
+        if (Element::is_less(other_iter->second, my_iter->second)) return false;
+    }
+    if (my_iter != my_end) return false;
+    return other_iter != other_end;
+}

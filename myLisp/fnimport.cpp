@@ -23,7 +23,13 @@ void FunctionImport::setHandler(ImportHandler *handler) {
 EPtr FunctionImport::import(const std::string &name, State &state) {
 	Parser parser(&state);
     std::ifstream in(_handler->find_path(name.c_str()));
-    if (in.fail()) return state.creator()->new_error("can't import " + name);
+    
+    if (in.fail()) {
+        Creator *creator = state.creator();
+        EPtr car = creator->new_string("can't import");
+        EPtr cdr = creator->new_pair(creator->new_string(name), nullptr);
+        return creator->new_error(car, cdr);
+    }
  
     for (;;) {
         EPtr res = parser.parse(in);
@@ -37,7 +43,7 @@ EPtr FunctionImport::import(const std::string &name, State &state) {
 EPtr FunctionImport::apply_evaled(EPtr arguments, State &state) {
 	for (Element *cur = Element::as_pair(arguments); cur; cur = Pair::cdr(cur)) {
 		String *path = Pair::car(cur)->as_string();
-		if (!path) return state.creator()->new_error("string expected");
+		if (!path) return state.error("string expected");
         EPtr res = import(path->str(), state);
         if (Element::as_error(res)) return res;
 	}

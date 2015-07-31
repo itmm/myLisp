@@ -22,9 +22,14 @@
 
             virtual bool is_less(Element *other) const override;
 
-        private:
+        protected:
             Pair(Element *car, Element *cdr): _car(car), _cdr(cdr) {}
 
+            virtual std::string head() const;
+        
+            bool is_equal_pair(Pair *other) const;
+        
+        private:
             friend class Creator;
             
             Element *_car;

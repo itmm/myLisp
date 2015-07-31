@@ -23,11 +23,14 @@ bool Pair::is_true() const {
 	return true;
 }
 
+bool Pair::is_equal_pair(Pair *other) const {
+	return other && Element::is_equal(_car, other->car()) && Element::is_equal(_cdr, other->cdr());
+}
+
 
 bool Pair::is_equal(Element *other) const {
 	if (Element::is_equal(other)) { return true; }
-	Pair *otherPair = Element::as_pair(other);
-	return otherPair && Element::is_equal(_car, otherPair->car()) && Element::is_equal(_cdr, otherPair->cdr());
+	return is_equal_pair(Element::as_pair(other));
 }
 
 bool Pair::is_less(Element *other) const {
@@ -40,8 +43,12 @@ bool Pair::is_less(Element *other) const {
 
 Pair *Pair::as_pair() { return this; }
 
+std::string Pair::head() const {
+    return std::string();
+}
+
 void Pair::to_stream(std::ostream &stream, bool escape) const {
-	stream << "(";
+	stream << "(" << head();
 	Pair *cur = const_cast<Pair *>(this);
 	while (cur) {
 		if (cur != this) { stream << " "; }

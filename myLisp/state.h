@@ -46,7 +46,7 @@ class State {
 			const std::string &name() const { return _name; }
 
 			EPtr ptr(Element *element) { return EPtr(element, collector()); }
-			EPtr error(const std::string &message) { return creator()->new_error(message); }
+			EPtr error(const std::string &message) { return creator()->new_error(creator()->new_string(message), nullptr); }
 
 		private:
 			std::string _name;

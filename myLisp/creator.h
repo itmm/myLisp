@@ -15,7 +15,7 @@ class Dictionary;
 			Collector *collector() { return _collector; }
 
 			EPtr new_element(Element *element);
-			EPtr new_error(const std::string &message);
+			EPtr new_error(Element *head, Element *rest);
 			EPtr new_dictionary(Dictionary *parent = nullptr);
 			EPtr new_number(const Fractional &value);
 			EPtr new_identifier(const std::string &value);

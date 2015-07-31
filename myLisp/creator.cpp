@@ -17,8 +17,8 @@ EPtr Creator::new_element(Element *element) {
 }
 
 
-EPtr Creator::new_error(const std::string &message) {
-	return new_element(new Error(message));
+EPtr Creator::new_error(Element *head, Element *rest) {
+	return new_element(new Error(head, rest));
 }
 
 EPtr Creator::new_dictionary(Dictionary *parent) {

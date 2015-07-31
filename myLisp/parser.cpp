@@ -52,7 +52,7 @@ void Parser::eatSpace(std::istream::int_type &ch, std::istream &rest) {
 }
 
 EPtr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
-	if (ch == EOF) { return _state->creator()->new_error("unfinished list"); }
+	if (ch == EOF) { return _state->error("unfinished list"); }
     if (ch == ')') {
         ch = rest.get();
         return EPtr();
@@ -67,7 +67,7 @@ EPtr Parser::parsePair(std::istream::int_type &ch, std::istream &rest) {
         if (ch == ')') {
         	ch = rest.get();
         } else {
-        	return _state->creator()->new_error("unfinished dotted list");
+        	return _state->error("unfinished dotted list");
         }
         return _state->creator()->new_pair(car, cdr);
     } else {

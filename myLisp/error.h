@@ -1,22 +1,23 @@
 #if !defined(error_h)
 #define error_h
 
-	#include "string.h"
+	#include "pair.h"
 
-	class Error : public String {
+	class Error : public Pair {
 		public:
 			virtual bool is_true() const override;
 			virtual bool is_equal(Element *other) const override;
 
 			virtual Error *as_error() override;
-			virtual String *as_string() override;
+			virtual Pair *as_pair() override;
 
-			virtual void to_stream(std::ostream &stream, bool escape) const override;
-
+        protected:
+            virtual std::string head() const override;
+            
 		private:
 			friend class Creator;
 
-			Error(const std::string &message): String(message) {}
+			Error(Element *head, Element *rest): Pair(head, rest) {}
 	};
 
 	/*TESTS:

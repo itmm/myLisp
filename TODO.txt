@@ -5,7 +5,6 @@ trigger garbage collection after each repl statement
 chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 runtime
-numeric output of numbers
 apply as function not as macro
 (import "t_*.lsp")
 multiline statements in app

@@ -21,6 +21,7 @@
 (import "t_fnlist.lsp")
 (import "t_fnminus.lsp")
 (import "t_fnnumerator.lsp")
+(import "t_fnnumeric.lsp")
 (import "t_fnplus.lsp")
 (import "t_fnprint.lsp")
 (import "t_fnquote.lsp")

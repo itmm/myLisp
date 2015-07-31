@@ -185,6 +185,9 @@
 		24D310761B689F0900B837FC /* import_handler_bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 24D310741B689F0900B837FC /* import_handler_bundle.mm */; };
 		24D310791B69F48A00B837FC /* function_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310771B69F48900B837FC /* function_pool.cpp */; };
 		24D3107A1B69F48A00B837FC /* function_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310771B69F48900B837FC /* function_pool.cpp */; };
+		24D310811B6B447D00B837FC /* fnnumeric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3107F1B6B447D00B837FC /* fnnumeric.cpp */; };
+		24D310821B6B447D00B837FC /* fnnumeric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3107F1B6B447D00B837FC /* fnnumeric.cpp */; };
+		24D310841B6C0EE400B837FC /* t_fnnumeric.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310831B6C0EE400B837FC /* t_fnnumeric.lsp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -387,6 +390,9 @@
 		24D310771B69F48900B837FC /* function_pool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = function_pool.cpp; sourceTree = "<group>"; };
 		24D310781B69F48A00B837FC /* function_pool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_pool.h; sourceTree = "<group>"; };
 		24D3107C1B69F4CD00B837FC /* function_creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_creator.h; sourceTree = "<group>"; };
+		24D3107F1B6B447D00B837FC /* fnnumeric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnnumeric.cpp; sourceTree = "<group>"; };
+		24D310801B6B447D00B837FC /* fnnumeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnnumeric.h; sourceTree = "<group>"; };
+		24D310831B6C0EE400B837FC /* t_fnnumeric.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnnumeric.lsp; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -534,6 +540,7 @@
 		24D30F2F1B64E5AB00B837FC /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				24D310831B6C0EE400B837FC /* t_fnnumeric.lsp */,
 				24D310421B689C8B00B837FC /* t_fnround.lsp */,
 				24D30F581B64E5F400B837FC /* simple.lsp */,
 				24D30FB31B65399C00B837FC /* t_binary_integer.lsp */,
@@ -705,6 +712,8 @@
 				3652DD211B1A8CDA75501493 /* fnnumberq.h */,
 				3652D2723452A637F1D720B1 /* fnnumerator.cpp */,
 				3652D6F5B8D2B6D04344C09C /* fnnumerator.h */,
+				24D3107F1B6B447D00B837FC /* fnnumeric.cpp */,
+				24D310801B6B447D00B837FC /* fnnumeric.h */,
 				3652D896F361134E6FA12B67 /* fnpairq.cpp */,
 				3652D84A713D7FB134C83ECE /* fnpairq.h */,
 				3652D8ED3BD34BD36E22C356 /* fnplus.cpp */,
@@ -894,6 +903,7 @@
 				24D3105D1B689CBF00B837FC /* t_fnnumerator.lsp in Resources */,
 				24D3105E1B689CBF00B837FC /* t_fnplus.lsp in Resources */,
 				24D3105C1B689CBF00B837FC /* t_fnminus.lsp in Resources */,
+				24D310841B6C0EE400B837FC /* t_fnnumeric.lsp in Resources */,
 				24D310461B689CBF00B837FC /* t_binary_integer.lsp in Resources */,
 				24D310471B689CBF00B837FC /* t_binary_numeric.lsp in Resources */,
 				24D310441B689CB500B837FC /* tests.lsp in Resources */,
@@ -959,6 +969,7 @@
 				24D3101A1B660E0100B837FC /* function.cpp in Sources */,
 				24D310231B660E0100B837FC /* ptr.cpp in Sources */,
 				24D3101B1B660E0100B837FC /* identifier.cpp in Sources */,
+				24D310821B6B447D00B837FC /* fnnumeric.cpp in Sources */,
 				24D3102F1B67494300B837FC /* stream_handler.cpp in Sources */,
 				24D310221B660E0100B837FC /* parser.cpp in Sources */,
 				24D310081B660E0100B837FC /* fnimport.cpp in Sources */,
@@ -1072,6 +1083,7 @@
 				3652DE93788E64A77CFFAE3C /* listable.cpp in Sources */,
 				3652DCB2946FE5A6ADE8D7C8 /* decider.cpp in Sources */,
 				24D30FB71B653A9300B837FC /* listable_numeric.cpp in Sources */,
+				24D310811B6B447D00B837FC /* fnnumeric.cpp in Sources */,
 				3652D790B1ED8394337A6E50 /* fnpairq.cpp in Sources */,
 				3652DFB4579F0918C6389372 /* fnstringq.cpp in Sources */,
 				3652DE6E207272186E611954 /* fnnumberq.cpp in Sources */,

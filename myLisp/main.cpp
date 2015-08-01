@@ -31,6 +31,7 @@ int main(int argc, const char * argv[]) {
         if (!in) { std::cout << "[# parse error #]" << std:: endl; break; }
 		EPtr result = state.eval(in);
 		std::cout << result << std::endl;
+        state.collector()->collect();
     }
     
     return 0;

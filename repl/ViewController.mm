@@ -78,6 +78,7 @@
                 }]];
                 [formatted appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
                 [textView insertText: formatted replacementRange: affectedCharRange];
+                _state->collector()->collect();
                 return NO;
             }
         }

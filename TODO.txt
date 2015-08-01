@@ -1,7 +1,5 @@
-substrings
 bessere Fehlermeldungen im Parser
 endstellige Rekursion
-trigger garbage collection after each repl statement
 chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 runtime

@@ -5,7 +5,7 @@
 
     class ImportHandlerBundle : public ImportHandler {
         public:
-            virtual std::string find_path(const std::string &name) override;
+            virtual std::vector<std::string> find_paths(const std::string &name) override;
     };
 
 #endif

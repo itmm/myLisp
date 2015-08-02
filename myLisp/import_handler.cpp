@@ -1,5 +1,7 @@
 #include "import_handler.h"
 
-std::string ImportHandler::find_path(const std::string &name) {
-    return name;
+std::vector<std::string> ImportHandler::find_paths(const std::string &name) {
+    std::vector<std::string> result;
+    result.push_back(name);
+    return result;
 }

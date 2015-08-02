@@ -22,20 +22,23 @@ void FunctionImport::setHandler(ImportHandler *handler) {
 
 EPtr FunctionImport::import(const std::string &name, State &state) {
 	Parser parser(&state);
-    std::ifstream in(_handler->find_path(name.c_str()));
-    
-    if (in.fail()) {
-        Creator *creator = state.creator();
-        EPtr car = creator->new_string("can't import");
-        EPtr cdr = creator->new_pair(creator->new_string(name), nullptr);
-        return creator->new_error(car, cdr);
-    }
- 
-    for (;;) {
-        EPtr res = parser.parse(in);
-        if (!res) break;
-        res = state.eval(res);
-        if (Element::as_error(res)) return res;
+    auto imports = _handler->find_paths(name.c_str());
+    for (auto cur = imports.begin(), end = imports.end(); cur != end; ++cur) {
+        std::ifstream in(cur->c_str());
+        
+        if (in.fail()) {
+            Creator *creator = state.creator();
+            EPtr car = creator->new_string("can't import");
+            EPtr cdr = creator->new_pair(creator->new_string(name), nullptr);
+            return creator->new_error(car, cdr);
+        }
+     
+        for (;;) {
+            EPtr res = parser.parse(in);
+            if (!res) break;
+            res = state.eval(res);
+            if (Element::as_error(res)) return res;
+        }
     }
     return state.trueNumber();
 }

@@ -4,6 +4,5 @@ chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 runtime
 apply as function not as macro
-(import "t_*.lsp")
 multiline statements in app
 find better project name

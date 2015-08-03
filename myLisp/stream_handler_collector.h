@@ -9,13 +9,16 @@
 
     class StreamHandlerCollector : public StreamHandlerStr {
         public:
-            StreamHandlerCollector(NSMutableAttributedString *buffer, NSColor *color): _buffer(buffer), _color(color) {}
+            StreamHandlerCollector(NSMutableAttributedString *buffer, NSDictionary *dict):
+                _buffer(buffer),
+                _dict(dict)
+            {}
         
             virtual std::string finish(std::ostream *stream) override;
         
         private:
             NSMutableAttributedString *_buffer;
-            NSColor *_color;
+            NSDictionary *_dict;
     };
 
 #endif

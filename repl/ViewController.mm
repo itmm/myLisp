@@ -8,6 +8,12 @@
 
 #import <sstream>
 
+const static NSString *kInputModeAttributeName = @"de.knp.lisp.inputMode";
+const static NSString *kInputModeSource = @"source";
+const static NSString *kInputModeOutput = @"output";
+const static NSString *kInputModePrint = @"print";
+const static NSString *kInputModeErrPrint = @"err-print";
+
 @implementation ViewController {
 	State *_state;
     Parser *_parser;
@@ -26,8 +32,14 @@
         _state = new State();
         _state->setName("root");
         Dictionary *dict = _state->root()->as_dictionary();
-        auto errCollector = new StreamHandlerCollector(_buffer, [NSColor redColor]);
-        auto outCollector = new StreamHandlerCollector(_buffer, [NSColor grayColor]);
+        auto errCollector = new StreamHandlerCollector(_buffer, @{
+            NSForegroundColorAttributeName : [NSColor colorWithCalibratedRed:1 green:0.4 blue:0 alpha:1],
+            kInputModeAttributeName : kInputModeErrPrint
+        });
+        auto outCollector = new StreamHandlerCollector(_buffer, @{
+            NSForegroundColorAttributeName : [NSColor grayColor],
+            kInputModeAttributeName : kInputModePrint
+        });
         dynamic_cast<FunctionPrint *>(dict->get("print"))->setHandler(outCollector);
         dynamic_cast<FunctionPrint *>(dict->get("err-print"))->setHandler(errCollector);
         dynamic_cast<FunctionImport *>(dict->get("import"))->setHandler(new ImportHandlerBundle());

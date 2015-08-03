@@ -4,7 +4,7 @@ std::string StreamHandlerCollector::finish(std::ostream *stream) {
     std::string result = StreamHandlerStr::finish(stream);
     NSAttributedString *formatted = [NSAttributedString.alloc
         initWithString: [NSString stringWithUTF8String: result.c_str()]
-        attributes: @{ NSForegroundColorAttributeName: _color }
+        attributes: _dict
     ];
     [_buffer appendAttributedString: formatted];
     [_buffer appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];

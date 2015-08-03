@@ -41,7 +41,12 @@ EPtr FunctionPrint::apply_evaled(EPtr arguments, State &state) {
 	std::string separator;
     std::ostream *stream = _handler->prepare();
 	for (; cur; cur = Element::as_pair(Pair::cdr(cur))) {
-		*stream << separator << EPtr(cur->car(), state.collector());
+		*stream << separator;
+        if (cur->car()) {
+            cur->car()->to_stream(*stream, false);
+        } else {
+            *stream << "()";
+        }
 		separator = " ";
 	}
     return state.creator()->new_string(_handler->finish(stream));

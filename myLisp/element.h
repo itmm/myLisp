@@ -56,13 +56,4 @@
 		return a->is_equal(b);
 	}
 
-	inline std::ostream &operator<<(std::ostream &out, const Element *elm) {
-		if (elm) {
-			elm->to_stream(out, false);
-		} else {
-			out << "()";
-		}
-		return out;
-	}
-
 #endif

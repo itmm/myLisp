@@ -22,6 +22,15 @@ EPtr FunctionNumeric::apply_evaled(EPtr arguments, State &state) {
         if (digits->value().denominator() != BigInt(1)) return state.error("digits must be integer");
         fractions = digits->value().numerator();
     }
+    Fractional rounding(1, 2);
+    Fractional ten(10);
+    Fractional one(1);
+    Fractional zero(0);
+    
+    for (Fractional i = fractions; zero < i; i = i - one) {
+        rounding = rounding / ten;
+    }
+    v = v + rounding;
     
     std::ostringstream buffer;
     Fractional fraction(0);
@@ -36,9 +45,8 @@ EPtr FunctionNumeric::apply_evaled(EPtr arguments, State &state) {
     }
     buffer << ".";
     
-    BigInt one(1);
-    BigInt ten(10);
-    for (BigInt cur(0); cur < fractions; cur = cur + one) {
+    BigInt bi_one(1);
+    for (BigInt cur(0); cur < fractions; cur = cur + bi_one) {
         fraction = fraction * ten;
         BigInt rest = fraction.numerator() % fraction.denominator();
         Fractional full = fraction - Fractional(rest, fraction.denominator(), fraction.isNegative());

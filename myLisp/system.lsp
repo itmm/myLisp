@@ -274,6 +274,18 @@
 (import "tests.lsp")
 (import "sicp-tests.lsp")
 
+
+;;;;;;;;;;;;;;;;
+;; str-length ;;
+
+(defn ("str-length" . "args")
+    (_str-length (str-print . args))
+)
+
+    (assert (= (str-length) 0) "str-length")
+    (assert (= (str-length 1 2 3) 5) "str-length 1 2 3")
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;
 

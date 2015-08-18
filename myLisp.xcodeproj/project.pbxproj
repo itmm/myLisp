@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2429C3181B8396B9003B51DA /* fnstrlength.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2429C3161B8396B9003B51DA /* fnstrlength.cpp */; };
+		2429C3191B8396B9003B51DA /* fnstrlength.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2429C3161B8396B9003B51DA /* fnstrlength.cpp */; };
+		2429C31B1B8398C2003B51DA /* t_fnstrlength.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 2429C31A1B8398C2003B51DA /* t_fnstrlength.lsp */; };
 		24A612961B36C90C00A2CB04 /* system.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D57C6E43E83D06D786FD /* system.lsp */; };
 		24A612971B3C842400A2CB04 /* turing.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3652D043BE23F9D1844A2CDC /* turing.lsp */; };
 		24D30F811B64E61A00B837FC /* tests.lsp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24D30F571B64E5AB00B837FC /* tests.lsp */; };
@@ -313,6 +316,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2429C3161B8396B9003B51DA /* fnstrlength.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnstrlength.cpp; sourceTree = "<group>"; };
+		2429C3171B8396B9003B51DA /* fnstrlength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnstrlength.h; sourceTree = "<group>"; };
+		2429C31A1B8398C2003B51DA /* t_fnstrlength.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnstrlength.lsp; sourceTree = "<group>"; };
 		24D30F301B64E5AB00B837FC /* t_binary.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_binary.lsp; sourceTree = "<group>"; };
 		24D30F311B64E5AB00B837FC /* t_bool.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_bool.lsp; sourceTree = "<group>"; };
 		24D30F321B64E5AB00B837FC /* t_error.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_error.lsp; sourceTree = "<group>"; };
@@ -545,6 +551,7 @@
 		24D30F2F1B64E5AB00B837FC /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				2429C31A1B8398C2003B51DA /* t_fnstrlength.lsp */,
 				24D310831B6C0EE400B837FC /* t_fnnumeric.lsp */,
 				24D310421B689C8B00B837FC /* t_fnround.lsp */,
 				24D30F581B64E5F400B837FC /* simple.lsp */,
@@ -793,6 +800,8 @@
 				3652DDB4243DCF435931634D /* unary_pair.h */,
 				3652D09422057258F70D6E87 /* unary.cpp */,
 				3652DD13C309769A1202800F /* unary.h */,
+				2429C3161B8396B9003B51DA /* fnstrlength.cpp */,
+				2429C3171B8396B9003B51DA /* fnstrlength.h */,
 			);
 			path = myLisp;
 			sourceTree = "<group>";
@@ -920,6 +929,7 @@
 				24D310511B689CBF00B837FC /* t_fndefine.lsp in Resources */,
 				24D310621B689CBF00B837FC /* t_fntimes.lsp in Resources */,
 				24D310481B689CBF00B837FC /* t_binary.lsp in Resources */,
+				2429C31B1B8398C2003B51DA /* t_fnstrlength.lsp in Resources */,
 				24D310641B689CBF00B837FC /* t_function.lsp in Resources */,
 				24D3106E1B689CBF00B837FC /* t_unary_pair.lsp in Resources */,
 				24D310521B689CBF00B837FC /* t_fndenominator.lsp in Resources */,
@@ -979,6 +989,7 @@
 				24D3101B1B660E0100B837FC /* identifier.cpp in Sources */,
 				24D310821B6B447D00B837FC /* fnnumeric.cpp in Sources */,
 				24D3102F1B67494300B837FC /* stream_handler.cpp in Sources */,
+				2429C3191B8396B9003B51DA /* fnstrlength.cpp in Sources */,
 				24D310221B660E0100B837FC /* parser.cpp in Sources */,
 				24D310081B660E0100B837FC /* fnimport.cpp in Sources */,
 				24D3100B1B660E0100B837FC /* fnlet.cpp in Sources */,
@@ -1072,6 +1083,7 @@
 				3652DFCC9C4A983DB1E43A4B /* bool.cpp in Sources */,
 				24D310351B674BFC00B837FC /* stream_handler_str.cpp in Sources */,
 				24D310321B674A7F00B837FC /* stream_handler_std.cpp in Sources */,
+				2429C3181B8396B9003B51DA /* fnstrlength.cpp in Sources */,
 				3652D7B65F7113D097623637 /* identifier.cpp in Sources */,
 				3652D4BA1A465782B2866FD4 /* fnlist.cpp in Sources */,
 				3652DCD945DB8B8CE00E494B /* fnlambda.cpp in Sources */,
@@ -1270,6 +1282,7 @@
 				24D30FE71B65FF0800B837FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		705895411B1869200035ED69 /* Build configuration list for PBXProject "myLisp" */ = {
 			isa = XCConfigurationList;

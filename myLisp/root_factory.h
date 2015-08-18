@@ -42,6 +42,7 @@
  *	(assert (function? true?) "true?")
  *	(assert (function? false?) "false?")
  *	(assert (function? str-print) "str-print")
+ *  (assert (function? _str-length) "_str-length")
  *	(assert (function? pair?) "pair?")
  *	(assert (function? string?) "string?")
  *	(assert (function? number?) "number?")

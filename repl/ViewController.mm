@@ -67,8 +67,7 @@ const static NSString *kTextModeErrPrint = @"err-print";
             start = lineStart.location + lineStart.length;
         }
         NSString *line = [textView.textStorage.string substringWithRange:NSMakeRange(start, affectedCharRange.location - start)];
-        std::istringstream stream([line cStringUsingEncoding: NSUTF8StringEncoding]);
-        EPtr in = _parser->parse(stream);
+        EPtr in = _parser->parse([line cStringUsingEncoding: NSUTF8StringEncoding]);
         if (in) {
             [_buffer setAttributedString: [NSAttributedString new]];
             EPtr out = _state->eval(in);

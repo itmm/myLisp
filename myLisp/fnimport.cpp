@@ -4,6 +4,7 @@
 #import "pair.h"
 #import "parser.h"
 #import "string.h"
+#import "tokenizer.h"
 
 #include "function_creator.h"
 
@@ -33,8 +34,9 @@ EPtr FunctionImport::import(const std::string &name, State &state) {
             return creator->new_error(car, cdr);
         }
      
+        Tokenizer tokenizer(in);
         for (;;) {
-            EPtr res = parser.parse(in);
+            EPtr res = parser.parse(tokenizer);
             if (!res) break;
             res = state.eval(res);
             if (Element::as_error(res)) return res;

@@ -188,6 +188,8 @@
 		24D310811B6B447D00B837FC /* fnnumeric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3107F1B6B447D00B837FC /* fnnumeric.cpp */; };
 		24D310821B6B447D00B837FC /* fnnumeric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D3107F1B6B447D00B837FC /* fnnumeric.cpp */; };
 		24D310841B6C0EE400B837FC /* t_fnnumeric.lsp in Resources */ = {isa = PBXBuildFile; fileRef = 24D310831B6C0EE400B837FC /* t_fnnumeric.lsp */; };
+		24D3108B1B7085B800B837FC /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310891B7085B800B837FC /* tokenizer.cpp */; };
+		24D3108C1B7085B800B837FC /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D310891B7085B800B837FC /* tokenizer.cpp */; };
 		24D82F6A1B2360AA00A8A86C /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F681B2360AA00A8A86C /* parser.cpp */; };
 		24D82F731B2380AC00A8A86C /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D82F711B2380AC00A8A86C /* dictionary.cpp */; };
 		3652D0C373AF2EA1CC56FC7C /* fnidentifierq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3652D6680AB16776E894D970 /* fnidentifierq.cpp */; };
@@ -393,6 +395,9 @@
 		24D3107F1B6B447D00B837FC /* fnnumeric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fnnumeric.cpp; sourceTree = "<group>"; };
 		24D310801B6B447D00B837FC /* fnnumeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fnnumeric.h; sourceTree = "<group>"; };
 		24D310831B6C0EE400B837FC /* t_fnnumeric.lsp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_fnnumeric.lsp; sourceTree = "<group>"; };
+		24D310861B7082E100B837FC /* token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = token.h; sourceTree = "<group>"; };
+		24D310891B7085B800B837FC /* tokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tokenizer.cpp; sourceTree = "<group>"; };
+		24D3108A1B7085B800B837FC /* tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tokenizer.h; sourceTree = "<group>"; };
 		24D82F5D1B22D81700A8A86C /* update_tests.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = update_tests.rb; sourceTree = "<group>"; };
 		24D82F681B2360AA00A8A86C /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		24D82F691B2360AA00A8A86C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
@@ -778,6 +783,9 @@
 				705895601B18BA5D0035ED69 /* string.cpp */,
 				705895611B18BA5D0035ED69 /* string.h */,
 				3652D57C6E43E83D06D786FD /* system.lsp */,
+				24D310861B7082E100B837FC /* token.h */,
+				24D310891B7085B800B837FC /* tokenizer.cpp */,
+				24D3108A1B7085B800B837FC /* tokenizer.h */,
 				3652D043BE23F9D1844A2CDC /* turing.lsp */,
 				3652D8A63963A22E74626D55 /* unary_numeric.cpp */,
 				3652DF416BECDBB94D8BDB44 /* unary_numeric.h */,
@@ -979,6 +987,7 @@
 				24D30FF91B660E0100B837FC /* fncdr.cpp in Sources */,
 				24D310761B689F0900B837FC /* import_handler_bundle.mm in Sources */,
 				24D30FEE1B660E0100B837FC /* binary.cpp in Sources */,
+				24D3108C1B7085B800B837FC /* tokenizer.cpp in Sources */,
 				24D30FFD1B660E0100B837FC /* fndict.cpp in Sources */,
 				24D3102A1B660E0100B837FC /* unary_pair.cpp in Sources */,
 				24D30FFF1B660E0100B837FC /* fndivide.cpp in Sources */,
@@ -1101,6 +1110,7 @@
 				3652DB0A45CE757A2C2B0162 /* bigint.cpp in Sources */,
 				3652DC7AADA3868B63DEDE40 /* fnnumerator.cpp in Sources */,
 				3652D4AB785C3489E95ED475 /* fndenominator.cpp in Sources */,
+				24D3108B1B7085B800B837FC /* tokenizer.cpp in Sources */,
 				3652D9B8D9ADFADB7FC99B12 /* unary.cpp in Sources */,
 				3652D799724C40627BAEC11B /* binary.cpp in Sources */,
 				3652DDC69689D9E571E061A6 /* binary_numeric.cpp in Sources */,

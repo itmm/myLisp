@@ -11,6 +11,8 @@
 	#include "root_factory.h"
     #include "state.h"
 
+    class Tokenizer;
+
     class Parser {
         public:
             Parser();
@@ -19,10 +21,10 @@
 
 			Creator *creator() { return _state->creator(); }
 
-            EPtr parse(std::istream &source);
+            EPtr parse(Tokenizer &tokenizer);
             EPtr parse(const std::string &source);
 
-        	EPtr eval(std::istream &source);
+        	EPtr eval(Tokenizer &tokenizer);
 			EPtr eval(const std::string &source);
 
         private:
@@ -32,12 +34,12 @@
             State *_state;
             bool _local_state;
         
-            void eatSpace(std::istream::int_type &ch, std::istream &rest);
-            EPtr parseElement(std::istream::int_type &ch, std::istream &rest);
-            EPtr parseNumber(const std::string &str);
-            EPtr parsePair(std::istream::int_type &ch, std::istream &rest);
-            EPtr parseString(std::istream::int_type &ch, std::istream &rest);
-            EPtr parseIdentifier(std::istream::int_type &ch, std::istream &rest);
+            void eatSpace(Tokenizer &tokenizer);
+            EPtr parseElement(Tokenizer &tokenizer);
+            EPtr parseNumber(Tokenizer &tokenizer);
+            EPtr parsePair(Tokenizer &tokenizer);
+            EPtr parseString(Tokenizer &tokenizer);
+            EPtr parseIdentifier(Tokenizer &tokenizer);
     };
 
     inline Parser::Parser():

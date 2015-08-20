@@ -6,3 +6,4 @@ runtime
 apply as function not as macro
 multiline statements in app
 find better project name
+print matrices

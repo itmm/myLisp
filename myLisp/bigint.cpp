@@ -3,6 +3,13 @@
 #include <cassert>
 #include <iomanip>
 
+BigInt::BigInt(unsigned long value): _bigger(nullptr) {
+    memset(_values, 0, sizeof _values);
+    for (int i = 0; i < _BLOCK_SIZE && value; ++i, value /= _MOD) {
+        _values[i] = value % _MOD;
+    }
+}
+
 BigInt::BigInt(const BigInt &other): _bigger(other._bigger ? new BigInt(*other._bigger) : static_cast<BigInt *>(nullptr)) {
 	for (int i = _BLOCK_SIZE - 1; i >= 0; --i) {
 		_values[i] = other._values[i];

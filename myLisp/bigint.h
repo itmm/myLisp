@@ -5,7 +5,7 @@
 
 	class BigInt {
 		public:
-			BigInt(unsigned value = 0);
+			BigInt(unsigned long value = 0);
 			BigInt(const BigInt &other);
 
 			BigInt &operator=(const BigInt &other);
@@ -42,8 +42,6 @@
 			unsigned factor(const BigInt &a, const BigInt &b) const;
 			BigInt full_divide(const BigInt &a, const BigInt &b, BigInt *mod) const;
 	};
-
-	inline BigInt::BigInt(unsigned value): _bigger(nullptr) { memset(_values, 0, sizeof _values); _values[0] = value; }
 
 	inline std::ostream &operator<<(std::ostream &out, const BigInt &value) {
 		if (!value.write(out)) out << 0;

@@ -14,6 +14,16 @@
 (def "infinity" 1/0)
 (def "not-a-number" 0/0)
 
+;;;;;;;;;;;;;
+;; newline ;;
+
+(def "str-newline" "
+")
+
+(defn ("newline") (print str-newline))
+
+(defn ("err-newline") (err-print str-newline))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; assert can be used for unit-tests ;;
 
@@ -33,7 +43,7 @@
         (cnd true)
         (else
             (def "tests-failed" (+ 1 tests-failed))
-            (err-print msg "not working")
+            (err-print msg "not working" str-newline)
         )
     )
 )
@@ -147,7 +157,7 @@
     )
 ))
 
-    (assert (= (or 1 (err-print "or is not short-circuing")) 1) "or")
+    (assert (= (or 1 (err-print "or is not short-circuing" str-newline)) 1) "or")
     (assert (= (or 0 false 2) 2) "or 0 false 2")
     (assert (= (or false 0) 0) "or false 0")
 
@@ -201,7 +211,7 @@
     (assert (= (<= 3 2) false) "3 <= 2")
     (assert (= (<= 1 2 2 3) true) "<= 1 2 2 3")
     (assert (= (<= 1 2 1) false) "<= 1 2 1")
-    (assert (= (<= 2 1 (err-print "<= lazy not working")) false) "<= 2 1 err")
+    (assert (= (<= 2 1 (err-print "<= lazy not working" str-newline)) false) "<= 2 1 err")
 
 (defm (">" . "args") (listable (fn ("a" "b") (< b a)) . args))
 
@@ -285,14 +295,13 @@
     (assert (= (str-length) 0) "str-length")
     (assert (= (str-length 1 2 3) 5) "str-length 1 2 3")
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;
 
 (defn ("assert-summary")
     (if (= 0 tests-failed)
-        (print tests-run "unit-tests passed")
-        (err-print tests-failed "from" tests-run "unit-tests failed")
+        (print tests-run "unit-tests passed" str-newline)
+        (err-print tests-failed "from" tests-run "unit-tests failed" str-newline)
     )
 )
 (assert-summary)

@@ -145,4 +145,33 @@
 
     (assert (= (mtx-mult ((1 3) (2 4)) ((5 6))) ((17 39))) "matrix times vector")
 
+(defn ("mtx-remove-first-row" "cs")
+    (if (null? cs)
+        ()
+        (cons (cdar cs) (mtx-remove-first-row (cdr cs)))
+    )
+)
+
+(defn ("mtx-print" "cs")
+    (defn ("print-row" "vs")
+        (cond
+            ((null? vs) (newline))
+            (else
+                (print (caar vs) "")
+                (print-row (cdr vs))
+            )
+        )
+        ""
+    )
+
+    (cond
+        ((null? (car cs)) ())
+        (else
+            (print-row cs)
+            (mtx-print (mtx-remove-first-row cs))
+        )
+    )
+    ""
+)
+
 (assert-summary)

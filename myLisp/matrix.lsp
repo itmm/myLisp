@@ -153,12 +153,12 @@
 )
 
 (defn ("mtx-print" "cs")
-    (defn ("print-row" "vs")
+    (defn ("print-row" "cs")
         (cond
-            ((null? vs) (newline))
+            ((null? cs) (newline))
             (else
-                (print (caar vs) "")
-                (print-row (cdr vs))
+                (print (caar cs) "")
+                (print-row (cdr cs))
             )
         )
         ""

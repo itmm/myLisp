@@ -14,3 +14,5 @@ define self in dyn fn
 no spacing between print arguments
 min
 max
+nil
+error on evaluation with no-functions

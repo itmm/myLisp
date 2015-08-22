@@ -99,9 +99,11 @@
 
 (defn ("sum" "n") (if (= n) 0 (+ n (sum (- n 1)))))
 
+(def "nil" '())
+
 (defn ("null?" "lst") (= () lst))
 
-    (assert (= (null? ()) true) "empty null?")
+    (assert (= (null? nil) true) "empty null?")
     (assert (= (null? (1)) false) "non-empty null?")
     (assert (= (null? 0) false) "null? 0")
     (assert (= (null? "()") false) "null? \"()\"")

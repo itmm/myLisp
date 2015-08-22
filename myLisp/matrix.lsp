@@ -98,12 +98,13 @@
 (defn ("mtx-sub" "as" "bs")
     (combine as bs vec-sub)
 )
+
 (defn ("mtx-scalar-mult" "as" "x")
     (map as (fn ("a") (vec-scalar-mult a x)))
 )
 
-    (assert (= (mtx-scalar-mult (mtx-1 7) 0) (mtx-0 7)) "0 * I7")
-    (assert (= (mtx-scalar-mult (mtx-1 9) -1) (mtx-sub (mtx-0 9) (mtx-1 9))) "-1 * I == 0 - I")
+    (assert (= (mtx-scalar-mult (mtx-1 3) 0) (mtx-0 3)) "0 * I")
+    (assert (= (mtx-scalar-mult (mtx-1 3) -1) (mtx-sub (mtx-0 3) (mtx-1 3))) "-1 * I == 0 - I")
 
     (defn ("add-lists" "as" "bs")
         (if (null? as)

@@ -64,8 +64,10 @@ EPtr FunctionDynamic::apply(EPtr arguments, State &state) {
 
 void FunctionDynamic::to_stream(std::ostream &stream, bool) const {
 	stream << "(fn ";
+    if (_macro) { stream << "macro "; }
 	if (_args) { _args->to_stream(stream, true); } else { stream << "()"; }
 	stream << ' ';
-	if (_body) { _body->to_stream(stream, true); }
+    Pair *body = Element::as_pair(_body);
+	if (body) { body->to_stream_without_parenthesis(stream, true); }
 	stream << ')';
 }

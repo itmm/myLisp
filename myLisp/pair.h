@@ -15,6 +15,7 @@
 
 			virtual Pair *as_pair();
             virtual void to_stream(std::ostream &stream, bool escape) const override;
+            void to_stream_without_parenthesis(std::ostream &stream, bool escape) const;
 
 			virtual bool is_true() const override;
 

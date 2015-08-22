@@ -47,8 +47,7 @@ std::string Pair::head() const {
     return std::string();
 }
 
-void Pair::to_stream(std::ostream &stream, bool escape) const {
-	stream << "(" << head();
+void Pair::to_stream_without_parenthesis(std::ostream &stream, bool escape) const {
 	Pair *cur = const_cast<Pair *>(this);
 	while (cur) {
 		if (cur != this) { stream << " "; }
@@ -60,5 +59,10 @@ void Pair::to_stream(std::ostream &stream, bool escape) const {
 		}
 		cur = Element::as_pair(cur->cdr());
 	}
+}
+
+void Pair::to_stream(std::ostream &stream, bool escape) const {
+	stream << "(" << head();
+    to_stream_without_parenthesis(stream, escape);
 	stream << ")";
 }

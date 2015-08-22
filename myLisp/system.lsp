@@ -43,7 +43,7 @@
         (cnd true)
         (else
             (def "tests-failed" (+ 1 tests-failed))
-            (err-print msg "not working" str-newline)
+            (err-print msg " not working" str-newline)
         )
     )
 )
@@ -295,7 +295,7 @@
 )
 
     (assert (= (str-length) 0) "str-length")
-    (assert (= (str-length 1 2 3) 5) "str-length 1 2 3")
+    (assert (= (str-length 1 2 3) 3) "str-length 1 2 3")
 
 ;;;;;;;;;;;;;
 ;; min/max ;;
@@ -331,8 +331,8 @@
 
 (defn ("assert-summary")
     (if (= 0 tests-failed)
-        (print tests-run "unit-tests passed" str-newline)
-        (err-print tests-failed "from" tests-run "unit-tests failed" str-newline)
+        (print tests-run " unit-tests passed" str-newline)
+        (err-print tests-failed " from " tests-run " unit-tests failed" str-newline)
     )
 )
 (assert-summary)

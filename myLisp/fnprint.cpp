@@ -38,16 +38,13 @@ EPtr FunctionPrint::apply_evaled(EPtr arguments, State &state) {
     if (! _handler) return state.error("no stream handler");
     
 	Pair *cur = Element::as_pair(arguments);
-	std::string separator;
     std::ostream *stream = _handler->prepare();
 	for (; cur; cur = Element::as_pair(Pair::cdr(cur))) {
-		*stream << separator;
         if (cur->car()) {
             cur->car()->to_stream(*stream, false);
         } else {
             *stream << "()";
         }
-		separator = " ";
 	}
     return state.creator()->new_string(_handler->finish(stream));
 }

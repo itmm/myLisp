@@ -157,7 +157,7 @@
         (cond
             ((null? cs) (newline))
             (else
-                (print (caar cs) "")
+                (print (caar cs) " ")
                 (print-row (cdr cs))
             )
         )

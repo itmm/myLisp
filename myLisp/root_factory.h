@@ -64,6 +64,7 @@
  *  (assert (function? random) "random")
  *  (assert (function? round) "round")
  *  (assert (function? numeric) "numeric")
+ *  (assert (function? runtime) "runtime")
  */
 
 #endif

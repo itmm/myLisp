@@ -17,6 +17,8 @@ EPtr FunctionDynamic::apply(EPtr arguments, State &state) {
 	}
 	Dictionary *context = state.creator()->new_dictionary(_macro ? static_cast<Dictionary *>(nullptr) : _root)->as_dictionary();
 
+    context->add("self", this);
+    
 	Element *cur_key = _args;
 	Element *cur_value = arguments;
 	for (; Element::as_pair(cur_key); cur_key = Pair::cdr(cur_key), cur_value = Pair::cdr(cur_value)) {

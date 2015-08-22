@@ -297,6 +297,35 @@
     (assert (= (str-length) 0) "str-length")
     (assert (= (str-length 1 2 3) 5) "str-length 1 2 3")
 
+;;;;;;;;;;;;;
+;; min/max ;;
+
+(defn ("collect" "values" "init" "f")
+    ((fn ("rest" "result")
+        (if (null? rest)
+            result
+            (self (cdr rest) (f (car rest) result))
+        )
+    ) values init)
+)
+
+(defn ("max" . "args")
+    (collect (cdr args) (car args) (fn ("value" "result")
+        (if (< result value) value result)
+    ))
+)
+
+    (assert (= (max 1 4 2) 4) "max 1 4 2")
+    (assert (= (max 3) 3) "max 3")
+
+(defn ("min" . "args")
+    (collect (cdr args) (car args) (fn ("value" "result")
+        (if (< value result) value result)
+    ))
+)
+
+    (assert (= (min 2 1 3) 1) "min 2 1 3")
+    
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;
 

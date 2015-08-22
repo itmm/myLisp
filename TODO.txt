@@ -10,8 +10,5 @@ vectors are special matrices
 fn to string without brackets around body
 accept empty list returned from dyn fn
 better padding of mtx-print
-define self in dyn fn
 no spacing between print arguments
-min
-max
 error on evaluation with no-functions

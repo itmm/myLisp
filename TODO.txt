@@ -5,7 +5,6 @@ chromatic colorscheme for matching parenthesis
 apply as function not as macro
 multiline statements in app
 find better project name
-vectors are special matrices
 accept empty list returned from dyn fn
 better padding of mtx-print
 error on evaluation with no-functions

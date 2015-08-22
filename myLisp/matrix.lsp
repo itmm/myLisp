@@ -11,21 +11,21 @@
 )
 
 (defn ("vec-1" "n" "i")
-    (loop n (fn ("j")
+    (list (loop n (fn ("j")
         (if (= i j) 1 0)
-    ))
+    )))
 )
 
-    (assert (= (vec-1 4 1) (1 0 0 0)) "vec-1 4 1")
-    (assert (= (vec-1 4 4) (0 0 0 1)) "vec-1 4 4")
-    (assert (= (vec-1 1 1) (1)) "vec-1 1 1")
+    (assert (= (vec-1 4 1) '((1 0 0 0))) "vec-1 4 1")
+    (assert (= (vec-1 4 4) '((0 0 0 1))) "vec-1 4 4")
+    (assert (= (vec-1 1 1) '((1))) "vec-1 1 1")
 
 (defn ("vec-0" "n")
-    (loop n (fn "i" 0))
+    (list (loop n (fn "i" 0)))
 )
 
-    (assert (= (vec-0 4) (0 0 0 0)) "vec-zero 4")
-    (assert (= (vec-0 1) (0)) "vec-0 1")
+    (assert (= (vec-0 4) '((0 0 0 0))) "vec-zero 4")
+    (assert (= (vec-0 1) '((0))) "vec-0 1")
 
 (defn ("combine" "as" "bs" "f")
     (if (null? as)
@@ -35,13 +35,13 @@
 )
 
 (defn ("vec-add" "as" "bs")
-    (combine as bs +)
+    (list (combine (car as) (car bs) +))
 )
 
-    (assert (= (vec-add (1 2 3) (2 5 7)) (3 7 10)) "vec-add (1 2 3) (2 5 7)")
+    (assert (= (vec-add '((1 2 3)) '((2 5 7))) '((3 7 10))) "vec-add (1 2 3) (2 5 7)")
 
 (defn ("vec-sub" "as" "bs")
-    (combine as bs -)
+    (list (combine (car as) (car bs) -))
 )
 
     (assert (= (vec-sub (vec-1 7 1) (vec-1 7 1)) (vec-0 7)) "vec-sub (vec-1 7 1) (vec-1 7 1)")
@@ -54,12 +54,12 @@
 )
 
 (defn ("vec-dot" "as" "bs")
-    (collect-2 as bs (fn ("a" "b" "s")
+    (collect-2 (car as) (car bs) (fn ("a" "b" "s")
         (+ (* a b) s)
     ) 0)
 )
 
-    (assert (= (vec-dot (1 2 3) (2 3 4)) 20) "vec-dot (1 2 3) (2 3 4)")
+    (assert (= (vec-dot '((1 2 3)) '((2 3 4))) 20) "vec-dot (1 2 3) (2 3 4)")
 
 (defn ("map" "as" "f")
     (if (null? as)
@@ -69,15 +69,15 @@
 )
 
 (defn ("vec-scalar-mult" "as" "x")
-    (map as (fn ("a") (* a x)))
+    (list (map (car as) (fn ("a") (* a x))))
 )
 
-    (assert (= (vec-scalar-mult (1 2 3) 3) (3 6 9)) "vec-scalar-mult (1 2 3) 3")
+    (assert (= (vec-scalar-mult '((1 2 3)) 3) '((3 6 9))) "vec-scalar-mult (1 2 3) 3")
     (assert (= (vec-scalar-mult (vec-1 7 3) -1) (vec-sub (vec-0 7) (vec-1 7 3))) "vec-scalar-mult -1")
 
 (defn ("mtx-1" "n")
     (loop n (fn ("i")
-        (vec-1 n i)
+        (car (vec-1 n i))
     ))
 )
 
@@ -86,32 +86,32 @@
 
 (defn ("mtx-0" "n")
     (loop n (fn ("i")
-        (vec-0 n)
+        (car (vec-0 n))
     ))
 )
 
     (assert (= (mtx-0 3) ((0 0 0) (0 0 0) (0 0 0))) "mtx-0 3")
 
 (defn ("mtx-add" "as" "bs")
-    (combine as bs vec-add)
+    (combine as bs (fn ("row-a" "row-b") (combine row-a row-b +)))
 )
 (defn ("mtx-sub" "as" "bs")
-    (combine as bs vec-sub)
+    (combine as bs (fn ("row-a" "row-b") (combine row-a row-b -)))
 )
 
 (defn ("mtx-scalar-mult" "as" "x")
-    (map as (fn ("a") (vec-scalar-mult a x)))
+    (map as (fn ("col") (map col (fn ("cell") (* x cell)))))
 )
 
     (assert (= (mtx-scalar-mult (mtx-1 3) 0) (mtx-0 3)) "0 * I")
     (assert (= (mtx-scalar-mult (mtx-1 3) -1) (mtx-sub (mtx-0 3) (mtx-1 3))) "-1 * I == 0 - I")
 
-    (defn ("add-lists" "as" "bs")
-        (if (null? as)
-            bs
-            (cons (car as) (add-lists (cdr as) bs))
-        )
+(defn ("add-lists" "as" "bs")
+    (if (null? as)
+        bs
+        (cons (car as) (add-lists (cdr as) bs))
     )
+)
 
 (defn ("mtx-transpose" "ms")
     (defn ("add-col-to-rows" "vs" "rs")
@@ -138,13 +138,18 @@
     (let (("ts" (mtx-transpose as)))
         (mtx-transpose (map ts (fn ("t")
             (map bs (fn ("b")
-                (vec-dot t b)
+                (vec-dot (list t) (list b))
             ))
         )))
     )
 )
 
-    (assert (= (mtx-mult ((1 3) (2 4)) ((5 6))) ((17 39))) "matrix times vector")
+((fn ()
+    (def "A" '((1 3) (2 4)))
+    (assert (= (mtx-mult A '((5 6))) '((17 39))) "matrix times vector")
+    (assert (= (mtx-mult A (vec-1 2 1)) '((1 3))) "A * e1")
+    (assert (= (mtx-mult A (vec-1 2 2)) '((2 4))) "A * e2")
+))
 
 (defn ("mtx-remove-first-row" "cs")
     (if (null? cs)

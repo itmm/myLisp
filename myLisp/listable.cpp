@@ -10,7 +10,6 @@ EPtr ListableFunction::apply(EPtr arguments, State &state) {
 	if (! arguments) return empty_case(state);
 	Pair *current = Element::as_pair(arguments);
 	if (! current) {
-        std::cerr << "listable " << arguments << std::endl;
         return state.error("Listable needs a plain list");
     }
 

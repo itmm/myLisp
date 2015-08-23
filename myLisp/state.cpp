@@ -11,9 +11,9 @@ EPtr State::eval(EPtr expression) {
 	Pair *pair = Element::as_pair(expression);
 	if (pair) {
 		Element *car = pair->car();
-		Function *fn = Element::as_function(eval(EPtr(car, collector())));
+		Function *fn = Element::as_function(eval(ptr(car)));
 		if (fn) {
-			EPtr result = fn->apply(EPtr(pair->cdr(), collector()), *this);
+			EPtr result = fn->apply(ptr(pair->cdr()), *this);
 			return result;
 		}
 	}

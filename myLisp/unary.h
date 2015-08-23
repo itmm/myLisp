@@ -13,9 +13,9 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (car) (error "need one argument")) "car")
-	 *	(assert (= (car . 2) (error "need one argument")) "car . 2")
-	 *	(assert (= (car ((1 2)) ()) (error "too many arguments")) "car multiple")
+	 *	(assert (= (car) (error "need one argument")))
+	 *	(assert (= (car . 2) (error "need one argument")))
+	 *	(assert (= (car ((1 2)) ()) (error "too many arguments")))
 	 */
 
 #endif

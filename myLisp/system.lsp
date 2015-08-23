@@ -37,13 +37,13 @@
 
 (def "else" true)
 
-(defn ("assert" "cnd" "msg")
+(defm ("assert" "cnd")
     (def "tests-run" (+ 1 tests-run))
     (cond
         (cnd true)
         (else
             (def "tests-failed" (+ 1 tests-failed))
-            (err-print msg " not working" str-newline)
+            (err-print (quote cnd) " not working" str-newline)
         )
     )
 )
@@ -53,27 +53,27 @@
 
 (defn ("cons" "a" "b") (list a . b))
 
-    (assert (= (cons 1 (2 3)) (1 2 3)) "cons")
-    (assert (= (cons 1 ()) (1)) "empty cons")
+    (assert (= (cons 1 (2 3)) (1 2 3)))
+    (assert (= (cons 1 ()) (1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; car/cdr shorthands ;;
 
 (defn ("caar" "x") (car (car x)))
 
-    (assert (= (caar ((1) 2)) 1) "caar")
+    (assert (= (caar ((1) 2)) 1))
 
 (defn ("cadr" "x") (car (cdr x)))
 
-    (assert (= (cadr (1 2 3)) 2) "cadr")
+    (assert (= (cadr (1 2 3)) 2))
 
 (defn ("cdar" "x") (cdr (car x)))
 
-    (assert (= (cdar ((1 2) 3)) (2)) "cdar")
+    (assert (= (cdar ((1 2) 3)) (2)))
 
 (defn ("cddr" "x") (cdr (cdr x)))
 
-    (assert (= (cddr (1 2 3)) (3)) "cddr")
+    (assert (= (cddr (1 2 3)) (3)))
 
 (defn ("caaar" "x") (car (car (car x))))
 (defn ("caadr" "x") (car (car (cdr x))))
@@ -90,12 +90,12 @@
 
 (defn ("1+" "x") (+ 1 x))
 
-    (assert (= (1+ 5) 6) "1+")
+    (assert (= (1+ 5) 6))
 
 (defm ("if" "condition" "true-block" "false-block") (cond (condition true-block) (else false-block)))
 
-    (assert (= (if true 3 4) 3) "if true")
-    (assert (= (if false 3 4) 4) "if false")
+    (assert (= (if true 3 4) 3))
+    (assert (= (if false 3 4) 4))
 
 (defn ("sum" "n") (if (= n) 0 (+ n (sum (- n 1)))))
 
@@ -103,14 +103,14 @@
 
 (defn ("null?" "lst") (= () lst))
 
-    (assert (= (null? nil) true) "empty null?")
-    (assert (= (null? (1)) false) "non-empty null?")
-    (assert (= (null? 0) false) "null? 0")
-    (assert (= (null? "()") false) "null? \"()\"")
+    (assert (= (null? nil) true))
+    (assert (= (null? (1)) false))
+    (assert (= (null? 0) false))
+    (assert (= (null? "()") false))
 
 (defn ("apply" "f" "args") (f . args))
 
-    (assert (= (apply + (2 3 4)) 9) "apply")
+    (assert (= (apply + (2 3 4)) 9))
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; contatenate lists ;;
@@ -128,9 +128,9 @@
     )
 )
 
-    (assert (= (flatten) (list)) "empty flatten")
-    (assert (= (flatten 1 2) (1 2)) "flatten numbers")
-    (assert (= (flatten (1 2) (3)) (1 2 3)) "flatten lists")
+    (assert (= (flatten) (list)))
+    (assert (= (flatten 1 2) (1 2)))
+    (assert (= (flatten (1 2) (3)) (1 2 3)))
 
 
 ;;;;;;;;;;
@@ -144,12 +144,12 @@
     a
 ))
 
-    (assert (= (and false false) false) "and false false")
-    (assert (= (and false true) false) "and false true")
-    (assert (= (and true false) false) "and true false")
-    (assert (= (and true 1) true) "and true 1")
+    (assert (= (and false false) false))
+    (assert (= (and false true) false))
+    (assert (= (and true false) false))
+    (assert (= (and true 1) true))
 
-    (assert (= (and 1 2 3 4) 4) "and 1 2 3 4")
+    (assert (= (and 1 2 3 4) 4))
 
 (defm ("or" "a" "b" . "args") (if a
     a
@@ -159,26 +159,26 @@
     )
 ))
 
-    (assert (= (or 1 (err-print "or is not short-circuing" str-newline)) 1) "or")
-    (assert (= (or 0 false 2) 2) "or 0 false 2")
-    (assert (= (or false 0) 0) "or false 0")
+    (assert (= (or 1 (err-print "or is not short-circuing" str-newline)) 1))
+    (assert (= (or 0 false 2) 2))
+    (assert (= (or false 0) 0))
 
 (defn ("not" "a") (false? a))
 
-    (assert (= (not 1) false) "not true")
-    (assert (= (not 0) true) "not false")
+    (assert (= (not 1) false))
+    (assert (= (not 0) true))
 
 (defn ("xor" "a" "b" . "args") (if a
     (if (null? args) (not b) (not (xor b . args)))
     (if (null? args) (true? b) (xor b . args))
 ))
 
-    (assert (= (xor 0 0) false) "xor 0 0")
-    (assert (= (xor 0 1) true) "xor 0 1")
-    (assert (= (xor 1 0) true) "xor 1 0")
-    (assert (= (xor 1 1) false) "xor 1 1")
+    (assert (= (xor 0 0) false))
+    (assert (= (xor 0 1) true))
+    (assert (= (xor 1 0) true))
+    (assert (= (xor 1 1) false))
 
-    (assert (= (xor 0 1 0) true) "xor 0 1 0")
+    (assert (= (xor 0 1 0) true))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;
@@ -190,8 +190,8 @@
     (else (filter (cdr lst) ref op))
 ))
 
-    (assert (= (filter (1 2 3 4) 3 <) (1 2)) "filter")
-    (assert (= (filter (4 3 2 1) 3 <) (2 1)) "reverse filter")
+    (assert (= (filter (1 2 3 4) 3 <) (1 2)))
+    (assert (= (filter (4 3 2 1) 3 <) (2 1)))
 
 (defm ("listable" "cnd" "a" "b" . "args") (let (("b-evaled" b) ("cnd-evaled" cnd))
     (if (cnd-evaled a b-evaled)
@@ -208,22 +208,22 @@
 
 (defm ("<=" . "args") (listable (fn ("a" "b") (or (= a b) (< a b))) . args))
 
-    (assert (= (<= 2 2) true) "2 <= 2")
-    (assert (= (<= 2 3) true) "2 <= 3")
-    (assert (= (<= 3 2) false) "3 <= 2")
-    (assert (= (<= 1 2 2 3) true) "<= 1 2 2 3")
-    (assert (= (<= 1 2 1) false) "<= 1 2 1")
-    (assert (= (<= 2 1 (err-print "<= lazy not working" str-newline)) false) "<= 2 1 err")
+    (assert (= (<= 2 2) true))
+    (assert (= (<= 2 3) true))
+    (assert (= (<= 3 2) false))
+    (assert (= (<= 1 2 2 3) true))
+    (assert (= (<= 1 2 1) false))
+    (assert (= (<= 2 1 (err-print "<= lazy not working" str-newline)) false))
 
 (defm (">" . "args") (listable (fn ("a" "b") (< b a)) . args))
 
-    (assert (= (> 5 4 3) true) "> 5 4 3")
-    (assert (= (> 5 4 5) false) "> 5 4 5")
+    (assert (= (> 5 4 3) true))
+    (assert (= (> 5 4 5) false))
 
 (defm (">=" . "args") (listable (fn ("a" "b") (or (= a b) (< b a))) . args))
 
-    (assert (= (>= 5 4 4) true) ">= 5 4 4")
-    (assert (= (>= 5 4 5) false) ">= 5 4 5")
+    (assert (= (>= 5 4 4) true))
+    (assert (= (>= 5 4 5) false))
 
 (defn ("sort" . "a") (cond
     ((= (list) a) a)
@@ -235,7 +235,7 @@
     ))
 ))
 
-    (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)) "sort")
+    (assert (= (sort 8 3 5 7 2) (2 3 5 7 8)))
 
 ;; doubles is a helper method for ><
 
@@ -246,17 +246,17 @@
     (else (doubles (cdr a)))
 ))
 
-    (assert (= (doubles (2 3 3 5)) true) "doubles in 2 3 3 5")
-    (assert (= (doubles (2 3 5)) false) "no in 2 3 5")
-    (assert (= (doubles ()) false) "empty doubles")
-    (assert (= (doubles (2)) false) "single doubles")
+    (assert (= (doubles (2 3 3 5)) true))
+    (assert (= (doubles (2 3 5)) false))
+    (assert (= (doubles ()) false))
+    (assert (= (doubles (2)) false))
 
 (defn ("><" . "a") (not (doubles (apply sort a))))
 
-    (assert (= (>< 1 2 3) true) "not equal")
-    (assert (= (><) true) "empty not equal")
-    (assert (= (><) 1) "single not equal")
-    (assert (= (>< 2 1 2) false) "double not equal")
+    (assert (= (>< 1 2 3) true))
+    (assert (= (><) true))
+    (assert (= (><) 1))
+    (assert (= (>< 2 1 2) false))
 
 
 ;;;;;;;;
@@ -264,7 +264,7 @@
 
 (defm ("do" . "statements") (cond (true . statements)))
 
-    (assert (= (do (+ 1 2) (+ 2 3)) 5) "do")
+    (assert (= (do (+ 1 2) (+ 2 3)) 5))
 
 
 ;;;;;;;;;;
@@ -279,12 +279,12 @@
     (error "argument must be numeric")
 ))
 
-    (assert (= (sign 5) 1) "sign 5")
-    (assert (= (sign 0) 0) "sign 0")
-    (assert (= (sign -3) -1) "sign -3")
+    (assert (= (sign 5) 1))
+    (assert (= (sign 0) 0))
+    (assert (= (sign -3) -1))
 
-(import "tests.lsp")
-(import "sicp-tests.lsp")
+(assert (import "tests.lsp"))
+(assert (import "sicp-tests.lsp"))
 
 
 ;;;;;;;;;;;;;;;;
@@ -294,8 +294,8 @@
     (_str-length (str-print . args))
 )
 
-    (assert (= (str-length) 0) "str-length")
-    (assert (= (str-length 1 2 3) 3) "str-length 1 2 3")
+    (assert (= (str-length) 0))
+    (assert (= (str-length 1 2 3) 3))
 
 ;;;;;;;;;;;;;
 ;; min/max ;;
@@ -315,8 +315,8 @@
     ))
 )
 
-    (assert (= (max 1 4 2) 4) "max 1 4 2")
-    (assert (= (max 3) 3) "max 3")
+    (assert (= (max 1 4 2) 4))
+    (assert (= (max 3) 3))
 
 (defn ("min" . "args")
     (collect (cdr args) (car args) (fn ("value" "result")
@@ -324,7 +324,7 @@
     ))
 )
 
-    (assert (= (min 2 1 3) 1) "min 2 1 3")
+    (assert (= (min 2 1 3) 1))
     
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;

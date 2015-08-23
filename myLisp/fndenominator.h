@@ -10,13 +10,13 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (denominator 0) 1) "denominator 0")
-	 *	(assert (= (denominator 1) 1) "denominator 1")
-	 *	(assert (= (denominator 7) 1) "denominator 7")
-	 *	(assert (= (denominator -2/3) 3) "denominator -2/3")
-	 *	(assert (= (denominator infinity) 0) "denominator infinity")
-	 *	(assert (= (denominator (- infinity)) 0) "denominator -infinity")
-	 *	(assert (= (denominator not-a-number) 0) "denominator not a number")
+	 *	(assert (= (denominator 0) 1))
+	 *	(assert (= (denominator 1) 1))
+	 *	(assert (= (denominator 7) 1))
+	 *	(assert (= (denominator -2/3) 3))
+	 *	(assert (= (denominator infinity) 0))
+	 *	(assert (= (denominator (- infinity)) 0))
+	 *	(assert (= (denominator not-a-number) 0))
 	 */
 
 #endif

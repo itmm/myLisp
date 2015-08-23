@@ -19,10 +19,10 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (+) 0) "empty +")
-	 *	(assert (= (+ 2 3 4) 9) "multiple +")
-	 *	(assert (= (+ 7) 7) "+ 7")
-	 *	(assert (= (+ -3 5/2) -1/2) "fractional +")
+	 *	(assert (= (+) 0))
+	 *	(assert (= (+ 2 3 4) 9))
+	 *	(assert (= (+ 7) 7))
+	 *	(assert (= (+ -3 5/2) -1/2))
 	 */
 
 #endif

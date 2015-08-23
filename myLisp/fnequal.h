@@ -10,21 +10,21 @@
 
 	/*TESTS:
 	 *
-	 * 	(assert (= (= (list) (list)) true) "= empty lists")
-	 *	(assert (= (= (list) (list 4)) false) "= unequal lists")
+	 * 	(assert (= (= (list) (list)) true))
+	 *	(assert (= (= (list) (list 4)) false))
 	 *
-	 *	(assert (= (=) (error "Listable needs at least one argument")) "empty =")
-	 *	(assert (= (= (+ 1)) (error "Lookbehind needs at least two arguments")) "= single")
-	 *	(assert (= (= 2 4/2) true) "= equal numbers")
-	 *	(assert (= (= 2 3) false) "= unequal numbers")
-	 *	(assert (= (= "abc" "abc") true) "= equal strings")
-	 *	(assert (= (= "aBc" "abc") false) "= unequal strings")
-	 *	(assert (= (= " a" "a") false) "= strings with spaces in front")
-	 *	(assert (= (= "a " "a") false) "= strings with spaces in rear")
-	 *	(assert (= (= "1" 1) false) "= string with number")
-	 *	(assert (= (= (+ 2 2) (+ 3 1) (+ 4 0) (+ 5 -1)) true) "= list of numbers")
-	 *	(assert (= (= (list (1 2) 3 4) (list (1 2) 3 (+ 2 2))) true) "= with lists")
-	 *	(assert (= (= (list) (list)) true) "= with ()")
+	 *	(assert (= (=) (error "Listable needs at least one argument")))
+	 *	(assert (= (= (+ 1)) (error "Lookbehind needs at least two arguments")))
+	 *	(assert (= (= 2 4/2) true))
+	 *	(assert (= (= 2 3) false))
+	 *	(assert (= (= "abc" "abc") true))
+	 *	(assert (= (= "aBc" "abc") false))
+	 *	(assert (= (= " a" "a") false))
+	 *	(assert (= (= "a " "a") false))
+	 *	(assert (= (= "1" 1) false))
+	 *	(assert (= (= (+ 2 2) (+ 3 1) (+ 4 0) (+ 5 -1)) true))
+	 *	(assert (= (= (list (1 2) 3 4) (list (1 2) 3 (+ 2 2))) true))
+	 *	(assert (= (= (list) (list)) true))
 	 */
 
 #endif

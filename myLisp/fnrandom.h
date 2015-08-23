@@ -10,8 +10,8 @@
 
     /*TESTS:
      *
-     *  (assert (= (random 0) 0) "random 0")
-     *  (assert (< (random 5) 5) "random 5")
+     *  (assert (= (random 0) 0))
+     *  (assert (< (random 5) 5))
      */
      
 #endif

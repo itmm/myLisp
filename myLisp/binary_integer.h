@@ -16,8 +16,8 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (remainder 2/3 1) (error "first argument must be integer")) "remainder 2/3 1")
-	 *	(assert (= (remainder 2 1/2) (error "second argument must be integer")) "remainder 2/3 1")
+	 *	(assert (= (remainder 2/3 1) (error "first argument must be integer")))
+	 *	(assert (= (remainder 2 1/2) (error "second argument must be integer")))
 	 */
 
 #endif

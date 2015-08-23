@@ -10,10 +10,10 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (numerator 0) 0) "numerator 0")
-	 *	(assert (= (numerator 3) 3) "numerator 3")
-	 *	(assert (= (numerator 2/5) 2) "numerator 2/5")
-	 *	(assert (= (numerator 6/3) 2) "numerator 6/3")
+	 *	(assert (= (numerator 0) 0))
+	 *	(assert (= (numerator 3) 3))
+	 *	(assert (= (numerator 2/5) 2))
+	 *	(assert (= (numerator 6/3) 2))
 	 */
 
 #endif

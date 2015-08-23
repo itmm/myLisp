@@ -13,12 +13,12 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (remainder) (error "no first argument")) "empty binary")
-	 *	(assert (= (remainder . 2) (error "no first argument")) "binary . 2")
-	 *	(assert (= (remainder 2) (error "no second argument")) "unary binary")
-	 *	(assert (= (remainder 2 . 1) (error "no second argument")) "binary 2 . 1")
-	 *	(assert (= (remainder 2 1 0) (error "more than two arguments")) "binary 2 1 0")
-	 *	(assert (= (remainder 2 1 . 0) (error "more than two arguments")) "binary 2 1 . 0")
+	 *	(assert (= (remainder) (error "no first argument")))
+	 *	(assert (= (remainder . 2) (error "no first argument")))
+	 *	(assert (= (remainder 2) (error "no second argument")))
+	 *	(assert (= (remainder 2 . 1) (error "no second argument")))
+	 *	(assert (= (remainder 2 1 0) (error "more than two arguments")))
+	 *	(assert (= (remainder 2 1 . 0) (error "more than two arguments")))
 	 */
 
 #endif

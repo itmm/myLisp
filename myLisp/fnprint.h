@@ -19,11 +19,11 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (str-print) "") "empty str-print")
-	 *	(assert (= (str-print false) "false") "str-print false")
-	 *	(assert (= (str-print 1 2 3) "123") "str-print 1 2 3")
-	 *	(assert (= (str-print "1" "2" "3") "123") "str-print \"1\" \"2\" \"3\"")
-	 *	(assert (= (str-print unused-identifier) "unused-identifier") "str-print identifier")
+	 *	(assert (= (str-print) ""))
+	 *	(assert (= (str-print false) "false"))
+	 *	(assert (= (str-print 1 2 3) "123"))
+	 *	(assert (= (str-print "1" "2" "3") "123"))
+	 *	(assert (= (str-print unused-identifier) "unused-identifier"))
 	 */
 
 #endif

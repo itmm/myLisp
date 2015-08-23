@@ -10,8 +10,8 @@
 
     /*TESTS:
      *
-     *  (assert (= (_str-length "") 0) "_strlength \"\"")
-     *  (assert (= (_str-length "abc i") 5) "_strlength \"abc i\"")
+     *  (assert (= (_str-length "") 0))
+     *  (assert (= (_str-length "abc i") 5))
      */
 
 #endif

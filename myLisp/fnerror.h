@@ -10,10 +10,10 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (error "test") (error "test")) "test error")
+	 *	(assert (= (error "test") (error "test")))
 	 *
-	 *	(assert (= (error 2) (error 2)) "error ")
-     *  (assert (= (error "sum must be" (+ 1 2)) (error "sum must be" 3)) "error with args")
+	 *	(assert (= (error 2) (error 2)))
+     *  (assert (= (error "sum must be" (+ 1 2)) (error "sum must be" 3)))
 	 */
 
 #endif

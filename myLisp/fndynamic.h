@@ -33,24 +33,25 @@
 	 *+	(defn ("f" "a" "b") (+ a b))
 	 *+ (defm ("g" . "args") (apply + args))
 	 *
-	 *	(assert (= (f 2 3) 5) "f 2 3")
-	 *	(assert (= (g 2 3) 5) "g 2 3")
+	 *	(assert (= (f 2 3) 5))
+	 *	(assert (= (g 2 3) 5))
 	 *
-	 *	(assert (= (f) (error "too few arguments")) "f")
-	 *	(assert (= (g) 0) "g")
+	 *	(assert (= (f) (error "too few arguments")))
+	 *	(assert (= (g) 0))
 	 *
-	 *	(assert (= (f 2) (error "too few arguments")) "f 2")
-	 *  (assert (= (g 2) 2) "g 2")
+	 *	(assert (= (f 2) (error "too few arguments")))
+	 *  (assert (= (g 2) 2))
 	 *
-	 *	(assert (= (f 2 3 4) (error "too many arguments")) "f 2 3 4")
-	 *	(assert (= (g 2 3 4) 9) "g 2 3 4")
+	 *	(assert (= (f 2 3 4) (error "too many arguments")))
+	 *	(assert (= (g 2 3 4) 9))
 	 */
 
 	/*TESTS:
 	 *
 	 *+ (defm ("f" "a" . "b") (+ a (apply + b)))
 	 *
-	 *	(assert (= (f 2 3 4) 9) "mixed with 2 3 4")
-	 *	(assert (= (f 2) 2) "mixed with 2")
+	 *	(assert (= (f 2 3 4) 9))
+	 *	(assert (= (f 2) 2))
 	 */
+     
 #endif

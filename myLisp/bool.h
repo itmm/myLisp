@@ -15,24 +15,24 @@
 
     /*TESTS:
      *
-     *	(assert (= (str-print true) "true") "true")
-     *	(assert (= (str-print false) "false") "false")
+     *	(assert (= (str-print true) "true"))
+     *	(assert (= (str-print false) "false"))
      *
-     *	(assert (= (dictionary? true) false) "dictionary? true")
-     *	(assert (= (error? true) false) "error? true")
-     *	(assert (= (function? true) false) "function? true")
-     *	(assert (= (identifier? true) false) "identifier? true")
-     *	(assert (= (number? true) true) "number? true")
-     *  (assert (= (pair? true) false) "pair? true")
-     *  (assert (= (string? true) false) "string? true")
+     *	(assert (= (dictionary? true) false))
+     *	(assert (= (error? true) false))
+     *	(assert (= (function? true) false))
+     *	(assert (= (identifier? true) false))
+     *	(assert (= (number? true) true))
+     *  (assert (= (pair? true) false))
+     *  (assert (= (string? true) false))
      *
-     *	(assert (= (dictionary? false) false) "dictionary? false")
-     *	(assert (= (error? false) false) "error? false")
-     *	(assert (= (function? false) false) "function? false")
-     *	(assert (= (identifier? false) false) "identifier? false")
-     *	(assert (= (number? false) true) "number? false")
-     *  (assert (= (pair? false) false) "pair? false")
-     *  (assert (= (string? false) false) "string? false")
+     *	(assert (= (dictionary? false) false))
+     *	(assert (= (error? false) false))
+     *	(assert (= (function? false) false))
+     *	(assert (= (identifier? false) false))
+     *	(assert (= (number? false) true))
+     *  (assert (= (pair? false) false))
+     *  (assert (= (string? false) false))
      */
 
 #endif

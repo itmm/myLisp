@@ -17,15 +17,15 @@
 
 	/*TESTS:
 	 *
-	 * 	(assert (= (true? +) false) "true? +")
+	 * 	(assert (= (true? +) false))
 	 *
-	 *	(assert (= (dictionary? +) false) "dictionary? +")
-	 *	(assert (= (error? +) false) "error? +")
-	 *	(assert (= (function? +) true) "function? +")
-	 *	(assert (= (identifier? +) false) "identifier? +")
-	 *	(assert (= (number? +) false) "number? +")
-	 *	(assert (= (pair? +) false) "pair? +")
-	 *	(assert (= (string? +) false) "string? +")
+	 *	(assert (= (dictionary? +) false))
+	 *	(assert (= (error? +) false))
+	 *	(assert (= (function? +) true))
+	 *	(assert (= (identifier? +) false))
+	 *	(assert (= (number? +) false))
+	 *	(assert (= (pair? +) false))
+	 *	(assert (= (string? +) false))
 	 */
 
 #endif

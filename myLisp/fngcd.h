@@ -10,8 +10,8 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (gcd 15 6) 3) "gcd 15 6")
-	 *	(assert (= (gcd 6 15) 3) "gcd 6 15")
+	 *	(assert (= (gcd 15 6) 3))
+	 *	(assert (= (gcd 6 15) 3))
 	 */
 
 #endif

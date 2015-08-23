@@ -29,7 +29,7 @@
     (turing () (car in) (cdr in) minus-1-fn 0)
 )
 
-    (assert (= (minus-1 (1 1 1)) (1 1)) "minus-1")
+    (assert (= (minus-1 (1 1 1)) (1 1)))
 
 (defn ("plus-1" "in")
     (defn ("plus-1-fn" "head" "state") (if
@@ -40,6 +40,6 @@
     (turing () (car in) (cdr in) plus-1-fn 0)
 )
 
-    (assert (= (plus-1 (1 1 1)) (1 1 1 1)) "plus-1")
+    (assert (= (plus-1 (1 1 1)) (1 1 1 1)))
 
 (assert-summary)

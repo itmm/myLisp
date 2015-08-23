@@ -12,8 +12,8 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (remainder "2" 1) (error "first argument not numeric")) "numeric binary str 1")
-	 *	(assert (= (remainder 2 "1") (error "second argument not numeric")) "numeric binary 2 str")
+	 *	(assert (= (remainder "2" 1) (error "first argument not numeric")))
+	 *	(assert (= (remainder 2 "1") (error "second argument not numeric")))
 	 */
 
 #endif

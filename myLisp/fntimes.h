@@ -19,10 +19,10 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (*) 1) "empty *")
-	 *	(assert (= (* 2 3 4) 24) "* 2 3 4")
-	 *	(assert (= (* 7) 7) "* 7")
-	 *	(assert (= (* -3 5/2) -15/2) "fractional *")
+	 *	(assert (= (*) 1))
+	 *	(assert (= (* 2 3 4) 24))
+	 *	(assert (= (* 7) 7))
+	 *	(assert (= (* -3 5/2) -15/2))
 	 */
 
 #endif

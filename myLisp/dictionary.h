@@ -40,21 +40,21 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (function? (dict)) false) "function? dict")
-	 *	(assert (= (dictionary? (dict)) true) "dictionary? dict")
-	 *	(assert (= (error? (dict)) false) "error? dict")
-	 *	(assert (= (number? (dict)) false) "number? dict")
-	 *	(assert (= (pair? (dict)) false) "pair? dict")
-	 *	(assert (= (string? (dict)) false) "string? dict")
+	 *	(assert (= (function? (dict)) false))
+	 *	(assert (= (dictionary? (dict)) true))
+	 *	(assert (= (error? (dict)) false))
+	 *	(assert (= (number? (dict)) false))
+	 *	(assert (= (pair? (dict)) false))
+	 *	(assert (= (string? (dict)) false))
      *
-     *  (assert (= (< (dict) (dict)) false) "< (dict) (dict)")
-     *  (assert (= (< (dict ("a" 2)) (dict)) false) "< (dict \"a\" 2) (dict)")
-     *  (assert (= (< (dict) (dict ("a" 2))) true) "< (dict) (dict \"a\" 2)")
-     *  (assert (= (< (dict ("a" 2)) (dict ("b" 2))) true) "< (dict \"a\" 2) (dict \"b\" 2)")
-     *  (assert (= (< (dict ("a" 2)) (dict ("a" 2))) false) "< (dict \"a\" 2) (dict \"a\" 2)")
-     *  (assert (= (< (dict ("b" 2)) (dict ("a" 2))) false) "< (dict \"b\" 2) (dict \"a\" 2)")
-     *  (assert (= (< (dict ("a" 2)) (dict ("a" 3))) true) "< (dict \"a\" 2) (dict \"a\" 3)")
-     *  (assert (= (< (dict ("a" 2) ("b" 2)) (dict ("a" 2) ("b" 3))) true) "< (dict 2, 2) (dict 2, 3)")
+     *  (assert (= (< (dict) (dict)) false))
+     *  (assert (= (< (dict ("a" 2)) (dict)) false))
+     *  (assert (= (< (dict) (dict ("a" 2))) true))
+     *  (assert (= (< (dict ("a" 2)) (dict ("b" 2))) true))
+     *  (assert (= (< (dict ("a" 2)) (dict ("a" 2))) false))
+     *  (assert (= (< (dict ("b" 2)) (dict ("a" 2))) false))
+     *  (assert (= (< (dict ("a" 2)) (dict ("a" 3))) true))
+     *  (assert (= (< (dict ("a" 2) ("b" 2)) (dict ("a" 2) ("b" 3))) true))
 	 */
      
 #endif

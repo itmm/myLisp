@@ -39,32 +39,32 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (true? (list)) false) "true? ()")
-	 *	(assert (= (true? (list (list))) true) "true? (())")
-	 *	(assert (= (true? (list 0)) true) "true? (0)")
+	 *	(assert (= (true? (list)) false))
+	 *	(assert (= (true? (list (list))) true))
+	 *	(assert (= (true? (list 0)) true))
 	 *
-	 *  (assert (= (= (list) (list)) true) "= () ()")
-	 *  (assert (= (= (list 1 2) (list 1 2)) true) "= (1 2) (1 2)")
-	 *  (assert (= (= (list 1 2) (list 1)) false) "= (1 2) (1)")
+	 *  (assert (= (= (list) (list)) true))
+	 *  (assert (= (= (list 1 2) (list 1 2)) true))
+	 *  (assert (= (= (list 1 2) (list 1)) false))
 	 *
-	 *  (assert (= (< (list) (list 1)) true) "< () (1)")
-	 *  (assert (= (< (list 1) (list)) false) "< (1) ()")
-	 *  (assert (= (< (list 2 3) (list 3 2)) true) "< (2 3) (3 2)")
-	 *  (assert (= (< (list 3 2) (list 2 3)) false) "< (3 2) (2 3)")
-	 *  (assert (= (< (list 2 3) (list 2 4)) true) "< (2 3) (2 4)")
+	 *  (assert (= (< (list) (list 1)) true))
+	 *  (assert (= (< (list 1) (list)) false))
+	 *  (assert (= (< (list 2 3) (list 3 2)) true))
+	 *  (assert (= (< (list 3 2) (list 2 3)) false))
+	 *  (assert (= (< (list 2 3) (list 2 4)) true))
 	 *
-	 *	(assert (= (dictionary? (list 1)) false) "dictionary? (1)")
-	 *	(assert (= (error? (list -1)) false) "error? (-1)")
-	 *	(assert (= (function? (list +)) false) "function? (+)")
-	 *	(assert (= (identifier? (list "ab")) false) "identifier? (ab)")
-	 *	(assert (= (number? (list 2)) false) "number? (2)")
-	 * 	(assert (= (pair? (list)) true) "pair? ()")
-	 * 	(assert (= (pair? (list false)) true) "pair? (false)")
-	 * 	(assert (= (string? (list "a")) false) "string? (a)")
+	 *	(assert (= (dictionary? (list 1)) false))
+	 *	(assert (= (error? (list -1)) false))
+	 *	(assert (= (function? (list +)) false))
+	 *	(assert (= (identifier? (list "ab")) false))
+	 *	(assert (= (number? (list 2)) false))
+	 * 	(assert (= (pair? (list)) true))
+	 * 	(assert (= (pair? (list false)) true))
+	 * 	(assert (= (string? (list "a")) false))
 	 *
-	 *  (assert (= (str-print (list "a" "b")) "(\"a\" \"b\")") "str-print (\"a\" \"b\")")
-	 *  (assert (= (str-print (list)) "()") "str-print ()")
-	 *  (assert (= (str-print (list "a" . "b")) "(\"a\" . \"b\")") "str-print (\"a\" . \"b\")")
+	 *  (assert (= (str-print (list "a" "b")) "(\"a\" \"b\")"))
+	 *  (assert (= (str-print (list)) "()"))
+	 *  (assert (= (str-print (list "a" . "b")) "(\"a\" . \"b\")"))
 	 */
 
 #endif

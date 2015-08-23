@@ -20,16 +20,16 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (true? unknown-identifier) true) "true? identifier")
+	 *	(assert (= (true? unknown-identifier) true))
 	 *
-	 *	(assert (= (dictionary? unknown-identifier) false) "dictionary? identifier")
-	 *	(assert (= (error? unknown-identifier) false) "error? identifier")
-	 *	(assert (= (function? unknown-identifier) false) "function? identifier")
-	 *	(assert (= (identifier? unknown-identifier) true) "identifier? identifier")
-	 *	(assert (= (number? unknown-identifier) false) "number? identifier")
-	 *  (assert (= (pair? unknown-identifier) false) "pair? identifier")
-	 *  (assert (= (string? unknown-identifier) false) "string? identifier")
+	 *	(assert (= (dictionary? unknown-identifier) false))
+	 *	(assert (= (error? unknown-identifier) false))
+	 *	(assert (= (function? unknown-identifier) false))
+	 *	(assert (= (identifier? unknown-identifier) true))
+	 *	(assert (= (number? unknown-identifier) false))
+	 *  (assert (= (pair? unknown-identifier) false))
+	 *  (assert (= (string? unknown-identifier) false))
 	 *
-	 *  (assert (= (str-print (a)) "(a)") "str-print (a)")
+	 *  (assert (= (str-print (a)) "(a)"))
 	 */
 #endif

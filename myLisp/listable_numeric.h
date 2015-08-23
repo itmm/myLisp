@@ -36,8 +36,8 @@
 
 	/*TESTS:
 	 *
-     *  (assert (= (+ "a") (error "first argument must be numeric")) "plus string")
-	 *  (assert (= (+ 1 "a") (error "argument must be numeric")) "mixed plus")
+     *  (assert (= (+ "a") (error "first argument must be numeric")))
+	 *  (assert (= (+ 1 "a") (error "argument must be numeric")))
 	 */
 
 #endif

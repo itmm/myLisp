@@ -10,7 +10,7 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (identifier? (quote +)) "quote +")
+	 *	(assert (identifier? (quote +)))
 	 */
 
 #endif

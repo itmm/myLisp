@@ -12,7 +12,7 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (car 2) (error "argument must be a pair")) "car 2")
+	 *	(assert (= (car 2) (error "argument must be a pair")))
 	 */
 
 #endif

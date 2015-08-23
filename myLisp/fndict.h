@@ -10,13 +10,13 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (dict 3) (error "pair expected")) "dict number")
-	 *	(assert (= (dict (1 2 3)) (error "pair must have two elements")) "dict triple number")
-	 *	(assert (= (dict (1 2)) (error "key must be a string")) "dict no-string pair")
+	 *	(assert (= (dict 3) (error "pair expected")))
+	 *	(assert (= (dict (1 2 3)) (error "pair must have two elements")))
+	 *	(assert (= (dict (1 2)) (error "key must be a string")))
 	 *
-	 *	(assert (= (dict) (dict)) "dict = empty")
-	 *	(assert (= (dict ("a" 1) ("b" 2)) (dict ("b" 2) ("a" 1))) "dict = same")
-	 *	(assert (= (= (dict) (dict ("a" 1))) false) "dict = not empty")
+	 *	(assert (= (dict) (dict)))
+	 *	(assert (= (dict ("a" 1) ("b" 2)) (dict ("b" 2) ("a" 1))))
+	 *	(assert (= (= (dict) (dict ("a" 1))) false))
 	 */
 
 #endif

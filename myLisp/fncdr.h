@@ -10,10 +10,10 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (cdr (list)) (list)) "cdr ()")
-	 *	(assert (= (cdr (list 1 2)) (list 2)) "cdr list")
+	 *	(assert (= (cdr (list)) (list)))
+	 *	(assert (= (cdr (list 1 2)) (list 2)))
 	 *
-	 * 	(assert (= (cdr (list 2 . (4 5))) (list 4 5)) "cdr no-list")
+	 * 	(assert (= (cdr (list 2 . (4 5))) (list 4 5)))
 	 */
 
 #endif

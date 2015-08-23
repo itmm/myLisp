@@ -10,16 +10,16 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (= (fn () (+ 3 3)) ()) false) "simple fn")
-	 *	(assert (= ((fn () 3)) 3) "constant fn")
-	 *	(assert (= (cond (((fn () false)) 2) (true 3)) 3) "fn in cond")
+	 *	(assert (= (= (fn () (+ 3 3)) ()) false))
+	 *	(assert (= ((fn () 3)) 3))
+	 *	(assert (= (cond (((fn () false)) 2) (true 3)) 3))
 	 */
 
 	/*TESTS:
 	 *
 	 *+	((fn macro () (def "a" 3)))
 	 *
-	 *	(assert (= a 3) "macro defines to global")
+	 *	(assert (= a 3))
 	 */
 
 	/*TESTS:
@@ -27,27 +27,27 @@
 	 *+ (def "a" (fn macro ("b") b))
 	 *+	(a (def "x" 32))
 	 *
-	 *	(assert (= x 32) "indirect macro")
+	 *	(assert (= x 32))
 	 */
 
 	/*TESTS:
 	 *
 	 *+ (def "f" (fn "args" (car args)))
 	 *
-	 *	(assert (= (f 2 3) 2) "simple global fn")
+	 *	(assert (= (f 2 3) 2))
 	 */
 
 	/*TESTS:
 	 *
 	 *+ (def "f" (fn ("a" . "b") (+ a (car b))))
 	 *
-	 *	(assert (= (f 2 3 4) 5) "simple variadic fn")
+	 *	(assert (= (f 2 3 4) 5))
 	 */
 
 	/*TESTS:
 	 *
-	 *	(assert (= (fn) (error "arguments expected")) "empty fn")
-	 *	(assert (= (fn macro) (error "arguments expected")) "empty fn macro")
+	 *	(assert (= (fn) (error "arguments expected")))
+	 *	(assert (= (fn macro) (error "arguments expected")))
 	 */
 
 #endif

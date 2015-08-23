@@ -10,9 +10,9 @@
 
 	/*TESTS:
 	 *
-	 * (assert (= (list) (list)) "empty list")
-	 * (assert (= (list 1 2 3) (list 1 2 3)) "simple list")
-	 * (assert (= (list (+ 1 2) (+ 2 3)) (list 3 5)) "evaluated list")
+	 * (assert (= (list) (list)))
+	 * (assert (= (list 1 2 3) (list 1 2 3)))
+	 * (assert (= (list (+ 1 2) (+ 2 3)) (list 3 5)))
 	 */
 
 #endif

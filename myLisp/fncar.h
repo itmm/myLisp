@@ -10,10 +10,10 @@
 
 	/*TESTS:
 	 *
-	 *	(assert (= (car (1 2)) 1) "car list")
-	 *	(assert (= (car ()) ()) "car ()")
+	 *	(assert (= (car (1 2)) 1))
+	 *	(assert (= (car ()) ()))
 	 *
-	 * 	(assert (= (car (2 . 3)) 2) "= car")
+	 * 	(assert (= (car (2 . 3)) 2))
 	 */
 
 #endif

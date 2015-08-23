@@ -1,1 +1,1 @@
-(import "t_*.lsp")
+(assert (import "t_*.lsp"))

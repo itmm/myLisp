@@ -12,7 +12,7 @@
 
 	/*TESTS:
 	 *
-	 *  (assert (= (denominator "1") (error "argument must be a number")) "unary numeric string")
+	 *  (assert (= (denominator "1") (error "argument must be a number")))
 	 */
 
 #endif

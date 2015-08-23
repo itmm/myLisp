@@ -1,11 +1,18 @@
 #include "listable.h"
+#include "identifier.h"
 
 #include "pair.h"
 
 EPtr ListableFunction::apply(EPtr arguments, State &state) {
+    if (Element::as_identifier(arguments)) {
+        arguments = state.ptr(state.root()->as_dictionary()->get(arguments->as_identifier()->str()));
+    }
 	if (! arguments) return empty_case(state);
-	Pair *current = arguments->as_pair();
-	if (! current) return state.error("Listable needs a plain list");
+	Pair *current = Element::as_pair(arguments);
+	if (! current) {
+        std::cerr << "listable " << arguments << std::endl;
+        return state.error("Listable needs a plain list");
+    }
 
 	bool stop = false;
 	EPtr intermediate = setup(state, stop);

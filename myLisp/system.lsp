@@ -108,7 +108,7 @@
     (assert (= (null? 0) false) "null? 0")
     (assert (= (null? "()") false) "null? \"()\"")
 
-(defm ("apply" "f" "args") (f . args))
+(defn ("apply" "f" "args") (f . args))
 
     (assert (= (apply + (2 3 4)) 9) "apply")
 

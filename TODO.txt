@@ -2,7 +2,6 @@ bessere Fehlermeldungen im Parser
 endstellige Rekursion
 chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
-apply as function not as macro
 multiline statements in app
 find better project name
 accept empty list returned from dyn fn

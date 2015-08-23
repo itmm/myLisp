@@ -57,6 +57,7 @@ Element *Dictionary::get(Element *key) const {
 		auto k = key->as_identifier()->str();
 		Element *result = get(k);
 		if (result || _map.find(k) != _map.end()) { return result; }
+        if (_parent) { return _parent->get(key); }
 	}
 	return key;
 }

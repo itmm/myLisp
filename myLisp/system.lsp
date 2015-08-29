@@ -325,6 +325,38 @@
 )
 
     (assert (= (min 2 1 3) 1))
+
+;;;;;;;;;
+;; map ;;
+
+(defn ("map" "f" . "lists")
+    (defn ("heads" . "lists")
+        (if (null? lists)
+            nil
+            (let (("cdrs" (cdr lists)))
+                (cons (car (car lists)) (self . cdrs))
+            )
+        )
+    )
+    (defn ("rests" . "lists")
+        (if (null? lists)
+            nil
+            (let (("cdrs" (cdr lists)))
+                (cons (cdr (car lists)) (self . cdrs))
+            )
+        )
+    )
+    ((fn "lists"
+        (if (null? (car lists))
+            nil
+            (let (("hds" (heads . lists)) ("rsts" (rests . lists)))
+                (cons (f . hds) (self . rsts))
+            )
+        )
+    ) . lists)
+)
+
+    (assert (= (map + '(1 2 3) '(20 30 40)) '(21 32 43)))
     
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unit-tests summary ;;

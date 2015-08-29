@@ -61,13 +61,6 @@
 
     (assert (= (vec-dot '((1 2 3)) '((2 3 4))) 20))
 
-(defn ("map" "as" "f")
-    (if (null? as)
-        ()
-        (cons (f (car as)) (map (cdr as) f))
-    )
-)
-
 (defn ("vec-scalar-mult" "as" "x")
     (list (map (car as) (fn ("a") (* a x))))
 )

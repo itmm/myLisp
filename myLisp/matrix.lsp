@@ -62,7 +62,7 @@
     (assert (= (vec-dot '((1 2 3)) '((2 3 4))) 20))
 
 (defn ("vec-scalar-mult" "as" "x")
-    (list (map (car as) (fn ("a") (* a x))))
+    (list (map (fn ("a") (* a x)) (car as)))
 )
 
     (assert (= (vec-scalar-mult '((1 2 3)) 3) '((3 6 9))))
@@ -93,7 +93,7 @@
 )
 
 (defn ("mtx-scalar-mult" "as" "x")
-    (map as (fn ("col") (map col (fn ("cell") (* x cell)))))
+    (map (fn ("col") (map (fn ("cell") (* x cell)) col)) as)
 )
 
     (assert (= (mtx-scalar-mult (mtx-1 3) 0) (mtx-0 3)))
@@ -129,11 +129,11 @@
 
 (defn ("mtx-mult" "as" "bs")
     (let (("ts" (mtx-transpose as)))
-        (mtx-transpose (map ts (fn ("t")
-            (map bs (fn ("b")
+        (mtx-transpose (map (fn ("t")
+            (map (fn ("b")
                 (vec-dot (list t) (list b))
-            ))
-        )))
+            ) bs)
+        ) ts))
     )
 )
 

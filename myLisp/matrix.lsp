@@ -159,7 +159,6 @@
                 (print-row (cdr cs))
             )
         )
-        ""
     )
 
     (cond
@@ -169,7 +168,6 @@
             (mtx-print (mtx-remove-first-row cs))
         )
     )
-    ""
 )
 
 (assert-summary)

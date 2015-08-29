@@ -70,21 +70,21 @@ const static NSString *kTextModeErrPrint = @"err-print";
         EPtr in = _parser->parse([line cStringUsingEncoding: NSUTF8StringEncoding]);
         if (in) {
             [_buffer setAttributedString: [NSAttributedString new]];
+            std::ostringstream result; 
             EPtr out = _state->eval(in);
-            if (out) {
-                std::ostringstream result; result << out;
-                NSMutableAttributedString *formatted = [[NSMutableAttributedString alloc] initWithString: @"\n"];
-                [formatted appendAttributedString: _buffer];
-                NSString *result_string = [NSString stringWithUTF8String: result.str().c_str()];
-                [formatted appendAttributedString: [NSAttributedString.alloc initWithString: result_string attributes: @{
-                        NSForegroundColorAttributeName: NSColor.whiteColor,
-                        kTextModeAttributeName : kTextModeOutput
-                }]];
-                [formatted appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
-                [textView insertText: formatted replacementRange: affectedCharRange];
-                _state->collector()->collect();
-                return NO;
-            }
+            result << out;
+
+            NSMutableAttributedString *formatted = [[NSMutableAttributedString alloc] initWithString: @"\n"];
+            [formatted appendAttributedString: _buffer];
+            NSString *result_string = [NSString stringWithUTF8String: result.str().c_str()];
+            [formatted appendAttributedString: [NSAttributedString.alloc initWithString: result_string attributes: @{
+                    NSForegroundColorAttributeName: NSColor.whiteColor,
+                    kTextModeAttributeName : kTextModeOutput
+            }]];
+            [formatted appendAttributedString: [NSAttributedString.alloc initWithString: @"\n"]];
+            [textView insertText: formatted replacementRange: affectedCharRange];
+            _state->collector()->collect();
+            return NO;
         }
     }
     return YES;

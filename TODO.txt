@@ -4,7 +4,6 @@ chromatic colorscheme for identifiers
 chromatic colorscheme for matching parenthesis
 multiline statements in app
 find better project name
-accept empty list returned from dyn fn
 better padding of mtx-print
 error on evaluation with no-functions
 unit-tests for parent dictionaries

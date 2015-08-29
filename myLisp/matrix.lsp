@@ -116,13 +116,12 @@
             )
         )
     )
-    (defn ("helper" "cols" "rows")
+    ((fn ("cols" "rows")
         (if (null? cols)
             rows
-            (helper (cdr cols) (add-col-to-rows (car cols) rows))
+            (self (cdr cols) (add-col-to-rows (car cols) rows))
         )
-    )
-    (helper ms ())
+    ) ms ())
 )
 
     (assert (= (mtx-transpose ((1 2 3) (4 5 6))) ((1 4) (2 5) (3 6))))

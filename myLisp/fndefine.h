@@ -27,4 +27,10 @@
 	 *	(assert (= (def "a" 2 3) (error "only two arguments expected")))
 	 */
 
+    /*TESTS:
+     *
+     *+ (def "a" nil)
+     *  (assert (= a nil))
+     */
+     
 #endif

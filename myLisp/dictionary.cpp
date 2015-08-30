@@ -9,9 +9,11 @@ bool Dictionary::is_true() const {
 }
 
 bool Dictionary::is_subset_of(const Dictionary *other) const {
-	if (_parent && !_parent->is_subset_of(other)) { return false; }
+	if (_parent && ! _parent->is_subset_of(other)) { return false; }
 	for (auto i = _map.begin(); i != _map.end(); ++i) {
-		if (! other || ! other->contains(i->first) || ! Element::is_equal(i->second, other->get(i->first))) { return false; }
+		if (! other || ! other->contains(i->first) || ! Element::is_equal(i->second, other->get(i->first))) {
+            return false;
+        }
 	}
 	return true;
 }
@@ -34,11 +36,24 @@ Dictionary *Dictionary::as_dictionary() {
 }
 
 void Dictionary::to_stream(std::ostream &stream, bool) const {
-    stream << "[Dictionary]";
+    std::string separator = "(dict (\"";
+    for (const Dictionary *cur = this; cur; cur = cur->_parent) {
+        for (auto i = cur->_map.begin(); i != cur->_map.end(); ++i) {
+            stream << separator << i->first << "\" ";
+            Element::to_stream(i->second, stream, true);
+            stream << ")";
+            separator = " (\"";
+        }
+    }
+    if (separator == " (\"") {
+        stream << ")";
+    } else {
+        stream << "(dict)";
+    }
 }
 
 bool Dictionary::contains(const std::string &key) const {
-	return _map.find(key) != _map.end();
+	return _map.find(key) != _map.end() || (_parent && _parent->contains(key));
 }
 
 Element *Dictionary::get(const std::string &key) const {

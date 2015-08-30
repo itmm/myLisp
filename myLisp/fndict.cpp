@@ -6,10 +6,15 @@
 
 static SimpleFunctionCreator<FunctionDict> _creator("dict");
 
-EPtr FunctionDict::apply(EPtr arguments, State &state) {
-	arguments = eval_arguments(arguments, state);
+EPtr FunctionDict::apply_evaled(EPtr arguments, State &state) {
 	Pair *current = Element::as_pair(arguments);
-	EPtr result = state.creator()->new_dictionary(nullptr);
+    Dictionary *parent = nullptr;
+    if (current && (! Pair::car(current) || Element::as_dictionary(Pair::car(current)))) {
+        parent = Element::as_dictionary(Pair::car(current));
+        current = Element::as_pair(Pair::cdr(current));
+    }
+    
+	EPtr result = state.creator()->new_dictionary(parent);
 	Dictionary *dict = Element::as_dictionary(result);
 	for (; current; current = Element::as_pair(current->cdr())) {
 		Pair *pair = Element::as_pair(current->car());

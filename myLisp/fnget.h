@@ -15,6 +15,8 @@
      *  (assert (= (get d "a") 2))
      *  (assert (= (get d "b") nil))
      *  (assert (= (get d "c") nil))
+     *
+     *  (assert (= (get (dict d) "a") 2))
      */
 
     /*TESTS:

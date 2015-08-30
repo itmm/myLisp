@@ -5,7 +5,7 @@
 
 	class FunctionDict : public Function {
 	public:
-		virtual EPtr apply(EPtr arguments, State &state) override;
+		virtual EPtr apply_evaled(EPtr arguments, State &state) override;
 	};
 
 	/*TESTS:
@@ -18,5 +18,11 @@
 	 *	(assert (= (dict ("a" 1) ("b" 2)) (dict ("b" 2) ("a" 1))))
 	 *	(assert (= (= (dict) (dict ("a" 1))) false))
 	 */
+
+    /*TESTS:
+     *
+     *+ (def "d" (dict ("a" 1)))
+     *  (assert (= (dict d) d))
+     */
 
 #endif

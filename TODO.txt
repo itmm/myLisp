@@ -6,4 +6,3 @@ multiline statements in app
 find better project name
 better padding of mtx-print
 error on evaluation with no-functions
-unit-tests for parent dictionaries

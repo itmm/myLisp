@@ -45,6 +45,8 @@
 
 			virtual void to_stream(std::ostream &stream, bool escape) const = 0;
         
+            static void to_stream(const Element *elm, std::ostream &stream, bool escape);
+        
         private:
             Element(const Element &) = delete;
             Element &operator=(const Element &) = delete;

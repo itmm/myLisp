@@ -58,3 +58,12 @@ Pair *Element::as_pair(Element *elm) {
 String *Element::as_string(Element *elm) {
 	return elm ? elm->as_string() : static_cast<String *>(nullptr);
 }
+
+void Element::to_stream(const Element *elm, std::ostream &stream, bool escape) {
+	if (elm) {
+		elm->to_stream(stream, escape);
+	} else {
+		stream << "nil";
+	}
+}
+

@@ -2,11 +2,7 @@
 #include "element.h"
 
 std::ostream &operator<<(std::ostream &out, EPtr ptr) {
-	if (ptr) {
-		ptr->to_stream(out, true);
-	} else {
-		out << "nil";
-	}
-	return out;
+    Element::to_stream(ptr, out, true);
+    return out;
 }
 
